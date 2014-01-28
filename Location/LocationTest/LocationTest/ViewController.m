@@ -90,7 +90,10 @@
     //ao alterar alguma informacao que deve ser exibida
     ondeEstouAnotacao.title = @"Minha localizacao";
     saoLucasPucrs.title = @"Hospital São Lucas";
-
+   // UIView *view = [[UIView alloc] init];
+    //view. = @"teste";
+  //  saoLucasPucrs.leftCalloutAccessoryView = view;
+    
     //onde o pino sera adicionado
     ondeEstouAnotacao.coordinate = newLocation.coordinate;
     CLLocationCoordinate2D teste =CLLocationCoordinate2DMake(-30.056085,-51.174413);
@@ -120,8 +123,8 @@
             
             //adiciona o pino no mapa
             [_Map1 addAnnotation:ondeEstouAnotacao];
-            [_Map1 addAnnotation:saoLucasPucrs];
-            
+            [_Map1 addAnnotation: saoLucasPucrs];
+            _Map1.showsPointsOfInterest = YES;
             
         }
         else
