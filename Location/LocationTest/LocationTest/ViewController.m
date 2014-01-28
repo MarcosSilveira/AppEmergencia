@@ -12,6 +12,7 @@
     
     CLLocationManager *gerenciadorLocalizacao;
     MKPointAnnotation *ondeEstouAnotacao;
+    MKPointAnnotation *saoLucasPucrs;
     
 }
 
@@ -24,8 +25,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    
+    [gerenciadorLocalizacao startUpdatingLocation];
+    [self OndeEstouAction:NULL];
 
 }
 
@@ -48,18 +49,18 @@
     }
 
 }
-
+//desenho do raio de busca de locais próximos
 - (void)drawRangeRings: (CLLocationCoordinate2D) where {
     // first, I clear out any previous overlays:
     [_Map1 removeOverlays: [_Map1 overlays]];
-    float range =2000; //[self.rangeCalc currentRange] / 1609.3;//MILES_PER_METER;
+    float range =1000; //[self.rangeCalc currentRange] / 1609.3;//MILES_PER_METER;
     MKCircle* innerCircle = [MKCircle circleWithCenterCoordinate: where radius: range];
     innerCircle.title = @"Safe Range";
     
     [_Map1 addOverlay: innerCircle];
 }
 
-
+//desenhando e colorindo o raio
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id < MKOverlay >)overlay{
     
     MKCircleRenderer *circleR = [[MKCircleRenderer alloc] initWithCircle:(MKCircle *)overlay];
@@ -79,21 +80,23 @@
     
 
     [self drawRangeRings:newLocation.coordinate];
-    
+
 
     
     //adicionar uma marcacao no mapa
     //criando o pino
     ondeEstouAnotacao = [[MKPointAnnotation alloc] init];
-    
+    saoLucasPucrs = [[MKPointAnnotation alloc] init];
     //ao alterar alguma informacao que deve ser exibida
     ondeEstouAnotacao.title = @"Minha localizacao";
-    
-    
+    saoLucasPucrs.title = @"Hospital São Lucas";
+
     //onde o pino sera adicionado
     ondeEstouAnotacao.coordinate = newLocation.coordinate;
+    CLLocationCoordinate2D teste =CLLocationCoordinate2DMake(-30.056085,-51.174413);
+    saoLucasPucrs.coordinate = (teste);
     _cr = [[CLCircularRegion alloc] initWithCenter:ondeEstouAnotacao.coordinate
-                                            radius:2000
+                                            radius:1000
                                         identifier:@"teste"];
     
     
@@ -117,6 +120,7 @@
             
             //adiciona o pino no mapa
             [_Map1 addAnnotation:ondeEstouAnotacao];
+            [_Map1 addAnnotation:saoLucasPucrs];
             
             
         }
@@ -135,6 +139,7 @@
     [gerenciadorLocalizacao stopUpdatingLocation];
     
 }
+//liga ou desliga o modo "me siga"
 - (IBAction)follow:(id)sender {
     if(_Map1.userTrackingMode == NO)
         _Map1.userTrackingMode = YES;
@@ -143,6 +148,7 @@
         _Map1.userTrackingMode = NO;
 }
 
+//definição do tipo de mapa exibido
 - (IBAction)TipoMapaAcao:(id)sender {
     if (_TipoMapa.selectedSegmentIndex == 0)
     {

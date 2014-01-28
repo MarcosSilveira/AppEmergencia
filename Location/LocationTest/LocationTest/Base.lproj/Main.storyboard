@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -20,7 +20,7 @@
                                 </connections>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YHs-lv-njj">
-                                <rect key="frame" x="0.0" y="43" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="40" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem id="qDK-H4-c7u"/>
@@ -44,7 +44,7 @@
                                 <rect key="frame" x="0.0" y="519" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Onde estou?" width="179" id="qVi-sB-Bx3">
+                                    <barButtonItem title="Atualiz. Info. de Localização" id="qVi-sB-Bx3">
                                         <connections>
                                             <action selector="OndeEstouAction:" destination="vXZ-lx-hvc" id="AAU-rP-5fb"/>
                                         </connections>
