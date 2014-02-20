@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "DCMapasViewController.h"
+#import "DCConfigs.h"
 @interface DCInicialViewController : UIViewController
 
 @property NSMutableArray *listaContatos;
 @property (nonatomic)CLLocationCoordinate2D coordenada;
+
+@property (nonatomic) DCConfigs *config;
 
 - (IBAction)btLogOut;
 

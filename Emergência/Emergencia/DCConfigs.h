@@ -12,4 +12,10 @@
 
 @property (nonatomic) NSString *ip;
 
+@property (nonatomic) NSNumber *idusuario;
+
+@property (nonatomic) NSString *token;
+
+@property (nonatomic) NSString *login;
+
 @end
