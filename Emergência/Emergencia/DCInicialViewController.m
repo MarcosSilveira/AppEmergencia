@@ -24,7 +24,7 @@
 
 DCReachability *connectionTest;
 UIAlertView *nconnection;
-
+BOOL connectionOK = NO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -44,6 +44,8 @@ UIAlertView *nconnection;
         NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/vincular.jsp?login=%@&token=%@",config.ip,savedUserName,savedToken];
         NSLog(@"URL: %@",ur);
         
+        if (connectionOK) {
+            
         
         NSURL *urs = [[NSURL alloc] initWithString:ur];
         NSData* data = [NSData dataWithContentsOfURL:urs];
@@ -62,7 +64,9 @@ UIAlertView *nconnection;
                 NSLog(@"Cadastro ok");
             }
         }
+            }
     }
+        
     
     
 }
@@ -83,6 +87,8 @@ UIAlertView *nconnection;
         nconnection = [[UIAlertView alloc] initWithTitle:@"Sem conexão" message:@"Não foi possível conectar aos servidores no momento. Verifique sua conexão com a internet." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [nconnection show];
     }
+    else
+        connectionOK = YES;
 }
 
 - (void) handleNetworkChange:(NSNotification *)notice
@@ -91,8 +97,8 @@ UIAlertView *nconnection;
     NetworkStatus remoteHostStatus = [connectionTest currentReachabilityStatus];
     
     if(remoteHostStatus == NotReachable) {NSLog(@"no");}
-    else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"wifi"); }
-    else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"cell"); }
+    else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"wifi"); connectionOK = YES; }
+    else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"cell"); connectionOK = YES; }
 }
 
 - (void) configuracoesIniciais {

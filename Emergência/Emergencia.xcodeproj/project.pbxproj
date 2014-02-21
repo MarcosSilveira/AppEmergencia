@@ -15,6 +15,7 @@
 		8D18E5B8189FF726003466C6 /* home_ico_dica_carro.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D18E5B7189FF726003466C6 /* home_ico_dica_carro.png */; };
 		8D2F94E418A2A89A000448EC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2F94E318A2A89A000448EC /* MessageUI.framework */; };
 		8D3C1D6118996E2500FED19E /* DCMapasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1D6018996E2500FED19E /* DCMapasViewController.m */; };
+		8D76CA3A18B692D4006E1679 /* Unknown-5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8D76CA3918B692D4006E1679 /* Unknown-5.jpeg */; };
 		8DAAD2E418A511120064683F /* Icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAD2E318A511120064683F /* Icon-settings.png */; };
 		8DAAD2EE18A515690064683F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAD2ED18A515690064683F /* Icon.png */; };
 		8DDA2CA118AA98B600EE6295 /* teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA2CA018AA98B500EE6295 /* teste.png */; };
@@ -65,6 +66,7 @@
 		8D2F94E318A2A89A000448EC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8D3C1D5F18996E2500FED19E /* DCMapasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCMapasViewController.h; sourceTree = "<group>"; };
 		8D3C1D6018996E2500FED19E /* DCMapasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCMapasViewController.m; sourceTree = "<group>"; };
+		8D76CA3918B692D4006E1679 /* Unknown-5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Unknown-5.jpeg"; sourceTree = "<group>"; };
 		8DAAD2E318A511120064683F /* Icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-settings.png"; sourceTree = "<group>"; };
 		8DAAD2ED18A515690064683F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		8DDA2CA018AA98B500EE6295 /* teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teste.png; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				DDA9693D1896B9E600CBAB0D /* Model */,
 				DDC96A0018917DEA00A3CEC7 /* ViewController */,
 				8DAAD2ED18A515690064683F /* Icon.png */,
+				8D76CA3918B692D4006E1679 /* Unknown-5.jpeg */,
 				DDC969D41891742B00A3CEC7 /* DCAppDelegate.h */,
 				8D1724AA18ABF4DA00E18006 /* you-make-me-hurt.png */,
 				DDC969D51891742B00A3CEC7 /* DCAppDelegate.m */,
@@ -343,6 +346,7 @@
 				0B535B231896D8FA007CB773 /* ip.txt in Resources */,
 				DDC969D01891742B00A3CEC7 /* InfoPlist.strings in Resources */,
 				8DAAD2E418A511120064683F /* Icon-settings.png in Resources */,
+				8D76CA3A18B692D4006E1679 /* Unknown-5.jpeg in Resources */,
 				DDC969D91891742B00A3CEC7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
