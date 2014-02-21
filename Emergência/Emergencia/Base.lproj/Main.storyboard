@@ -92,6 +92,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="S1e-lw-aZi"/>
                     <connections>
+                        <outlet property="BTAux" destination="J56-Y3-dUU" id="ikJ-zy-hDV"/>
+                        <outlet property="BTCadastro" destination="1D4-Xg-AtG" id="SMn-9U-B8R"/>
+                        <outlet property="BTEmergencia" destination="J56-Y3-dUU" id="bqi-V4-uFs"/>
+                        <outlet property="BTEntrar" destination="7DJ-cq-ExH" id="xjR-pZ-cfW"/>
+                        <outlet property="FIELDSenha" destination="NgE-Yo-iGe" id="9Xx-Y4-uaE"/>
+                        <outlet property="FIELDUsuario" destination="P66-Ic-RQY" id="23s-24-Naz"/>
+                        <outlet property="LBSenha" destination="yVC-ta-c62" id="zvN-ka-uty"/>
+                        <outlet property="LBUsuario" destination="Fv3-09-O5T" id="YXx-rQ-j3z"/>
+                        <outlet property="cruzImage" destination="5em-xe-kcc" id="u3O-wT-f9T"/>
                         <outlet property="login" destination="P66-Ic-RQY" id="OOe-w8-YhL"/>
                         <outlet property="pass" destination="NgE-Yo-iGe" id="DTR-Kr-EBb"/>
                         <segue destination="Mxl-z6-SRM" kind="push" identifier="goToInicio" id="0hI-ST-9lq"/>

@@ -12,6 +12,21 @@
 #import "DCInicialViewController.h"
 #import "DCAppDelegate.h"
 @interface DCLoginViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *BTEntrar;
+@property (nonatomic, strong) UIDynamicAnimator *animator;
+@property (nonatomic, strong) UIPushBehavior *pushBehavior;
+@property (nonatomic, strong) UIPushBehavior *pushBehavior1;
+@property (nonatomic, strong) UIPushBehavior *pushBehavior2;
+@property (nonatomic, strong) UIPushBehavior *pushBehavior3;
+@property (nonatomic, strong) UIPushBehavior *pushBehavior4;
+@property (nonatomic, strong) UIPushBehavior *pushBehavior5;
+@property (weak, nonatomic) IBOutlet UILabel *LBUsuario;
+@property (weak, nonatomic) IBOutlet UILabel *LBSenha;
+@property (weak, nonatomic) IBOutlet UITextField *FIELDUsuario;
+@property (weak, nonatomic) IBOutlet UITextField *FIELDSenha;
+@property (weak, nonatomic) IBOutlet UIButton *BTCadastro;
+@property (weak, nonatomic) IBOutlet UIButton *BTAux;
+@property (weak, nonatomic) IBOutlet UIButton *BTEmergencia;
 
 
 
@@ -38,7 +53,63 @@
     // NAO PODE TER BACK BUTTON
     self.navigationItem.hidesBackButton = YES;
     
+    
 }
+
+-(void)RunAnimation:(NSInteger)ID{
+    if(ID==0){
+
+        //animações da tela de login
+        UIDynamicAnimator *animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+        
+        
+        UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.BTEntrar]];
+
+        [animator addBehavior:collisionBehavior];
+        
+        
+        UIPushBehavior *pushBehavior = [[UIPushBehavior alloc] initWithItems:@[self.BTEntrar] mode:UIPushBehaviorModeInstantaneous];
+        pushBehavior.angle = 30.0;
+        pushBehavior.magnitude = 1.0;
+        
+        UIPushBehavior *pushBehavior1 = [[UIPushBehavior alloc] initWithItems:@[self.BTEmergencia] mode:UIPushBehaviorModeInstantaneous];
+        pushBehavior1.angle = 100.0;
+        pushBehavior1.magnitude = 3.0;
+        
+        
+        [animator addBehavior:pushBehavior1];
+        [animator addBehavior:pushBehavior];
+        self.pushBehavior = pushBehavior;
+        self.pushBehavior1 = pushBehavior1;
+        self.animator = animator;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //chama a segue depois de 2 segundos da inicialização do método
+        NSTimer * timer = [[NSTimer alloc] init];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.7
+                                                  target:self
+                                               selector:@selector(vaipratela)
+                                                userInfo:nil
+                                                 repeats:NO];
+            
+        }
+}
+
+-(void)vaipratela
+{
+    [self performSegueWithIdentifier:@"goToInicio" sender:nil];
+}
+
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -49,7 +120,21 @@
         [self performSegueWithIdentifier:@"goToInicio" sender:self];
         
     }
+    
+  
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+   [UIView animateWithDuration:2.0 delay:1.0 options:UIViewAnimationOptionRepeat animations:^{
+       _cruzImage.alpha = 0;
+   } completion:^(BOOL finished) {
+       _cruzImage.alpha = 1;
+   }];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"goToInicio"]) {
         DCInicialViewController *inicial = (DCInicialViewController *)segue.destinationViewController;
@@ -80,11 +165,13 @@
 - (IBAction)logar:(UIButton *)sender {
     
     if ([self loginUsuarioComUsuario: self.login.text comSenha:self.pass.text]) {
-        [self performSegueWithIdentifier:@"goToInicio" sender:sender];
+        [self RunAnimation:0];
+
     } else {
         //self.oks.text=@"Erro no login";
         [[[UIAlertView alloc] initWithTitle:@"erro" message:@"Login não efetuado" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show ];
     }
+    
     
 }
 
