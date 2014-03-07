@@ -46,6 +46,8 @@
     
     [self configuracoesIniciais];
     
+    
+    
     //    if(savedUserName != nil && savedPassword != nil) {
     //        [self performSegueWithIdentifier:@"goToInicio" sender:self];
     //    }
