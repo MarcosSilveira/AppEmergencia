@@ -26,6 +26,9 @@ DCReachability *connectionTest;
 UIAlertView *nconnection;
 BOOL connectionOK = NO;
 
+- (IBAction)clicouAdd:(id)sender {
+    [self performSegueWithIdentifier:@"goToAdd" sender:self];
+}
 
 - (void)viewDidLoad
 {
