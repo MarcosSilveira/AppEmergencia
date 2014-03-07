@@ -31,7 +31,7 @@ BOOL connectionOK = NO;
     
     [self configuracoesIniciais];
     [self testeDeConeccao];
-    _userLogado.text = self.config.login;
+    _userLogado.text = self.config.login
     
     NSString *savedUserName = self.config.login;
     NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
