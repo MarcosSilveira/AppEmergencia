@@ -18,6 +18,7 @@
 @end
 
 @implementation DCNovoHospitalViewController
+CLLocationManager *gerenciadorLocalizacao;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,9 +32,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    gerenciadorLocalizacao.delegate = self;
+    [gerenciadorLocalizacao startUpdatingLocation];
+    
 	// Do any additional setup after loading the view.
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    _FDLat.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
+    _FDLat.text = [NSString stringWithFormat:@"%f",newLocation.coordinate.longitude];
+    
+    
+    
+}
+-(bool)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
