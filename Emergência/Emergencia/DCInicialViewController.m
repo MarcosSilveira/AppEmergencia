@@ -26,6 +26,9 @@ DCReachability *connectionTest;
 UIAlertView *nconnection;
 BOOL connectionOK = NO;
 
+- (IBAction)clicouAdd:(id)sender {
+    [self performSegueWithIdentifier:@"goToAdd" sender:self];
+}
 
 - (void)viewDidLoad
 {
@@ -33,7 +36,7 @@ BOOL connectionOK = NO;
     
     [self configuracoesIniciais];
     [self testeDeConeccao];
-    _userLogado.text = self.config.login
+    _userLogado.text = self.config.login;
     
     NSString *savedUserName = self.config.login;
     NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
