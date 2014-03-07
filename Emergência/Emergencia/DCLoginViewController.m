@@ -11,6 +11,7 @@
 #import "DCInicialViewController.h"
 #import "DCInicialViewController.h"
 #import "DCAppDelegate.h"
+#import "TLAlertView.h"
 @interface DCLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *BTEntrar;
 @property (nonatomic, strong) UIDynamicAnimator *animator;
@@ -174,7 +175,8 @@
 
     } else {
         //self.oks.text=@"Erro no login";
-        [[[UIAlertView alloc] initWithTitle:@"erro" message:@"Login não efetuado" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show ];
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Login não efetuado" buttonTitle:@"OK"];
+        [alertView show];
     }
     
     
@@ -230,7 +232,10 @@
         
     }else{
         //self.oks.text=@"Erro no login";
-        [[[UIAlertView alloc] initWithTitle:@"erro" message:@"Login não efetuado" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show ];
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Login não efetuado" buttonTitle:@"OK"];
+        [alertView show];
+        
+        
         
         return NO;
     }

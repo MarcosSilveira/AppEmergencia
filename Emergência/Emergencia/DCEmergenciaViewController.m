@@ -10,6 +10,7 @@
 #import "DCMapasViewController.h"
 #import "DCEmergencia.h"
 #import "DCMapasViewController.h"
+#import "TLAlertView.h"
 
 
 @interface DCEmergenciaViewController ()
@@ -108,7 +109,8 @@ float longi;
   
   if (numberOfMatches > 0) {
     
-    [[[UIAlertView alloc] initWithTitle:@"Erro" message:@"Valor do raio incompatível" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+      TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Valor do raio incompatível" buttonTitle:@"OK"];
+      [alertView show];
     return NO;
   }
   return YES;
@@ -205,7 +207,8 @@ float longi;
         //confere
         if(![res isEqualToNumber:teste]){
             //Colocar Alert
-            [[[UIAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas para seus contatos" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show ];
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" buttonTitle:@"OK"];
+            [alertView show];
         }
     }
 

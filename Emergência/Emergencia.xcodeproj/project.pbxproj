@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B39E54B18CA45D600820716 /* TLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B39E54A18CA45D600820716 /* TLAlertView.m */; };
 		0B535AE71896D14A007CB773 /* DCConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B535AE61896D14A007CB773 /* DCConfigs.m */; };
 		0B535B231896D8FA007CB773 /* ip.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0B535B221896D8FA007CB773 /* ip.txt */; };
 		0BD2E2A81899663F00B78E51 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B39E54918CA45D600820716 /* TLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLAlertView.h; sourceTree = "<group>"; };
+		0B39E54A18CA45D600820716 /* TLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLAlertView.m; sourceTree = "<group>"; };
 		0B535AE51896D14A007CB773 /* DCConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCConfigs.h; sourceTree = "<group>"; };
 		0B535AE61896D14A007CB773 /* DCConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCConfigs.m; sourceTree = "<group>"; };
 		0B535B221896D8FA007CB773 /* ip.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ip.txt; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 		DDC969B91891742B00A3CEC7 = {
 			isa = PBXGroup;
 			children = (
+				0B39E54918CA45D600820716 /* TLAlertView.h */,
+				0B39E54A18CA45D600820716 /* TLAlertView.m */,
 				DDC969CB1891742B00A3CEC7 /* Emergencia */,
 				DDC969EA1891742B00A3CEC7 /* EmergenciaTests */,
 				DDC969C41891742B00A3CEC7 /* Frameworks */,
@@ -370,6 +375,7 @@
 				0BD2E2AB1899700800B78E51 /* DCPosto.m in Sources */,
 				DDA969401896BA1E00CBAB0D /* DCEmergencia.m in Sources */,
 				DDC969FC18917C7D00A3CEC7 /* DCCadastroViewController.m in Sources */,
+				0B39E54B18CA45D600820716 /* TLAlertView.m in Sources */,
 				0BD2E2A81899663F00B78E51 /* (null) in Sources */,
 				8D3C1D6118996E2500FED19E /* DCMapasViewController.m in Sources */,
 				DDA9693C1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m in Sources */,

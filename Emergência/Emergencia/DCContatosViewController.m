@@ -11,6 +11,7 @@
 #import "DCNovoContatoViewController.h"
 #import "DCConfigs.h"
 #import "DCAppDelegate.h"
+#import "TLAlertView.h"
 
 
 @interface DCContatosViewController ()
@@ -139,7 +140,8 @@
       NSNumber *testeExcluir = [[NSNumber alloc] initWithInt:0];
       
       if ([res isEqualToNumber:testeExcluir]) {
-        [[[UIAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível excluir o contato. Tente novamente mais tarde." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show ];
+          TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível excluir o contato. Tente novamente mais tarde" buttonTitle:@"OK"];
+          [alertView show];
       }
     }
   }
@@ -248,7 +250,9 @@
       
       [self.tableView endUpdates];
     } else {
-      [[[UIAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível aceitar o contato. Tente novamente mais tarde." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show ];
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível aceitar o contato. tente novamente mais tarde" buttonTitle:@"OK"];
+        [alertView show];
+      
     }
   }
 }
