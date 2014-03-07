@@ -25,6 +25,8 @@
 DCReachability *connectionTest;
 UIAlertView *nconnection;
 BOOL connectionOK = NO;
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -110,6 +112,7 @@ BOOL connectionOK = NO;
     //Esconde o bota de voltar
     //TODO: Verificar se o usuário está logado?
     self.navigationItem.hidesBackButton = YES;
+    
     
     if(self.coordenada.latitude!=0 && self.coordenada.longitude !=0){
         [self performSegueWithIdentifier:@"goToEmergencia" sender:self];

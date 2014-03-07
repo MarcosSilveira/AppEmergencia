@@ -17,4 +17,7 @@
 @property (strong, nonatomic) NSArray *exchangeRates;
 @property (strong,nonatomic) DCConfigs *configs;
 @property (nonatomic) CLLocationCoordinate2D coordenada;
+
+@property CLLocationManager *gerenciadorLocalizacao;
+
 @end

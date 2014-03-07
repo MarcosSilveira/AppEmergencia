@@ -24,18 +24,19 @@
 @implementation DCEmergenciaViewController
 
 
-CLLocationManager *gerenciadorLocalizacao;
 float lat;
 float longi;
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-    gerenciadorLocalizacao = [[CLLocationManager alloc] init];
-    gerenciadorLocalizacao.delegate = self;
     
     
-  [gerenciadorLocalizacao startUpdatingLocation];
+    _gerenciadorLocalizacao = [[CLLocationManager alloc] init];
+    _gerenciadorLocalizacao.delegate = self;
+    
+    
+  [_gerenciadorLocalizacao startUpdatingLocation];
   [self configuracoesIniciais];
   
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -218,6 +219,11 @@ float longi;
     [self performSelectorInBackground:@selector(enviar) withObject:nil];
     //[self enviar];
     
+}
+
+-(void)dealloc
+{
+    _gerenciadorLocalizacao.delegate = nil;
 }
 
 
