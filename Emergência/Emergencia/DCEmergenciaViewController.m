@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSMutableArray *emergencias;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickers;
 
+
 @end
 
 @implementation DCEmergenciaViewController
@@ -30,6 +31,9 @@ float longi;
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+    gerenciadorLocalizacao = [[CLLocationManager alloc] init];
+    gerenciadorLocalizacao.delegate = self;
+    
     
   [gerenciadorLocalizacao startUpdatingLocation];
   [self configuracoesIniciais];
@@ -41,6 +45,8 @@ float longi;
   [self.view addGestureRecognizer:tap];
 
     _configs = [[DCConfigs alloc] init];
+    
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -150,9 +156,10 @@ float longi;
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
-- (IBAction)Solicitar:(id)sender {
+
+-(void) enviar{
     
-     NSString *savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
+    NSString *savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
     NSLog(@"Solocitando");
     
     //self.pickers
@@ -169,7 +176,7 @@ float longi;
     msm=[msm stringByAppendingFormat:@"o usuario:%@ está solicitando sua ajuda, com uma ermergência: %@",savedUserName,emer.nome];
     
     //NSLog(@"%@",msm);
-   
+    
     
     //NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/alertar.jsp?mensagem=%@&idusu=%@&lat=%@&log=%@",self.configs.ip,@"testando o push",newLocation.coordinate.latitude,newLocation.coordinate.longitude];
     
@@ -200,8 +207,16 @@ float longi;
             [[[UIAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas para seus contatos" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show ];
         }
     }
-    
-    
+
+}
+- (IBAction)Solicitar:(id)sender {
+    //Thread
+//    NSThread *background;
+//    background = [[NSThread alloc] initWithTarget:self selector:@selector(enviar) object:nil];
+//    [background start];
+//    
+    [self performSelectorInBackground:@selector(enviar) withObject:nil];
+    //[self enviar];
     
 }
 

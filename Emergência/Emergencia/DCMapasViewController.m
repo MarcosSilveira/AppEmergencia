@@ -13,6 +13,8 @@
 @interface DCMapasViewController ()
 
 @property (nonatomic) DCConfigs *conf;
+@property (weak, nonatomic) IBOutlet UILabel *LBLoading;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *AILoading;
 
 @end
 
@@ -23,7 +25,9 @@
   MKPointAnnotation *pontoaux;
     MFMessageComposeViewController *mensagem;
     CLAuthorizationStatus *teste;
-    
+    MKPointAnnotation *amigo;
+    NSMutableArray *locaisAux2;
+   
 }
 
 - (void)viewDidLoad
@@ -33,6 +37,9 @@
   [self OndeEstouAction:NULL];
   self.conf=[[DCConfigs alloc] init];
   pontoaux = [[MKPointAnnotation alloc] init];
+    _AILoading.hidesWhenStopped = YES;
+    _LBLoading.hidden = YES;
+    
   
   if (self.raio == 0) {
     self.raio = 1;
@@ -41,9 +48,11 @@
   self.raio = self.raio * 1000;
    
     if(self.coordenada.latitude !=0 && self.coordenada.longitude !=0){
-        MKPointAnnotation *amigo;
+        
+        amigo = [[MKPointAnnotation alloc] init];
         amigo.coordinate = self.coordenada;
-        amigo.title = @"amigo";
+        amigo.title = @"Amigo";
+        amigo.subtitle = @"Localização do pedido de ajuda";
         [_Map1 addAnnotation:amigo];
     }
     
@@ -51,11 +60,14 @@
 
 
 
--(NSMutableArray *) buscar:(float)lats
-             withlongitude:(float)longi
-            withraioMeters:(float) raio
-              withPriority:(NSNumber *)prio {
-  
+-(NSMutableArray *) buscar:(CLLocation*) loc{
+   NSNumber *prio = @1;
+    float lats, longi, raio;
+     lats =loc.coordinate.latitude;
+    longi =loc.coordinate.longitude;
+    raio = self.raio;
+    
+    
   NSMutableArray *locais = [[NSMutableArray alloc] init];
   
   NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/buscar.jsp?lat=%f&log=%f&tipo='lol'&prioridade=%@&raio=%f",self.conf.ip,lats,longi,prio,self.raio];
@@ -89,7 +101,33 @@
       [locais addObject:posto];
     }
   }
+
+    [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
+    [_AILoading stopAnimating];
+    _LBLoading.hidden = YES;
+    
   return locais;
+}
+
+-(void)updateUI:(NSMutableArray *)locaisAux
+{
+    locaisAux2 = locaisAux;
+
+    
+    NSMutableArray *postos = locaisAux2;
+    for (int i  = 0; i < postos.count; i++) {
+        
+        pontoaux = [[MKPointAnnotation alloc] init];
+        DCPosto *postoaux = postos[i];
+        
+        pontoaux.title = postoaux.nome;
+        CLLocationCoordinate2D coordenada = CLLocationCoordinate2DMake(postoaux.lat, postoaux.log);
+        pontoaux.coordinate = coordenada;
+        pontoaux.subtitle = postoaux.endereco;
+        [_Map1 addAnnotation:pontoaux];
+    }
+
+    
 }
 
 
@@ -140,10 +178,16 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
   
   //centralizar o mapa nesta nova localizacao do usuario
-  MKCoordinateSpan zoom = MKCoordinateSpanMake(0.010,0.010);
+  MKCoordinateSpan zoom = MKCoordinateSpanMake(0.015,0.015);
   
   MKCoordinateRegion regiao = MKCoordinateRegionMake(newLocation.coordinate, zoom);
-  NSMutableArray *postos = [self buscar:newLocation.coordinate.latitude withlongitude:newLocation.coordinate.longitude withraioMeters:self.raio withPriority:@1];
+//    [self performSelectorInBackground:@selector(buscar:newLocation.coordinate.latitude withlongitude:newLocation.coordinate.longitude withraioMeters:raio withPriority:@1) withObject:nil];
+    [_AILoading startAnimating];
+    _LBLoading.hidden = NO;
+    
+    [self performSelectorInBackground:@selector(buscar:) withObject:newLocation];
+
+    NSMutableArray *postos = locaisAux2;
   for (int i  = 0; i < postos.count; i++) {
     
     pontoaux = [[MKPointAnnotation alloc] init];
@@ -153,20 +197,13 @@
     CLLocationCoordinate2D coordenada = CLLocationCoordinate2DMake(postoaux.lat, postoaux.log);
     pontoaux.coordinate = coordenada;
     pontoaux.subtitle = postoaux.endereco;
-    
     [_Map1 addAnnotation:pontoaux];
   }
   
   [self drawRangeRings:newLocation.coordinate];
   
-  //onde o pino sera adicionado
-  ondeEstouAnotacao.coordinate = newLocation.coordinate;
-  _cr = [[CLCircularRegion alloc] initWithCenter:ondeEstouAnotacao.coordinate
-                                          radius:2000
-                                      identifier:@"teste"];
-  
-  
-  //busca por informacoes acerca de uma localizacao
+ 
+    //busca por informacoes acerca de uma localizacao
   //CLGeocoder ->fazer a codificacao de uma localizacao trazendo informacoes relevantes
   CLGeocoder *meuCodificadorMapas = [[CLGeocoder alloc] init];
   
@@ -203,28 +240,50 @@
   if ([annotation isKindOfClass:[MKUserLocation class]]) {
     return nil;
   }
+    CLLocationCoordinate2D coordAux = [annotation coordinate];
+    if(coordAux.latitude == amigo.coordinate.latitude && coordAux.longitude == amigo.coordinate.longitude){
+        MKPinAnnotationView *amigoView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"amigo"];
+        amigoView.image = [UIImage imageNamed:@"you-make-me-hurt.png"];
+        amigoView.canShowCallout = YES;
+        
+        UIButton *btEsquerdaAmigo = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        btEsquerdaAmigo.backgroundColor = [UIColor redColor];
+        [btEsquerdaAmigo setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
+        [btEsquerdaAmigo addTarget:self action:@selector(clickLeftBt) forControlEvents:UIControlEventTouchUpInside];
+        btEsquerdaAmigo.layer.cornerRadius = 15;
+        
+        amigoView.leftCalloutAccessoryView = btEsquerdaAmigo;
+        
+        amigoView.annotation = annotation;
+        
+        return amigoView;
+    }
+    else
+    {
+        NSString *strPinReuseIdentifier = @"pin";
+        
+        MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:strPinReuseIdentifier];
+        
+        if (pin == nil) {
+            
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:strPinReuseIdentifier];
+            
+            UIButton *btEsquerda = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+            btEsquerda.backgroundColor = [UIColor redColor];
+            [btEsquerda setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
+            [btEsquerda addTarget:self action:@selector(clickLeftBt) forControlEvents:UIControlEventTouchUpInside];
+            btEsquerda.layer.cornerRadius = 15;
+            pin.leftCalloutAccessoryView = btEsquerda;
+            pin.canShowCallout = YES;
+            pin.image = [UIImage imageNamed:@"teste.png"];
+        }
+        
+        pin.annotation = annotation;
+        
+        return pin;
+    }
+
   
-  NSString *strPinReuseIdentifier = @"pin";
-  
-  MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:strPinReuseIdentifier];
-  
-  if (pin == nil) {
-    
-    pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:strPinReuseIdentifier];
-    
-    UIButton *btEsquerda = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    btEsquerda.backgroundColor = [UIColor redColor];
-    [btEsquerda setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
-    [btEsquerda addTarget:self action:@selector(clickLeftBt) forControlEvents:UIControlEventTouchUpInside];
-    
-    pin.leftCalloutAccessoryView = btEsquerda;
-    pin.canShowCallout = YES;
-      pin.image = [UIImage imageNamed:@"teste.png"];
-  }
-  
-  pin.annotation = annotation;
-  
-  return pin;
 }
 
 -(void)clickLeftBt {
