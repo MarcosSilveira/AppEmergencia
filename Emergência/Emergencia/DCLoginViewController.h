@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "DCMapasViewController.h"
+#import "KeychainItemWrapper.h"
 
-@interface DCLoginViewController : UIViewController<UITextFieldDelegate>
-
+@interface DCLoginViewController : UIViewController<UITextFieldDelegate, UIDynamicAnimatorDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *cruzImage;
 @property (weak, nonatomic) IBOutlet UITextField *login;
 @property (weak, nonatomic) IBOutlet UITextField *pass;
 @property (nonatomic)CLLocationCoordinate2D coordenada;
+@property KeychainItemWrapper *keychainPassword;
 @end

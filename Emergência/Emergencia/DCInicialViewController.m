@@ -11,7 +11,7 @@
 #import "DCReachability.h"
 #import "DCEmergenciaViewController.h"
 #import "DCConfigs.h"
-
+#import "KeychainItemWrapper.h"
 
 @interface DCInicialViewController ()
 
@@ -24,26 +24,28 @@
 
 DCReachability *connectionTest;
 UIAlertView *nconnection;
-
+BOOL connectionOK = NO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [self configuracoesIniciais];
     [self testeDeConeccao];
-    _userLogado.text = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
+    _userLogado.text = self.config.login;
     
-    NSString *savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
+    NSString *savedUserName = self.config.login;
     NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
     
     if(savedUserName!=nil){
         
-        DCConfigs *config=[[DCConfigs alloc] init];
+        //DCConfigs *config=[[DCConfigs alloc] init];
         
         
-        NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/vincular.jsp?login=%@&token=%@",config.ip,savedUserName,savedToken];
+        NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/vincular.jsp?login=%@&token=%@",self.config.ip,savedUserName,savedToken];
         NSLog(@"URL: %@",ur);
         
+        if (connectionOK) {
+            
         
         NSURL *urs = [[NSURL alloc] initWithString:ur];
         NSData* data = [NSData dataWithContentsOfURL:urs];
@@ -62,7 +64,9 @@ UIAlertView *nconnection;
                 NSLog(@"Cadastro ok");
             }
         }
+            }
     }
+        
     
     
 }
@@ -83,6 +87,8 @@ UIAlertView *nconnection;
         nconnection = [[UIAlertView alloc] initWithTitle:@"Sem conexão" message:@"Não foi possível conectar aos servidores no momento. Verifique sua conexão com a internet." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [nconnection show];
     }
+    else
+        connectionOK = YES;
 }
 
 - (void) handleNetworkChange:(NSNotification *)notice
@@ -91,8 +97,8 @@ UIAlertView *nconnection;
     NetworkStatus remoteHostStatus = [connectionTest currentReachabilityStatus];
     
     if(remoteHostStatus == NotReachable) {NSLog(@"no");}
-    else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"wifi"); }
-    else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"cell"); }
+    else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"wifi"); connectionOK = YES; }
+    else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"cell"); connectionOK = YES; }
 }
 
 - (void) configuracoesIniciais {
@@ -129,7 +135,12 @@ UIAlertView *nconnection;
 
 - (IBAction)btLogOut
 {
-    DCLoginViewController *logon;
+    
+    KeychainItemWrapper *keyPref = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
+    
+    [keyPref resetKeychainItem];
+    
+    /*DCLoginViewController *logon;
     
     logon.login.text = nil;
     
@@ -138,7 +149,7 @@ UIAlertView *nconnection;
     [[NSUserDefaults standardUserDefaults] setObject:logon.login.text forKey:@"username"];
     [[NSUserDefaults standardUserDefaults] setObject:logon.login.text forKey:@"password"];
     
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [[NSUserDefaults standardUserDefaults]synchronize];*/
     
 }
 

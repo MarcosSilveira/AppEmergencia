@@ -13,6 +13,8 @@
 @interface DCMapasViewController ()
 
 @property (nonatomic) DCConfigs *conf;
+@property (weak, nonatomic) IBOutlet UILabel *LBLoading;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *AILoading;
 
 @end
 
@@ -24,6 +26,8 @@
     MFMessageComposeViewController *mensagem;
     CLAuthorizationStatus *teste;
     MKPointAnnotation *amigo;
+    NSMutableArray *locaisAux2;
+   
 }
 
 - (void)viewDidLoad
@@ -33,6 +37,9 @@
   [self OndeEstouAction:NULL];
   self.conf=[[DCConfigs alloc] init];
   pontoaux = [[MKPointAnnotation alloc] init];
+    _AILoading.hidesWhenStopped = YES;
+    _LBLoading.hidden = YES;
+    
   
   if (self.raio == 0) {
     self.raio = 1;
@@ -53,11 +60,14 @@
 
 
 
--(NSMutableArray *) buscar:(float)lats
-             withlongitude:(float)longi
-            withraioMeters:(float) raio
-              withPriority:(NSNumber *)prio {
-  
+-(NSMutableArray *) buscar:(CLLocation*) loc{
+   NSNumber *prio = @1;
+    float lats, longi, raio;
+     lats =loc.coordinate.latitude;
+    longi =loc.coordinate.longitude;
+    raio = self.raio;
+    
+    
   NSMutableArray *locais = [[NSMutableArray alloc] init];
   
   NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/buscar.jsp?lat=%f&log=%f&tipo='lol'&prioridade=%@&raio=%f",self.conf.ip,lats,longi,prio,self.raio];
@@ -91,7 +101,33 @@
       [locais addObject:posto];
     }
   }
+
+    [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
+    [_AILoading stopAnimating];
+    _LBLoading.hidden = YES;
+    
   return locais;
+}
+
+-(void)updateUI:(NSMutableArray *)locaisAux
+{
+    locaisAux2 = locaisAux;
+
+    
+    NSMutableArray *postos = locaisAux2;
+    for (int i  = 0; i < postos.count; i++) {
+        
+        pontoaux = [[MKPointAnnotation alloc] init];
+        DCPosto *postoaux = postos[i];
+        
+        pontoaux.title = postoaux.nome;
+        CLLocationCoordinate2D coordenada = CLLocationCoordinate2DMake(postoaux.lat, postoaux.log);
+        pontoaux.coordinate = coordenada;
+        pontoaux.subtitle = postoaux.endereco;
+        [_Map1 addAnnotation:pontoaux];
+    }
+
+    
 }
 
 
@@ -142,10 +178,16 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
   
   //centralizar o mapa nesta nova localizacao do usuario
-  MKCoordinateSpan zoom = MKCoordinateSpanMake(0.115,0.115);
+  MKCoordinateSpan zoom = MKCoordinateSpanMake(0.015,0.015);
   
   MKCoordinateRegion regiao = MKCoordinateRegionMake(newLocation.coordinate, zoom);
-  NSMutableArray *postos = [self buscar:newLocation.coordinate.latitude withlongitude:newLocation.coordinate.longitude withraioMeters:self.raio withPriority:@1];
+//    [self performSelectorInBackground:@selector(buscar:newLocation.coordinate.latitude withlongitude:newLocation.coordinate.longitude withraioMeters:raio withPriority:@1) withObject:nil];
+    [_AILoading startAnimating];
+    _LBLoading.hidden = NO;
+    
+    [self performSelectorInBackground:@selector(buscar:) withObject:newLocation];
+
+    NSMutableArray *postos = locaisAux2;
   for (int i  = 0; i < postos.count; i++) {
     
     pontoaux = [[MKPointAnnotation alloc] init];
@@ -161,14 +203,7 @@
   [self drawRangeRings:newLocation.coordinate];
   
  
-    //onde o pino sera adicionado
-//  ondeEstouAnotacao.coordinate = newLocation.coordinate;
-//  _cr = [[CLCircularRegion alloc] initWithCenter:ondeEstouAnotacao.coordinate
-//                                          radius:2000
-//                                      identifier:@"teste"];
-  
-  
-  //busca por informacoes acerca de uma localizacao
+    //busca por informacoes acerca de uma localizacao
   //CLGeocoder ->fazer a codificacao de uma localizacao trazendo informacoes relevantes
   CLGeocoder *meuCodificadorMapas = [[CLGeocoder alloc] init];
   
