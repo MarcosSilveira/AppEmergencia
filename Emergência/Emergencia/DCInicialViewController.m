@@ -11,7 +11,7 @@
 #import "DCReachability.h"
 #import "DCEmergenciaViewController.h"
 #import "DCConfigs.h"
-
+#import "KeychainItemWrapper.h"
 
 @interface DCInicialViewController ()
 
@@ -31,17 +31,17 @@ BOOL connectionOK = NO;
     
     [self configuracoesIniciais];
     [self testeDeConeccao];
-    _userLogado.text = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
+    _userLogado.text = self.config.login;
     
-    NSString *savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
+    NSString *savedUserName = self.config.login;
     NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
     
     if(savedUserName!=nil){
         
-        DCConfigs *config=[[DCConfigs alloc] init];
+        //DCConfigs *config=[[DCConfigs alloc] init];
         
         
-        NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/vincular.jsp?login=%@&token=%@",config.ip,savedUserName,savedToken];
+        NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/vincular.jsp?login=%@&token=%@",self.config.ip,savedUserName,savedToken];
         NSLog(@"URL: %@",ur);
         
         if (connectionOK) {
@@ -135,7 +135,12 @@ BOOL connectionOK = NO;
 
 - (IBAction)btLogOut
 {
-    DCLoginViewController *logon;
+    
+    KeychainItemWrapper *keyPref = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
+    
+    [keyPref resetKeychainItem];
+    
+    /*DCLoginViewController *logon;
     
     logon.login.text = nil;
     
@@ -144,7 +149,7 @@ BOOL connectionOK = NO;
     [[NSUserDefaults standardUserDefaults] setObject:logon.login.text forKey:@"username"];
     [[NSUserDefaults standardUserDefaults] setObject:logon.login.text forKey:@"password"];
     
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [[NSUserDefaults standardUserDefaults]synchronize];*/
     
 }
 
