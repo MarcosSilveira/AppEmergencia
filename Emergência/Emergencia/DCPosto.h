@@ -18,4 +18,8 @@
 
 @property (nonatomic) NSString *endereco;
 
+@property (nonatomic) NSString *telefone;
+
+-(bool)isOk;
+
 @end
