@@ -69,7 +69,10 @@
         DCLoginViewController *dcvc = (DCLoginViewController *)navController.viewControllers[0];
         dcvc.coordenada = CLLocationCoordinate2DMake(latitude, longitude);
     }
-    
+    if(application.applicationState == UIApplicationStateActive){
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MyNotification" object:self];
+    }
     
 }
 

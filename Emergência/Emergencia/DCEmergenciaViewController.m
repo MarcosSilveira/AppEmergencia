@@ -31,6 +31,10 @@ float longi;
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+    //recebeu notificacao enquanto aberta
+    
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification) name:@"MyNotification" object:nil];
+    
     
     
     _gerenciadorLocalizacao = [[CLLocationManager alloc] init];
@@ -50,6 +54,10 @@ float longi;
     
     
 }
+-(void)handleNotification{
+    NSLog(@"Recebeu notificacao");
+}
+
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     
@@ -206,9 +214,9 @@ float longi;
         
         //confere
         if(![res isEqualToNumber:teste]){
-            //Colocar Alert
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" buttonTitle:@"OK"];
-            [alertView show];
+//            //Colocar Alert
+//            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" buttonTitle:@"OK"];
+//            [alertView show];
         }
     }
 
