@@ -207,8 +207,8 @@ float longi;
         //confere
         if(![res isEqualToNumber:teste]){
             //Colocar Alert
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" buttonTitle:@"OK"];
-            [alertView show];
+            //TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" buttonTitle:@"OK"];
+            //[alertView show];
         }
     }
 

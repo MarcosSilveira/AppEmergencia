@@ -216,7 +216,14 @@
             [_keychainPassword setObject:self.login.text forKey:(__bridge id)kSecAttrAccount];
             [_keychainPassword setObject:self.pass.text forKey:(__bridge id)kSecValueData];
             
+            [[NSUserDefaults standardUserDefaults] setObject:res forKey:@"id"];
+            [[NSUserDefaults standardUserDefaults] setObject:tokn.pushId forKey:@"token"];
             
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            
+            
+            // NSString *idUsuario = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
             //[_keychainPassword setObject:res forKey:(__bridge id)kSecAttrCanVerify];
             //[_keychainPassword setObject:tokn.pushId forKey:(__bridge id)kSecAttrCertificateType];
             
