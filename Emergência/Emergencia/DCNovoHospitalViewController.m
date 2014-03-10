@@ -32,7 +32,9 @@ CLLocationManager *gerenciadorLocalizacao;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    gerenciadorLocalizacao = [[CLLocationManager alloc] init];
     gerenciadorLocalizacao.delegate = self;
+    
     [gerenciadorLocalizacao startUpdatingLocation];
     _FDNome.delegate = self;
     _FDTelefone.delegate = self;
@@ -43,8 +45,9 @@ CLLocationManager *gerenciadorLocalizacao;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    
     _FDLat.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
-    _FDLat.text = [NSString stringWithFormat:@"%f",newLocation.coordinate.longitude];
+    _FDLong.text = [NSString stringWithFormat:@"%f",newLocation.coordinate.longitude];
     
     
     
@@ -60,10 +63,12 @@ CLLocationManager *gerenciadorLocalizacao;
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)ClicouEnvia:(id)sender {
-    /UIColor
+    UIColor *cor;
+    cor = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
     if([_FDNome.text isEqualToString:@""]){
         NSLog(@"Em branco");
-        _FDNome.backgroundColor = [UIColor redColor];
+        _FDNome.backgroundColor = cor;
+    
     }
 }
 - (IBAction)ClicouSobre:(id)sender {
