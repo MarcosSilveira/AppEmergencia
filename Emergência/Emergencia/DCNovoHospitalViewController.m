@@ -7,6 +7,9 @@
 //
 
 #import "DCNovoHospitalViewController.h"
+#import "DCConfigs.h"
+#import "DCPosto.h"
+#import "TLAlertView.h"
 
 @interface DCNovoHospitalViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *FDNome;
@@ -14,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *FDLat;
 @property (weak, nonatomic) IBOutlet UITextField *FDLong;
 @property (weak, nonatomic) IBOutlet UITextField *FDEndereco;
+
+
+@property (nonatomic) DCConfigs *config;
+@property (nonatomic) DCPosto *posto;
 
 @end
 
@@ -36,6 +43,9 @@ CLLocationManager *gerenciadorLocalizacao;
     gerenciadorLocalizacao.delegate = self;
     
     [gerenciadorLocalizacao startUpdatingLocation];
+    
+    self.config=[[DCConfigs alloc] init];
+    
     _FDNome.delegate = self;
     _FDTelefone.delegate = self;
     _FDLat.delegate = self;
@@ -57,6 +67,63 @@ CLLocationManager *gerenciadorLocalizacao;
     return YES;
     
 }
+
+-(void)doAdd:(UIButton *)sender{
+    self.posto=[[DCPosto alloc] init];
+    
+    self.posto.nome=self.FDNome.text;
+    self.posto.lat=[self.FDLat.text floatValue];
+    self.posto.log=[self.FDLong.text floatValue];
+    
+    self.posto.telefone=self.FDTelefone.text;
+    
+    self.posto.endereco=self.FDEndereco.text;
+    
+
+    if(self.posto.isOk){
+        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@",self.config.ip,self.posto.lat,self.posto.log,self.posto.nome,self.posto.telefone,self.posto.endereco];
+        
+        urlServidor=[urlServidor stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        NSURL *urs=[[NSURL alloc] initWithString:urlServidor];
+        NSData* data = [NSData dataWithContentsOfURL:
+                        urs];
+        
+        if(data!=nil){
+            
+            NSError *jsonParsingError = nil;
+            NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+            
+            
+            NSNumber *res=[resultado objectForKey:@"cadastro"];
+            
+            NSNumber *teste=[[NSNumber alloc] initWithInt:1];
+            
+            
+            if([res isEqualToNumber:teste]){
+                //OK
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Ok" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
+                [alertView show];
+                //[self performSegueWithIdentifier:@"cadtoInicial" sender:sender];
+            }else{
+                //ERRO
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
+                [alertView show];
+            }
+            
+        }else{
+            //ERRO
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
+            [alertView show];
+        }
+
+    }else{
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos em Branco" buttonTitle:@"OK"];
+        [alertView show];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
