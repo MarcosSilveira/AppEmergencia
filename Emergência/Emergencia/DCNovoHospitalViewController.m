@@ -44,6 +44,11 @@ CLLocationManager *gerenciadorLocalizacao;
     
     self.config=[[DCConfigs alloc] init];
     
+    _FDNome.delegate = self;
+    _FDTelefone.delegate = self;
+    _FDLat.delegate = self;
+    _FDLong.delegate = self;
+    _FDEndereco.delegate = self;
 	// Do any additional setup after loading the view.
 }
 
@@ -73,7 +78,7 @@ CLLocationManager *gerenciadorLocalizacao;
     
 
     if(self.posto.isOk){
-        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco",self.config.ip,self.posto.lat,self.posto.log,self.posto.nome,self.posto.telefone,self.posto.endereco];
+        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@",self.config.ip,self.posto.lat,self.posto.log,self.posto.nome,self.posto.telefone,self.posto.endereco];
         
         urlServidor=[urlServidor stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
@@ -109,6 +114,9 @@ CLLocationManager *gerenciadorLocalizacao;
             [alertView show];
         }
 
+    }else{
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos em Branco" buttonTitle:@"OK"];
+        [alertView show];
     }
 }
 
@@ -120,6 +128,11 @@ CLLocationManager *gerenciadorLocalizacao;
 }
 - (IBAction)ClicouEnvia:(id)sender {
     [self doAdd:sender];
+    //UIColor
+    if([_FDNome.text isEqualToString:@""]){
+        NSLog(@"Em branco");
+        _FDNome.backgroundColor = [UIColor redColor];
+    }
 }
 - (IBAction)ClicouSobre:(id)sender {
     
