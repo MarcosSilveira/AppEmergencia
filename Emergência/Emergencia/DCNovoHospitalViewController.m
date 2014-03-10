@@ -34,7 +34,11 @@ CLLocationManager *gerenciadorLocalizacao;
     [super viewDidLoad];
     gerenciadorLocalizacao.delegate = self;
     [gerenciadorLocalizacao startUpdatingLocation];
-    
+    _FDNome.delegate = self;
+    _FDTelefone.delegate = self;
+    _FDLat.delegate = self;
+    _FDLong.delegate = self;
+    _FDEndereco.delegate = self;
 	// Do any additional setup after loading the view.
 }
 
@@ -56,6 +60,11 @@ CLLocationManager *gerenciadorLocalizacao;
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)ClicouEnvia:(id)sender {
+    /UIColor
+    if([_FDNome.text isEqualToString:@""]){
+        NSLog(@"Em branco");
+        _FDNome.backgroundColor = [UIColor redColor];
+    }
 }
 - (IBAction)ClicouSobre:(id)sender {
     
