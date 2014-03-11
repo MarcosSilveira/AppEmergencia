@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *FDLat;
 @property (weak, nonatomic) IBOutlet UITextField *FDLong;
 @property (weak, nonatomic) IBOutlet UITextField *FDEndereco;
+@property BOOL *pegoualoc;
 
 
 @property (nonatomic) DCConfigs *config;
@@ -39,7 +40,9 @@ CLLocationManager *gerenciadorLocalizacao;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    gerenciadorLocalizacao = [[CLLocationManager alloc] init];
     gerenciadorLocalizacao.delegate = self;
+    
     [gerenciadorLocalizacao startUpdatingLocation];
     
     self.config=[[DCConfigs alloc] init];
@@ -53,9 +56,12 @@ CLLocationManager *gerenciadorLocalizacao;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    if (_pegoualoc==NO) {
+        
     _FDLat.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
-    _FDLat.text = [NSString stringWithFormat:@"%f",newLocation.coordinate.longitude];
-    
+    _FDLong.text = [NSString stringWithFormat:@"%f",newLocation.coordinate.longitude];
+        _pegoualoc= YES;
+    }
     
     
 }
@@ -127,12 +133,34 @@ CLLocationManager *gerenciadorLocalizacao;
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)ClicouEnvia:(id)sender {
+    
+    UIColor *cor;
+    cor = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
     [self doAdd:sender];
-    //UIColor
     if([_FDNome.text isEqualToString:@""]){
         NSLog(@"Em branco");
-        _FDNome.backgroundColor = [UIColor redColor];
+        _FDNome.backgroundColor = cor;
+    }else{
+        _FDNome.backgroundColor = [UIColor whiteColor];
     }
+        
+            
+    if([_FDTelefone.text isEqualToString:@""]){
+        NSLog(@"Em branco");
+        _FDTelefone.backgroundColor = cor;
+   }
+    else
+        _FDTelefone.backgroundColor = [UIColor whiteColor];
+    if([_FDLat.text isEqualToString:@""])
+        _FDLat.backgroundColor = cor;
+    else
+        _FDLat.backgroundColor = [UIColor whiteColor];
+    if ([_FDLong.text isEqualToString:@""]) {
+        _FDLong.backgroundColor = cor;
+    }
+    else
+        _FDLong.backgroundColor = [UIColor whiteColor];
+    
 }
 - (IBAction)ClicouSobre:(id)sender {
     

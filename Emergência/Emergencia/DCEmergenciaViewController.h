@@ -19,5 +19,5 @@
 @property (nonatomic) CLLocationCoordinate2D coordenada;
 
 @property CLLocationManager *gerenciadorLocalizacao;
-
+-(void)handleNotification;
 @end
