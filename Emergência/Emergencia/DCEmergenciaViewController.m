@@ -252,9 +252,11 @@ float longi;
         
         //confere
         if(![res isEqualToNumber:teste]){
-//            //Colocar Alert
-//            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" buttonTitle:@"OK"];
-//            [alertView show];
+            //Colocar Alert
+            [[[UIAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+            
+            //TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" buttonTitle:@"OK"];
+            //[alertView show];
         }
     }
 
