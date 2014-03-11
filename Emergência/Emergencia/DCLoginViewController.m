@@ -44,6 +44,12 @@
     //    NSString *savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
     //    NSString *savedPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
     //
+
+
+//    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
+//        [self performSegueWithIdentifier:@"goToInicio" sender:self];
+//
+//    }
     
     [self configuracoesIniciais];
     

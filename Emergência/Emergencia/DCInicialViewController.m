@@ -33,7 +33,10 @@ BOOL connectionOK = NO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+//    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
+//        [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
+
+//    }
     [self configuracoesIniciais];
     [self testeDeConeccao];
     _userLogado.text = self.config.login;

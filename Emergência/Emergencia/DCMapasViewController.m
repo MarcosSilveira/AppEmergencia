@@ -55,6 +55,20 @@
         amigo.subtitle = @"Localização do pedido de ajuda";
         [_Map1 addAnnotation:amigo];
     }
+//    else if ([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
+//        BOOL push = NO;
+//        NSNumber *push2 = [[NSNumber alloc] initWithBool:push];
+//        amigo = [[MKPointAnnotation alloc] init];
+//        NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"lat"];
+//        NSNumber *longitude = [[NSUserDefaults standardUserDefaults]objectForKey:@"log"];
+//        
+//        amigo.coordinate = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
+//        amigo.title = @"Amigo";
+//        amigo.subtitle = @"Localização do pedido de ajuda";
+//        [_Map1 addAnnotation:amigo];
+//        [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
+//        
+//    }
     
 }
 
