@@ -40,7 +40,13 @@
     _AILoading.hidesWhenStopped = YES;
     _LBLoading.hidden = YES;
     
-  
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]) {
+        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([[[NSUserDefaults standardUserDefaults] objectForKey:@"lat"] doubleValue], [[[NSUserDefaults standardUserDefaults] objectForKey:@"log"]doubleValue]);
+        self.coordenada = coord;
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"pushOn"];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"lat"];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"log"];
+    }
   if (self.raio == 0) {
     self.raio = 1;
   }

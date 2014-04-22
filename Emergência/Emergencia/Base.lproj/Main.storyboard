@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yUr-PV-dtB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yUr-PV-dtB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -126,7 +126,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bLl-CC-BeM" kind="push" identifier="goToEmergencia" id="0lP-Ij-ILx"/>
+                                    <action selector="clicouEmergencia:" destination="Mxl-z6-SRM" eventType="touchUpInside" id="lXp-he-30v"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" id="hRt-P4-a3h">
@@ -193,11 +193,12 @@
                     <connections>
                         <outlet property="userLogado" destination="WCw-HL-CsA" id="zuR-Y7-9KJ"/>
                         <segue destination="puS-af-iNX" kind="push" identifier="goToAdd" id="AiK-fK-BvV"/>
+                        <segue destination="bLl-CC-BeM" kind="push" identifier="goToEmergencia" id="zeE-qz-oGW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDO-5s-ysb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1321" y="-261"/>
+            <point key="canvasLocation" x="1347" y="-283"/>
         </scene>
         <!--Emergencia View Controller-->
         <scene sceneID="p2d-PE-0Kr">
@@ -794,7 +795,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="0hI-ST-9lq"/>
         <segue reference="hAI-Te-HHN"/>
-        <segue reference="0lP-Ij-ILx"/>
+        <segue reference="zeE-qz-oGW"/>
         <segue reference="GWl-Sy-20g"/>
     </inferredMetricsTieBreakers>
 </document>

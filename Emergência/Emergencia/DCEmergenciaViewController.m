@@ -11,7 +11,7 @@
 #import "DCEmergencia.h"
 #import "DCMapasViewController.h"
 #import "TLAlertView.h"
-
+#import "KeychainItemWrapper.h"
 
 @interface DCEmergenciaViewController ()
 
@@ -20,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *pickers;
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, strong) UISnapBehavior *snapBehavior;
-
+@property (nonatomic,strong) UIView *viewNotification, *viewAux;
+@property KeychainItemWrapper *keychainPassword;
 
 @end
 
@@ -33,10 +34,10 @@ float longi;
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-//    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
-//        [self performSegueWithIdentifier:@"goToMapas" sender:self];
-//    
-//    }
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
+        [self performSegueWithIdentifier:@"goToMapas" sender:self];
+    
+    }
 
     //recebeu notificacao enquanto aberta
     
@@ -61,38 +62,35 @@ float longi;
     
 //    [self handleNotification];
     
+    _keychainPassword = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
     
 }
 -(void)handleNotification{
-    NSLog(@"Recebeu notificacao");
-//    
-//    
-//    UIView *viewNotification, *viewAux;
-//    viewAux = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
-//    viewNotification = [[UIView alloc] initWithFrame:CGRectMake(0,64, 320, 100)];
-//    UIColor *branco = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:1.0];
-//    viewAux.backgroundColor =branco;
-//    
-//    UILabel *labelteste = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 25)];
-//    labelteste.text = @"Testando label na view aux";
-//    labelteste.textColor = [UIColor whiteColor];
-//    [viewNotification addSubview:labelteste];
-//   
-//    UIColor *vermelho = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
-//    viewNotification.backgroundColor = vermelho;
-//    
-////    UIDynamicAnimator *animator = [[UIDynamicAnimator alloc] initWithReferenceView:viewNotification];
-////    self.animator = animator;
-////    
-////    UISnapBehavior *snapBehavior = [[UISnapBehavior alloc] initWithItem:viewNotification snapToPoint:CGPointMake(10.0f, 10.0f)];
-////    [self.animator addBehavior:snapBehavior];
-//    UITapGestureRecognizer *toque = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tocouNaNotification)];
-//    [viewNotification addGestureRecognizer:toque];
-//    [self.view addSubview:viewAux];
-//    [self.view addSubview:viewNotification];
+    NSLog(@"Recebeu notificação");
+    
+    
+    
+    _viewAux = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
+    _viewNotification = [[UIView alloc] initWithFrame:CGRectMake(0,64, 320, 100)];
+    UIColor *branco = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:1.0];
+    _viewAux.backgroundColor =branco;
+    
+    UILabel *labelteste = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 25)];
+    labelteste.text = @"Testando label na view aux";
+    labelteste.textColor = [UIColor whiteColor];
+    [_viewNotification addSubview:labelteste];
+   
+    UIColor *vermelho = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
+    _viewNotification.backgroundColor = vermelho;
+    
+
+    UITapGestureRecognizer *toque = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tocouNaNotification)];
+    [_viewNotification addGestureRecognizer:toque];
+    [self.view addSubview:_viewAux];
+    [self.view addSubview:_viewNotification];
 }
 -(void)tocouNaNotification{
-    NSLog(@"Toque");
+      NSLog(@"Toque");
     [self.navigationController popToRootViewControllerAnimated:NO];
     
 }
@@ -208,7 +206,7 @@ float longi;
 
 -(void) enviar{
     
-    NSString *savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
+    NSString *savedUserName = [_keychainPassword objectForKey:(__bridge id)kSecAttrAccount];
     NSLog(@"Solocitando");
     
     //self.pickers
@@ -272,9 +270,11 @@ float longi;
     
 }
 
+
 -(void)dealloc
 {
     _gerenciadorLocalizacao.delegate = nil;
+
 }
 
 
