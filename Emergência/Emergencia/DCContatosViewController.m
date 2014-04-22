@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSMutableArray *resultadoBusca;
 @property (strong, nonatomic) NSIndexPath *indexPathContatoExcluir;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UITableView *tabela;
 
 @property BOOL pesquisando;
 
@@ -33,7 +34,25 @@
   [super viewDidLoad];
   
   [self configuracoesIniciais];
-  [self listarContatos];
+    
+    
+    dispatch_queue_t queue;
+    
+    //dispatch_queue_t main;
+    
+    //main = dispatch_get_main_queue();
+    
+    queue = dispatch_queue_create("myQueue",
+                                  NULL);
+    dispatch_async(queue, ^{
+        [self listarContatos];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        }
+                       );
+    });
+  
 }
 
 //AO CLICAR NO BOTÃO DE EXCLUIR CONTATO
@@ -203,6 +222,8 @@
       [self.contatosAceitar addObject:contato];
     }
   }
+    
+    
 }
 
 //AO ALTERAR VALOR DO SWITCH QUE APROVA CONTATOS
