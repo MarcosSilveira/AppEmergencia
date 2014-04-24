@@ -156,10 +156,6 @@ CLLocationManager *gerenciadorLocalizacao;
     
     dispatch_queue_t queue;
     
-    //dispatch_queue_t main;
-    
-    //main = dispatch_get_main_queue();
-    
     queue = dispatch_queue_create("myQueue",
                                   NULL);
     dispatch_async(queue, ^{

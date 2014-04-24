@@ -77,33 +77,53 @@
         contato.telefone = self.txtTelefone.text;
         contato.usuario = self.txtUser.text;
         
-        if ([contato salvarComIPServidor: self.conf.ip]) {
-            
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Sucesso" message:@"Contato adicionato com sucesso (em Aprovação)" buttonTitle:@"OK"];
-            [alertView show];
-            [self.previousViewController.contacts addObject: contato];
-            [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível adicionar o contato. Tente novamente mais tarde." buttonTitle:@"OK"];
-            [alertView show];
-            
-        }
+        dispatch_queue_t queue;
+        
+        queue = dispatch_queue_create("myQueue",
+                                      NULL);
+        dispatch_async(queue, ^{
+            if ([contato salvarComIPServidor: self.conf.ip]) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Sucesso" message:@"Contato adicionato com sucesso (em Aprovação)" buttonTitle:@"OK"];
+                [alertView show];
+                [self.previousViewController.contacts addObject: contato];
+                [self.navigationController popViewControllerAnimated:YES];
+                    });
+            } else {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível adicionar o contato. Tente novamente mais tarde." buttonTitle:@"OK"];
+                [alertView show];
+                  });
+            }
+        });
+        
+        
     } else { //EDITA UM CONTATO JA EXISTENTE
         
         contato = self.contato;
         contato.nome = self.txtNome.text;
         contato.telefone = self.txtTelefone.text;
         
+        dispatch_queue_t queue;
+        
+        queue = dispatch_queue_create("myQueue",
+                                      NULL);
+        dispatch_async(queue, ^{
+        
         if ([contato editarComIPServidor: self.conf.ip]) {
-            
+            dispatch_async(dispatch_get_main_queue(), ^{
             TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Sucesso" message:@"Contato editado com sucesso" buttonTitle:@"OK"];
             [alertView show];
             [self.navigationController popViewControllerAnimated:YES];
+                });
         } else {
-            
+            dispatch_async(dispatch_get_main_queue(), ^{
             TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível editar o contato. Tente novamente mais tarde." buttonTitle:@"OK"];
             [alertView show];
+                });
         }
+              });
     }
 }
 
