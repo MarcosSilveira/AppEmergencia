@@ -27,7 +27,7 @@
     CLAuthorizationStatus *teste;
     MKPointAnnotation *amigo;
     NSMutableArray *locaisAux2;
-   
+    NSMutableArray *locaisValidar;
 }
 
 - (void)viewDidLoad
@@ -84,7 +84,7 @@
     
   NSMutableArray *locais = [[NSMutableArray alloc] init];
   
-  NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/buscar.jsp?lat=%f&log=%f&tipo='lol'&prioridade=%@&raio=%f",self.conf.ip,lats,longi,prio,self.raio];
+  NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/novaBusca.jsp?lat=%f&log=%f&tipo='lol'&prioridade=%@&raio=%f",self.conf.ip,lats,longi,prio,self.raio];
   
   
   
@@ -111,6 +111,7 @@
       posto.log = [[objo objectForKey:@"longitude"] floatValue];
       posto.nome = [objo objectForKey:@"nome"];
       posto.endereco = [objo objectForKey:@"endereco"];
+        posto.validar=NO;
       
       [locais addObject:posto];
     }
@@ -122,6 +123,62 @@
     
   return locais;
 }
+
+-(NSMutableArray *) buscarValidar:(CLLocation*) loc{
+    NSNumber *prio = @1;
+    float lats, longi, raio;
+    lats =loc.coordinate.latitude;
+    longi =loc.coordinate.longitude;
+    raio = self.raio;
+    
+    
+    NSMutableArray *locais = [[NSMutableArray alloc] init];
+    
+    NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/hospitaisValidar.jsp?lat=%f&log=%f&tipo='lol'&prioridade=%@&raio=%f",self.conf.ip,lats,longi,prio,self.raio];
+    
+    
+    
+    NSURL *urs = [[NSURL alloc] initWithString:ur];
+    NSData* data = [NSData dataWithContentsOfURL:urs];
+    
+    //retorno
+    if (data != nil) {
+        
+        NSError *jsonParsingError = nil;
+        NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+        
+        //OBjeto Array
+        
+        NSArray *res = [resultado objectForKey:@"Locais"];
+        
+        NSDictionary *objo;
+        for (int i = 0; i < res.count; i++) {
+            
+            DCPosto *posto = [[DCPosto alloc] init];
+            objo = [res objectAtIndex:i];
+            
+            posto.lat = [[objo objectForKey:@"latitude"] floatValue];
+            posto.log = [[objo objectForKey:@"longitude"] floatValue];
+            posto.nome = [objo objectForKey:@"nome"];
+            posto.endereco = [objo objectForKey:@"endereco"];
+            
+            posto.cod=[objo objectForKey:@"idlocaisAprovar"];
+            posto.validar=YES;
+            
+            [locais addObject:posto];
+        }
+    }
+    
+    [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
+    [_AILoading stopAnimating];
+    _LBLoading.hidden = YES;
+    
+    return locais;
+}
+
+
+
+
 
 -(void)updateUI:(NSMutableArray *)locaisAux
 {
@@ -200,6 +257,7 @@
     _LBLoading.hidden = NO;
     
     [self performSelectorInBackground:@selector(buscar:) withObject:newLocation];
+    [self performSelectorInBackground:@selector(buscarValidar:) withObject:newLocation];
 
     NSMutableArray *postos = locaisAux2;
   for (int i  = 0; i < postos.count; i++) {
