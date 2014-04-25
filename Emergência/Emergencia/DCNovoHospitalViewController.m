@@ -10,6 +10,7 @@
 #import "DCConfigs.h"
 #import "DCPosto.h"
 #import "TLAlertView.h"
+#import "DCConfirmaViewController.h"
 
 @interface DCNovoHospitalViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *FDNome;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *FDLat;
 @property (weak, nonatomic) IBOutlet UITextField *FDLong;
 @property (weak, nonatomic) IBOutlet UITextField *FDEndereco;
+@property (weak, nonatomic) IBOutlet UISwitch *usoSwitch;
 @property BOOL *pegoualoc;
 
 
@@ -84,6 +86,7 @@ CLLocationManager *gerenciadorLocalizacao;
     
 
     if(self.posto.isOk){
+        [self performSegueWithIdentifier:@"goToConfirma" sender:self];
         NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@",self.config.ip,self.posto.lat,self.posto.log,self.posto.nome,self.posto.telefone,self.posto.endereco];
         
         urlServidor=[urlServidor stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -126,6 +129,12 @@ CLLocationManager *gerenciadorLocalizacao;
     }
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"goToConfirma"]) {
+        DCConfirmaViewController* dccvc = (DCConfirmaViewController*)segue.destinationViewController;
+        dccvc.postoaux = _posto;
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -161,11 +170,22 @@ CLLocationManager *gerenciadorLocalizacao;
     else
         _FDLong.backgroundColor = [UIColor whiteColor];
     
+    
 }
 - (IBAction)ClicouSobre:(id)sender {
     
     UIAlertView *sobre = [[UIAlertView alloc] initWithTitle:@"Ajude a melhorar o emergência!" message:@"Nesta tela você pode adicionar novos locais que possuam serviços de emergencia para que estes sejam adicionados ao aplicativo, todos os envios estão sujeitos a aprovação. Os campos com '*'são de preenchimento obrigatório."delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [sobre show];
+}
+- (IBAction)trocouUso:(id)sender {
+    if (_usoSwitch.on==YES) {
+        _FDLat.enabled = YES;
+        _FDLong.enabled = YES;
+    }
+    else{
+        _FDLong.enabled = NO;
+        _FDLat.enabled = NO;
+    }
 }
 
 @end

@@ -121,10 +121,15 @@
       [locais addObject:posto];
     }
   }
-
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
+    if (data != nil) {
+        
+    
+        
+    
+    
     [_AILoading stopAnimating];
-    _LBLoading.hidden = YES;
+        _LBLoading.hidden = YES;}
     
   return locais;
 }
