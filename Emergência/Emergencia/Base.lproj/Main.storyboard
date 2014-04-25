@@ -479,6 +479,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="mcv-Qy-JOg" id="aZN-iP-9xR"/>
+                        <outlet property="tabela" destination="Seg-v2-S0c" id="FU8-Cd-Hoy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwz-YK-Ehu" userLabel="First Responder" sceneMemberID="firstResponder"/>

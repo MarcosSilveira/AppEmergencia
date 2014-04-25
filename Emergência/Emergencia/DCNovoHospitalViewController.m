@@ -108,24 +108,41 @@ CLLocationManager *gerenciadorLocalizacao;
             
             if([res isEqualToNumber:teste]){
                 //OK
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Ok" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
-                [alertView show];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Ok" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
+                    [alertView show];
+                }
+                );
+               
                 //[self performSegueWithIdentifier:@"cadtoInicial" sender:sender];
             }else{
                 //ERRO
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
                 TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
                 [alertView show];
+                });
             }
             
         }else{
             //ERRO
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+
             TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
             [alertView show];
+            } );
+
         }
 
     }else{
-        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos em Branco" buttonTitle:@"OK"];
-        [alertView show];
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos em Branco" buttonTitle:@"OK"];
+            [alertView show];
+        });
+
     }
 }
 
@@ -145,7 +162,16 @@ CLLocationManager *gerenciadorLocalizacao;
     
     UIColor *cor;
     cor = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
-    [self doAdd:sender];
+    
+    dispatch_queue_t queue;
+    
+    queue = dispatch_queue_create("myQueue",
+                                  NULL);
+    dispatch_async(queue, ^{
+        [self doAdd:sender];
+    });
+
+    
     if([_FDNome.text isEqualToString:@""]){
         NSLog(@"Em branco");
         _FDNome.backgroundColor = cor;

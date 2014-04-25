@@ -20,6 +20,10 @@
 
 @property (nonatomic) NSString *telefone;
 
+@property (nonatomic) NSNumber *cod;
+
+@property (nonatomic) BOOL validar;
+
 -(bool)isOk;
 
 @end
