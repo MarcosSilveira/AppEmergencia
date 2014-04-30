@@ -118,12 +118,41 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [self scheduleLocal];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+  //  [self scheduleLocal];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)scheduleLocal{
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *eventArray = [app scheduledLocalNotifications];
+    if([eventArray count]==0){
+        UILocalNotification *localNotif = [[UILocalNotification alloc]init];
+        
+        NSDate *today = [NSDate dateWithTimeIntervalSinceNow:604800];
+//        NSDate *today = [NSDate dateWithTimeIntervalSinceNow:20];
+        localNotif.fireDate = today;
+        localNotif.timeZone = [NSTimeZone defaultTimeZone];
+        
+        localNotif.alertBody = NSLocalizedString(@"Lembre-se de registrar novos locais!", nil);
+        localNotif.alertAction = NSLocalizedString(@"notif-title", nil);
+        
+        localNotif.soundName = UILocalNotificationDefaultSoundName;
+        localNotif.applicationIconBadgeNumber = 1;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+
+    }
+}
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    application.applicationIconBadgeNumber = 0;
+
 }
 
 @end

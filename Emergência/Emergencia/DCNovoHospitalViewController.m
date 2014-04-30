@@ -83,67 +83,18 @@ CLLocationManager *gerenciadorLocalizacao;
     self.posto.telefone=self.FDTelefone.text;
     
     self.posto.endereco=self.FDEndereco.text;
-    
-
-    if(self.posto.isOk){
+    if (self.posto.isOk) {
         [self performSegueWithIdentifier:@"goToConfirma" sender:self];
-        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@",self.config.ip,self.posto.lat,self.posto.log,self.posto.nome,self.posto.telefone,self.posto.endereco];
-        
-        urlServidor=[urlServidor stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        NSURL *urs=[[NSURL alloc] initWithString:urlServidor];
-        NSData* data = [NSData dataWithContentsOfURL:
-                        urs];
-        
-        if(data!=nil){
-            
-            NSError *jsonParsingError = nil;
-            NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-            
-            
-            NSNumber *res=[resultado objectForKey:@"cadastro"];
-            
-            NSNumber *teste=[[NSNumber alloc] initWithInt:1];
-            
-            
-            if([res isEqualToNumber:teste]){
-                //OK
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Ok" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
-                    [alertView show];
-                }
-                );
-               
-                //[self performSegueWithIdentifier:@"cadtoInicial" sender:sender];
-            }else{
-                //ERRO
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
-                [alertView show];
-                });
-            }
-            
-        }else{
-            //ERRO
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
-            [alertView show];
-            } );
-
-        }
-
-    }else{
+    }
+    else{
         dispatch_async(dispatch_get_main_queue(), ^{
-
+            
             TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos em Branco" buttonTitle:@"OK"];
             [alertView show];
         });
-
+        
     }
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -163,14 +114,8 @@ CLLocationManager *gerenciadorLocalizacao;
     UIColor *cor;
     cor = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
     
-    dispatch_queue_t queue;
+    [self doAdd:sender];
     
-    queue = dispatch_queue_create("myQueue",
-                                  NULL);
-    dispatch_async(queue, ^{
-        [self doAdd:sender];
-    });
-
     
     if([_FDNome.text isEqualToString:@""]){
         NSLog(@"Em branco");
