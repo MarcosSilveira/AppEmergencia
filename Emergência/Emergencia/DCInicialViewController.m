@@ -33,10 +33,11 @@ BOOL connectionOK = NO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
-//        [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
+        [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
 
-//    }
+    }
+    
     [self configuracoesIniciais];
     [self testeDeConeccao];
     _userLogado.text = self.config.login;
@@ -78,6 +79,44 @@ BOOL connectionOK = NO;
     
     
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification) name:@"MyNotification" object:nil];
+
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyNotification" object:nil];
+}
+-(void)handleNotification{
+    NSLog(@"Recebeu notificacao");
+    
+    
+    UIView *viewNotification, *viewAux;
+    viewAux = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
+    viewNotification = [[UIView alloc] initWithFrame:CGRectMake(0,64, 320, 100)];
+    UIColor *branco = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:1.0];
+    viewAux.backgroundColor =branco;
+    
+    UILabel *labelteste = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 25)];
+    labelteste.text = @"Testando label na view aux";
+    labelteste.textColor = [UIColor whiteColor];
+    [viewNotification addSubview:labelteste];
+    
+    UIColor *vermelho = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
+    viewNotification.backgroundColor = vermelho;
+    
+    
+    UITapGestureRecognizer *toque = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tocouNaNotification)];
+    [viewNotification addGestureRecognizer:toque];
+    [self.view addSubview:viewAux];
+    [self.view addSubview:viewNotification];
+}
+
+-(void)tocouNaNotification{
+    NSLog(@"Toque");
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    
+}
+
 
 -(void) testeDeConeccao {
     NSString *server = [[NSString alloc] init];
@@ -127,9 +166,12 @@ BOOL connectionOK = NO;
     
     
 }
+- (IBAction)clicouEmergencia:(id)sender {
+    [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"goToEmergencia"]) {
+    if ([segue.identifier isEqualToString:@"goToEmergencia"] && self.coordenada.latitude!=0 && self.coordenada.longitude!=0) {
         DCEmergenciaViewController *emergencia = (DCEmergenciaViewController *)segue.destinationViewController;
         emergencia.coordenada = _coordenada;
     }

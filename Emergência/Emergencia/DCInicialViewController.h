@@ -17,6 +17,6 @@
 @property (nonatomic) DCConfigs *config;
 
 - (IBAction)btLogOut;
-
+-(void)handleNotification;
 
 @end

@@ -46,10 +46,10 @@
     //
 
 
-//    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
-//        [self performSegueWithIdentifier:@"goToInicio" sender:self];
-//
-//    }
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
+        [self performSegueWithIdentifier:@"goToInicio" sender:self];
+
+    }
     
     [self configuracoesIniciais];
     
@@ -177,7 +177,8 @@
 - (IBAction)logar:(UIButton *)sender {
     
     if ([self loginUsuarioComUsuario: self.login.text comSenha:self.pass.text]) {
-        [self RunAnimation:0];
+      //  [self RunAnimation:0];
+        [self vaipratela];
 
     } else {
         //self.oks.text=@"Erro no login";

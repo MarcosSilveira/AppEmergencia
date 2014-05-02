@@ -10,6 +10,7 @@
 #import "DCConfigs.h"
 #import "DCPosto.h"
 #import "TLAlertView.h"
+#import "DCConfirmaViewController.h"
 
 @interface DCNovoHospitalViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *FDNome;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *FDLat;
 @property (weak, nonatomic) IBOutlet UITextField *FDLong;
 @property (weak, nonatomic) IBOutlet UITextField *FDEndereco;
+@property (weak, nonatomic) IBOutlet UISwitch *usoSwitch;
 @property BOOL *pegoualoc;
 
 
@@ -81,68 +83,26 @@ CLLocationManager *gerenciadorLocalizacao;
     self.posto.telefone=self.FDTelefone.text;
     
     self.posto.endereco=self.FDEndereco.text;
-    
-
-    if(self.posto.isOk){
-        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@",self.config.ip,self.posto.lat,self.posto.log,self.posto.nome,self.posto.telefone,self.posto.endereco];
-        
-        urlServidor=[urlServidor stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        NSURL *urs=[[NSURL alloc] initWithString:urlServidor];
-        NSData* data = [NSData dataWithContentsOfURL:
-                        urs];
-        
-        if(data!=nil){
-            
-            NSError *jsonParsingError = nil;
-            NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-            
-            
-            NSNumber *res=[resultado objectForKey:@"cadastro"];
-            
-            NSNumber *teste=[[NSNumber alloc] initWithInt:1];
-            
-            
-            if([res isEqualToNumber:teste]){
-                //OK
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Ok" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
-                    [alertView show];
-                }
-                );
-               
-                //[self performSegueWithIdentifier:@"cadtoInicial" sender:sender];
-            }else{
-                //ERRO
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
-                [alertView show];
-                });
-            }
-            
-        }else{
-            //ERRO
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
-            [alertView show];
-            } );
-
-        }
-
-    }else{
+    if (self.posto.isOk) {
+        [self performSegueWithIdentifier:@"goToConfirma" sender:self];
+    }
+    else{
         dispatch_async(dispatch_get_main_queue(), ^{
-
+            
             TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos em Branco" buttonTitle:@"OK"];
             [alertView show];
         });
-
+        
     }
+    
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"goToConfirma"]) {
+        DCConfirmaViewController* dccvc = (DCConfirmaViewController*)segue.destinationViewController;
+        dccvc.postoaux = _posto;
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -154,14 +114,8 @@ CLLocationManager *gerenciadorLocalizacao;
     UIColor *cor;
     cor = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
     
-    dispatch_queue_t queue;
+    [self doAdd:sender];
     
-    queue = dispatch_queue_create("myQueue",
-                                  NULL);
-    dispatch_async(queue, ^{
-        [self doAdd:sender];
-    });
-
     
     if([_FDNome.text isEqualToString:@""]){
         NSLog(@"Em branco");
@@ -187,11 +141,22 @@ CLLocationManager *gerenciadorLocalizacao;
     else
         _FDLong.backgroundColor = [UIColor whiteColor];
     
+    
 }
 - (IBAction)ClicouSobre:(id)sender {
     
     UIAlertView *sobre = [[UIAlertView alloc] initWithTitle:@"Ajude a melhorar o emergência!" message:@"Nesta tela você pode adicionar novos locais que possuam serviços de emergencia para que estes sejam adicionados ao aplicativo, todos os envios estão sujeitos a aprovação. Os campos com '*'são de preenchimento obrigatório."delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [sobre show];
+}
+- (IBAction)trocouUso:(id)sender {
+    if (_usoSwitch.on==YES) {
+        _FDLat.enabled = YES;
+        _FDLong.enabled = YES;
+    }
+    else{
+        _FDLong.enabled = NO;
+        _FDLat.enabled = NO;
+    }
 }
 
 @end
