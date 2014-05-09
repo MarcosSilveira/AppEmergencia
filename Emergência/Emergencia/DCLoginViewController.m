@@ -46,7 +46,7 @@
     //
 
 
-    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
         [self performSegueWithIdentifier:@"goToInicio" sender:self];
 
     }

@@ -34,7 +34,7 @@ float longi;
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-    if([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
         [self performSegueWithIdentifier:@"goToMapas" sender:self];
     
     }
@@ -91,6 +91,8 @@ float longi;
 }
 -(void)tocouNaNotification{
       NSLog(@"Toque");
+    [self delete:_viewAux];
+    [self delete:_viewNotification];
     [self.navigationController popToRootViewControllerAnimated:NO];
     
 }

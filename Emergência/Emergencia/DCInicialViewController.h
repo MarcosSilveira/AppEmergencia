@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "DCMapasViewController.h"
 #import "DCConfigs.h"
-@interface DCInicialViewController : UIViewController
+#import "SlideNavigationContorllerAnimator.h"
+#import "SlideNavigationContorllerAnimatorFade.h"
+#import "SlideNavigationContorllerAnimatorSlide.h"
+#import "SlideNavigationContorllerAnimatorScale.h"
+#import "SlideNavigationContorllerAnimatorScaleAndFade.h"
+#import "SlideNavigationContorllerAnimatorSlideAndFade.h"
+#import "DCLeftMenuViewController.h"
+@interface DCInicialViewController : UIViewController<UITableViewDelegate,SlideNavigationControllerDelegate>
 
 @property NSMutableArray *listaContatos;
 @property (nonatomic)CLLocationCoordinate2D coordenada;
-
+@property (nonatomic)UITableViewController *esquerda;
+@property (nonatomic)DCLeftMenuViewController *left;
 @property (nonatomic) DCConfigs *config;
 
 - (IBAction)btLogOut;

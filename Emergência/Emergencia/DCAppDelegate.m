@@ -10,6 +10,7 @@
 #import "DCLoginViewController.h"
 #import "DCConfigs.h"
 #import "DCMapasViewController.h"
+#import "DCInicialViewController.h"
 
 @implementation DCAppDelegate
 
@@ -49,7 +50,18 @@
     }
     
     
+//---------SlideMenu-------------
+    LeftMenuViewController *leftMenu = [[LeftMenuViewController alloc] init];
+    RightMenuViewController *righMenu = [[RightMenuViewController alloc] init];
+    
+    [SlideNavigationController sharedInstance].rightMenu = righMenu;
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    
+    // Override point for customization after application launch.
+
+    
     return YES;
+    
 }
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
@@ -78,6 +90,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:latitude2 forKey:@"lat"];
         [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
     }
+    
     
 }
 
@@ -126,6 +139,7 @@
 {
   //  [self scheduleLocal];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pushOn"];
 }
 
 -(void)scheduleLocal{

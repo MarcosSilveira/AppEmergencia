@@ -9,13 +9,14 @@
 #import "DCMapasViewController.h"
 #import "DCConfigs.h"
 #import "DCPosto.h"
+#import "TLAlertView.h"
 
 @interface DCMapasViewController ()
 
 @property (nonatomic) DCConfigs *conf;
 @property (weak, nonatomic) IBOutlet UILabel *LBLoading;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *AILoading;
-
+@property (nonatomic)UIView *aviso;
 @end
 
 @implementation DCMapasViewController{
@@ -40,16 +41,21 @@
     _AILoading.hidesWhenStopped = YES;
     _LBLoading.hidden = YES;
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]) {
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([[[NSUserDefaults standardUserDefaults] objectForKey:@"lat"] doubleValue], [[[NSUserDefaults standardUserDefaults] objectForKey:@"log"]doubleValue]);
         self.coordenada = coord;
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"pushOn"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pushOn"];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"lat"];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"log"];
     }
   if (self.raio == 0) {
     self.raio = 1;
   }
+    if(self.raio > 150){
+        self.raio = 150;
+        TLAlertView *alerta = [[TLAlertView alloc]initWithTitle:@"Tamanho máximo do raio" message:@"O tamanho máximo do raio de busca é 150Km, o raio exibido será deste tamanho." buttonTitle:@"OK"];
+        alerta.show;
+    }
   
   self.raio = self.raio * 1000;
    
@@ -61,20 +67,29 @@
         amigo.subtitle = @"Localização do pedido de ajuda";
         [_Map1 addAnnotation:amigo];
     }
-//    else if ([[NSUserDefaults standardUserDefaults] objectForKey:@"pushOn"]){
-//        BOOL push = NO;
-//        NSNumber *push2 = [[NSNumber alloc] initWithBool:push];
-//        amigo = [[MKPointAnnotation alloc] init];
-//        NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"lat"];
-//        NSNumber *longitude = [[NSUserDefaults standardUserDefaults]objectForKey:@"log"];
-//        
-//        amigo.coordinate = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
-//        amigo.title = @"Amigo";
-//        amigo.subtitle = @"Localização do pedido de ajuda";
-//        [_Map1 addAnnotation:amigo];
-//        [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
-//        
-//    }
+    else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
+        BOOL push = NO;
+        NSNumber *push2 = [[NSNumber alloc] initWithBool:push];
+        amigo = [[MKPointAnnotation alloc] init];
+        NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"lat"];
+        NSNumber *longitude = [[NSUserDefaults standardUserDefaults]objectForKey:@"log"];
+        
+        amigo.coordinate = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
+        amigo.title = @"Amigo";
+        amigo.subtitle = @"Localização do pedido de ajuda";
+        [_Map1 addAnnotation:amigo];
+        [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
+        
+    }
+    
+    _aviso = [[UIView alloc]initWithFrame:CGRectMake(_LBLoading.frame.origin.x,_LBLoading.frame.origin.y-50, 180, 80)];
+    UIColor *cor = [[UIColor alloc]initWithRed:0.2 green:0.45 blue:0.9 alpha:0.7];
+    _aviso.backgroundColor = cor;
+    _aviso.layer.cornerRadius = 15;
+    _aviso.layer.masksToBounds = YES;
+    
+    
+    
     
 }
 
@@ -176,7 +191,7 @@
             posto.cod=[objo objectForKey:@"idlocaisAprovar"];
             posto.validar=YES;
             
-            [locais addObject:posto];
+            [locaisValidar addObject:posto];
         }
     }
     
@@ -266,6 +281,7 @@
 //    [self performSelectorInBackground:@selector(buscar:newLocation.coordinate.latitude withlongitude:newLocation.coordinate.longitude withraioMeters:raio withPriority:@1) withObject:nil];
     [_AILoading startAnimating];
     _LBLoading.hidden = NO;
+    [self.view addSubview:_aviso];
     
     [self performSelectorInBackground:@selector(buscar:) withObject:newLocation];
     [self performSelectorInBackground:@selector(buscarValidar:) withObject:newLocation];
