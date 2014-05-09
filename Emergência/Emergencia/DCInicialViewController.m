@@ -79,6 +79,11 @@ BOOL connectionOK = NO;
     
     
 }
+
+- (IBAction)callSamu:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:12125551212"]];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification) name:@"MyNotification" object:nil];
 
