@@ -388,6 +388,11 @@
   
 }
 
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    NSLog(@"awesaeqwesa");
+}
+
 -(void)clickLeftBt {
   
   NSLog(@"CLICOU ESQUERDA");

@@ -276,6 +276,10 @@ float longi;
 -(void)dealloc
 {
     _gerenciadorLocalizacao.delegate = nil;
+    [_viewAux removeFromSuperview];
+    [_viewNotification removeFromSuperview];
+    
+    
 
 }
 

@@ -123,10 +123,12 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    _keychainPassword = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
+    
     NSString *savedUserName = [_keychainPassword objectForKey:(__bridge id)kSecAttrAccount];
     NSString *savedPassword = [_keychainPassword objectForKey:(__bridge id)kSecValueData];
     
-    if(![savedUserName isEqualToString:@" "] && ![savedPassword isEqualToString:@" "]) {
+    if(![savedUserName isEqualToString:@""] && ![savedPassword isEqualToString:@""]) {
         [self performSegueWithIdentifier:@"goToInicio" sender:self];
          self.conf.login = savedUserName;
     }

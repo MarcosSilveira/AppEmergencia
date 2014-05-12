@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     self.conf = [[DCConfigs alloc] init];
     
     if (self.contato != nil) {
@@ -125,6 +126,17 @@
         }
               });
     }
+}
+//slideMenudelegate
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayRightMenu
+{
+    return NO;
 }
 
 @end

@@ -42,6 +42,8 @@ CLLocationManager *gerenciadorLocalizacao;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
+    
     gerenciadorLocalizacao = [[CLLocationManager alloc] init];
     gerenciadorLocalizacao.delegate = self;
     
@@ -158,5 +160,15 @@ CLLocationManager *gerenciadorLocalizacao;
         _FDLat.enabled = NO;
     }
 }
+//slideMenudelegate
 
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayRightMenu
+{
+    return NO;
+}
 @end

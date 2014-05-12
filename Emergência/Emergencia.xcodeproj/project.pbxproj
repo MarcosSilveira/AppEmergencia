@@ -35,6 +35,7 @@
 		8DACCB9C191C025F0026D75D /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DACCB9B191C025F0026D75D /* SlideNavigationController.m */; };
 		8DACCBA4191C171E0026D75D /* DCLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DACCBA3191C171E0026D75D /* DCLeftMenuViewController.m */; };
 		8DACCBA6191C189F0026D75D /* leftMenu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DACCBA5191C189F0026D75D /* leftMenu.jpg */; };
+		8DAF3A9F19214E1E00205907 /* DCNumerosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAF3A9E19214E1E00205907 /* DCNumerosViewController.m */; };
 		8DB3C587191A9C4F003E2719 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3C586191A9C4F003E2719 /* Reachability.m */; };
 		8DB3C58F191AA99D003E2719 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB3C58E191AA99D003E2719 /* QuartzCore.framework */; };
 		8DC070B8191969CD00A65B01 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */; };
@@ -124,6 +125,8 @@
 		8DACCBA2191C171E0026D75D /* DCLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCLeftMenuViewController.h; sourceTree = "<group>"; };
 		8DACCBA3191C171E0026D75D /* DCLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCLeftMenuViewController.m; sourceTree = "<group>"; };
 		8DACCBA5191C189F0026D75D /* leftMenu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leftMenu.jpg; sourceTree = "<group>"; };
+		8DAF3A9D19214E1E00205907 /* DCNumerosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNumerosViewController.h; sourceTree = "<group>"; };
+		8DAF3A9E19214E1E00205907 /* DCNumerosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNumerosViewController.m; sourceTree = "<group>"; };
 		8DB3C585191A9C4F003E2719 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8DB3C586191A9C4F003E2719 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8DB3C58E191AA99D003E2719 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -378,6 +381,8 @@
 				8DACCBA3191C171E0026D75D /* DCLeftMenuViewController.m */,
 				0B143C52192130CC006A9169 /* DCProfileViewController.h */,
 				0B143C53192130CC006A9169 /* DCProfileViewController.m */,
+				8DAF3A9D19214E1E00205907 /* DCNumerosViewController.h */,
+				8DAF3A9E19214E1E00205907 /* DCNumerosViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				B185CA2018A15BC800EE2CCE /* DCContatos.m in Sources */,
 				8DACCB97191C02400026D75D /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				8DACCB9C191C025F0026D75D /* SlideNavigationController.m in Sources */,
+				8DAF3A9F19214E1E00205907 /* DCNumerosViewController.m in Sources */,
 				B167467918B67EAD0063E631 /* KeychainItemWrapper.m in Sources */,
 				DDC969D61891742B00A3CEC7 /* DCAppDelegate.m in Sources */,
 				DDA969391892C43F00CBAB0D /* DCEmergenciaViewController.m in Sources */,

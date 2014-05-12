@@ -33,7 +33,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 4;
+	return 6;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -59,20 +59,28 @@
 			break;
 			
 		case 1:
-			cell.textLabel.text = @"Profile";
+			cell.textLabel.text = @"Perfil";
 			break;
 			
 		case 2:
-			cell.textLabel.text = @"Friends";
+			cell.textLabel.text = @"Amigos";
 			break;
 			
 		case 3:
-			cell.textLabel.text = @"Sign Out";
+			cell.textLabel.text = @"Adicionar local";
+			break;
+            
+        case 4:
+			cell.textLabel.text = @"Números de emergência";
+			break;
+            
+        case 5:
+			cell.textLabel.text = @"Sair da conta";
 			break;
 	}
 	
 	cell.backgroundColor = [UIColor clearColor];
-
+    
 	return cell;
 }
 
@@ -96,15 +104,30 @@
 		case 2:
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ContatosViewController"];
 			break;
+            
+        case 3:
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"NovoLocalViewController"];
+			break;
+            
+        case 4:
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"NumerosViewController"];
+            break;
 			
-		case 3:
+		case 5:
 			[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-            KeychainItemWrapper *keyPref = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
-            [keyPref resetKeychainItem];
+            
+            //KeychainItemWrapper *keyPref = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
+            //[keyPref resetKeychainItem];
             KeychainItemWrapper *keychainPassword = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
+            
+            NSString *savedUserName = [keychainPassword objectForKey:(__bridge id)kSecAttrAccount];
+            NSString *savedPassword = [keychainPassword objectForKey:(__bridge id)kSecValueData];
+            
             [keychainPassword setObject:@"" forKey:(__bridge id)kSecAttrAccount];
             [keychainPassword setObject:@"" forKey:(__bridge id)kSecValueData];
             
+            savedUserName = [keychainPassword objectForKey:(__bridge id)kSecAttrAccount];
+            savedPassword = [keychainPassword objectForKey:(__bridge id)kSecValueData];
             
             
 			[[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];

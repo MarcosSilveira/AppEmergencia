@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Rrl-bL-hsN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Rrl-bL-hsN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bnJ-Zc-WCi">
-                                <rect key="frame" x="20" y="215" width="280" height="30"/>
+                                <rect key="frame" x="20" y="259" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Estou em emergência">
@@ -171,27 +171,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jcf-mE-WA3">
-                                <rect key="frame" x="90" y="269" width="140" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Adicionar novo local">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clicouAdd:" destination="Mxl-z6-SRM" eventType="touchUpInside" id="04d-BU-fvA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rka-hB-6yi">
-                                <rect key="frame" x="145" y="341" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Call">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clicouCall:" destination="Mxl-z6-SRM" eventType="touchUpInside" id="uHW-PD-rMY"/>
-                                    <action selector="clicouMenu:" destination="Mxl-z6-SRM" eventType="touchUpInside" id="9y7-cF-Eep"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99215692280000001" green="0.99607849120000003" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                     </view>
@@ -203,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDO-5s-ysb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="-453"/>
+            <point key="canvasLocation" x="1055" y="-223"/>
         </scene>
         <!--Emergencia View Controller-->
         <scene sceneID="p2d-PE-0Kr">
@@ -279,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5H-bh-gDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717" y="229"/>
+            <point key="canvasLocation" x="1717" y="353"/>
         </scene>
         <!--Cadastro View Controller-->
         <scene sceneID="JOK-SF-t9Z">
@@ -377,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMO-BB-FjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="-747"/>
+            <point key="canvasLocation" x="530" y="409"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="yVq-b3-yv4">
@@ -481,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUO-Vs-Wh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="-1269"/>
+            <point key="canvasLocation" x="-199" y="-877"/>
         </scene>
         <!--Contatos View Controller-->
         <scene sceneID="Trj-Rz-Z82">
@@ -593,7 +572,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwz-YK-Ehu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717" y="-1130"/>
+            <point key="canvasLocation" x="303" y="-877"/>
         </scene>
         <!--Novo Contato View Controller-->
         <scene sceneID="idH-0B-yHf">
@@ -673,12 +652,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahu-80-fSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269" y="-1130"/>
+            <point key="canvasLocation" x="855" y="-877"/>
         </scene>
         <!--Novo Hospital View Controller-->
         <scene sceneID="h7P-VY-Yh9">
             <objects>
-                <viewController storyboardIdentifier="NovoHospitalViewController" id="puS-af-iNX" customClass="DCNovoHospitalViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NovoLocalViewController" id="puS-af-iNX" customClass="DCNovoHospitalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8c2-oM-Yda">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -784,7 +763,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xk0-d1-lgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717" y="-453"/>
+            <point key="canvasLocation" x="1367" y="-877"/>
         </scene>
         <!--Confirma View Controller-->
         <scene sceneID="4YQ-0H-VMa">
@@ -839,7 +818,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIf-Vp-ctO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247" y="-453"/>
+            <point key="canvasLocation" x="1897" y="-877"/>
+        </scene>
+        <!--Numeros View Controller-->
+        <scene sceneID="YbC-zU-igb">
+            <objects>
+                <viewController storyboardIdentifier="NumerosViewController" id="d3n-jO-YXf" customClass="DCNumerosViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sZJ-6u-wrp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S6s-3j-P5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2361" y="-877"/>
         </scene>
         <!--Mapas View Controller-->
         <scene sceneID="SkX-7L-GUQ">
@@ -921,7 +914,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej8-r0-lbc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247" y="229"/>
+            <point key="canvasLocation" x="2259" y="353"/>
         </scene>
         <!--Slide Navigation Controller-->
         <scene sceneID="aMG-bR-oDC">
@@ -950,8 +943,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0hI-ST-9lq"/>
         <segue reference="Esd-5I-jcg"/>
-        <segue reference="bIB-sV-cQ7"/>
+        <segue reference="0hI-ST-9lq"/>
+        <segue reference="GWl-Sy-20g"/>
     </inferredMetricsTieBreakers>
 </document>

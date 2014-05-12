@@ -40,6 +40,8 @@
     self.nametxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"nome"];
     self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
     self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,6 +90,17 @@
     return YES;
     
 }
+//slideMenudelegate
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayRightMenu
+{
+    return NO;
+}
 
 /*
 #pragma mark - Navigation
@@ -99,5 +112,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

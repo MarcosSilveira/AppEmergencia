@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "SlideNavigationController.h"
 
-@interface DCNovoHospitalViewController : UIViewController<MKMapViewDelegate,UITextFieldDelegate>
+@interface DCNovoHospitalViewController : UIViewController<MKMapViewDelegate,UITextFieldDelegate, SlideNavigationControllerDelegate>
 
 @end
