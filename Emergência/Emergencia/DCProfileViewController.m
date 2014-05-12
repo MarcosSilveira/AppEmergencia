@@ -35,7 +35,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _sangue=@[@"A+",@"A-",@"AB+",@"AB-",@"B+",@"B-", @"O+",@"O-"];
-
+    
+    
+    self.nametxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"nome"];
+    self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
+    self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,6 +81,12 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 
+}
+
+-(bool)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+    
 }
 
 /*

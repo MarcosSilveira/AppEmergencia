@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DCProfileViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface DCProfileViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate>
 
 @end

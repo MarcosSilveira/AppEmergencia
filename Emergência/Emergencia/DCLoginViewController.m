@@ -64,8 +64,6 @@
     
     // NAO PODE TER BACK BUTTON
     self.navigationItem.hidesBackButton = YES;
-    
-    
 }
 
 -(void)RunAnimation:(NSInteger)ID{
@@ -128,7 +126,7 @@
     NSString *savedUserName = [_keychainPassword objectForKey:(__bridge id)kSecAttrAccount];
     NSString *savedPassword = [_keychainPassword objectForKey:(__bridge id)kSecValueData];
     
-    if(![savedUserName isEqualToString:@""] && ![savedPassword isEqualToString:@""]) {
+    if(![savedUserName isEqualToString:@" "] && ![savedPassword isEqualToString:@" "]) {
         [self performSegueWithIdentifier:@"goToInicio" sender:self];
          self.conf.login = savedUserName;
     }
