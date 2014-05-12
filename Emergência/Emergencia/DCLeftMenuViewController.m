@@ -90,7 +90,7 @@
 			break;
 			
 		case 1:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"NumerosViewController"];
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ProfileViewController"];
 			break;
 			
 		case 2:
