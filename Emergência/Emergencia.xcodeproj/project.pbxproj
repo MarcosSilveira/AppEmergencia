@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B143C54192130CC006A9169 /* DCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B143C53192130CC006A9169 /* DCProfileViewController.m */; };
 		0B39E54B18CA45D600820716 /* TLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B39E54A18CA45D600820716 /* TLAlertView.m */; };
 		0B535AE71896D14A007CB773 /* DCConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B535AE61896D14A007CB773 /* DCConfigs.m */; };
 		0B535B231896D8FA007CB773 /* ip.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0B535B221896D8FA007CB773 /* ip.txt */; };
@@ -75,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B143C52192130CC006A9169 /* DCProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCProfileViewController.h; sourceTree = "<group>"; };
+		0B143C53192130CC006A9169 /* DCProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCProfileViewController.m; sourceTree = "<group>"; };
 		0B39E54918CA45D600820716 /* TLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLAlertView.h; sourceTree = "<group>"; };
 		0B39E54A18CA45D600820716 /* TLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLAlertView.m; sourceTree = "<group>"; };
 		0B535AE51896D14A007CB773 /* DCConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCConfigs.h; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 				DDC969DB1891742B00A3CEC7 /* DCLoginViewController.m */,
 				8DACCBA2191C171E0026D75D /* DCLeftMenuViewController.h */,
 				8DACCBA3191C171E0026D75D /* DCLeftMenuViewController.m */,
+				0B143C52192130CC006A9169 /* DCProfileViewController.h */,
+				0B143C53192130CC006A9169 /* DCProfileViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				8DACCB83191C02070026D75D /* RightMenuViewController.m in Sources */,
 				0BD2E2AB1899700800B78E51 /* DCPosto.m in Sources */,
 				8DACCBA4191C171E0026D75D /* DCLeftMenuViewController.m in Sources */,
+				0B143C54192130CC006A9169 /* DCProfileViewController.m in Sources */,
 				8D6D4F9818CA42B7007C361C /* DCNovoHospitalViewController.m in Sources */,
 				8D9AC568190807F500377B75 /* DCConfirmaViewController.m in Sources */,
 				8DACCB86191C02070026D75D /* ProfileViewController.m in Sources */,

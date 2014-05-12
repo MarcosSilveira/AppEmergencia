@@ -46,6 +46,9 @@
     //
 
 
+    NSString *iden = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
+    
+    
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
         [self performSegueWithIdentifier:@"goToInicio" sender:self];
 
