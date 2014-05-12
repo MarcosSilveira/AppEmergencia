@@ -102,8 +102,8 @@
             KeychainItemWrapper *keyPref = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
             [keyPref resetKeychainItem];
             KeychainItemWrapper *keychainPassword = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
-            [keychainPassword setObject:@" " forKey:(__bridge id)kSecAttrAccount];
-            [keychainPassword setObject:@" " forKey:(__bridge id)kSecValueData];
+            [keychainPassword setObject:@"" forKey:(__bridge id)kSecAttrAccount];
+            [keychainPassword setObject:@"" forKey:(__bridge id)kSecValueData];
             
             
             
