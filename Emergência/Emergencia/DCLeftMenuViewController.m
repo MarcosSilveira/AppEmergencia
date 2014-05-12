@@ -7,6 +7,7 @@
 //
 
 #import "DCLeftMenuViewController.h"
+#import "KeychainItemWrapper.h"
 
 @implementation DCLeftMenuViewController
 
@@ -85,11 +86,11 @@
 	switch (indexPath.row)
 	{
 		case 0:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"InicialViewController"];
 			break;
 			
 		case 1:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ProfileViewController"];
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"NumerosViewController"];
 			break;
 			
 		case 2:
@@ -98,6 +99,14 @@
 			
 		case 3:
 			[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+            KeychainItemWrapper *keyPref = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
+            [keyPref resetKeychainItem];
+            KeychainItemWrapper *keychainPassword = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
+            [keychainPassword setObject:@" " forKey:(__bridge id)kSecAttrAccount];
+            [keychainPassword setObject:@" " forKey:(__bridge id)kSecValueData];
+            
+            
+            
 			[[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
 			return;
 			break;

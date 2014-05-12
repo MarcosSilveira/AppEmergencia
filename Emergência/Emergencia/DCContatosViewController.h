@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlideNavigationContorllerAnimator.h"
+#import "SlideNavigationContorllerAnimatorFade.h"
+#import "SlideNavigationContorllerAnimatorSlide.h"
+#import "SlideNavigationContorllerAnimatorScale.h"
+#import "SlideNavigationContorllerAnimatorScaleAndFade.h"
+#import "SlideNavigationContorllerAnimatorSlideAndFade.h"
+#import "DCLeftMenuViewController.h"
 
-@interface DCContatosViewController : UITableViewController <UIAlertViewDelegate, UISearchBarDelegate>
+@interface DCContatosViewController : UITableViewController <UIAlertViewDelegate, UISearchBarDelegate,SlideNavigationControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *contacts;
+@property (nonatomic)DCLeftMenuViewController *left;
 
 @end
 

@@ -11,6 +11,7 @@
 #import <MessageUI/MessageUI.h>
 
 
+
 @interface DCMapasViewController : UIViewController<MKMapViewDelegate,MFMessageComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *Map1;
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *OndeEstou;
 //-(void)registerRegionWithCircularOverlay:(MKCircle*) overlay andIdentifier:(NSString*)identifier;
 @property (strong, nonatomic)CLCircularRegion *cr;
+
 
 @property (nonatomic) float raio;
 @property (nonatomic) CLLocationCoordinate2D coordenada;

@@ -12,6 +12,7 @@
 #import "SlideNavigationContorllerAnimatorScale.h"
 #import "SlideNavigationContorllerAnimatorScaleAndFade.h"
 #import "SlideNavigationContorllerAnimatorSlideAndFade.h"
+#import "KeychainItemWrapper.h"
 
 @implementation LeftMenuViewController
 
@@ -106,8 +107,10 @@
 			break;
 			
 		case 3:
-			[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+            [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+
 			[[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
+            
 			return;
 			break;
 	}

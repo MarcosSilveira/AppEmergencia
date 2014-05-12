@@ -13,12 +13,11 @@
 #import "KeychainItemWrapper.h"
 #include <arpa/inet.h>
 #import "Reachability.h"
-#import "DCLeftMenuViewController.h"
+
 
 
 @interface DCInicialViewController ()
-
-@property (weak, nonatomic) IBOutlet UILabel *userLogado;
+ @property (weak, nonatomic) IBOutlet UILabel *userLogado;
 
 
 @end
@@ -28,6 +27,9 @@
 //DCReachability *connectionTest;
 UIAlertView *nconnection;
 BOOL connectionOK = NO;
+- (IBAction)clicouCall:(id)sender {
+[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:192"]];
+}
 
 - (IBAction)clicouAdd:(id)sender {
     [self performSegueWithIdentifier:@"goToAdd" sender:self];
@@ -45,19 +47,7 @@ BOOL connectionOK = NO;
     [self testeDeConeccao];
     
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-															 bundle: nil];
-    
-    _left = [mainStoryboard instantiateViewControllerWithIdentifier: @"leftMenu"];
 
-    
-//    _left = [[DCLeftMenuViewController alloc]init];
-    id <SlideNavigationContorllerAnimator> revealAnimator;
-    revealAnimator = [[SlideNavigationContorllerAnimatorScaleAndFade alloc]init];
-    [[SlideNavigationController sharedInstance] enableSwipeGesture];
-    [SlideNavigationController sharedInstance].menuRevealAnimator = revealAnimator;
-    [SlideNavigationController sharedInstance].leftMenu = _left;
-    [SlideNavigationController sharedInstance].landscapeSlideOffset = 120;
 
 
     
@@ -102,9 +92,6 @@ BOOL connectionOK = NO;
     
 }
 
-- (IBAction)callSamu:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:12125551212"]];
-}
 
 -(void)viewDidAppear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification) name:@"MyNotification" object:nil];
@@ -221,11 +208,7 @@ BOOL connectionOK = NO;
     
 }
 
-- (IBAction)clicouMenu:(id)sender {
 
-    
-    
-}
 - (IBAction)clicouEmergencia:(id)sender {
     [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
 }
