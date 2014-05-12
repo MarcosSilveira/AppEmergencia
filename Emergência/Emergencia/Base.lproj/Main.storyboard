@@ -35,7 +35,7 @@
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="DCLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="vXZ-lx-hvc" customClass="DCLoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -141,7 +141,7 @@
         <!--Inicial View Controller-->
         <scene sceneID="I15-8p-Uqx">
             <objects>
-                <viewController id="Mxl-z6-SRM" customClass="DCInicialViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InicialViewController" id="Mxl-z6-SRM" customClass="DCInicialViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MRX-Es-mM5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -182,12 +182,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rka-hB-6yi">
-                                <rect key="frame" x="137" y="341" width="46" height="30"/>
+                                <rect key="frame" x="145" y="341" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Call">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="clicouCall:" destination="Mxl-z6-SRM" eventType="touchUpInside" id="uHW-PD-rMY"/>
                                     <action selector="clicouMenu:" destination="Mxl-z6-SRM" eventType="touchUpInside" id="9y7-cF-Eep"/>
                                 </connections>
                             </button>
@@ -197,13 +198,12 @@
                     <navigationItem key="navigationItem" id="Jgf-Sn-2ON"/>
                     <connections>
                         <outlet property="userLogado" destination="WCw-HL-CsA" id="zuR-Y7-9KJ"/>
-                        <segue destination="puS-af-iNX" kind="push" identifier="goToAdd" id="AiK-fK-BvV"/>
                         <segue destination="bLl-CC-BeM" kind="push" identifier="goToEmergencia" id="zeE-qz-oGW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDO-5s-ysb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1235" y="-319"/>
+            <point key="canvasLocation" x="1093" y="-453"/>
         </scene>
         <!--Emergencia View Controller-->
         <scene sceneID="p2d-PE-0Kr">
@@ -279,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5H-bh-gDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="189"/>
+            <point key="canvasLocation" x="1717" y="229"/>
         </scene>
         <!--Cadastro View Controller-->
         <scene sceneID="JOK-SF-t9Z">
@@ -377,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMO-BB-FjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="522" y="-765"/>
+            <point key="canvasLocation" x="538" y="-747"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="yVq-b3-yv4">
@@ -669,7 +669,7 @@
         <!--Novo Hospital View Controller-->
         <scene sceneID="h7P-VY-Yh9">
             <objects>
-                <viewController id="puS-af-iNX" customClass="DCNovoHospitalViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NovoHospitalViewController" id="puS-af-iNX" customClass="DCNovoHospitalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8c2-oM-Yda">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -775,7 +775,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xk0-d1-lgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269" y="-465"/>
+            <point key="canvasLocation" x="1717" y="-453"/>
         </scene>
         <!--Confirma View Controller-->
         <scene sceneID="4YQ-0H-VMa">
@@ -830,7 +830,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIf-Vp-ctO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2799" y="-465"/>
+            <point key="canvasLocation" x="2247" y="-453"/>
         </scene>
         <!--Mapas View Controller-->
         <scene sceneID="SkX-7L-GUQ">
@@ -912,7 +912,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej8-r0-lbc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269" y="197"/>
+            <point key="canvasLocation" x="2247" y="229"/>
         </scene>
         <!--Slide Navigation Controller-->
         <scene sceneID="aMG-bR-oDC">
@@ -927,7 +927,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meS-ci-fnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-692" y="-83"/>
+            <point key="canvasLocation" x="-688" y="-35"/>
         </scene>
     </scenes>
     <resources>
@@ -942,7 +942,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="0hI-ST-9lq"/>
-        <segue reference="zeE-qz-oGW"/>
-        <segue reference="GWl-Sy-20g"/>
+        <segue reference="Esd-5I-jcg"/>
+        <segue reference="bIB-sV-cQ7"/>
     </inferredMetricsTieBreakers>
 </document>

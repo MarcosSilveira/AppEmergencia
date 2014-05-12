@@ -11,7 +11,9 @@
 #import "DCConfigs.h"
 #import "DCMapasViewController.h"
 #import "DCInicialViewController.h"
-
+#import "SlideNavigationContorllerAnimator.h"
+#import "DCLeftMenuViewController.h"
+#import "SlideNavigationContorllerAnimatorSlideAndFade.h"
 @implementation DCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -51,12 +53,20 @@
     
     
 //---------SlideMenu-------------
-    LeftMenuViewController *leftMenu = [[LeftMenuViewController alloc] init];
-    RightMenuViewController *righMenu = [[RightMenuViewController alloc] init];
+    DCLeftMenuViewController *left;
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+															 bundle: nil];
     
-    [SlideNavigationController sharedInstance].rightMenu = righMenu;
-    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    left = [mainStoryboard instantiateViewControllerWithIdentifier: @"leftMenu"];
     
+    
+    //    _left = [[DCLeftMenuViewController alloc]init];
+    id <SlideNavigationContorllerAnimator> revealAnimator;
+    revealAnimator = [[SlideNavigationContorllerAnimatorScaleAndFade alloc]init];
+    [[SlideNavigationController sharedInstance] enableSwipeGesture];
+    [SlideNavigationController sharedInstance].menuRevealAnimator = revealAnimator;
+    [SlideNavigationController sharedInstance].leftMenu = left;
+    [SlideNavigationController sharedInstance].landscapeSlideOffset = 120;
     // Override point for customization after application launch.
 
     
@@ -155,7 +165,7 @@
         localNotif.timeZone = [NSTimeZone defaultTimeZone];
         
         localNotif.alertBody = NSLocalizedString(@"Lembre-se de registrar novos locais!", nil);
-        localNotif.alertAction = NSLocalizedString(@"notif-title", nil);
+        localNotif.alertAction = NSLocalizedString(@"abrir", nil);
         
         localNotif.soundName = UILocalNotificationDefaultSoundName;
         localNotif.applicationIconBadgeNumber = 1;

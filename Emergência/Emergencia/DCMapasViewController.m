@@ -87,6 +87,7 @@
     _aviso.backgroundColor = cor;
     _aviso.layer.cornerRadius = 15;
     _aviso.layer.masksToBounds = YES;
+    _aviso.hidden = YES;
     
     
     
@@ -145,7 +146,8 @@
     
     
     [_AILoading stopAnimating];
-        _LBLoading.hidden = YES;}
+        _LBLoading.hidden = YES;
+        _aviso.hidden = YES;}
     
   return locais;
 }
@@ -282,6 +284,7 @@
     [_AILoading startAnimating];
     _LBLoading.hidden = NO;
     [self.view addSubview:_aviso];
+    _aviso.hidden = NO;
     
     [self performSelectorInBackground:@selector(buscar:) withObject:newLocation];
     [self performSelectorInBackground:@selector(buscarValidar:) withObject:newLocation];
