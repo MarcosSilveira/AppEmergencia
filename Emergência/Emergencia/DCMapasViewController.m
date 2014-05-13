@@ -196,7 +196,7 @@
             [locaisValidar addObject:posto];
         }
     }
-    
+    //[self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
     [_AILoading stopAnimating];
     _LBLoading.hidden = YES;
@@ -217,13 +217,21 @@
     for (int i  = 0; i < postos.count; i++) {
         
         pontoaux = [[MKPointAnnotation alloc] init];
+       
         DCPosto *postoaux = postos[i];
         
         pontoaux.title = postoaux.nome;
         CLLocationCoordinate2D coordenada = CLLocationCoordinate2DMake(postoaux.lat, postoaux.log);
         pontoaux.coordinate = coordenada;
         pontoaux.subtitle = postoaux.endereco;
-        [_Map1 addAnnotation:pontoaux];
+        if(postoaux.validar){
+            
+            pontoaux.subtitle=@"Validar";
+        }else{
+ //           pontoaux.subtitle=@"NValidar";
+
+        }
+                [_Map1 addAnnotation:pontoaux];
     }
 
     
@@ -277,7 +285,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
   
   //centralizar o mapa nesta nova localizacao do usuario
-  MKCoordinateSpan zoom = MKCoordinateSpanMake(0.015,0.015);
+  MKCoordinateSpan zoom = MKCoordinateSpanMake(_raio* 0.000020, _raio* 0.000020);
   
   MKCoordinateRegion regiao = MKCoordinateRegionMake(newLocation.coordinate, zoom);
 //    [self performSelectorInBackground:@selector(buscar:newLocation.coordinate.latitude withlongitude:newLocation.coordinate.longitude withraioMeters:raio withPriority:@1) withObject:nil];
@@ -377,7 +385,13 @@
             btEsquerda.layer.cornerRadius = 15;
             pin.leftCalloutAccessoryView = btEsquerda;
             pin.canShowCallout = YES;
-            pin.image = [UIImage imageNamed:@"teste.png"];
+
+            if([annotation.subtitle isEqualToString:@"Validar"])
+            {}
+            else
+                pin.image = [UIImage imageNamed:@"teste.png"];
+            
+            
         }
         
         pin.annotation = annotation;
