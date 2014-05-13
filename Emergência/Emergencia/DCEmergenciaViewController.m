@@ -35,7 +35,7 @@ float longi;
 {
   [super viewDidLoad];
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
-//        [self performSegueWithIdentifier:@"goToMapas" sender:self];
+        [self performSegueWithIdentifier:@"goToMapas" sender:self];
     
     }
 
@@ -93,6 +93,7 @@ float longi;
       NSLog(@"Toque");
 //    [self delete:_viewAux];
 //    [self delete:_viewNotification];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOn"];
     [self.navigationController popToRootViewControllerAnimated:NO];
     
 }
@@ -276,11 +277,10 @@ float longi;
 -(void)dealloc
 {
     _gerenciadorLocalizacao.delegate = nil;
-    [_viewAux removeFromSuperview];
-    [_viewNotification removeFromSuperview];
-    
-    
 
+}
+-(void)viewWillDisappear:(BOOL)animated{
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pushOn"];
 }
 
 

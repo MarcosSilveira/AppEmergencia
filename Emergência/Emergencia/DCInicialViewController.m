@@ -127,6 +127,7 @@ BOOL connectionOK = NO;
 
 -(void)tocouNaNotification{
     NSLog(@"Toque");
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOn"];
     [self.navigationController popToRootViewControllerAnimated:NO];
     
 }
@@ -257,6 +258,10 @@ BOOL connectionOK = NO;
 - (BOOL)slideNavigationControllerShouldDisplayRightMenu
 {
     return NO;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pushOn"];
 }
 
 @end
