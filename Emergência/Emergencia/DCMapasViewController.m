@@ -193,10 +193,10 @@
             posto.cod=[objo objectForKey:@"idlocaisAprovar"];
             posto.validar=YES;
             
-            [locaisValidar addObject:posto];
+            [locais addObject:posto];
         }
     }
-    //[self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
     [_AILoading stopAnimating];
     _LBLoading.hidden = YES;
@@ -387,7 +387,7 @@
             pin.canShowCallout = YES;
 
             if([annotation.subtitle isEqualToString:@"Validar"])
-            {}
+            { pin.image = [UIImage imageNamed:@"validar.png"];}
             else
                 pin.image = [UIImage imageNamed:@"teste.png"];
             
