@@ -41,10 +41,11 @@
     _AILoading.hidesWhenStopped = YES;
     _LBLoading.hidden = YES;
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOnToMap"]) {
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([[[NSUserDefaults standardUserDefaults] objectForKey:@"lat"] doubleValue], [[[NSUserDefaults standardUserDefaults] objectForKey:@"log"]doubleValue]);
         self.coordenada = coord;
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pushOn"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pushOnToMap"];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"lat"];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"log"];
     }
@@ -193,10 +194,10 @@
             posto.cod=[objo objectForKey:@"idlocaisAprovar"];
             posto.validar=YES;
             
-            [locaisValidar addObject:posto];
+            [locais addObject:posto];
         }
     }
-    //[self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
     [_AILoading stopAnimating];
     _LBLoading.hidden = YES;
@@ -392,7 +393,7 @@
             pin.canShowCallout = YES;
 
             if([annotation.subtitle isEqualToString:@"Validar"])
-            {}
+            { pin.image = [UIImage imageNamed:@"validar.png"];}
             else
                 pin.image = [UIImage imageNamed:@"teste.png"];
             

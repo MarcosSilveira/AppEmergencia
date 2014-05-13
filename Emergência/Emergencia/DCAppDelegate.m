@@ -91,14 +91,14 @@
         dcvc.coordenada = CLLocationCoordinate2DMake(latitude, longitude);
     }
     if(application.applicationState == UIApplicationStateActive){
-        BOOL push = YES;
+//        BOOL push = YES;
         NSNumber *latitude2 = [[NSNumber alloc] initWithFloat:latitude];
         NSNumber *longitude2 = [[NSNumber alloc] initWithFloat:longitude];
-        NSNumber *push2 = [[NSNumber alloc] initWithBool:push];
+//        NSNumber *push2 = [[NSNumber alloc] initWithBool:push];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"MyNotification" object:self];
         [[NSUserDefaults standardUserDefaults] setObject:longitude2 forKey:@"log"];
         [[NSUserDefaults standardUserDefaults] setObject:latitude2 forKey:@"lat"];
-        [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOnToMap"];
     }
     
     

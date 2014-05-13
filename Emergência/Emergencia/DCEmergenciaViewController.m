@@ -91,8 +91,9 @@ float longi;
 }
 -(void)tocouNaNotification{
       NSLog(@"Toque");
-    [self delete:_viewAux];
-    [self delete:_viewNotification];
+//    [self delete:_viewAux];
+//    [self delete:_viewNotification];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOn"];
     [self.navigationController popToRootViewControllerAnimated:NO];
     
 }
@@ -276,11 +277,10 @@ float longi;
 -(void)dealloc
 {
     _gerenciadorLocalizacao.delegate = nil;
-    [_viewAux removeFromSuperview];
-    [_viewNotification removeFromSuperview];
-    
-    
 
+}
+-(void)viewWillDisappear:(BOOL)animated{
+//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"pushOn"];
 }
 
 

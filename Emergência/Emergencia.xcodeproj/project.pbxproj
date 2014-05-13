@@ -36,6 +36,7 @@
 		8DACCBA4191C171E0026D75D /* DCLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DACCBA3191C171E0026D75D /* DCLeftMenuViewController.m */; };
 		8DACCBA6191C189F0026D75D /* leftMenu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8DACCBA5191C189F0026D75D /* leftMenu.jpg */; };
 		8DAF3A9F19214E1E00205907 /* DCNumerosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAF3A9E19214E1E00205907 /* DCNumerosViewController.m */; };
+		8DAF3AA51922887200205907 /* validar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAF3AA41922887200205907 /* validar.png */; };
 		8DB3C587191A9C4F003E2719 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3C586191A9C4F003E2719 /* Reachability.m */; };
 		8DB3C58F191AA99D003E2719 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB3C58E191AA99D003E2719 /* QuartzCore.framework */; };
 		8DC070B8191969CD00A65B01 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */; };
@@ -129,6 +130,7 @@
 		8DACCBA5191C189F0026D75D /* leftMenu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leftMenu.jpg; sourceTree = "<group>"; };
 		8DAF3A9D19214E1E00205907 /* DCNumerosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNumerosViewController.h; sourceTree = "<group>"; };
 		8DAF3A9E19214E1E00205907 /* DCNumerosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNumerosViewController.m; sourceTree = "<group>"; };
+		8DAF3AA41922887200205907 /* validar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = validar.png; sourceTree = "<group>"; };
 		8DB3C585191A9C4F003E2719 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8DB3C586191A9C4F003E2719 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8DB3C58E191AA99D003E2719 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -331,6 +333,7 @@
 				0B535B221896D8FA007CB773 /* ip.txt */,
 				8DACCBA5191C189F0026D75D /* leftMenu.jpg */,
 				DDC969CD1891742B00A3CEC7 /* Emergencia-Info.plist */,
+				8DAF3AA41922887200205907 /* validar.png */,
 				8DDA2CA018AA98B500EE6295 /* teste.png */,
 				DDC969CE1891742B00A3CEC7 /* InfoPlist.strings */,
 				DDC969D11891742B00A3CEC7 /* main.m */,
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D18E5B8189FF726003466C6 /* home_ico_dica_carro.png in Resources */,
+				8DAF3AA51922887200205907 /* validar.png in Resources */,
 				8DDA2CA118AA98B600EE6295 /* teste.png in Resources */,
 				8D1724AB18ABF4DA00E18006 /* you-make-me-hurt.png in Resources */,
 				DDC969DE1891742B00A3CEC7 /* Images.xcassets in Resources */,
