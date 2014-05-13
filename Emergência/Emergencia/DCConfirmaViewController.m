@@ -95,8 +95,10 @@
     DCPosto *posto = _postoaux;
     
     if(posto.isOk){
+        
+        NSString *idUsuario = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
 
-        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@",self.config.ip,posto.lat,posto.log,posto.nome,posto.telefone,posto.endereco];
+        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@&id=%@",self.config.ip,posto.lat,posto.log,posto.nome,posto.telefone,posto.endereco,idUsuario];
         
         urlServidor=[urlServidor stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
