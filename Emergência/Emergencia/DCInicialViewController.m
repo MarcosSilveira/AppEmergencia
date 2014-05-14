@@ -45,13 +45,7 @@ BOOL connectionOK = NO;
     
     [self configuracoesIniciais];
     [self testeDeConeccao];
-    
-    
 
-
-
-    
-    
     _userLogado.text = self.config.login;
     
     NSString *savedUserName = self.config.login;
