@@ -380,10 +380,15 @@
             pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:strPinReuseIdentifier];
             
             UIButton *btEsquerda = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+            UIButton *btDireita = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
             btEsquerda.backgroundColor = [UIColor redColor];
+            [btDireita setImage: [UIImage imageNamed:@"detail.png"] forState:UIControlStateNormal];
             [btEsquerda setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
+            [btDireita addTarget:self action:@selector(clickRightBt) forControlEvents:UIControlEventTouchUpInside];
             [btEsquerda addTarget:self action:@selector(clickLeftBt) forControlEvents:UIControlEventTouchUpInside];
             btEsquerda.layer.cornerRadius = 15;
+            btDireita.layer.cornerRadius = 15;
+            pin.rightCalloutAccessoryView = btDireita;
             pin.leftCalloutAccessoryView = btEsquerda;
             pin.canShowCallout = YES;
 
@@ -403,9 +408,9 @@
   
 }
 
--(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+-(void)clickRightBt
 {
-    NSLog(@"awesaeqwesa");
+    [self performSegueWithIdentifier:@"goToDetalheHospital" sender:nil];
 }
 
 -(void)clickLeftBt {

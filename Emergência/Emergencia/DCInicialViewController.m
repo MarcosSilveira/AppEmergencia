@@ -39,9 +39,6 @@ BOOL connectionOK = YES;
 
     [self configuracoesIniciais];
     [self testeDeConeccao];
-    
-    
-
 
 
     

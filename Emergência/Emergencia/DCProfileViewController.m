@@ -7,6 +7,7 @@
 //
 
 #import "DCProfileViewController.h"
+#import "TLAlertView.h"
 
 @interface DCProfileViewController ()
 
@@ -41,6 +42,10 @@
     self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
     self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
     
+   
+    NSNumber *temp= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
+   //[self.tipo selectedRowInComponent:[temp integerValue]];
+    [self.tipo selectRow:[temp integerValue] inComponent:0 animated:YES];
     self.navigationItem.hidesBackButton = YES;
 }
 
@@ -80,9 +85,14 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.nametxt.text forKey:@"nome"];
     [[NSUserDefaults standardUserDefaults] setObject:self.pesotxt.text forKey:@"peso"];
     [[NSUserDefaults standardUserDefaults] setObject:self.alturatxt.text forKey:@"altura"];
+    NSInteger sele=[self.tipo selectedRowInComponent:self.tipo.tag];
+    NSNumber *seles=[NSNumber numberWithInteger:sele];
+        [[NSUserDefaults standardUserDefaults] setObject:seles forKey:@"sangue"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Atualizado" message:@"Atualização do perfil ok" buttonTitle:@"OK"];
+    [alertView show];
 }
 
 -(bool)textFieldShouldReturn:(UITextField *)textField{
@@ -100,6 +110,36 @@
 - (BOOL)slideNavigationControllerShouldDisplayRightMenu
 {
     return NO;
+}
+
+- (IBAction)criarImagem:(id)sender {
+    NSString *teste=[[NSUserDefaults standardUserDefaults] stringForKey: @"nome"];
+    [self imageFromText:teste];
+    
+    
+    
+}
+
+-(UIImage *)imageFromText:(NSString *)text
+{
+    // set the font type and size
+    //UIFont *font = [UIFont systemFontOfSize:20.0];
+    UIFont *font=[UIFont fontWithName:@"DamascusBold" size:17.0];
+   
+    CGSize size  = [text sizeWithFont:font];
+    
+    UIGraphicsBeginImageContext(size);
+    
+    [text drawAtPoint:CGPointMake(0.0, 0.0) withFont:font];
+    
+    // transfer image
+    CGContextSetShouldAntialias(UIGraphicsGetCurrentContext(), YES);
+    CGContextSetAllowsAntialiasing(UIGraphicsGetCurrentContext(), YES);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 /*
