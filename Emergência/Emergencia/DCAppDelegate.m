@@ -126,14 +126,16 @@
     NSLog(@"%@", _pushId);
     
     [[NSUserDefaults standardUserDefaults]setObject:_pushId forKey:@"token"];
-    
-    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     //chamar WS passando usuario e token
 //    NSString *savedUserName = [[NSUserDefaults standardUserDefaults] stringForKey: @"username"];
 //    NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
     
 }
-
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"falhou");
+    NSLog(@"%@",[error localizedDescription]);
+}
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.

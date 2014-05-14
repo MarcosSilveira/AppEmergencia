@@ -34,10 +34,13 @@ float longi;
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+    
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
         [self performSegueWithIdentifier:@"goToMapas" sender:self];
     
     }
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.png"]]];
 
     //recebeu notificacao enquanto aberta
     

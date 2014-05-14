@@ -11,7 +11,7 @@
 #import "DCContatos.h"
 #import "SlideNavigationController.h"
 
-@interface DCNovoContatoViewController : UIViewController <UITextFieldDelegate,SlideNavigationControllerDelegate>
+@interface DCNovoContatoViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *txtUser;
 @property (weak, nonatomic) IBOutlet UITextField *txtTelefone;

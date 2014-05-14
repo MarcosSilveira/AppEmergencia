@@ -17,7 +17,7 @@
 
 
 @interface DCInicialViewController ()
- @property (weak, nonatomic) IBOutlet UILabel *userLogado;
+
 
 
 @end
@@ -26,23 +26,17 @@
 
 //DCReachability *connectionTest;
 UIAlertView *nconnection;
-BOOL connectionOK = NO;
-- (IBAction)clicouCall:(id)sender {
-[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:192"]];
-}
+BOOL connectionOK = YES;
 
-- (IBAction)clicouAdd:(id)sender {
-    [self performSegueWithIdentifier:@"goToAdd" sender:self];
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
-        [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
+        [self performSegueWithIdentifier:@"goToEmergencia" sender:nil];
         
     }
-    
+
     [self configuracoesIniciais];
     [self testeDeConeccao];
     
@@ -50,9 +44,6 @@ BOOL connectionOK = NO;
 
 
 
-    
-    
-    _userLogado.text = self.config.login;
     
     NSString *savedUserName = self.config.login;
     NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
