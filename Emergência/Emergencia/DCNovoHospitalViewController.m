@@ -91,7 +91,7 @@ CLLocationManager *gerenciadorLocalizacao;
     else{
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos em Branco" buttonTitle:@"OK"];
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos obrigatórios em branco" buttonTitle:@"OK"];
             [alertView show];
         });
         
