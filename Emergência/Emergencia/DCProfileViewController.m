@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *pesotxt;
 @property (weak, nonatomic) IBOutlet UITextField *alturatxt;
 @property (weak, nonatomic) IBOutlet UIPickerView *tipo;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrolls;
 @property NSArray *sangue;
 
 @end
@@ -47,6 +49,9 @@
    //[self.tipo selectedRowInComponent:[temp integerValue]];
     [self.tipo selectRow:[temp integerValue] inComponent:0 animated:YES];
     self.navigationItem.hidesBackButton = YES;
+    
+    [self.scrolls setScrollEnabled:YES];
+    [self.scrolls setContentSize:CGSizeMake(360, 900)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,24 +119,57 @@
 
 - (IBAction)criarImagem:(id)sender {
     NSString *teste=[[NSUserDefaults standardUserDefaults] stringForKey: @"nome"];
-    [self imageFromText:teste];
-    
-    
-    
+    UIImage *img=[self imageFromText:teste];
+    [self.image setImage:[self imageFromText:teste]];
+    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
 }
 
 -(UIImage *)imageFromText:(NSString *)text
 {
     // set the font type and size
     //UIFont *font = [UIFont systemFontOfSize:20.0];
-    UIFont *font=[UIFont fontWithName:@"DamascusBold" size:17.0];
+    UIFont *font=[UIFont fontWithName:@"DamascusBold" size:12.0];
    
-    CGSize size  = [text sizeWithFont:font];
+    
+    NSString *temp=[NSString stringWithFormat:@"nome: %@",text];
+    
+    CGSize size  = CGSizeMake([temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5);
     
     UIGraphicsBeginImageContext(size);
+
     
-    [text drawAtPoint:CGPointMake(0.0, 0.0) withFont:font];
+    [temp drawAtPoint:CGPointMake(0.0, 5) withFont:font];
     
+    temp=[NSString stringWithFormat:@"peso: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"]];
+    
+    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height+5) withFont:font];
+    
+    temp=[NSString stringWithFormat:@"Altura: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"]];
+    
+    
+    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height*2+5) withFont:font];
+    
+    NSNumber *numero= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
+    
+    NSLog(@" num: %@",numero);
+    
+    
+    
+    temp=[NSString stringWithFormat:@"Tipo sanguíneo:  %@",[_sangue objectAtIndex:[numero integerValue] ]];
+    
+    
+    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height*3+5) withFont:font];
+
+    /*
+    
+    self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
+    self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
+    
+    
+    NSNumber *tempo= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
+    //[self.tipo selectedRowInComponent:[temp integerValue]];
+    [self.tipo selectRow:[temp integerValue] inComponent:0 animated:YES];
+    */
     // transfer image
     CGContextSetShouldAntialias(UIGraphicsGetCurrentContext(), YES);
     CGContextSetAllowsAntialiasing(UIGraphicsGetCurrentContext(), YES);
