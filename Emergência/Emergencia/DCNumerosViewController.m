@@ -10,6 +10,27 @@
 
 @implementation DCNumerosViewController
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
+    
+    
+    [_op0 setImage:[UIImage imageNamed:@"ambulancia.png"] forState:UIControlStateNormal];
+    [_Op1 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];
+}
+- (IBAction)clicouOp0:(id)sender {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:192"]];
+    
+}
+
+
+- (IBAction)clicouOp1:(id)sender {
+    
+   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:190"]];
+}
+
+//slide menu
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
     return YES;

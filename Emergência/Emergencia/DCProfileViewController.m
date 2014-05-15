@@ -7,6 +7,7 @@
 //
 
 #import "DCProfileViewController.h"
+#import "TLAlertView.h"
 
 @interface DCProfileViewController ()
 
@@ -14,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *pesotxt;
 @property (weak, nonatomic) IBOutlet UITextField *alturatxt;
 @property (weak, nonatomic) IBOutlet UIPickerView *tipo;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrolls;
 @property NSArray *sangue;
 
 @end
@@ -41,7 +44,14 @@
     self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
     self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
     
+   
+    NSNumber *temp= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
+   //[self.tipo selectedRowInComponent:[temp integerValue]];
+    [self.tipo selectRow:[temp integerValue] inComponent:0 animated:YES];
     self.navigationItem.hidesBackButton = YES;
+    
+    [self.scrolls setScrollEnabled:YES];
+    [self.scrolls setContentSize:CGSizeMake(360, 900)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,9 +90,14 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.nametxt.text forKey:@"nome"];
     [[NSUserDefaults standardUserDefaults] setObject:self.pesotxt.text forKey:@"peso"];
     [[NSUserDefaults standardUserDefaults] setObject:self.alturatxt.text forKey:@"altura"];
+    NSInteger sele=[self.tipo selectedRowInComponent:self.tipo.tag];
+    NSNumber *seles=[NSNumber numberWithInteger:sele];
+        [[NSUserDefaults standardUserDefaults] setObject:seles forKey:@"sangue"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Atualizado" message:@"Atualização do perfil ok" buttonTitle:@"OK"];
+    [alertView show];
 }
 
 -(bool)textFieldShouldReturn:(UITextField *)textField{
@@ -100,6 +115,69 @@
 - (BOOL)slideNavigationControllerShouldDisplayRightMenu
 {
     return NO;
+}
+
+- (IBAction)criarImagem:(id)sender {
+    NSString *teste=[[NSUserDefaults standardUserDefaults] stringForKey: @"nome"];
+    UIImage *img=[self imageFromText:teste];
+    [self.image setImage:[self imageFromText:teste]];
+    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+}
+
+-(UIImage *)imageFromText:(NSString *)text
+{
+    // set the font type and size
+    //UIFont *font = [UIFont systemFontOfSize:20.0];
+    UIFont *font=[UIFont fontWithName:@"DamascusBold" size:12.0];
+   
+    
+    NSString *temp=[NSString stringWithFormat:@"nome: %@",text];
+    
+    CGSize size  = CGSizeMake([temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5);
+    
+    UIGraphicsBeginImageContext(size);
+
+    
+    [temp drawAtPoint:CGPointMake(0.0, 5) withFont:font];
+    
+    temp=[NSString stringWithFormat:@"peso: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"]];
+    
+    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height+5) withFont:font];
+    
+    temp=[NSString stringWithFormat:@"Altura: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"]];
+    
+    
+    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height*2+5) withFont:font];
+    
+    NSNumber *numero= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
+    
+    NSLog(@" num: %@",numero);
+    
+    
+    
+    temp=[NSString stringWithFormat:@"Tipo sanguíneo:  %@",[_sangue objectAtIndex:[numero integerValue] ]];
+    
+    
+    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height*3+5) withFont:font];
+
+    /*
+    
+    self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
+    self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
+    
+    
+    NSNumber *tempo= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
+    //[self.tipo selectedRowInComponent:[temp integerValue]];
+    [self.tipo selectRow:[temp integerValue] inComponent:0 animated:YES];
+    */
+    // transfer image
+    CGContextSetShouldAntialias(UIGraphicsGetCurrentContext(), YES);
+    CGContextSetAllowsAntialiasing(UIGraphicsGetCurrentContext(), YES);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 /*
