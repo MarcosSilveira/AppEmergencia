@@ -40,7 +40,7 @@ BOOL connectionOK = YES;
     [self configuracoesIniciais];
     [self testeDeConeccao];
 
-
+//    _userLogado.text = self.config.login;
     
     NSString *savedUserName = self.config.login;
     NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
@@ -189,10 +189,11 @@ BOOL connectionOK = YES;
     self.navigationItem.hidesBackButton = YES;
     
     
+    
     if(self.coordenada.latitude!=0 && self.coordenada.longitude !=0)
         [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
     //configuraTableView do menu lateral esquerdo
-    
+
     
     
 }
