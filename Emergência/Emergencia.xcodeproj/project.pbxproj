@@ -49,7 +49,7 @@
 		B185CA2018A15BC800EE2CCE /* DCContatos.m in Sources */ = {isa = PBXBuildFile; fileRef = B185CA1F18A15BC800EE2CCE /* DCContatos.m */; };
 		B185CA2318A29CAC00EE2CCE /* DCNovoContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */; };
 		B1E3BF6919229A1B00FD10BF /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E3BF6819229A1B00FD10BF /* detail.png */; };
-		B1E3BF6C19229C3200FD10BF /* DCDetalheHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3BF6B19229C3200FD10BF /* DCDetalheHospitalViewController.m */; };
+		B1E3BF6F19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */; };
 		DDA969391892C43F00CBAB0D /* DCEmergenciaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA969381892C43F00CBAB0D /* DCEmergenciaViewController.m */; };
 		DDA9693C1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA9693B1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m */; };
 		DDA969401896BA1E00CBAB0D /* DCEmergencia.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA9693F1896BA1E00CBAB0D /* DCEmergencia.m */; };
@@ -151,8 +151,8 @@
 		B185CA2118A29CAC00EE2CCE /* DCNovoContatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNovoContatoViewController.h; sourceTree = "<group>"; };
 		B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNovoContatoViewController.m; sourceTree = "<group>"; };
 		B1E3BF6819229A1B00FD10BF /* detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail.png; sourceTree = "<group>"; };
-		B1E3BF6A19229C3200FD10BF /* DCDetalheHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDetalheHospitalViewController.h; path = ../DCDetalheHospitalViewController.h; sourceTree = "<group>"; };
-		B1E3BF6B19229C3200FD10BF /* DCDetalheHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDetalheHospitalViewController.m; path = ../DCDetalheHospitalViewController.m; sourceTree = "<group>"; };
+		B1E3BF6D19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDetalhesHospitalTableViewController.h; path = ../DCDetalhesHospitalTableViewController.h; sourceTree = "<group>"; };
+		B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDetalhesHospitalTableViewController.m; path = ../DCDetalhesHospitalTableViewController.m; sourceTree = "<group>"; };
 		DDA969371892C43F00CBAB0D /* DCEmergenciaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCEmergenciaViewController.h; sourceTree = "<group>"; };
 		DDA969381892C43F00CBAB0D /* DCEmergenciaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCEmergenciaViewController.m; sourceTree = "<group>"; };
 		DDA9693A1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCAtendimentoEmergenciaViewController.h; sourceTree = "<group>"; };
@@ -378,12 +378,12 @@
 				8D6D4F9618CA42B7007C361C /* DCNovoHospitalViewController.h */,
 				8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */,
 				8D9AC566190807F500377B75 /* DCConfirmaViewController.h */,
-				B1E3BF6A19229C3200FD10BF /* DCDetalheHospitalViewController.h */,
-				B1E3BF6B19229C3200FD10BF /* DCDetalheHospitalViewController.m */,
 				8D9AC567190807F500377B75 /* DCConfirmaViewController.m */,
 				B185CA2118A29CAC00EE2CCE /* DCNovoContatoViewController.h */,
 				B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */,
 				DDA9693A1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.h */,
+				B1E3BF6D19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.h */,
+				B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */,
 				DDA9693B1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m */,
 				DDA969371892C43F00CBAB0D /* DCEmergenciaViewController.h */,
 				DDA969381892C43F00CBAB0D /* DCEmergenciaViewController.m */,
@@ -534,6 +534,7 @@
 				0BD2E2A81899663F00B78E51 /* (null) in Sources */,
 				8DACCB84191C02070026D75D /* HomeViewController.m in Sources */,
 				8D3C1D6118996E2500FED19E /* DCMapasViewController.m in Sources */,
+				B1E3BF6F19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m in Sources */,
 				DDA9693C1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m in Sources */,
 				8DACCB85191C02070026D75D /* FriendsViewController.m in Sources */,
 				DDC969FF18917CB600A3CEC7 /* DCInicialViewController.m in Sources */,
@@ -543,7 +544,6 @@
 				B185CA1D18A157E000EE2CCE /* DCContatosViewController.m in Sources */,
 				0B535AE71896D14A007CB773 /* DCConfigs.m in Sources */,
 				DDC969D21891742B00A3CEC7 /* main.m in Sources */,
-				B1E3BF6C19229C3200FD10BF /* DCDetalheHospitalViewController.m in Sources */,
 				B185CA2318A29CAC00EE2CCE /* DCNovoContatoViewController.m in Sources */,
 				8DACCB96191C02400026D75D /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				DDC969DC1891742B00A3CEC7 /* DCLoginViewController.m in Sources */,
