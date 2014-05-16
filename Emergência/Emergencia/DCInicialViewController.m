@@ -183,10 +183,10 @@ BOOL connectionOK = YES;
     //UIColor *color = self.view.tintColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
     self.title = @"Inicial";
-    
+    self.navigationItem.hidesBackButton = YES;
     //Esconde o bota de voltar
     //TODO: Verificar se o usuário está logado?
-    self.navigationItem.hidesBackButton = YES;
+    
     
     
     

@@ -73,15 +73,23 @@ float longi;
     
     
     
-    _viewAux = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
+//    _viewAux = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
     _viewNotification = [[UIView alloc] initWithFrame:CGRectMake(0,64, 320, 100)];
     UIColor *branco = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:1.0];
     _viewAux.backgroundColor =branco;
-    
-    UILabel *labelteste = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 25)];
-    labelteste.text = @"Testando label na view aux";
+    NSString *nome = [[NSUserDefaults standardUserDefaults] stringForKey:@"nome2"];
+   NSString *emergencia = [[NSUserDefaults standardUserDefaults] stringForKey:@"emergencia2"];
+    NSString *mensagem = [NSString stringWithFormat:@"O seu amigo %@ relatou um", nome];
+    NSString *mensagem2 =[NSString stringWithFormat:@"problema %@",emergencia];
+    UILabel *labelteste2 = [[UILabel alloc]initWithFrame:CGRectMake(10, 30, 300, 25)];
+    UILabel *labelteste = [[UILabel alloc] initWithFrame:CGRectMake(10, 10,300, 25)];
+
+    labelteste.text = mensagem;
     labelteste.textColor = [UIColor whiteColor];
+    labelteste2.text = mensagem2;
+    labelteste2.textColor = [UIColor whiteColor];
     [_viewNotification addSubview:labelteste];
+    [_viewNotification addSubview:labelteste2];
    
     UIColor *vermelho = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
     _viewNotification.backgroundColor = vermelho;
@@ -89,13 +97,12 @@ float longi;
 
     UITapGestureRecognizer *toque = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tocouNaNotification)];
     [_viewNotification addGestureRecognizer:toque];
-    [self.view addSubview:_viewAux];
+//    [self.view addSubview:_viewAux];
     [self.view addSubview:_viewNotification];
 }
 -(void)tocouNaNotification{
       NSLog(@"Toque");
-//    [self delete:_viewAux];
-//    [self delete:_viewNotification];
+
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOn"];
     [self.navigationController popToRootViewControllerAnimated:NO];
     
@@ -231,11 +238,11 @@ float longi;
     //NSLog(@"%@",msm);
     
     
-    //NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/alertar.jsp?mensagem=%@&idusu=%@&lat=%@&log=%@",self.configs.ip,@"testando o push",newLocation.coordinate.latitude,newLocation.coordinate.longitude];
+    //NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/alertar.jsp?mensagem=%@&idusu=%@&lat=%@&log=%@&lohin=%@&tipo=%@",self.configs.ip,@"testando o push",newLocation.coordinate.latitude,newLocation.coordinate.longitude];
     
     
     //COlocar a posiçao atual
-    NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/alertar.jsp?mensagem=%@&idusu=%@&lat=%f&log=%f",self.configs.ip,msm,savedUserName,lat,longi];
+    NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/alertar.jsp?mensagem=%@&idusu=%@&lat=%f&log=%f&login=%@&tipo=%@",self.configs.ip,msm,savedUserName,lat,longi,savedUserName,emer.nome];
     NSLog(@"%@",[ur stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
     NSURL *urs = [[NSURL alloc] initWithString:[ur stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ];
     NSData* data = [NSData dataWithContentsOfURL:urs];

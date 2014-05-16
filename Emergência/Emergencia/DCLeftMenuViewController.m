@@ -22,9 +22,11 @@
 {
 	[super viewDidLoad];
 	
+    
 	self.tableView.separatorColor = [UIColor lightGrayColor];
 	
 	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
+
 	self.tableView.backgroundView = imageView;
 	
 	self.view.layer.borderWidth = .6;
@@ -56,22 +58,43 @@
 	{
 		case 0:
 			cell.textLabel.text = @"Home";
+            _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ambulancia2.png"]];
+            [_imagem addSubview:_image];
+            [cell addSubview:_imagem];
 			break;
 			
 		case 1:
 			cell.textLabel.text = @"Perfil";
+            _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"clipboard.png"]];
+            [_imagem addSubview:_image];
+            [cell addSubview:_imagem];
 			break;
 			
 		case 2:
 			cell.textLabel.text = @"Amigos";
+            _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"contato.png"]];
+            [_imagem addSubview:_image];
+            [cell addSubview:_imagem];
 			break;
 			
 		case 3:
 			cell.textLabel.text = @"Adicionar local";
+            _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hospital.png"]];
+            [_imagem addSubview:_image];
+            [cell addSubview:_imagem];
 			break;
             
         case 4:
 			cell.textLabel.text = @"Números de emergência";
+            _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phone.png"]];
+            [_imagem addSubview:_image];
+            [cell addSubview:_imagem];
+    
 			break;
             
         case 5:
