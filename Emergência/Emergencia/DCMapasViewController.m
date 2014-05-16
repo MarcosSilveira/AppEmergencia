@@ -225,6 +225,7 @@
         CLLocationCoordinate2D coordenada = CLLocationCoordinate2DMake(postoaux.lat, postoaux.log);
         pontoaux.coordinate = coordenada;
         pontoaux.subtitle = postoaux.endereco;
+        
         if(postoaux.validar){
             
             pontoaux.subtitle=@"Validar";

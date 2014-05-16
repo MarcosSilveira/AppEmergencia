@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *tipo;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrolls;
+@property (weak, nonatomic) IBOutlet UIImageView *foto;
 @property NSArray *sangue;
 
 @end
@@ -52,6 +53,24 @@
     
     [self.scrolls setScrollEnabled:YES];
     [self.scrolls setContentSize:CGSizeMake(360, 900)];
+    
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                action:@selector(buscarImagem)];
+    [self.foto addGestureRecognizer:singleTap];
+    [self.foto setMultipleTouchEnabled:YES];
+    [self.foto setUserInteractionEnabled:YES];
+    
+    
+
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"foto"];
+    if(imageData!=nil){
+        UIImage* image = [UIImage imageWithData:imageData];
+        //self.foto.image=image;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,37 +147,56 @@
 {
     // set the font type and size
     //UIFont *font = [UIFont systemFontOfSize:20.0];
-    UIFont *font=[UIFont fontWithName:@"DamascusBold" size:12.0];
+    UIFont *font=[UIFont fontWithName:@"Futura-MediumItalic" size:12.0];
    
+    UIImage *base=[UIImage imageNamed:@"background.png"];
+    
+    UIImage *photo=self.foto.image;
+    
+    
     
     NSString *temp=[NSString stringWithFormat:@"nome: %@",text];
     
-    CGSize size  = CGSizeMake([temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5);
+    CGSize size  = CGSizeMake([temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5+photo.size.height/10);
+    
+    CGRect rect = CGRectMake(0,0, [temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5);
+    
+    CGRect rect2 = CGRectMake(0,0, [temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5+photo.size.height/10);
     
     UIGraphicsBeginImageContext(size);
-
     
-    [temp drawAtPoint:CGPointMake(0.0, 5) withFont:font];
+    [base drawInRect:rect2 blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    [photo drawInRect:rect blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    //  [[UIColor colorWithRed:1.0 green:0 blue:0 alpha:1] setFill];
+    
+
+    CGFloat pos=photo.size.height/10+5;
+    
+    [temp drawAtPoint:CGPointMake(0.0, pos) withFont:font];
     
     temp=[NSString stringWithFormat:@"peso: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"]];
     
-    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height+5) withFont:font];
+    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height) withFont:font];
     
     temp=[NSString stringWithFormat:@"Altura: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"]];
+
     
+    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*2) withFont:font];
     
-    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height*2+5) withFont:font];
+  //  [base drawAtPoint:CGPointMake(0, 0)];
     
     NSNumber *numero= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
     
-    NSLog(@" num: %@",numero);
     
+    //Draw image?
     
     
     temp=[NSString stringWithFormat:@"Tipo sanguíneo:  %@",[_sangue objectAtIndex:[numero integerValue] ]];
     
     
-    [temp drawAtPoint:CGPointMake(0, [text sizeWithFont:font].height*3+5) withFont:font];
+    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*3) withFont:font];
 
     /*
     
@@ -180,6 +218,51 @@
     return image;
 }
 
+
+-(void) buscarImagem{
+    NSLog(@"Teste");
+    
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    
+     imagePicker.delegate = self;
+    
+    // Allow editing of image ?
+    imagePicker.allowsImageEditing = NO;
+    
+    // Show image picker
+    [self presentModalViewController:imagePicker animated:YES];
+    /*
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    [self presentModalViewController:picker animated:YES];
+    //[picker release];
+     
+     */
+}
+/*
+- (void)imagePickerController:(UIImagePickerController *)picker
+        didFinishPickingImage:(UIImage *)image
+                  editingInfo:(NSDictionary *)editingInfo
+{
+    self.foto = image;
+    [[picker parentViewController] dismissModalViewControllerAnimated:YES];
+}
+*/
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Access the uncropped image from info dictionary
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    self.foto.image=image;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(self.foto.image) forKey:@"foto"];
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 /*
 #pragma mark - Navigation
 
