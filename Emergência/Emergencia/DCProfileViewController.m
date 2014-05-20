@@ -181,6 +181,7 @@
     CGFloat width=100;
     
     
+    
     if([temp sizeWithFont:font].width>width&&[temp sizeWithFont:font].width>[tel sizeWithFont:font].width){
         
         width=[temp sizeWithFont:font].width;
@@ -189,9 +190,13 @@
         width=[tel sizeWithFont:font].width;
     }
     
+    //width*2;
+    NSLog(@"Largura:  %f",width);
+    //CGRect rect = CGRectMake(0,0, width/2, [temp sizeWithFont:font].height*5+5);
+    
     CGRect rect = CGRectMake(0,0, width, [temp sizeWithFont:font].height*5+5);
     
-    CGFloat height=rect.size.height+([temp sizeWithFont:font].height+2)*5;
+    CGFloat height=rect.size.height+([temp sizeWithFont:font].height+2)*7;
     
     CGRect rect2 = CGRectMake(0,0, width, height);
     
@@ -212,22 +217,22 @@
     
 
     
-    [temp drawAtPoint:CGPointMake(0.0, pos) withFont:font];
+    [temp drawAtPoint:CGPointMake(10, pos) withFont:font];
     
     temp=[NSString stringWithFormat:@"peso: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"]];
     
-    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height) withFont:font];
+    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height) withFont:font];
     
     temp=[NSString stringWithFormat:@"Altura: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"]];
 
     
-    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*2) withFont:font];
+    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*2) withFont:font];
     
 
     temp=[NSString stringWithFormat:@"Tel. Contato: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
     
     
-    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*3) withFont:font];
+    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*3) withFont:font];
 
     
      //Sangue
@@ -241,7 +246,7 @@
     temp=[NSString stringWithFormat:@"Tipo sanguíneo:  %@",[_sangue objectAtIndex:[numero integerValue] ]];
     
     
-    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*4) withFont:font];
+    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*4) withFont:font];
 
     /*
     
