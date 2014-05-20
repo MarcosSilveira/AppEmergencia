@@ -161,6 +161,9 @@
     UIImage *img=[self imageFromText:teste];
    // [self.image setImage:[self imageFromText:teste]];
     UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+    
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Imagem Ccriada" message:@"Imagem criada com sucesso, utilize ela como imagem para tela bloqueada" buttonTitle:@"OK"];
+    [alertView show];
 }
 
 -(UIImage *)imageFromText:(NSString *)text
