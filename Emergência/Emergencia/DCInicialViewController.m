@@ -97,7 +97,7 @@ UIImageView *auxi;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyNotification" object:nil];
 }
 -(void)firstRun{
-    UIImage *imgggg = [UIImage imageNamed:@"first_run.png"];
+    UIImage *imgggg = [UIImage imageNamed:@"first_run-2.png"];
  //   imgggg.size = [CGSizeMake(imgggg.size.height/2, imgggg.size.width/2)];
     auxi = [[UIImageView alloc] initWithImage:imgggg];
     auxi.alpha = 0.6;
