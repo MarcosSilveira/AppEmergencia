@@ -36,12 +36,12 @@ UIImageView *auxi;
         [self performSegueWithIdentifier:@"goToEmergencia" sender:nil];
 
     }
-
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstRun"];
     [self configuracoesIniciais];
     [self testeDeConeccao];
     if ([[NSUserDefaults standardUserDefaults]boolForKey:@"firstRun"]) {
         [self firstRun];
-        [[NSUserDefaults standardUserDefaults] setObject:NO forKey:@"firstRun"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstRun"];
     }
     
 
