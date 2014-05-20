@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
 
-@interface DCProfileViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate, SlideNavigationControllerDelegate, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate>
+@interface DCProfileViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate, SlideNavigationControllerDelegate, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate>
 
 @end

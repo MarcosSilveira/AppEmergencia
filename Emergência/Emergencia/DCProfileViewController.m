@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrolls;
 @property (weak, nonatomic) IBOutlet UIImageView *foto;
+@property (weak, nonatomic) IBOutlet UITextField *tel;
 @property NSArray *sangue;
 
 @end
@@ -44,6 +45,7 @@
     self.nametxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"nome"];
     self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
     self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
+    self.tel.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"];
     
    
     NSNumber *temp= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
@@ -63,6 +65,16 @@
     
     
 
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+
+}
+
+-(void)dismissKeyboard {
+    [self.tel resignFirstResponder];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -106,17 +118,22 @@
 }
 
 - (IBAction)cadastrar:(id)sender {
+    [self cads];
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Atualizado" message:@"Atualização do perfil ok" buttonTitle:@"OK"];
+    [alertView show];
+}
+
+-(void)cads{
     [[NSUserDefaults standardUserDefaults] setObject:self.nametxt.text forKey:@"nome"];
     [[NSUserDefaults standardUserDefaults] setObject:self.pesotxt.text forKey:@"peso"];
     [[NSUserDefaults standardUserDefaults] setObject:self.alturatxt.text forKey:@"altura"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.tel.text forKey:@"tel"];
     NSInteger sele=[self.tipo selectedRowInComponent:self.tipo.tag];
     NSNumber *seles=[NSNumber numberWithInteger:sele];
-        [[NSUserDefaults standardUserDefaults] setObject:seles forKey:@"sangue"];
+    [[NSUserDefaults standardUserDefaults] setObject:seles forKey:@"sangue"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Atualizado" message:@"Atualização do perfil ok" buttonTitle:@"OK"];
-    [alertView show];
 }
 
 -(bool)textFieldShouldReturn:(UITextField *)textField{
@@ -145,6 +162,8 @@
 
 -(UIImage *)imageFromText:(NSString *)text
 {
+    [self cads];
+    
     // set the font type and size
     //UIFont *font = [UIFont systemFontOfSize:20.0];
     UIFont *font=[UIFont fontWithName:@"Futura-MediumItalic" size:12.0];
@@ -157,11 +176,31 @@
     
     NSString *temp=[NSString stringWithFormat:@"nome: %@",text];
     
-    CGSize size  = CGSizeMake([temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5+photo.size.height/10);
+    NSString *tel=[NSString stringWithFormat:@"Tel. Contato: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
     
-    CGRect rect = CGRectMake(0,0, [temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5);
+    CGFloat width=100;
     
-    CGRect rect2 = CGRectMake(0,0, [temp sizeWithFont:font].width, [temp sizeWithFont:font].height*4+5+photo.size.height/10);
+    
+    if([temp sizeWithFont:font].width>width&&[temp sizeWithFont:font].width>[tel sizeWithFont:font].width){
+        
+        width=[temp sizeWithFont:font].width;
+    }
+    if ([tel sizeWithFont:font].width>width&&[temp sizeWithFont:font].width<[tel sizeWithFont:font].width) {
+        width=[tel sizeWithFont:font].width;
+    }
+    
+    CGRect rect = CGRectMake(0,0, width, [temp sizeWithFont:font].height*5+5);
+    
+    CGFloat height=rect.size.height+([temp sizeWithFont:font].height+2)*5;
+    
+    CGRect rect2 = CGRectMake(0,0, width, height);
+    
+    CGFloat pos=rect.size.height;
+
+    
+    CGSize size  = CGSizeMake(width, height);
+    
+    
     
     UIGraphicsBeginImageContext(size);
     
@@ -172,7 +211,6 @@
     //  [[UIColor colorWithRed:1.0 green:0 blue:0 alpha:1] setFill];
     
 
-    CGFloat pos=photo.size.height/10+5;
     
     [temp drawAtPoint:CGPointMake(0.0, pos) withFont:font];
     
@@ -185,18 +223,25 @@
     
     [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*2) withFont:font];
     
-  //  [base drawAtPoint:CGPointMake(0, 0)];
+
+    temp=[NSString stringWithFormat:@"Tel. Contato: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
+    
+    
+    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*3) withFont:font];
+
+    
+     //Sangue
     
     NSNumber *numero= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
     
     
-    //Draw image?
+   
     
     
     temp=[NSString stringWithFormat:@"Tipo sanguíneo:  %@",[_sangue objectAtIndex:[numero integerValue] ]];
     
     
-    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*3) withFont:font];
+    [temp drawAtPoint:CGPointMake(0, pos+[text sizeWithFont:font].height*4) withFont:font];
 
     /*
     
@@ -218,7 +263,7 @@
     return image;
 }
 
-
+/*
 -(void) buscarImagem{
     NSLog(@"Teste");
     
@@ -234,35 +279,81 @@
     
     // Show image picker
     [self presentModalViewController:imagePicker animated:YES];
-    /*
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.delegate = self;
-    [self presentModalViewController:picker animated:YES];
-    //[picker release];
-     
-     */
-}
-/*
-- (void)imagePickerController:(UIImagePickerController *)picker
-        didFinishPickingImage:(UIImage *)image
-                  editingInfo:(NSDictionary *)editingInfo
-{
-    self.foto = image;
-    [[picker parentViewController] dismissModalViewControllerAnimated:YES];
-}
+    }
 */
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     // Access the uncropped image from info dictionary
-    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    self.foto.image=image;
+    //UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    //self.foto.image=image;
+    
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+    UIImage* selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    [_foto setContentMode:UIViewContentModeScaleAspectFill];
+    [_foto setImage:selectedImage];
+
     
     [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(self.foto.image) forKey:@"foto"];
-
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+-(void) buscarImagem
+{
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                 delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:NSLocalizedString(@"TAKE_PHOTO", nil),
+                                      NSLocalizedString(@"CHOOSE_EXISTING", nil), nil];
+        /*
+        UIActionSheet *UIActionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                   delegate:self
+                                                          cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
+                                                     destructiveButtonTitle:nil
+                                                          otherButtonTitles:NSLocalizedString(@"TAKE_PHOTO", nil),
+                                        NSLocalizedString(@"CHOOSE_EXISTING", nil), nil];
+         
+         */
+        [actionSheet showInView:self.view];
+    } else {
+        [self actionSheet:nil clickedButtonAtIndex:1];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 2)
+        return;
+    int sourceType[] = {UIImagePickerControllerSourceTypeCamera, UIImagePickerControllerSourceTypePhotoLibrary};
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = sourceType[buttonIndex];
+    
+    [self presentViewController:picker animated:YES completion:^{}];
+}
+
+/*
+-(IBAction)profileImage:(UIButton *)sender{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIActionSheet *UIActionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                 delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:NSLocalizedString(@"TAKE_PHOTO", nil),
+                                      NSLocalizedString(@"CHOOSE_EXISTING", nil), nil];
+        [actionSheet showInView:self.view];
+    } else {
+        [self actionSheet:nil clickedButtonAtIndex:1];
+    }
+}
+*/
 /*
 #pragma mark - Navigation
 
