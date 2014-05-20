@@ -83,6 +83,7 @@
                 TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Ok" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
                 [alertView show];
                 [self performSegueWithIdentifier:@"cadtoInicial" sender:sender];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstRun"];
             }else{
                 //ERRO
                 TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];

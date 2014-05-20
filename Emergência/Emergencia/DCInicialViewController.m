@@ -15,7 +15,6 @@
 #import "Reachability.h"
 
 
-
 @interface DCInicialViewController ()
 
 
@@ -27,6 +26,7 @@
 //DCReachability *connectionTest;
 UIAlertView *nconnection;
 BOOL connectionOK = YES;
+UIImageView *auxi;
 
 
 - (void)viewDidLoad
@@ -34,11 +34,19 @@ BOOL connectionOK = YES;
     [super viewDidLoad];
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
         [self performSegueWithIdentifier:@"goToEmergencia" sender:nil];
-        
+
     }
 
     [self configuracoesIniciais];
     [self testeDeConeccao];
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"firstRun"]) {
+        [self firstRun];
+        [[NSUserDefaults standardUserDefaults] setObject:NO forKey:@"firstRun"];
+    }
+    
+
+    
+    
 
 //    _userLogado.text = self.config.login;
     
@@ -87,6 +95,29 @@ BOOL connectionOK = YES;
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyNotification" object:nil];
+}
+-(void)firstRun{
+    UIImage *imgggg = [UIImage imageNamed:@"first_run.png"];
+ //   imgggg.size = [CGSizeMake(imgggg.size.height/2, imgggg.size.width/2)];
+    auxi = [[UIImageView alloc] initWithImage:imgggg];
+    auxi.alpha = 0.6;
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    UIView *splashView = [[UIView alloc] initWithFrame:frame];
+    splashView.backgroundColor = [[UIColor alloc] initWithPatternImage:imgggg];
+    [[self view] addSubview:auxi];
+    [self.view bringSubviewToFront: auxi];
+    [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(removeMenu)
+                                   userInfo:nil
+                                    repeats:YES];
+    
+}
+
+-(void) removeMenu{
+    if([[SlideNavigationController sharedInstance] isMenuOpen]){
+        [auxi removeFromSuperview];
+    }
 }
 -(void)handleNotification{
     NSLog(@"Recebeu notificacao");
@@ -184,6 +215,7 @@ BOOL connectionOK = YES;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
     self.title = @"Inicial";
     self.navigationItem.hidesBackButton = YES;
+
     //Esconde o bota de voltar
     //TODO: Verificar se o usuário está logado?
     
