@@ -132,6 +132,9 @@
     NSNumber *seles=[NSNumber numberWithInteger:sele];
     [[NSUserDefaults standardUserDefaults] setObject:seles forKey:@"sangue"];
     
+    [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(self.foto.image) forKey:@"foto"];
+    
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
@@ -156,7 +159,7 @@
 - (IBAction)criarImagem:(id)sender {
     NSString *teste=[[NSUserDefaults standardUserDefaults] stringForKey: @"nome"];
     UIImage *img=[self imageFromText:teste];
-    [self.image setImage:[self imageFromText:teste]];
+   // [self.image setImage:[self imageFromText:teste]];
     UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
 }
 
@@ -166,7 +169,7 @@
     
     // set the font type and size
     //UIFont *font = [UIFont systemFontOfSize:20.0];
-    UIFont *font=[UIFont fontWithName:@"Futura-MediumItalic" size:12.0];
+    UIFont *font=[UIFont fontWithName:@"MarkerFelt-Wide" size:16.0];
    
     UIImage *base=[UIImage imageNamed:@"background.png"];
     
@@ -174,7 +177,7 @@
     
     
     
-    NSString *temp=[NSString stringWithFormat:@"nome: %@",text];
+    NSString *temp=[NSString stringWithFormat:@"%@",text];
     
     NSString *tel=[NSString stringWithFormat:@"Tel. Contato: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
     
@@ -190,11 +193,11 @@
         width=[tel sizeWithFont:font].width;
     }
     
-    //width*2;
+    width+=50;
     NSLog(@"Largura:  %f",width);
     //CGRect rect = CGRectMake(0,0, width/2, [temp sizeWithFont:font].height*5+5);
     
-    CGRect rect = CGRectMake(0,0, width, [temp sizeWithFont:font].height*5+5);
+    CGRect rect = CGRectMake(width/10,0, width/2, [temp sizeWithFont:font].height*5);
     
     CGFloat height=rect.size.height+([temp sizeWithFont:font].height+2)*7;
     
@@ -229,7 +232,7 @@
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*2) withFont:font];
     
 
-    temp=[NSString stringWithFormat:@"Tel. Contato: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
+    temp=[NSString stringWithFormat:@"Tel. c.:%@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
     
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*3) withFont:font];
@@ -248,16 +251,8 @@
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*4) withFont:font];
 
-    /*
-    
-    self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
-    self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
     
     
-    NSNumber *tempo= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
-    //[self.tipo selectedRowInComponent:[temp integerValue]];
-    [self.tipo selectRow:[temp integerValue] inComponent:0 animated:YES];
-    */
     // transfer image
     CGContextSetShouldAntialias(UIGraphicsGetCurrentContext(), YES);
     CGContextSetAllowsAntialiasing(UIGraphicsGetCurrentContext(), YES);
@@ -298,9 +293,12 @@
     [picker dismissViewControllerAnimated:YES completion:^{}];
     UIImage* selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
-    [_foto setContentMode:UIViewContentModeScaleAspectFill];
+    
+    
+    //[_foto setContentMode:UIViewContentModeScaleAspectFill];
     [_foto setImage:selectedImage];
 
+    [_foto sizeThatFits:CGSizeMake(167, 96)];
     
     [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(self.foto.image) forKey:@"foto"];
     
@@ -343,32 +341,6 @@
     
     [self presentViewController:picker animated:YES completion:^{}];
 }
-
-/*
--(IBAction)profileImage:(UIButton *)sender{
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        UIActionSheet *UIActionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                                 delegate:self
-                                                        cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
-                                                   destructiveButtonTitle:nil
-                                                        otherButtonTitles:NSLocalizedString(@"TAKE_PHOTO", nil),
-                                      NSLocalizedString(@"CHOOSE_EXISTING", nil), nil];
-        [actionSheet showInView:self.view];
-    } else {
-        [self actionSheet:nil clickedButtonAtIndex:1];
-    }
-}
-*/
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 @end
