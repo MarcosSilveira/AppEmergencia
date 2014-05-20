@@ -77,6 +77,8 @@
     
     float latitude = [[userInfo objectForKey:@"lat"] floatValue];
     float longitude =[[userInfo objectForKey:@"log"]floatValue];
+    NSString *nome = [userInfo objectForKey:@"login"];
+    NSString *emergencia = [userInfo objectForKey:@"tipo"];
     MKPointAnnotation *amigo;
     amigo.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
     
@@ -99,6 +101,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:longitude2 forKey:@"log"];
         [[NSUserDefaults standardUserDefaults] setObject:latitude2 forKey:@"lat"];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOnToMap"];
+        [[NSUserDefaults standardUserDefaults] setObject:nome forKey:@"nome2"];
+        [[NSUserDefaults standardUserDefaults] setObject:emergencia forKey:@"emergencia2"];
     }
     
     

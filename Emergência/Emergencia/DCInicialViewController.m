@@ -40,7 +40,7 @@ BOOL connectionOK = YES;
     [self configuracoesIniciais];
     [self testeDeConeccao];
 
-
+//    _userLogado.text = self.config.login;
     
     NSString *savedUserName = self.config.login;
     NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
@@ -183,16 +183,17 @@ BOOL connectionOK = YES;
     //UIColor *color = self.view.tintColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
     self.title = @"Inicial";
-    
+    self.navigationItem.hidesBackButton = YES;
     //Esconde o bota de voltar
     //TODO: Verificar se o usuário está logado?
-    self.navigationItem.hidesBackButton = YES;
+    
+    
     
     
     if(self.coordenada.latitude!=0 && self.coordenada.longitude !=0)
         [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
     //configuraTableView do menu lateral esquerdo
-    
+
     
     
 }

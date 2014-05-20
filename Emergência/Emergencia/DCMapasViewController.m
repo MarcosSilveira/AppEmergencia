@@ -354,7 +354,7 @@
   }
     CLLocationCoordinate2D coordAux = [annotation coordinate];
     if(coordAux.latitude == amigo.coordinate.latitude && coordAux.longitude == amigo.coordinate.longitude){
-        MKPinAnnotationView *amigoView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"amigo"];
+        MKAnnotationView *amigoView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"amigo"];
         amigoView.image = [UIImage imageNamed:@"you-make-me-hurt.png"];
         amigoView.canShowCallout = YES;
         
@@ -374,11 +374,11 @@
     {
         NSString *strPinReuseIdentifier = @"pin";
         
-        MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:strPinReuseIdentifier];
+        MKAnnotationView *pin = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:strPinReuseIdentifier];
         
         if (pin == nil) {
             
-            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:strPinReuseIdentifier];
+            pin = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:strPinReuseIdentifier];
             
             UIButton *btEsquerda = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
             UIButton *btDireita = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
@@ -444,6 +444,7 @@
   
   if (_TipoMapa.selectedSegmentIndex == 0) {
     _Map1.mapType = MKMapTypeStandard;
+      [_Map1 reloadInputViews];
   } else if (_TipoMapa.selectedSegmentIndex == 1) {
     _Map1.mapType = MKMapTypeHybrid;
   } else if (_TipoMapa.selectedSegmentIndex == 2) {

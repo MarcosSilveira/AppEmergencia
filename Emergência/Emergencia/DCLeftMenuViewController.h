@@ -12,5 +12,7 @@
 @interface DCLeftMenuViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) BOOL slideOutAnimationEnabled;
+@property (nonatomic) UIImageView *image;
+@property (nonatomic) UIView *imagem;
 
 @end

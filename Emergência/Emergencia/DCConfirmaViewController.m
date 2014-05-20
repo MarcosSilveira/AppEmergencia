@@ -47,7 +47,7 @@
     coordAux = CLLocationCoordinate2DMake(_postoaux.lat, _postoaux.log);
     novoLocal.coordinate = coordAux;
     novoLocal.title = _postoaux.nome;
-    
+    _Map1.delegate = self;
     _Map1.showsPointsOfInterest = YES;
     
     
@@ -59,15 +59,15 @@
     
 
 }
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:_Map1];
-    CLLocationCoordinate2D coordAux;
-    coordAux = CLLocationCoordinate2DMake(location.x, location.y);
-    novoLocal.coordinate = coordAux;
-    [_Map1 addAnnotation:novoLocal];
-    
-}
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    UITouch *touch = [touches anyObject];
+//    CGPoint location = [touch locationInView:_Map1];
+//    CLLocationCoordinate2D coordAux;
+//    coordAux = CLLocationCoordinate2DMake(location.x, location.y);
+//    novoLocal.coordinate = coordAux;
+//    [_Map1 addAnnotation:novoLocal];
+//    
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -98,7 +98,7 @@
         
         NSString *idUsuario = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
 
-        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@&id=%@",self.config.ip,posto.lat,posto.log,posto.nome,posto.telefone,posto.endereco,idUsuario];
+        NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@&id=%@",self.config.ip,novoLocal.coordinate.latitude,novoLocal.coordinate.longitude,posto.nome,posto.telefone,posto.endereco,idUsuario];
         
         urlServidor=[urlServidor stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
@@ -156,6 +156,20 @@
     
     }
 }
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    
+    MKPinAnnotationView *test=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"parkingloc"];
+    if([[annotation title] isEqualToString:_postoaux.nome])
+    {
+        //
+        [test setUserInteractionEnabled:YES];
+        [test setCanShowCallout:YES];
+        [test setDraggable:YES];
+        return test;
+    }
+     return test;
+     }
 /*
 #pragma mark - Navigation
 
