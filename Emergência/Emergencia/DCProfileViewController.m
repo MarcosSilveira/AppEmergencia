@@ -172,12 +172,14 @@
     
     // set the font type and size
     //UIFont *font = [UIFont systemFontOfSize:20.0];
-    UIFont *font=[UIFont fontWithName:@"MarkerFelt-Wide" size:16.0];
+    UIFont *font=[UIFont fontWithName:@"MarkerFelt-Wide" size:20.0];
    
     UIImage *base=[UIImage imageNamed:@"background.png"];
     
     UIImage *photo=self.foto.image;
     
+    
+    //Size 568
     
     
     NSString *temp=[NSString stringWithFormat:@"%@",text];
@@ -200,9 +202,11 @@
     NSLog(@"Largura:  %f",width);
     //CGRect rect = CGRectMake(0,0, width/2, [temp sizeWithFont:font].height*5+5);
     
-    CGRect rect = CGRectMake(width/10,0, width/2, [temp sizeWithFont:font].height*5);
+    CGRect rect = CGRectMake(0,0, width, [temp sizeWithFont:font].height*10);
     
-    CGFloat height=rect.size.height+([temp sizeWithFont:font].height+2)*7;
+    //CGFloat height=rect.size.height+([temp sizeWithFont:font].height+2)*7;
+    
+    CGFloat height=568;
     
     CGRect rect2 = CGRectMake(0,0, width, height);
     
