@@ -9,8 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import <MessageUI/MessageUI.h>
-
-
+#import "DCCustomCallout.h"
 
 @interface DCMapasViewController : UIViewController<MKMapViewDelegate,MFMessageComposeViewControllerDelegate>
 
@@ -20,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *OndeEstou;
 //-(void)registerRegionWithCircularOverlay:(MKCircle*) overlay andIdentifier:(NSString*)identifier;
 @property (strong, nonatomic)CLCircularRegion *cr;
+@property (strong, nonatomic) DCCustomCallout *customAV;
 
 
 @property (nonatomic) float raio;
