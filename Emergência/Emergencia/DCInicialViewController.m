@@ -36,7 +36,7 @@ UIImageView *auxi;
         [self performSegueWithIdentifier:@"goToEmergencia" sender:nil];
 
     }
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstRun"];
+
     [self configuracoesIniciais];
     [self testeDeConeccao];
     if ([[NSUserDefaults standardUserDefaults]boolForKey:@"firstRun"]) {
@@ -44,45 +44,10 @@ UIImageView *auxi;
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstRun"];
     }
     
-
-    
     
 
 //    _userLogado.text = self.config.login;
     
-    NSString *savedUserName = self.config.login;
-    NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
-    
-    if(savedUserName!=nil){
-        
-        //DCConfigs *config=[[DCConfigs alloc] init];
-        
-        
-        NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/vincular.jsp?login=%@&token=%@",self.config.ip,savedUserName,savedToken];
-        NSLog(@"URL: %@",ur);
-        
-        if (connectionOK) {
-            
-            
-            NSURL *urs = [[NSURL alloc] initWithString:ur];
-            NSData* data = [NSData dataWithContentsOfURL:urs];
-            if (data != nil) {
-                
-                NSError *jsonParsingError = nil;
-                NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-                
-                //OBjeto Array
-                
-                NSNumber *res = [resultado objectForKey:@"vincular"];
-                NSNumber *teste=[[NSNumber alloc] initWithInt:1];
-                
-                
-                if([res isEqualToNumber:teste]){
-                    NSLog(@"Cadastro ok");
-                }
-            }
-        }
-    }
     
     
     
@@ -97,7 +62,7 @@ UIImageView *auxi;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MyNotification" object:nil];
 }
 -(void)firstRun{
-    UIImage *imgggg = [UIImage imageNamed:@"first_run-2.png"];
+    UIImage *imgggg = [UIImage imageNamed:@"first_run.png"];
  //   imgggg.size = [CGSizeMake(imgggg.size.height/2, imgggg.size.width/2)];
     auxi = [[UIImageView alloc] initWithImage:imgggg];
     auxi.alpha = 0.6;

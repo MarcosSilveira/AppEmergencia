@@ -99,6 +99,10 @@
             
         case 5:
 			cell.textLabel.text = @"Sair da conta";
+            _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"power.png"]];
+            [_imagem addSubview:_image];
+            [cell addSubview:_imagem];
 			break;
 	}
 	

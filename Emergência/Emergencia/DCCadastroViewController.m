@@ -80,7 +80,7 @@
             
             if([res isEqualToNumber:teste]){
                 //OK
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Ok" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Cadastro" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
                 [alertView show];
                 [self performSegueWithIdentifier:@"cadtoInicial" sender:sender];
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstRun"];
@@ -98,7 +98,7 @@
         
         
     }else{
-        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"senha não confere" buttonTitle:@"OK"];
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Senha não confere" buttonTitle:@"OK"];
         [alertView show];
     }
     

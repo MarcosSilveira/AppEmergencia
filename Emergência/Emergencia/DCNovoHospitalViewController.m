@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *FDLong;
 @property (weak, nonatomic) IBOutlet UITextField *FDEndereco;
 @property (weak, nonatomic) IBOutlet UISwitch *usoSwitch;
-@property BOOL *pegoualoc;
+@property BOOL pegoualoc;
 
 
 @property (nonatomic) DCConfigs *config;

@@ -46,7 +46,7 @@
     //
 
 
-    NSString *iden = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
+//    NSString *iden = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
     
     
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
