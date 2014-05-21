@@ -70,6 +70,8 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 
 }
 
