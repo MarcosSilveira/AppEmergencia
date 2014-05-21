@@ -12,6 +12,7 @@
 #import "DCInicialViewController.h"
 #import "DCAppDelegate.h"
 #import "TLAlertView.h"
+#import "DCNumerosViewController.h"
 @interface DCLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *BTEntrar;
 @property (nonatomic, strong) UIDynamicAnimator *animator;
@@ -153,6 +154,11 @@
         DCInicialViewController *inicial = (DCInicialViewController *)segue.destinationViewController;
         inicial.coordenada = _coordenada;
         inicial.config=self.conf;
+    }
+    
+    if ([segue.identifier isEqualToString:@"goToNumeros"]) {
+        DCNumerosViewController *numeros = (DCNumerosViewController *)segue.destinationViewController;
+        numeros.veioDaSegue = YES;
     }
 }
 - (void) configuracoesIniciais

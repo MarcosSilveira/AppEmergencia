@@ -12,8 +12,12 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.navigationItem.hidesBackButton = YES;
+    if (_veioDaSegue){}
     
+    else{
+        self.navigationItem.hidesBackButton = YES;
+        _veioDaSegue = NO;
+    }
     
     [_op0 setImage:[UIImage imageNamed:@"ambulancia.png"] forState:UIControlStateNormal];
     [_op1 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];

@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *op2;
 @property (weak, nonatomic) IBOutlet UIButton *op4;
 @property (weak, nonatomic) IBOutlet UIButton *op5;
+@property BOOL veioDaSegue;
 
 @end
