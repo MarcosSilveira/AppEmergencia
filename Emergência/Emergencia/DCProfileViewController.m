@@ -320,8 +320,8 @@
                                                                  delegate:self
                                                         cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:NSLocalizedString(@"TAKE_PHOTO", nil),
-                                      NSLocalizedString(@"CHOOSE_EXISTING", nil), nil];
+                                                        otherButtonTitles:NSLocalizedString(@"Tire uma foto", nil),
+                                      NSLocalizedString(@"Escolha uma foto", nil), nil];
         /*
         UIActionSheet *UIActionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                                    delegate:self
