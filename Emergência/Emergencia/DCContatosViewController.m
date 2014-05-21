@@ -22,6 +22,9 @@
 @property (strong, nonatomic) NSIndexPath *indexPathContatoExcluir;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UITableView *tabela;
+@property (weak, nonatomic) IBOutlet UILabel *LBLoading;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *AILoading;
+@property (nonatomic)UIView *aviso;
 
 @property BOOL pesquisando;
 
@@ -167,6 +170,15 @@
 }
 
 - (void) listarContatos {
+    
+    _aviso = [[UIView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].applicationFrame.size.width*0.25,[UIScreen mainScreen].applicationFrame.size.height*0.25, 180, 80)];
+    UIColor *cor = [[UIColor alloc]initWithRed:0.2 green:0.45 blue:0.9 alpha:0.7];
+    _aviso.backgroundColor = cor;
+    _aviso.layer.cornerRadius = 15;
+    _aviso.layer.masksToBounds = YES;
+    _AILoading = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(_aviso.frame.origin.x,_aviso.frame.origin.y, 15, 15)];
+    [self.view addSubview:_AILoading];
+    [self.view addSubview:_aviso];
     
     //URL UTILIZADA PARA CRIAR UM CONTATO NO SERVIDOR
     NSString *urlServidor = @"http://%@:8080/Emergencia/listar.jsp?idusu=%@";
