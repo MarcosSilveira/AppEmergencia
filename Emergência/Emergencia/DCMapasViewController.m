@@ -34,12 +34,18 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+    _aviso = [[UIView alloc]initWithFrame:CGRectMake(_LBLoading.frame.origin.x,_LBLoading.frame.origin.y-50, 180, 80)];
+    UIColor *cor = [[UIColor alloc]initWithRed:0.2 green:0.45 blue:0.9 alpha:0.7];
+    _aviso.backgroundColor = cor;
+    _aviso.layer.cornerRadius = 15;
+    _aviso.layer.masksToBounds = YES;
+    _aviso.hidden = YES;
   [gerenciadorLocalizacao startUpdatingLocation];
   [self OndeEstouAction:NULL];
   self.conf=[[DCConfigs alloc] init];
   pontoaux = [[MKPointAnnotation alloc] init];
     _AILoading.hidesWhenStopped = YES;
-    _LBLoading.hidden = YES;
+   // _LBLoading.hidden = YES;
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOnToMap"]) {
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([[[NSUserDefaults standardUserDefaults] objectForKey:@"lat"] doubleValue], [[[NSUserDefaults standardUserDefaults] objectForKey:@"log"]doubleValue]);
@@ -82,20 +88,10 @@
         [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
         
     }
-    
-    _aviso = [[UIView alloc]initWithFrame:CGRectMake(_LBLoading.frame.origin.x,_LBLoading.frame.origin.y-50, 180, 80)];
-    UIColor *cor = [[UIColor alloc]initWithRed:0.2 green:0.45 blue:0.9 alpha:0.7];
-    _aviso.backgroundColor = cor;
-    _aviso.layer.cornerRadius = 15;
-    _aviso.layer.masksToBounds = YES;
-    _aviso.hidden = YES;
-    
-    
+
     
     
 }
-
-
 
 -(NSMutableArray *) buscar:(CLLocation*) loc{
    NSNumber *prio = @1;
@@ -199,8 +195,8 @@
     }
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
-    [_AILoading stopAnimating];
-    _LBLoading.hidden = YES;
+   // [_AILoading stopAnimating];
+   // _LBLoading.hidden = YES;
     
     return locais;
 }
@@ -239,13 +235,8 @@
     
 }
 
-
-
-
 - (IBAction)OndeEstouAction:(UIBarButtonItem *)sender {
 
-    
-  
   if ([CLLocationManager locationServicesEnabled]) {
     //estou verificando se ja existe um location manager alocado
     if (gerenciadorLocalizacao == nil) {
@@ -352,6 +343,7 @@
   if ([annotation isKindOfClass:[MKUserLocation class]]) {
     return nil;
   }
+    
     CLLocationCoordinate2D coordAux = [annotation coordinate];
     if(coordAux.latitude == amigo.coordinate.latitude && coordAux.longitude == amigo.coordinate.longitude){
         MKAnnotationView *amigoView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"amigo"];
@@ -370,6 +362,7 @@
         
         return amigoView;
     }
+    
     else
     {
         NSString *strPinReuseIdentifier = @"pin";
@@ -391,22 +384,53 @@
             btDireita.layer.cornerRadius = 15;
             pin.rightCalloutAccessoryView = btDireita;
             pin.leftCalloutAccessoryView = btEsquerda;
-            pin.canShowCallout = YES;
+           // pin.canShowCallout = YES;
 
             if([annotation.subtitle isEqualToString:@"Validar"])
             { pin.image = [UIImage imageNamed:@"validar.png"];}
             else
                 pin.image = [UIImage imageNamed:@"teste.png"];
-            
-            
         }
         
-        pin.annotation = annotation;
+       // pin.annotation = annotation;
         
         return pin;
     }
+}
 
-  
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+// INSTANCIAR NOVA VIEW
+    
+    UIImageView * custom = [[UIImageView alloc]initWithFrame:CGRectMake(-74, -63, 128, 64)];
+    custom.image = [UIImage imageNamed:@"callout.png"];
+    [view addSubview:custom];
+    
+    UIButton *btRota = [[UIButton alloc]initWithFrame:CGRectMake(0, 3, 50, 50)];
+    btRota.backgroundColor = [UIColor redColor];
+    [btRota setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
+    [btRota addTarget:self action:@selector(clickLeftBt) forControlEvents:UIControlEventTouchUpInside];
+    btRota.layer.cornerRadius = 15;
+    
+    UIButton *btDetalhe = [[UIButton alloc] initWithFrame:CGRectMake(78, 3, 50, 50)];
+    btDetalhe.backgroundColor = [UIColor blueColor];
+    [btDetalhe setImage:[UIImage imageNamed:@"detail.png"] forState:UIControlStateNormal];
+    [btDetalhe addTarget:self action:@selector(clickRightBt) forControlEvents:UIControlEventTouchUpInside];
+    btDetalhe.layer.cornerRadius = 15;
+    
+    UILabel *lblTeste = [[UILabel alloc] init];
+    lblTeste.text = @"barcos viado";
+    lblTeste.frame = CGRectMake(0, 0, 100, 100);
+    lblTeste.textColor = [UIColor yellowColor];
+    
+    [custom addSubview:btRota];
+    [custom addSubview:btDetalhe];
+    [custom addSubview:lblTeste];
+}
+
+-(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+
 }
 
 -(void)clickRightBt
@@ -428,7 +452,6 @@
     [destination openInMapsWithLaunchOptions:@{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving}];
   }
 }
-
 
 //liga ou desliga o modo "me siga"
 - (IBAction)follow:(id)sender {
@@ -456,7 +479,5 @@
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
-
-
 
 @end

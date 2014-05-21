@@ -49,7 +49,7 @@ float longi;
     
     
     _gerenciadorLocalizacao = [[CLLocationManager alloc] init];
-    _gerenciadorLocalizacao.delegate = self;
+//    _gerenciadorLocalizacao.delegate = self;
     
     
   [_gerenciadorLocalizacao startUpdatingLocation];

@@ -119,7 +119,7 @@
 
 - (IBAction)cadastrar:(id)sender {
     [self cads];
-    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Atualizado" message:@"Atualização do perfil ok" buttonTitle:@"OK"];
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Atualizado" message:@"Atualização do perfil efetuada com sucesso" buttonTitle:@"OK"];
     [alertView show];
 }
 

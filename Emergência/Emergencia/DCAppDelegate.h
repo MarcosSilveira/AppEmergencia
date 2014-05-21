@@ -10,11 +10,12 @@
 #import "SlideNavigationController.h"
 #import "LeftMenuViewController.h"
 #import "RightMenuViewController.h"
-
+#import "DCConfigs.h"
 
 @interface DCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *pushId;
+@property (nonatomic) DCConfigs *config;
 
 @end

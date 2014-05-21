@@ -10,7 +10,11 @@
 #import "SlideNavigationController.h"
 
 @interface DCNumerosViewController : UIViewController<SlideNavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *Op1;
+@property (weak, nonatomic) IBOutlet UIButton *op1;
 @property (weak, nonatomic) IBOutlet UIButton *op0;
+@property (weak, nonatomic) IBOutlet UIButton *op3;
+@property (weak, nonatomic) IBOutlet UIButton *op2;
+@property (weak, nonatomic) IBOutlet UIButton *op4;
+@property (weak, nonatomic) IBOutlet UIButton *op5;
 
 @end
