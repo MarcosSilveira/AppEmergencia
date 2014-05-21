@@ -70,6 +70,8 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 
 }
 
@@ -199,7 +201,6 @@
     }
     
     width+=50;
-    NSLog(@"Largura:  %f",width);
     //CGRect rect = CGRectMake(0,0, width/2, [temp sizeWithFont:font].height*5+5);
     
     CGRect rect = CGRectMake(0,0, width, [temp sizeWithFont:font].height*10);
