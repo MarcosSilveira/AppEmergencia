@@ -52,6 +52,10 @@
 		8DB3C58F191AA99D003E2719 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB3C58E191AA99D003E2719 /* QuartzCore.framework */; };
 		8DC070B8191969CD00A65B01 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */; };
 		8DDA2CA118AA98B600EE6295 /* teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA2CA018AA98B500EE6295 /* teste.png */; };
+		B11E6031192D31C700D9D855 /* fireman.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6030192D31C700D9D855 /* fireman.png */; };
+		B11E6033192D31CF00D9D855 /* police.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6032192D31CF00D9D855 /* police.png */; };
+		B11E6035192D339400D9D855 /* picture-512.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6034192D339400D9D855 /* picture-512.png */; };
+		B11E6037192D33D400D9D855 /* user_male3-512.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6036192D33D400D9D855 /* user_male3-512.png */; };
 		B132D9A8192BDC03008B5180 /* callout.png in Resources */ = {isa = PBXBuildFile; fileRef = B132D9A7192BDC03008B5180 /* callout.png */; };
 		B132D9AB192D0C4C008B5180 /* DCCustomCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = B132D9AA192D0C4C008B5180 /* DCCustomCallout.m */; };
 		B167467918B67EAD0063E631 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B167467818B67EAD0063E631 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -161,6 +165,10 @@
 		8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8DDA2CA018AA98B500EE6295 /* teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teste.png; sourceTree = "<group>"; };
 		B11E602A192D159200D9D855 /* DCCustomCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCustomCallout.h; sourceTree = "<group>"; };
+		B11E6030192D31C700D9D855 /* fireman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireman.png; sourceTree = "<group>"; };
+		B11E6032192D31CF00D9D855 /* police.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = police.png; sourceTree = "<group>"; };
+		B11E6034192D339400D9D855 /* picture-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture-512.png"; sourceTree = "<group>"; };
+		B11E6036192D33D400D9D855 /* user_male3-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male3-512.png"; sourceTree = "<group>"; };
 		B132D9A7192BDC03008B5180 /* callout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callout.png; sourceTree = "<group>"; };
 		B132D9AA192D0C4C008B5180 /* DCCustomCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCustomCallout.m; sourceTree = "<group>"; };
 		B167467718B67EAD0063E631 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -285,13 +293,17 @@
 		8DAF3AB3192519DF00205907 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				B11E6030192D31C700D9D855 /* fireman.png */,
 				8DAF3ADB192BE38800205907 /* power.png */,
 				8DAF3AD9192BD69600205907 /* first_run-2.png */,
 				8DAF3AD5192BBD5100205907 /* first_run.png */,
 				8DAF3AC61925394D00205907 /* ambulancia2.png */,
 				8DAF3ACE1925397500205907 /* hospital.png */,
 				8DAF3AC71925394D00205907 /* clipboard.png */,
+				B11E6036192D33D400D9D855 /* user_male3-512.png */,
+				B11E6034192D339400D9D855 /* picture-512.png */,
 				8DAF3AC81925394D00205907 /* contact.png */,
+				B11E6032192D31CF00D9D855 /* police.png */,
 				8DAF3AC91925394D00205907 /* phone.png */,
 				8D1724AA18ABF4DA00E18006 /* you-make-me-hurt.png */,
 				8DAF3AAD1922B03000205907 /* ambulancia.png */,
@@ -529,8 +541,10 @@
 			files = (
 				8D18E5B8189FF726003466C6 /* home_ico_dica_carro.png in Resources */,
 				8DAF3ADA192BD69600205907 /* first_run-2.png in Resources */,
+				B11E6037192D33D400D9D855 /* user_male3-512.png in Resources */,
 				8DAF3ACA1925394D00205907 /* ambulancia2.png in Resources */,
 				8DAF3AA51922887200205907 /* validar.png in Resources */,
+				B11E6033192D31CF00D9D855 /* police.png in Resources */,
 				8DDA2CA118AA98B600EE6295 /* teste.png in Resources */,
 				8DAF3AAC1922AA8300205907 /* background.png in Resources */,
 				8D1724AB18ABF4DA00E18006 /* you-make-me-hurt.png in Resources */,
@@ -539,10 +553,12 @@
 				8DAAD2EE18A515690064683F /* Icon.png in Resources */,
 				B132D9A8192BDC03008B5180 /* callout.png in Resources */,
 				8DAF3AAE1922B03000205907 /* ambulancia.png in Resources */,
+				B11E6031192D31C700D9D855 /* fireman.png in Resources */,
 				0B535B231896D8FA007CB773 /* ip.txt in Resources */,
 				B1E3BF6919229A1B00FD10BF /* detail.png in Resources */,
 				8DAF3AD6192BBD5100205907 /* first_run.png in Resources */,
 				DDC969D01891742B00A3CEC7 /* InfoPlist.strings in Resources */,
+				B11E6035192D339400D9D855 /* picture-512.png in Resources */,
 				8DAF3ACD1925394D00205907 /* phone.png in Resources */,
 				8DAF3AB21922B47F00205907 /* taxi.png in Resources */,
 				8DAF3ADC192BE38800205907 /* power.png in Resources */,

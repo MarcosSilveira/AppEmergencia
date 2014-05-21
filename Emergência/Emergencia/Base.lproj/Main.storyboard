@@ -452,7 +452,7 @@
                                             <action selector="criarImagem:" destination="qGk-aE-E7Y" eventType="touchUpInside" id="oRg-Gj-BJs"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cruzGrande cópia" id="o4o-3N-IFn">
+                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_male3-512.png" id="o4o-3N-IFn">
                                         <rect key="frame" x="111" y="49" width="158" height="112"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1115,6 +1115,7 @@
     <resources>
         <image name="cruzGrande cópia" width="533" height="533"/>
         <image name="delete" width="16" height="16"/>
+        <image name="user_male3-512.png" width="512" height="512"/>
     </resources>
     <color key="tintColor" red="0.24290930706521741" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
