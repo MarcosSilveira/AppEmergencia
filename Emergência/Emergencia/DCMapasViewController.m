@@ -33,11 +33,17 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [gerenciadorLocalizacao startUpdatingLocation];
-    [self OndeEstouAction:NULL];
-    self.conf=[[DCConfigs alloc] init];
-    pontoaux = [[DCCustomCallout alloc] init];
+  [super viewDidLoad];
+    _aviso = [[UIView alloc]initWithFrame:CGRectMake(_LBLoading.frame.origin.x,_LBLoading.frame.origin.y-50, 180, 80)];
+    UIColor *cor = [[UIColor alloc]initWithRed:0.2 green:0.45 blue:0.9 alpha:0.7];
+    _aviso.backgroundColor = cor;
+    _aviso.layer.cornerRadius = 15;
+    _aviso.layer.masksToBounds = YES;
+    _aviso.hidden = YES;
+  [gerenciadorLocalizacao startUpdatingLocation];
+  [self OndeEstouAction:NULL];
+  self.conf=[[DCConfigs alloc] init];
+  pontoaux = [[MKPointAnnotation alloc] init];
     _AILoading.hidesWhenStopped = YES;
    // _LBLoading.hidden = YES;
     
