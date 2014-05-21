@@ -39,7 +39,7 @@
     self.conf=[[DCConfigs alloc] init];
     pontoaux = [[DCCustomCallout alloc] init];
     _AILoading.hidesWhenStopped = YES;
-    _LBLoading.hidden = YES;
+   // _LBLoading.hidden = YES;
     
     [self setCalloutCustom];
     
@@ -84,13 +84,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
         
     }
+
     
-    _aviso = [[UIView alloc]initWithFrame:CGRectMake(_LBLoading.frame.origin.x,_LBLoading.frame.origin.y-50, 180, 80)];
-    UIColor *cor = [[UIColor alloc]initWithRed:0.2 green:0.45 blue:0.9 alpha:0.7];
-    _aviso.backgroundColor = cor;
-    _aviso.layer.cornerRadius = 15;
-    _aviso.layer.masksToBounds = YES;
-    _aviso.hidden = YES;
     
 }
 
@@ -204,8 +199,8 @@
     }
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
-    [_AILoading stopAnimating];
-    _LBLoading.hidden = YES;
+   // [_AILoading stopAnimating];
+   // _LBLoading.hidden = YES;
     
     return locais;
 }

@@ -14,6 +14,9 @@
 #import "SlideNavigationContorllerAnimator.h"
 #import "DCLeftMenuViewController.h"
 #import "SlideNavigationContorllerAnimatorSlideAndFade.h"
+#import <unistd.h>
+
+
 @implementation DCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -68,6 +71,15 @@
     [SlideNavigationController sharedInstance].leftMenu = left;
     [SlideNavigationController sharedInstance].landscapeSlideOffset = 120;
     // Override point for customization after application launch.
+    
+    
+    dispatch_queue_t queue;
+    queue = dispatch_queue_create("myQueue",
+                                  NULL);
+    dispatch_async(queue, ^{
+        [self vincular];
+    }
+                   );
 
     
     return YES;
@@ -184,5 +196,41 @@
     application.applicationIconBadgeNumber = 0;
 
 }
+
+-(void)vincular{
+    NSString *savedUserName = self.config.login;
+    NSString *savedToken = [[NSUserDefaults standardUserDefaults]stringForKey:@"token"];
+    
+    if(savedUserName!=nil){
+        
+        //DCConfigs *config=[[DCConfigs alloc] init];
+        
+        
+        NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/vincular.jsp?login=%@&token=%@",self.config.ip,savedUserName,savedToken];
+        NSLog(@"URL: %@",ur);
+                    
+            
+            NSURL *urs = [[NSURL alloc] initWithString:ur];
+            NSData* data = [NSData dataWithContentsOfURL:urs];
+            if (data != nil) {
+                
+                NSError *jsonParsingError = nil;
+                NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+                
+                //OBjeto Array
+                
+                NSNumber *res = [resultado objectForKey:@"vincular"];
+                NSNumber *teste=[[NSNumber alloc] initWithInt:1];
+                
+                
+                if([res isEqualToNumber:teste]){
+                    NSLog(@"Cadastro ok");
+                }
+            }
+        
+    }
+    
+}
+
 
 @end

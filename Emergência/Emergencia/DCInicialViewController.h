@@ -18,6 +18,7 @@
 @property (nonatomic)UITableViewController *esquerda;
 @property (nonatomic) DCConfigs *config;
 
+
 - (IBAction)btLogOut;
 -(void)handleNotification;
 
