@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DCPosto.h"
 
 @interface DCDetalhesHospitalTableViewController : UITableViewController
+
+@property (strong, nonatomic) DCPosto *postos;
+@property (strong, nonatomic) NSMutableArray *detalhePosto;
 
 @end

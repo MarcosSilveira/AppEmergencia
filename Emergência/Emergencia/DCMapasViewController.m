@@ -10,6 +10,7 @@
 #import "DCConfigs.h"
 #import "DCPosto.h"
 #import "TLAlertView.h"
+#import "DCDetalhesHospitalTableViewController.h"
 
 @interface DCMapasViewController ()
 
