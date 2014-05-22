@@ -54,6 +54,7 @@
 		8DC070B8191969CD00A65B01 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */; };
 		8DDA2CA118AA98B600EE6295 /* teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA2CA018AA98B500EE6295 /* teste.png */; };
 		B132D9A8192BDC03008B5180 /* callout.png in Resources */ = {isa = PBXBuildFile; fileRef = B132D9A7192BDC03008B5180 /* callout.png */; };
+		B132D9AB192D0C4C008B5180 /* DCCustomCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = B132D9AA192D0C4C008B5180 /* DCCustomCallout.m */; };
 		B167467918B67EAD0063E631 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B167467818B67EAD0063E631 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B185CA1D18A157E000EE2CCE /* DCContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B185CA1C18A157E000EE2CCE /* DCContatosViewController.m */; };
 		B185CA2018A15BC800EE2CCE /* DCContatos.m in Sources */ = {isa = PBXBuildFile; fileRef = B185CA1F18A15BC800EE2CCE /* DCContatos.m */; };
@@ -161,7 +162,9 @@
 		8DB3C58E191AA99D003E2719 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8DDA2CA018AA98B500EE6295 /* teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teste.png; sourceTree = "<group>"; };
+		B11E602A192D159200D9D855 /* DCCustomCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCustomCallout.h; sourceTree = "<group>"; };
 		B132D9A7192BDC03008B5180 /* callout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callout.png; sourceTree = "<group>"; };
+		B132D9AA192D0C4C008B5180 /* DCCustomCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCustomCallout.m; sourceTree = "<group>"; };
 		B167467718B67EAD0063E631 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		B167467818B67EAD0063E631 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		B185CA1B18A157E000EE2CCE /* DCContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCContatosViewController.h; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 				0BD2E2AA1899700800B78E51 /* DCPosto.m */,
 				DDA9693E1896BA1E00CBAB0D /* DCEmergencia.h */,
 				DDA9693F1896BA1E00CBAB0D /* DCEmergencia.m */,
+				B11E602A192D159200D9D855 /* DCCustomCallout.h */,
+				B132D9AA192D0C4C008B5180 /* DCCustomCallout.m */,
 				0B535AE51896D14A007CB773 /* DCConfigs.h */,
 				0B535AE61896D14A007CB773 /* DCConfigs.m */,
 				B185CA1E18A15BC800EE2CCE /* DCContatos.h */,
@@ -571,6 +576,7 @@
 				8DACCB83191C02070026D75D /* RightMenuViewController.m in Sources */,
 				0BD2E2AB1899700800B78E51 /* DCPosto.m in Sources */,
 				8DACCBA4191C171E0026D75D /* DCLeftMenuViewController.m in Sources */,
+				B132D9AB192D0C4C008B5180 /* DCCustomCallout.m in Sources */,
 				0B143C54192130CC006A9169 /* DCProfileViewController.m in Sources */,
 				8D6D4F9818CA42B7007C361C /* DCNovoHospitalViewController.m in Sources */,
 				8D9AC568190807F500377B75 /* DCConfirmaViewController.m in Sources */,
