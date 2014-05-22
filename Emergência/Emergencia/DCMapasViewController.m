@@ -11,6 +11,7 @@
 #import "DCPosto.h"
 #import "TLAlertView.h"
 #import "DCDetalhesHospitalTableViewController.h"
+#import "DCCustomButton.h"
 
 @interface DCMapasViewController ()
 
@@ -406,11 +407,11 @@
             [btEsquerda setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
             //[btDireita.tag=]
             
-            DCCustomCallout *anot=(DCCustomCallout *) annotation;
+            DCCustomCallout *anot = (DCCustomCallout *) annotation;
             
             //DCPosto *temp=anot.posto;
             
-            btDireita.posto=anot.posto;
+            btDireita.posto = anot.posto;
             
         
             [btDireita addTarget:self action:@selector(clickRightBt:) forControlEvents:UIControlEventTouchUpInside];
@@ -500,7 +501,7 @@
         
         //for(int i=0;i<self.l)
         
-        detalhes.posto=temp.posto;
+        detalhes.postos=temp.posto;
     }
 }
 

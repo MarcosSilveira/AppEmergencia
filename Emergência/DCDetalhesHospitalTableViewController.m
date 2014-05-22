@@ -25,10 +25,9 @@
 
 - (void)viewDidLoad
 {
-    _postos = [[DCPosto alloc]init];
-    
+    //_postos = [[DCPosto alloc]init];
     [super viewDidLoad];
-    [self addPosto];
+    // [self addPosto];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,21 +36,20 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) addPosto {
-    [_detalhePosto addObject:_postos];
-}
+/*-(void) addPosto {
+ [_detalhePosto addObject:_postos];
+ }*/
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
-    return [_detalhePosto count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,10 +62,20 @@
     }
     
     UILabel *lblPosto = (UILabel *)[cell viewWithTag:1];
-    lblPosto.text = @"teste";
-    cell.tag = indexPath.row;
-    
+    lblPosto.text = _postos.telefone;
+    cell.tag = indexPath.row+1;
     return cell;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        return _postos.nome;
+    } else if (section == 1) {
+        return _postos.endereco;
+    } else {
+        return  _postos.telefone;
+    }
 }
 
 /*
