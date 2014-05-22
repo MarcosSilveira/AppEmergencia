@@ -40,14 +40,18 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 20)];
-	view.backgroundColor = [UIColor clearColor];
-	return view;
+//	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 20)];
+//	view.backgroundColor = [UIColor clearColor];
+//	return view;
+    
+    UIImageView *imgVew = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titulo.png"]];
+    [imgVew sizeToFit];
+    return imgVew;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return 20;
+	return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -166,6 +170,8 @@
 															 withSlideOutAnimation:self.slideOutAnimationEnabled
 																	 andCompletion:nil];
 }
+
+
 
 @end
 

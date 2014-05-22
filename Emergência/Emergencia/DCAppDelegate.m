@@ -40,6 +40,7 @@
             float longitude =[[userInfo objectForKey:@"log"]floatValue];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOnToMap"];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOn"];
+
 //            MKPointAnnotation *amigo;
 //            amigo.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
             
@@ -95,28 +96,31 @@
     NSString *emergencia = [userInfo objectForKey:@"tipo"];
     MKPointAnnotation *amigo;
     amigo.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOnToMap"];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOn"];
     
    
+    if (application.applicationState == UIApplicationStateInactive) {
+        
+    
         UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
         [navController popToRootViewControllerAnimated:NO];
         
         
         DCLoginViewController *dcvc = (DCLoginViewController *)navController.viewControllers[0];
         dcvc.coordenada = CLLocationCoordinate2DMake(latitude, longitude);
-
+          [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOnToMap"];
+          [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOn"];
+    }
     
     if(application.applicationState == UIApplicationStateActive){
-//        BOOL push = YES;
         NSNumber *latitude2 = [[NSNumber alloc] initWithFloat:latitude];
         NSNumber *longitude2 = [[NSNumber alloc] initWithFloat:longitude];
-//        NSNumber *push2 = [[NSNumber alloc] initWithBool:push];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"MyNotification" object:self];
         [[NSUserDefaults standardUserDefaults] setObject:longitude2 forKey:@"log"];
         [[NSUserDefaults standardUserDefaults] setObject:latitude2 forKey:@"lat"];
         [[NSUserDefaults standardUserDefaults] setObject:nome forKey:@"nome2"];
         [[NSUserDefaults standardUserDefaults] setObject:emergencia forKey:@"emergencia2"];
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOnToMap"];
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushOn"];
     }
     
     
