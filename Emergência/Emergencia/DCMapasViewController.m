@@ -44,7 +44,7 @@
   [gerenciadorLocalizacao startUpdatingLocation];
   [self OndeEstouAction:NULL];
   self.conf=[[DCConfigs alloc] init];
-  pontoaux = [[MKPointAnnotation alloc] init];
+  pontoaux = [[DCCustomCallout alloc] init];
     _AILoading.hidesWhenStopped = YES;
    // _LBLoading.hidden = YES;
     
@@ -235,9 +235,15 @@
         pontoaux.coordinate = coordenada;
         pontoaux.subtitle = postoaux.telefone;
         
+        pontoaux.posto=postoaux;
+        
+        //pontoaux.tag=postoaux.cod;
+        
+        
         if(postoaux.validar){
             
             pontoaux.subtitle=@"Validar";
+            //pontoaux.subtitle=postoaux.endereco;
         }else{
             //           pontoaux.subtitle=@"NValidar";
             
@@ -386,20 +392,38 @@
             
             pin = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:strPinReuseIdentifier];
             
-            UIButton *btDireita = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            //DCCustomButton *btDireita = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            
+            DCCustomButton *btDireita =[[DCCustomButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+            
+            [btDireita setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
+            //[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             
             UIButton *btEsquerda = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
             //UIButton *btDireita = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
             btEsquerda.backgroundColor = [UIColor redColor];
             // [btDireita setImage: [UIImage imageNamed:@"detail.png"] forState:UIControlStateNormal];
             [btEsquerda setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
-            [btDireita addTarget:self action:@selector(clickRightBt) forControlEvents:UIControlEventTouchUpInside];
+            //[btDireita.tag=]
+            
+            DCCustomCallout *anot=(DCCustomCallout *) annotation;
+            
+            //DCPosto *temp=anot.posto;
+            
+            btDireita.posto=anot.posto;
+            
+        
+            [btDireita addTarget:self action:@selector(clickRightBt:) forControlEvents:UIControlEventTouchUpInside];
+            
             [btEsquerda addTarget:self action:@selector(clickLeftBt) forControlEvents:UIControlEventTouchUpInside];
             btEsquerda.layer.cornerRadius = 15;
             btDireita.layer.cornerRadius = 15;
             pin.rightCalloutAccessoryView = btDireita;
             pin.leftCalloutAccessoryView = btEsquerda;
             pin.canShowCallout = YES;
+            
+                      //anot.posto;
+            NSLog(@"posto Name: %@",anot.posto.nome);
             
             if([annotation.subtitle isEqualToString:@"Validar"])
             { pin.image = [UIImage imageNamed:@"validar.png"];}
@@ -409,14 +433,15 @@
         
         pin.annotation = annotation;
         
+        
         return pin;
     }
 }
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    /* INSTANCIAR NOVA VIEW
-     
+     //INSTANCIAR NOVA VIEW
+     /*
      UIImageView * custom = [[UIImageView alloc]initWithFrame:CGRectMake(-74, -63, 128, 64)];
      custom.image = [UIImage imageNamed:@"callout.png"];
      [view addSubview:custom];
@@ -430,7 +455,7 @@
      UIButton *btDetalhe = [[UIButton alloc] initWithFrame:CGRectMake(78, 3, 50, 50)];
      btDetalhe.backgroundColor = [UIColor blueColor];
      [btDetalhe setImage:[UIImage imageNamed:@"detail.png"] forState:UIControlStateNormal];
-     [btDetalhe addTarget:self action:@selector(clickRightBt) forControlEvents:UIControlEventTouchUpInside];
+    [btDetalhe addTarget:self action:@selector(clickRightBt:) forControlEvents:UIControlEventTouchUpInside];
      btDetalhe.layer.cornerRadius = 15;
      
      UILabel *lblTeste = [[UILabel alloc] init];
@@ -440,13 +465,43 @@
      
      [custom addSubview:btRota];
      [custom addSubview:btDetalhe];
-     [custom addSubview:lblTeste];*/
+     [custom addSubview:lblTeste];
+      
+      */
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    [self.Map1 removeAnnotation:view];
 }
 
 
--(void)clickRightBt
+-(void)enviaPosto:(id) sender withPosto:
+(DCPosto *)post
 {
-    [self performSegueWithIdentifier:@"goToDetalheHospital" sender:nil];
+    [self performSegueWithIdentifier:@"goToDetalheHospital" sender:post];
+}
+
+-(void)clickRightBt:(id)sender
+{
+    [self performSegueWithIdentifier:@"goToDetalheHospital" sender:sender];
+}
+
+
+//Arrumar acima
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+//goT
+    if ([segue.identifier isEqualToString:@"goToDetalheHospital"]) {
+        DCDetalhesHospitalTableViewController *detalhes=(DCDetalhesHospitalTableViewController *)segue.destinationViewController;
+        //DCCustomCallout *temp=(DCCustomCallout *)sender;
+        
+        DCCustomButton *temp=(DCCustomButton*)sender;
+        
+        //for(int i=0;i<self.l)
+        
+        detalhes.posto=temp.posto;
+    }
 }
 
 -(void)clickLeftBt {
