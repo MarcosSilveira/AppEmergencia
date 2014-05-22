@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B10CCF1192E5B08009F17C5 /* DCCustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B10CCF0192E5B08009F17C5 /* DCCustomAnnotationView.m */; };
+		0B10CCF5192E648B009F17C5 /* DCCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B10CCF4192E648B009F17C5 /* DCCustomButton.m */; };
 		0B143C54192130CC006A9169 /* DCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B143C53192130CC006A9169 /* DCProfileViewController.m */; };
 		0B39E54B18CA45D600820716 /* TLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B39E54A18CA45D600820716 /* TLAlertView.m */; };
 		0B535AE71896D14A007CB773 /* DCConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B535AE61896D14A007CB773 /* DCConfigs.m */; };
@@ -93,6 +95,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B10CCEF192E5B08009F17C5 /* DCCustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCustomAnnotationView.h; sourceTree = "<group>"; };
+		0B10CCF0192E5B08009F17C5 /* DCCustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCustomAnnotationView.m; sourceTree = "<group>"; };
+		0B10CCF3192E648B009F17C5 /* DCCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCustomButton.h; sourceTree = "<group>"; };
+		0B10CCF4192E648B009F17C5 /* DCCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCustomButton.m; sourceTree = "<group>"; };
 		0B143C52192130CC006A9169 /* DCProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCProfileViewController.h; sourceTree = "<group>"; };
 		0B143C53192130CC006A9169 /* DCProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCProfileViewController.m; sourceTree = "<group>"; };
 		0B39E54918CA45D600820716 /* TLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLAlertView.h; sourceTree = "<group>"; };
@@ -234,6 +240,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B10CCF2192E645A009F17C5 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				B11E602A192D159200D9D855 /* DCCustomCallout.h */,
+				B132D9AA192D0C4C008B5180 /* DCCustomCallout.m */,
+				0B10CCEF192E5B08009F17C5 /* DCCustomAnnotationView.h */,
+				0B10CCF0192E5B08009F17C5 /* DCCustomAnnotationView.m */,
+				0B10CCF3192E648B009F17C5 /* DCCustomButton.h */,
+				0B10CCF4192E648B009F17C5 /* DCCustomButton.m */,
+			);
+			name = Custom;
+			sourceTree = "<group>";
+		};
 		8DACCB75191C01DD0026D75D /* SlideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,8 +333,6 @@
 				0BD2E2AA1899700800B78E51 /* DCPosto.m */,
 				DDA9693E1896BA1E00CBAB0D /* DCEmergencia.h */,
 				DDA9693F1896BA1E00CBAB0D /* DCEmergencia.m */,
-				B11E602A192D159200D9D855 /* DCCustomCallout.h */,
-				B132D9AA192D0C4C008B5180 /* DCCustomCallout.m */,
 				0B535AE51896D14A007CB773 /* DCConfigs.h */,
 				0B535AE61896D14A007CB773 /* DCConfigs.m */,
 				B185CA1E18A15BC800EE2CCE /* DCContatos.h */,
@@ -364,6 +381,7 @@
 		DDC969CB1891742B00A3CEC7 /* Emergencia */ = {
 			isa = PBXGroup;
 			children = (
+				0B10CCF2192E645A009F17C5 /* Custom */,
 				8DAF3AB3192519DF00205907 /* Imagens */,
 				DDA9693D1896B9E600CBAB0D /* Model */,
 				DDC96A0018917DEA00A3CEC7 /* ViewController */,
@@ -595,6 +613,7 @@
 				0B535AE71896D14A007CB773 /* DCConfigs.m in Sources */,
 				DDC969D21891742B00A3CEC7 /* main.m in Sources */,
 				B185CA2318A29CAC00EE2CCE /* DCNovoContatoViewController.m in Sources */,
+				0B10CCF5192E648B009F17C5 /* DCCustomButton.m in Sources */,
 				8DACCB96191C02400026D75D /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				DDC969DC1891742B00A3CEC7 /* DCLoginViewController.m in Sources */,
 				8DACCB95191C02400026D75D /* SlideNavigationContorllerAnimatorFade.m in Sources */,
@@ -604,6 +623,7 @@
 				8DAF3A9F19214E1E00205907 /* DCNumerosViewController.m in Sources */,
 				B167467918B67EAD0063E631 /* KeychainItemWrapper.m in Sources */,
 				DDC969D61891742B00A3CEC7 /* DCAppDelegate.m in Sources */,
+				0B10CCF1192E5B08009F17C5 /* DCCustomAnnotationView.m in Sources */,
 				DDA969391892C43F00CBAB0D /* DCEmergenciaViewController.m in Sources */,
 				8DACCB94191C02400026D75D /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 			);

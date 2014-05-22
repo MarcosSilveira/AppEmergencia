@@ -1,15 +1,15 @@
 //
-//  DCDetalhesHospitalTableViewController.h
+//  DCCustomButton.h
 //  Emergencia
 //
-//  Created by Joao Pedro da Costa Nunes on 15/05/14.
+//  Created by Henrique Manfroi da Silveira on 22/05/14.
 //  Copyright (c) 2014 Acácio Veit Schneider. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "DCPosto.h"
 
-@interface DCDetalhesHospitalTableViewController : UITableViewController
+@interface DCCustomButton : UIButton
 
 @property (nonatomic) DCPosto *posto;
 
