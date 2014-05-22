@@ -22,8 +22,8 @@
 @property (strong, nonatomic) NSIndexPath *indexPathContatoExcluir;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UITableView *tabela;
-@property (weak, nonatomic) IBOutlet UILabel *LBLoading;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *AILoading;
+@property (nonatomic) IBOutlet UILabel *LBLoading;
+@property (nonatomic) IBOutlet UIActivityIndicatorView *AILoading;
 @property (nonatomic)UIView *aviso;
 
 @property BOOL pesquisando;
@@ -38,12 +38,13 @@
     
     [self configuracoesIniciais];
     
+    self.tableView.delegate = self;
+    
+
+    
+    
     
     dispatch_queue_t queue;
-    
-    //dispatch_queue_t main;
-    
-    //main = dispatch_get_main_queue();
     
     queue = dispatch_queue_create("myQueue",
                                   NULL);
@@ -169,16 +170,34 @@
     }
 }
 
-- (void) listarContatos {
+- (IBAction)updateData:(id)sender {
+    dispatch_queue_t queue;
     
-    _aviso = [[UIView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].applicationFrame.size.width*0.25,[UIScreen mainScreen].applicationFrame.size.height*0.25, 180, 80)];
-    UIColor *cor = [[UIColor alloc]initWithRed:0.2 green:0.45 blue:0.9 alpha:0.7];
-    _aviso.backgroundColor = cor;
-    _aviso.layer.cornerRadius = 15;
-    _aviso.layer.masksToBounds = YES;
-    _AILoading = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(_aviso.frame.origin.x,_aviso.frame.origin.y, 15, 15)];
-    [self.view addSubview:_AILoading];
-    [self.view addSubview:_aviso];
+    queue = dispatch_queue_create("myQueue",
+                                  NULL);
+    dispatch_async(queue, ^{
+        [self listarContatos];
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        }
+                       );
+    });
+    
+
+    
+}
+
+-(void)encerraAnimacao{
+    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:3.0];
+}
+
+- (void) listarContatos {
+    [self.contacts removeAllObjects];
+    [self.contatosAceitar removeAllObjects];
+    
+
     
     //URL UTILIZADA PARA CRIAR UM CONTATO NO SERVIDOR
     NSString *urlServidor = @"http://%@:8080/Emergencia/listar.jsp?idusu=%@";
@@ -234,7 +253,7 @@
             [self.contatosAceitar addObject:contato];
         }
     }
-    
+    [self performSelectorOnMainThread:@selector(encerraAnimacao) withObject:nil waitUntilDone:NO];
     
 }
 
