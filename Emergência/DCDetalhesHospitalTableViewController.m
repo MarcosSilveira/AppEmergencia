@@ -27,7 +27,14 @@
 {
     //_postos = [[DCPosto alloc]init];
     [super viewDidLoad];
-    // [self addPosto];
+    
+    NSLog(@" nome%@",self.postos.nome);
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
