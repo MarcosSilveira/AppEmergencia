@@ -50,13 +50,8 @@ UIImageView *auxi;
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstRun"];
     }
     
-    
+    //    _userLogado.text = self.config.login;
 
-//    _userLogado.text = self.config.login;
-    
-    
-    
-    
 }
 
 
@@ -93,7 +88,6 @@ UIImageView *auxi;
 -(void)handleNotification{
     NSLog(@"Recebeu notificacao");
     
-    
     UIView *viewNotification, *viewAux;
     viewAux = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
     viewNotification = [[UIView alloc] initWithFrame:CGRectMake(0,64, 320, 100)];
@@ -121,7 +115,6 @@ UIImageView *auxi;
     [self.navigationController popToRootViewControllerAnimated:NO];
     
 }
-
 
 -(void) testeDeConeccao {
     NSString *server = [[NSString alloc] init];
@@ -189,15 +182,9 @@ UIImageView *auxi;
     //Esconde o bota de voltar
     //TODO: Verificar se o usuário está logado?
     
-    
-    
-    
     if(self.coordenada.latitude!=0 && self.coordenada.longitude !=0)
         [self performSegueWithIdentifier:@"goToEmergencia" sender:self];
     //configuraTableView do menu lateral esquerdo
-
-    
-    
 }
 
 
@@ -221,7 +208,6 @@ UIImageView *auxi;
 
 - (IBAction)btLogOut
 {
-    
     KeychainItemWrapper *keyPref = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
     
     [keyPref resetKeychainItem];
@@ -236,7 +222,6 @@ UIImageView *auxi;
      [[NSUserDefaults standardUserDefaults] setObject:logon.login.text forKey:@"password"];
      
      [[NSUserDefaults standardUserDefaults]synchronize];*/
-    
 }
 
 //slideMenudelegate

@@ -142,7 +142,9 @@
             posto.log = [[objo objectForKey:@"longitude"] floatValue];
             posto.nome = [objo objectForKey:@"nome"];
             posto.endereco = [objo objectForKey:@"endereco"];
-            posto.validar=NO;
+            posto.telefone = [objo objectForKey:@"telefone"];
+            posto.cod = [objo objectForKey:@"cod"];
+            posto.validar = NO;
             
             [locais addObject:posto];
         }
@@ -198,13 +200,15 @@
             posto.log = [[objo objectForKey:@"longitude"] floatValue];
             posto.nome = [objo objectForKey:@"nome"];
             posto.endereco = [objo objectForKey:@"endereco"];
-            
-            posto.cod=[objo objectForKey:@"idlocaisAprovar"];
+            posto.telefone = [objo objectForKey:@"telefone"];
+            posto.cod = [objo objectForKey:@"cod"];
+            //posto.cod = [objo objectForKey:@"idlocaisAprovar"];
             posto.validar=YES;
             
             [locais addObject:posto];
         }
     }
+    
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
    // [_AILoading stopAnimating];
@@ -212,10 +216,6 @@
     
     return locais;
 }
-
-
-
-
 
 -(void)updateUI:(NSMutableArray *)locaisAux
 {
@@ -395,7 +395,7 @@
             
             //DCCustomButton *btDireita = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             
-            DCCustomButton *btDireita =[[DCCustomButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+            DCCustomButton *btDireita = [[DCCustomButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
             
             [btDireita setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
             //[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
@@ -412,7 +412,6 @@
             //DCPosto *temp=anot.posto;
             
             btDireita.posto = anot.posto;
-            
         
             [btDireita addTarget:self action:@selector(clickRightBt:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -424,7 +423,7 @@
             pin.canShowCallout = YES;
             
                       //anot.posto;
-            NSLog(@"posto Name: %@",anot.posto.nome);
+            //NSLog(@"posto Name: %@",anot.posto.nome);
             
             if([annotation.subtitle isEqualToString:@"Validar"])
             { pin.image = [UIImage imageNamed:@"validar.png"];}
