@@ -21,6 +21,10 @@
 		8D3C1D6118996E2500FED19E /* DCMapasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1D6018996E2500FED19E /* DCMapasViewController.m */; };
 		8D6D4F9818CA42B7007C361C /* DCNovoHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */; };
 		8D7D01B6192D403E006E9DA6 /* titulo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01B5192D403E006E9DA6 /* titulo.png */; };
+		8D7D01B8192E7BE2006E9DA6 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01B7192E7BE2006E9DA6 /* background2.png */; };
+		8D7D01BA192E8A7F006E9DA6 /* perfil.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01B9192E8A7F006E9DA6 /* perfil.png */; };
+		8D7D01BC192F950B006E9DA6 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01BB192F950B006E9DA6 /* menu.png */; };
+		8D7D01BE192F9C46006E9DA6 /* botao.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01BD192F9C46006E9DA6 /* botao.png */; };
 		8D9AC568190807F500377B75 /* DCConfirmaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9AC567190807F500377B75 /* DCConfirmaViewController.m */; };
 		8DAAD2E418A511120064683F /* Icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAD2E318A511120064683F /* Icon-settings.png */; };
 		8DAAD2EE18A515690064683F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAD2ED18A515690064683F /* Icon.png */; };
@@ -117,6 +121,10 @@
 		8D6D4F9618CA42B7007C361C /* DCNovoHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNovoHospitalViewController.h; sourceTree = "<group>"; };
 		8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNovoHospitalViewController.m; sourceTree = "<group>"; };
 		8D7D01B5192D403E006E9DA6 /* titulo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titulo.png; sourceTree = "<group>"; };
+		8D7D01B7192E7BE2006E9DA6 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		8D7D01B9192E8A7F006E9DA6 /* perfil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perfil.png; sourceTree = "<group>"; };
+		8D7D01BB192F950B006E9DA6 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		8D7D01BD192F9C46006E9DA6 /* botao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botao.png; sourceTree = "<group>"; };
 		8D9AC566190807F500377B75 /* DCConfirmaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCConfirmaViewController.h; sourceTree = "<group>"; };
 		8D9AC567190807F500377B75 /* DCConfirmaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCConfirmaViewController.m; sourceTree = "<group>"; };
 		8DAAD2E318A511120064683F /* Icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-settings.png"; sourceTree = "<group>"; };
@@ -306,7 +314,11 @@
 		8DAF3AB3192519DF00205907 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				8D7D01BD192F9C46006E9DA6 /* botao.png */,
+				8D7D01BB192F950B006E9DA6 /* menu.png */,
+				8D7D01B7192E7BE2006E9DA6 /* background2.png */,
 				8D7D01B5192D403E006E9DA6 /* titulo.png */,
+				8D7D01B9192E8A7F006E9DA6 /* perfil.png */,
 				8DAF3ADB192BE38800205907 /* power.png */,
 				8DAF3AD9192BD69600205907 /* first_run-2.png */,
 				8DAF3AD5192BBD5100205907 /* first_run.png */,
@@ -552,14 +564,17 @@
 				8DAF3ADA192BD69600205907 /* first_run-2.png in Resources */,
 				8DAF3ACA1925394D00205907 /* ambulancia2.png in Resources */,
 				8D7D01B6192D403E006E9DA6 /* titulo.png in Resources */,
+				8D7D01BC192F950B006E9DA6 /* menu.png in Resources */,
 				8DAF3AA51922887200205907 /* validar.png in Resources */,
 				8DDA2CA118AA98B600EE6295 /* teste.png in Resources */,
 				8DAF3AAC1922AA8300205907 /* background.png in Resources */,
 				8D1724AB18ABF4DA00E18006 /* you-make-me-hurt.png in Resources */,
+				8D7D01BE192F9C46006E9DA6 /* botao.png in Resources */,
 				DDC969DE1891742B00A3CEC7 /* Images.xcassets in Resources */,
 				8DAF3ACB1925394D00205907 /* clipboard.png in Resources */,
 				8DAAD2EE18A515690064683F /* Icon.png in Resources */,
 				B132D9A8192BDC03008B5180 /* callout.png in Resources */,
+				8D7D01B8192E7BE2006E9DA6 /* background2.png in Resources */,
 				8DAF3AAE1922B03000205907 /* ambulancia.png in Resources */,
 				0B535B231896D8FA007CB773 /* ip.txt in Resources */,
 				B1E3BF6919229A1B00FD10BF /* detail.png in Resources */,
@@ -573,6 +588,7 @@
 				DDC969D91891742B00A3CEC7 /* Main.storyboard in Resources */,
 				8DACCBA6191C189F0026D75D /* leftMenu.jpg in Resources */,
 				8DAF3ACF1925397500205907 /* hospital.png in Resources */,
+				8D7D01BA192E8A7F006E9DA6 /* perfil.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

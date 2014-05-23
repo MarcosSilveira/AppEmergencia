@@ -18,6 +18,10 @@
         self.navigationItem.hidesBackButton = YES;
         _veioDaSegue = NO;
     }
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background2.png"]];
+    self.navigationController.navigationBar.alpha = 0.6;
+    self.navigationItem.title = @"Numeros para emergências";
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
     
     [_op0 setImage:[UIImage imageNamed:@"ambulancia.png"] forState:UIControlStateNormal];
     [_op1 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];
