@@ -481,7 +481,7 @@
                                             <outlet property="delegate" destination="qGk-aE-E7Y" id="HVL-tk-Ycd"/>
                                         </connections>
                                     </textField>
-                                    <imageView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="perfil.png" id="sUR-Vb-zLJ">
+                                    <imageView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="perfil.png" id="sUR-Vb-zLJ">
                                         <rect key="frame" x="126" y="20" width="126" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
