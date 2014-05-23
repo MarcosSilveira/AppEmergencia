@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *foto;
 @property (weak, nonatomic) IBOutlet UITextField *tel;
 @property NSArray *sangue;
-
 @end
 
 @implementation DCProfileViewController
@@ -39,6 +38,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.navigationController.navigationBar.alpha = 0.6;
+    self.navigationItem.title = @"Numeros para emergências";
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
+
     _sangue=@[@"A+",@"A-",@"AB+",@"AB-",@"B+",@"B-", @"O+",@"O-"];
     
     
@@ -312,7 +317,7 @@
     
     
     [picker dismissViewControllerAnimated:YES completion:^{}];
-    UIImage* selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    UIImage* selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     
     
@@ -330,31 +335,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(void) buscarImagem
-{
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                                 delegate:self
-                                                        cancelButtonTitle:NSLocalizedString(@"Cancelar", nil)
-                                                   destructiveButtonTitle:nil
-                                                        otherButtonTitles:NSLocalizedString(@"Tirar uma foto", nil),
-                                      NSLocalizedString(@"Escolher uma foto", nil), nil];
-        /*
-        UIActionSheet *UIActionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                                   delegate:self
-                                                          cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
-                                                     destructiveButtonTitle:nil
-                                                          otherButtonTitles:NSLocalizedString(@"TAKE_PHOTO", nil),
-                                        NSLocalizedString(@"CHOOSE_EXISTING", nil), nil];
-         
-         */
-        [actionSheet showInView:self.view];
-    } else {
-        [self actionSheet:nil clickedButtonAtIndex:1];
-    }
-}
-
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 2)
@@ -366,6 +346,33 @@
     
     [self presentViewController:picker animated:YES completion:^{}];
 }
+-(void) buscarImagem
+{
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                 delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"Cancelar", nil)
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:NSLocalizedString(@"Tirar uma foto", nil),
+                                      NSLocalizedString(@"Escolher uma foto", nil), nil];
+        /*
+         UIActionSheet *UIActionSheet = [[UIActionSheet alloc] initWithTitle:nil
+         delegate:self
+         cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
+         destructiveButtonTitle:nil
+         otherButtonTitles:NSLocalizedString(@"TAKE_PHOTO", nil),
+         NSLocalizedString(@"CHOOSE_EXISTING", nil), nil];
+         
+         */
+        [actionSheet showInView:self.view];
+    } else {
+        [self actionSheet:nil clickedButtonAtIndex:1];
+    }
+}
+
+
 
 
 @end
+
