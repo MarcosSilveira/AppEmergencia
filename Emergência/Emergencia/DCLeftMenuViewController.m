@@ -79,7 +79,7 @@
 		case 2:
 			cell.textLabel.text = @"Amigos";
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
-            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"contato.png"]];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"contact.png"]];
             [_imagem addSubview:_image];
             [cell addSubview:_imagem];
 			break;
@@ -95,7 +95,7 @@
         case 4:
 			cell.textLabel.text = @"Números de emergência";
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
-            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phone.png"]];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phone2.png"]];
             [_imagem addSubview:_image];
             [cell addSubview:_imagem];
     

@@ -69,6 +69,7 @@
 		B185CA2018A15BC800EE2CCE /* DCContatos.m in Sources */ = {isa = PBXBuildFile; fileRef = B185CA1F18A15BC800EE2CCE /* DCContatos.m */; };
 		B185CA2318A29CAC00EE2CCE /* DCNovoContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */; };
 		B1878B5F192FAA9600A995D9 /* fireman.png in Resources */ = {isa = PBXBuildFile; fileRef = B1878B5E192FAA9600A995D9 /* fireman.png */; };
+		B1878B63192FB29A00A995D9 /* phone2.png in Resources */ = {isa = PBXBuildFile; fileRef = B1878B62192FB29A00A995D9 /* phone2.png */; };
 		B1E3BF6919229A1B00FD10BF /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E3BF6819229A1B00FD10BF /* detail.png */; };
 		B1E3BF6F19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */; };
 		DDA969391892C43F00CBAB0D /* DCEmergenciaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA969381892C43F00CBAB0D /* DCEmergenciaViewController.m */; };
@@ -195,6 +196,7 @@
 		B185CA2118A29CAC00EE2CCE /* DCNovoContatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNovoContatoViewController.h; sourceTree = "<group>"; };
 		B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNovoContatoViewController.m; sourceTree = "<group>"; };
 		B1878B5E192FAA9600A995D9 /* fireman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireman.png; sourceTree = "<group>"; };
+		B1878B62192FB29A00A995D9 /* phone2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone2.png; sourceTree = "<group>"; };
 		B1E3BF6819229A1B00FD10BF /* detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail.png; sourceTree = "<group>"; };
 		B1E3BF6D19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDetalhesHospitalTableViewController.h; path = ../DCDetalhesHospitalTableViewController.h; sourceTree = "<group>"; };
 		B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDetalhesHospitalTableViewController.m; path = ../DCDetalhesHospitalTableViewController.m; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				8D7D01BB192F950B006E9DA6 /* menu.png */,
 				8D7D01B9192E8A7F006E9DA6 /* perfil.png */,
 				8DAF3AC91925394D00205907 /* phone.png */,
+				B1878B62192FB29A00A995D9 /* phone2.png */,
 				B11E6034192D339400D9D855 /* picture-512.png */,
 				B11E6032192D31CF00D9D855 /* police.png */,
 				8DAF3ADB192BE38800205907 /* power.png */,
@@ -589,6 +592,7 @@
 				8D1724AB18ABF4DA00E18006 /* you-make-me-hurt.png in Resources */,
 				8D7D01C2192FA9D0006E9DA6 /* fireman.png in Resources */,
 				8D7D01BE192F9C46006E9DA6 /* botao.png in Resources */,
+				B1878B63192FB29A00A995D9 /* phone2.png in Resources */,
 				DDC969DE1891742B00A3CEC7 /* Images.xcassets in Resources */,
 				8DAF3ACB1925394D00205907 /* clipboard.png in Resources */,
 				8DAAD2EE18A515690064683F /* Icon.png in Resources */,
