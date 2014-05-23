@@ -43,6 +43,8 @@ CLLocationManager *gerenciadorLocalizacao;
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.title = @"Novo local";
+    
     
     gerenciadorLocalizacao = [[CLLocationManager alloc] init];
     gerenciadorLocalizacao.delegate = self;

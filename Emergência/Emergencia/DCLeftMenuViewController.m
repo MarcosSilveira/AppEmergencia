@@ -25,7 +25,7 @@
     
 	self.tableView.separatorColor = [UIColor lightGrayColor];
 	
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu.png"]];
 
 	self.tableView.backgroundView = imageView;
 	
@@ -44,20 +44,20 @@
 //	view.backgroundColor = [UIColor clearColor];
 //	return view;
     
-    UIImageView *imgVew = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titulo.png"]];
+    UIImageView *imgVew = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
     [imgVew sizeToFit];
     return imgVew;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return 50;
+	return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"leftCell" forIndexPath:indexPath];
-	
+	cell.textLabel.textColor = [UIColor whiteColor];
 	switch (indexPath.row)
 	{
 		case 0:

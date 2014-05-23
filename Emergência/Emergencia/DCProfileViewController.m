@@ -71,7 +71,7 @@
     
     [self.view addGestureRecognizer:tap];
     
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    self.navigationItem.title = @"Seu perfil";
 
 }
 
@@ -83,7 +83,12 @@
     NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"foto"];
     if(imageData!=nil){
         UIImage* image = [UIImage imageWithData:imageData];
-        //self.foto.image=image;
+        
+    
+        
+        self.foto.image=image;
+        _foto.transform = CGAffineTransformMakeRotation(M_PI_2);
+        
     }
 }
 
@@ -160,11 +165,19 @@
 
 - (IBAction)criarImagem:(id)sender {
     NSString *teste=[[NSUserDefaults standardUserDefaults] stringForKey: @"nome"];
+    
+
     UIImage *img=[self imageFromText:teste];
+    
+    
+    self.image.image = img;
+    
+    
+    
    // [self.image setImage:[self imageFromText:teste]];
     UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     
-    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Imagem Ccriada" message:@"Imagem criada com sucesso, utilize ela como imagem para tela bloqueada" buttonTitle:@"OK"];
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Imagem criada" message:@"Foi gerada uma imagem com suas informações médicas e salva no seu album de fotos. Recomenda-se que você use a imagem gerada como fundo da tela bloqueada." buttonTitle:@"OK"];
     [alertView show];
 }
 
@@ -319,10 +332,10 @@
         
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                                  delegate:self
-                                                        cancelButtonTitle:NSLocalizedString(@"CANCEL", nil)
+                                                        cancelButtonTitle:NSLocalizedString(@"Cancelar", nil)
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:NSLocalizedString(@"Tire uma foto", nil),
-                                      NSLocalizedString(@"Escolha uma foto", nil), nil];
+                                                        otherButtonTitles:NSLocalizedString(@"Tirar uma foto", nil),
+                                      NSLocalizedString(@"Escolher uma foto", nil), nil];
         /*
         UIActionSheet *UIActionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                                    delegate:self
