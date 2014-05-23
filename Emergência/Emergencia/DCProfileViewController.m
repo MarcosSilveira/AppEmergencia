@@ -319,6 +319,8 @@
     [picker dismissViewControllerAnimated:YES completion:^{}];
     UIImage* selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
+    CGImageRef cgRef = selectedImage.CGImage;
+    selectedImage = [[UIImage alloc] initWithCGImage:cgRef scale:1.0 orientation:UIImageOrientationUp];
     
     
     //[_foto setContentMode:UIViewContentModeScaleAspectFill];
