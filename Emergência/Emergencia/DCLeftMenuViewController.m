@@ -44,7 +44,7 @@
 //	view.backgroundColor = [UIColor clearColor];
 //	return view;
     
-    UIImageView *imgVew = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titulo.png"]];
+    UIImageView *imgVew = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
     [imgVew sizeToFit];
     return imgVew;
 }

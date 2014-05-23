@@ -11,6 +11,7 @@
 
 @interface DCDetalhesHospitalTableViewController : UITableViewController
 
-@property (nonatomic) DCPosto *posto;
+@property (strong, nonatomic) DCPosto *postos;
+@property (strong, nonatomic) NSMutableArray *detalhePosto;
 
 @end

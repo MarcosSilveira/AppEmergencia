@@ -24,8 +24,8 @@
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
     
     [_op0 setImage:[UIImage imageNamed:@"ambulancia.png"] forState:UIControlStateNormal];
-    [_op1 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];
-    [_op2 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];
+    [_op1 setImage:[UIImage imageNamed:@"police.png"] forState:UIControlStateNormal];
+    [_op2 setImage:[UIImage imageNamed:@"fireman.png"] forState:UIControlStateNormal];
     [_op3 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];
     [_op4 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];
     [_op5 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];

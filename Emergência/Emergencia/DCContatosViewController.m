@@ -473,6 +473,7 @@
         return @"Aguardando aprovação";
     }
 }
+
 //slideMenudelegate
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
