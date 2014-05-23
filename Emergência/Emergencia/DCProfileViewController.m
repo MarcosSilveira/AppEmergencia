@@ -85,7 +85,7 @@
         UIImage* image = [UIImage imageWithData:imageData];
         
         self.foto.image=image;
-       // _foto.transform = CGAffineTransformMakeRotation(M_PI_2);
+       //_foto.transform = CGAffineTransformMakeRotation(M_PI_2);
         
         
         
