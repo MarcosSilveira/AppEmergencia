@@ -28,7 +28,7 @@
     //_postos = [[DCPosto alloc]init];
     [super viewDidLoad];
     
-    NSLog(@" nome%@",self.posto.nome);
+    NSLog(@" nome%@",self.postos.nome);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

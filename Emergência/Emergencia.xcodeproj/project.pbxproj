@@ -59,7 +59,6 @@
 		8DB3C58F191AA99D003E2719 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB3C58E191AA99D003E2719 /* QuartzCore.framework */; };
 		8DC070B8191969CD00A65B01 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */; };
 		8DDA2CA118AA98B600EE6295 /* teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA2CA018AA98B500EE6295 /* teste.png */; };
-		B11E6031192D31C700D9D855 /* fireman.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6030192D31C700D9D855 /* fireman.png */; };
 		B11E6033192D31CF00D9D855 /* police.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6032192D31CF00D9D855 /* police.png */; };
 		B11E6035192D339400D9D855 /* picture-512.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6034192D339400D9D855 /* picture-512.png */; };
 		B11E6037192D33D400D9D855 /* user_male3-512.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6036192D33D400D9D855 /* user_male3-512.png */; };
@@ -181,7 +180,6 @@
 		8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8DDA2CA018AA98B500EE6295 /* teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teste.png; sourceTree = "<group>"; };
 		B11E602A192D159200D9D855 /* DCCustomCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCustomCallout.h; sourceTree = "<group>"; };
-		B11E6030192D31C700D9D855 /* fireman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireman.png; sourceTree = "<group>"; };
 		B11E6032192D31CF00D9D855 /* police.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = police.png; sourceTree = "<group>"; };
 		B11E6034192D339400D9D855 /* picture-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture-512.png"; sourceTree = "<group>"; };
 		B11E6036192D33D400D9D855 /* user_male3-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_male3-512.png"; sourceTree = "<group>"; };
@@ -589,7 +587,6 @@
 				B132D9A8192BDC03008B5180 /* callout.png in Resources */,
 				8D7D01B8192E7BE2006E9DA6 /* background2.png in Resources */,
 				8DAF3AAE1922B03000205907 /* ambulancia.png in Resources */,
-				B11E6031192D31C700D9D855 /* fireman.png in Resources */,
 				0B535B231896D8FA007CB773 /* ip.txt in Resources */,
 				B1E3BF6919229A1B00FD10BF /* detail.png in Resources */,
 				8DAF3AD6192BBD5100205907 /* first_run.png in Resources */,

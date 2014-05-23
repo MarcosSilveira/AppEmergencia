@@ -84,10 +84,10 @@
     if(imageData!=nil){
         UIImage* image = [UIImage imageWithData:imageData];
         
-    
-        
         self.foto.image=image;
-        _foto.transform = CGAffineTransformMakeRotation(M_PI_2);
+       // _foto.transform = CGAffineTransformMakeRotation(M_PI_2);
+        
+        
         
     }
 }
@@ -318,8 +318,12 @@
     
     //[_foto setContentMode:UIViewContentModeScaleAspectFill];
     [_foto setImage:selectedImage];
+    
+     //_foto.transform = CGAffineTransformMakeRotation(M_PI_2);
 
     [_foto sizeThatFits:CGSizeMake(167, 96)];
+    
+   
     
     [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(self.foto.image) forKey:@"foto"];
     
