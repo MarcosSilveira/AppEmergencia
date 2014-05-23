@@ -25,7 +25,7 @@
     
     [_op0 setImage:[UIImage imageNamed:@"ambulancia.png"] forState:UIControlStateNormal];
     [_op1 setImage:[UIImage imageNamed:@"police.png"] forState:UIControlStateNormal];
-    [_op2 setImage:[UIImage imageNamed:@"taxi"] forState:UIControlStateNormal];
+    [_op2 setImage:[UIImage imageNamed:@"fireman.png"] forState:UIControlStateNormal];
     [_op3 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];
     [_op4 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];
     [_op5 setImage:[UIImage imageNamed:@"taxi.png"] forState:UIControlStateNormal];

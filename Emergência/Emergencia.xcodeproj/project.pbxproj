@@ -322,13 +322,14 @@
 		8DAF3AB3192519DF00205907 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
-				8D7D01C1192FA9D0006E9DA6 /* fireman.png */,
-				8D7D01BD192F9C46006E9DA6 /* botao.png */,
-				8D7D01BB192F950B006E9DA6 /* menu.png */,
+				8DAF3AAD1922B03000205907 /* ambulancia.png */,
+				8DAF3AC61925394D00205907 /* ambulancia2.png */,
+				8DAF3AAB1922AA8300205907 /* background.png */,
 				8D7D01B7192E7BE2006E9DA6 /* background2.png */,
-				8D7D01B5192D403E006E9DA6 /* titulo.png */,
-				8D7D01B9192E8A7F006E9DA6 /* perfil.png */,
-				8DAF3ADB192BE38800205907 /* power.png */,
+				8D7D01BD192F9C46006E9DA6 /* botao.png */,
+				8DAF3AC71925394D00205907 /* clipboard.png */,
+				8DAF3AC81925394D00205907 /* contact.png */,
+				8D7D01C1192FA9D0006E9DA6 /* fireman.png */,
 				8DAF3AD5192BBD5100205907 /* first_run.png */,
 				8D18E5B7189FF726003466C6 /* home_ico_dica_carro.png */,
 				8DAF3ACE1925397500205907 /* hospital.png */,
@@ -339,12 +340,17 @@
 				B11E6034192D339400D9D855 /* picture-512.png */,
 				B11E6032192D31CF00D9D855 /* police.png */,
 				8DAF3ADB192BE38800205907 /* power.png */,
+				B1878B5E192FAA9600A995D9 /* fireman.png */,
 				8DAF3AB11922B47F00205907 /* taxi.png */,
 				8DDA2CA018AA98B500EE6295 /* teste.png */,
 				8D7D01B5192D403E006E9DA6 /* titulo.png */,
+				8D7D01BB192F950B006E9DA6 /* menu.png */,
 				B11E6036192D33D400D9D855 /* user_male3-512.png */,
 				8DAF3AA41922887200205907 /* validar.png */,
 				8D1724AA18ABF4DA00E18006 /* you-make-me-hurt.png */,
+				8D7D01B9192E8A7F006E9DA6 /* perfil.png */,
+				8DAF3ADB192BE38800205907 /* power.png */,
+				8D7D01B5192D403E006E9DA6 /* titulo.png */,
 			);
 			name = Imagens;
 			sourceTree = "<group>";
