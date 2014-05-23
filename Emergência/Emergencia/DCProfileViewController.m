@@ -314,6 +314,8 @@
     [picker dismissViewControllerAnimated:YES completion:^{}];
     UIImage* selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     
+    CGImageRef cgRef = selectedImage.CGImage;
+    selectedImage = [[UIImage alloc] initWithCGImage:cgRef scale:1.0 orientation:UIImageOrientationUp];
     
     
     //[_foto setContentMode:UIViewContentModeScaleAspectFill];
@@ -354,6 +356,18 @@
         [self actionSheet:nil clickedButtonAtIndex:1];
     }
 }
+
+/*
+- (UIImage *)normalizedImage:(UIImage *)img {
+    if (img == UIImageOrientationUp){
+        return img;
+    }else{
+        
+    }
+    
+        return img;
+}
+ */
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
