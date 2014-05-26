@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrolls;
 @property (weak, nonatomic) IBOutlet UIImageView *foto;
 @property (weak, nonatomic) IBOutlet UITextField *tel;
+@property (weak, nonatomic) IBOutlet UISwitch *doador;
+@property (weak, nonatomic) IBOutlet UITextField *alergiastxt;
 @property NSArray *sangue;
 @end
 
@@ -39,9 +41,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+//  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationController.navigationBar.alpha = 0.6;
-    self.navigationItem.title = @"Numeros para emergências";
+    self.navigationItem.title = @"Seu perfil";
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
 
     _sangue=@[@"A+",@"A-",@"AB+",@"AB-",@"B+",@"B-", @"O+",@"O-"];
@@ -51,8 +53,9 @@
     self.pesotxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"];
     self.alturatxt.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"];
     self.tel.text=[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"];
-    
-   
+    _doador.on = NO;
+    _doador.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"doador"];
+    _alergiastxt.text = [[NSUserDefaults standardUserDefaults]stringForKey:@"alergias"];
     NSNumber *temp= [[NSUserDefaults standardUserDefaults] objectForKey: @"sangue"];
    //[self.tipo selectedRowInComponent:[temp integerValue]];
     
@@ -146,6 +149,8 @@
     NSNumber *seles=[NSNumber numberWithInteger:sele];
     [[NSUserDefaults standardUserDefaults] setObject:seles forKey:@"sangue"];
     
+    [[NSUserDefaults standardUserDefaults] setBool:[_doador isOn] forKey:@"doador"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.alergiastxt.text forKey:@"alergias"];
     [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(self.foto.image) forKey:@"foto"];
     
     

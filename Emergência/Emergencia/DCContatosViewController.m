@@ -37,6 +37,10 @@
     [super viewDidLoad];
     
     [self configuracoesIniciais];
+//    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.navigationController.navigationBar.alpha = 0.6;
+    self.navigationItem.title = @"Contatos";
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
     
     self.tableView.delegate = self;
     
@@ -261,7 +265,7 @@
 - (IBAction)onChangeSwitch:(UISwitch *)sender {
     
     UITableViewCell *cell = (UITableViewCell *) [[[sender superview] superview] superview];
-    
+
     if (sender.on) {
         
         BOOL aceitou = NO;
@@ -363,10 +367,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UILabel *lblContato = (UILabel *) [cell viewWithTag:10];
-    UIColor *color = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
-    [lblContato setTextColor: color];
+//    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+ //   UILabel *lblContato = (UILabel *) [cell viewWithTag:10];
+//    UIColor *color = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
+ //   [lblContato setTextColor: [UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning
