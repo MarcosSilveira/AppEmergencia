@@ -35,19 +35,21 @@
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
+    [super viewDidLoad];
     _aviso = [[UIView alloc]initWithFrame:CGRectMake(_LBLoading.frame.origin.x,_LBLoading.frame.origin.y-50, 180, 80)];
     UIColor *cor = [[UIColor alloc]initWithRed:0.2 green:0.45 blue:0.9 alpha:0.7];
     _aviso.backgroundColor = cor;
     _aviso.layer.cornerRadius = 15;
     _aviso.layer.masksToBounds = YES;
     _aviso.hidden = YES;
-  [gerenciadorLocalizacao startUpdatingLocation];
-  [self OndeEstouAction:NULL];
-  self.conf=[[DCConfigs alloc] init];
-  pontoaux = [[DCCustomCallout alloc] init];
+    [gerenciadorLocalizacao startUpdatingLocation];
+    [self OndeEstouAction:NULL];
+    self.conf=[[DCConfigs alloc] init];
+    pontoaux = [[DCCustomCallout alloc] init];
     _AILoading.hidesWhenStopped = YES;
-   // _LBLoading.hidden = YES;
+    // _LBLoading.hidden = YES;
+    
+    
     
     [self setCalloutCustom];
     
@@ -92,9 +94,6 @@
         [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
         
     }
-
-    
-    
 }
 
 -(void)setCalloutCustom
@@ -117,8 +116,6 @@
     
     NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/novaBusca.jsp?lat=%f&log=%f&tipo='lol'&prioridade=%@&raio=%f",self.conf.ip,lats,longi,prio,self.raio];
     
-    
-    
     NSURL *urs = [[NSURL alloc] initWithString:ur];
     NSData* data = [NSData dataWithContentsOfURL:urs];
     
@@ -133,9 +130,9 @@
         NSArray *res = [resultado objectForKey:@"Locais"];
         
         NSDictionary *objo;
+        DCPosto *posto = [[DCPosto alloc] init];
         for (int i = 0; i < res.count; i++) {
             
-            DCPosto *posto = [[DCPosto alloc] init];
             objo = [res objectAtIndex:i];
             
             posto.lat = [[objo objectForKey:@"latitude"] floatValue];
@@ -144,17 +141,19 @@
             posto.endereco = [objo objectForKey:@"endereco"];
             posto.telefone = [objo objectForKey:@"telefone"];
             posto.cod = [objo objectForKey:@"cod"];
+            posto.bairro = [objo objectForKey:@"bairro"];
+            posto.especi = [objo objectForKey:@"especialidade"];
+            posto.site = [objo objectForKey:@"site"];
             posto.validar = NO;
             
             [locais addObject:posto];
         }
+        
+//        posto.telefone = [posto.telefone stringByAppendingFormat:@"(%c%c) %c%c%c%c - %c%c%c%c",[posto.telefone characterAtIndex:0], [posto.telefone characterAtIndex:1], [posto.telefone characterAtIndex:2], [posto.telefone characterAtIndex:3],  [posto.telefone characterAtIndex:4], [posto.telefone characterAtIndex:5],  [posto.telefone characterAtIndex:6],  [posto.telefone characterAtIndex:7], [posto.telefone characterAtIndex:8], [posto.telefone characterAtIndex:9]];
     }
+    
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
     if (data != nil) {
-        
-        
-        
-        
         
         [_AILoading stopAnimating];
         _LBLoading.hidden = YES;
@@ -175,8 +174,6 @@
     
     NSString *ur = [NSString stringWithFormat:@"http://%@:8080/Emergencia/hospitaisValidar.jsp?lat=%f&log=%f&tipo='lol'&prioridade=%@&raio=%f",self.conf.ip,lats,longi,prio,self.raio];
     
-    
-    
     NSURL *urs = [[NSURL alloc] initWithString:ur];
     NSData* data = [NSData dataWithContentsOfURL:urs];
     
@@ -202,6 +199,9 @@
             posto.endereco = [objo objectForKey:@"endereco"];
             posto.telefone = [objo objectForKey:@"telefone"];
             posto.cod = [objo objectForKey:@"cod"];
+            posto.bairro = [objo objectForKey:@"bairro"];
+            posto.especi = [objo objectForKey:@"especialidade"];
+            posto.site = [objo objectForKey:@"site"];
             //posto.cod = [objo objectForKey:@"idlocaisAprovar"];
             posto.validar=YES;
             
@@ -211,8 +211,8 @@
     
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
-   // [_AILoading stopAnimating];
-   // _LBLoading.hidden = YES;
+    // [_AILoading stopAnimating];
+    // _LBLoading.hidden = YES;
     
     return locais;
 }
@@ -412,7 +412,7 @@
             //DCPosto *temp=anot.posto;
             
             btDireita.posto = anot.posto;
-        
+            
             [btDireita addTarget:self action:@selector(clickRightBt:) forControlEvents:UIControlEventTouchUpInside];
             
             [btEsquerda addTarget:self action:@selector(clickLeftBt) forControlEvents:UIControlEventTouchUpInside];
@@ -422,7 +422,7 @@
             pin.leftCalloutAccessoryView = btEsquerda;
             pin.canShowCallout = YES;
             
-                      //anot.posto;
+            //anot.posto;
             //NSLog(@"posto Name: %@",anot.posto.nome);
             
             if([annotation.subtitle isEqualToString:@"Validar"])
@@ -440,8 +440,8 @@
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-     //INSTANCIAR NOVA VIEW
-     /*
+    //INSTANCIAR NOVA VIEW
+    /*
      UIImageView * custom = [[UIImageView alloc]initWithFrame:CGRectMake(-74, -63, 128, 64)];
      custom.image = [UIImage imageNamed:@"callout.png"];
      [view addSubview:custom];
@@ -455,7 +455,7 @@
      UIButton *btDetalhe = [[UIButton alloc] initWithFrame:CGRectMake(78, 3, 50, 50)];
      btDetalhe.backgroundColor = [UIColor blueColor];
      [btDetalhe setImage:[UIImage imageNamed:@"detail.png"] forState:UIControlStateNormal];
-    [btDetalhe addTarget:self action:@selector(clickRightBt:) forControlEvents:UIControlEventTouchUpInside];
+     [btDetalhe addTarget:self action:@selector(clickRightBt:) forControlEvents:UIControlEventTouchUpInside];
      btDetalhe.layer.cornerRadius = 15;
      
      UILabel *lblTeste = [[UILabel alloc] init];
@@ -466,8 +466,8 @@
      [custom addSubview:btRota];
      [custom addSubview:btDetalhe];
      [custom addSubview:lblTeste];
-      
-      */
+     
+     */
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
@@ -491,7 +491,7 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//goT
+    //goT
     if ([segue.identifier isEqualToString:@"goToDetalheHospital"]) {
         DCDetalhesHospitalTableViewController *detalhes=(DCDetalhesHospitalTableViewController *)segue.destinationViewController;
         //DCCustomCallout *temp=(DCCustomCallout *)sender;

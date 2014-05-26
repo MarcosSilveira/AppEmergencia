@@ -14,15 +14,6 @@
 
 @implementation DCDetalhesHospitalTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,7 +32,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -51,23 +42,74 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * tableIdent = @"Cell";
+    static NSString * tableIdent;
+    
+    if (indexPath.section == 0){
+        tableIdent = @"Cell";
+    }
+    else if (indexPath.section == 1){
+        tableIdent = @"Cell2";
+    }
+    else {
+        tableIdent = @"Cell3";
+    }
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableIdent];
     
     if(cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableIdent];
     }
-    UILabel *lblEndereco = (UILabel *)[cell viewWithTag:1];
-    //UIButton *btAceita = (UIButton *) [cell viewWithTag:1];
     
-    lblEndereco.lineBreakMode = YES;
-    lblEndereco.lineBreakMode = NSLineBreakByCharWrapping;
-    lblEndereco.text = _postos.endereco;
-    lblEndereco.textColor = [UIColor whiteColor];
-    lblEndereco.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
+    if (indexPath.section == 0) {
+        
+        UILabel *lblEndereco = (UILabel *)[cell viewWithTag:1];
+        
+        lblEndereco.lineBreakMode = YES;
+        lblEndereco.lineBreakMode = NSLineBreakByCharWrapping;
+        lblEndereco.text = _postos.endereco;
+        lblEndereco.textColor = [UIColor whiteColor];
+        
+    }
+    
+    else if ((indexPath.section == 1 && _postos.site == nil)
+             || (indexPath.section == 1 && [_postos.site isEqualToString:@""])) {
+        
+        UILabel *lblSite = (UILabel *) [cell viewWithTag:2];
+        
+        lblSite.lineBreakMode = YES;
+        lblSite.lineBreakMode = NSLineBreakByCharWrapping;
+        lblSite.text = @"Nenhum site disponível";
+        lblSite.textColor = [UIColor whiteColor];
+    }
+    
+    else if ((indexPath.section == 1 && _postos.site != nil)
+             || (indexPath.section == 1 && ![_postos.site isEqualToString:@""])){
+        
+        UILabel *lblSite = (UILabel *) [cell viewWithTag:2];
+        lblSite.lineBreakMode = YES;
+        lblSite.lineBreakMode = NSLineBreakByCharWrapping;
+        lblSite.text = _postos.site;
+        lblSite.textColor = [UIColor whiteColor];
+    }
+    
+    else if ((indexPath.section == 2 && _postos.telefone == nil) || (indexPath.section == 2 && [_postos.telefone isEqualToString:@""]) || [_postos.telefone isEqualToString:@"Não declarado"]) {
+        
+        UILabel *lblSite = (UILabel *) [cell viewWithTag:3];
+        lblSite.lineBreakMode = YES;
+        lblSite.lineBreakMode = NSLineBreakByCharWrapping;
+        lblSite.text = @"Nenhum telefone disponível";
+        lblSite.textColor = [UIColor whiteColor];
 
-    //[btAceita setImage:[UIImage imageNamed:@"hospital.png"] forState:UIControlStateNormal];
-    //[btAceita addTarget:self action:@selector(aceitarHospital) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    else {
+        
+        UILabel *lblSite = (UILabel *) [cell viewWithTag:3];
+        lblSite.lineBreakMode = YES;
+        lblSite.lineBreakMode = NSLineBreakByCharWrapping;
+        lblSite.text = _postos.telefone;
+        lblSite.textColor = [UIColor whiteColor];
+    }
     
     cell.tag = indexPath.row;
     cell.backgroundColor = [UIColor clearColor];
@@ -76,8 +118,12 @@
     return cell;
 }
 
--(void) aceitarHospital {
-    NSLog(@"FUNCIONOU");
+- (IBAction)negarHospital:(id)sender {
+    NSLog( @"testeNegar");
+}
+
+- (IBAction)aceitarHospital:(id)sender {
+        NSLog( @"testeAceitar");
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -85,19 +131,38 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
     UILabel *lblHeader = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.5, 400, 20)];
     
-    lblHeader.text = _postos.nome;
-    lblHeader.lineBreakMode = YES;
-    lblHeader.lineBreakMode = NSLineBreakByCharWrapping;
-    lblHeader.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
-    lblHeader.font = [UIFont boldSystemFontOfSize:1.0f];
-    [lblHeader setFont:[UIFont systemFontOfSize:13.0f]];
+    if (section == 0) {
+        
+        lblHeader.text = _postos.nome;
+        lblHeader.lineBreakMode = YES;
+        lblHeader.lineBreakMode = NSLineBreakByCharWrapping;
+        lblHeader.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
+        lblHeader.font = [UIFont boldSystemFontOfSize:1.0f];
+        [lblHeader setFont:[UIFont systemFontOfSize:13.0f]];
+        
+        headerView.backgroundColor = [UIColor whiteColor];
+        [lblHeader setBackgroundColor: [UIColor clearColor]];
+        
+        [headerView addSubview:lblHeader];
+        
+    }
+    else {
+        
+        lblHeader.text = @"Site";
+        lblHeader.lineBreakMode = YES;
+        lblHeader.lineBreakMode = NSLineBreakByCharWrapping;
+        lblHeader.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
+        lblHeader.font = [UIFont boldSystemFontOfSize:1.0f];
+        [lblHeader setFont:[UIFont systemFontOfSize:13.0f]];
+        
+        headerView.backgroundColor = [UIColor whiteColor];
+        [lblHeader setBackgroundColor: [UIColor clearColor]];
+        
+        [headerView addSubview:lblHeader];
+
+    }
     
-    headerView.backgroundColor = [UIColor whiteColor];
-    [lblHeader setBackgroundColor: [UIColor clearColor]];
-    
-    [headerView addSubview:lblHeader];
-    
-    return headerView;
+    return  headerView;
 }
 
 /*
@@ -148,5 +213,4 @@
  // Pass the selected object to the new view controller.
  }
  */
-
 @end

@@ -44,10 +44,6 @@
     
     self.tableView.delegate = self;
     
-
-    
-    
-    
     dispatch_queue_t queue;
     
     queue = dispatch_queue_create("myQueue",
@@ -376,15 +372,12 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
-    // Return the number of sections.
     return 2;
 }
 

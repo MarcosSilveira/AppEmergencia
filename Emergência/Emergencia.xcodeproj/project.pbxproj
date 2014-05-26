@@ -72,6 +72,8 @@
 		B185CA2318A29CAC00EE2CCE /* DCNovoContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */; };
 		B1878B5F192FAA9600A995D9 /* fireman.png in Resources */ = {isa = PBXBuildFile; fileRef = B1878B5E192FAA9600A995D9 /* fireman.png */; };
 		B1878B63192FB29A00A995D9 /* phone2.png in Resources */ = {isa = PBXBuildFile; fileRef = B1878B62192FB29A00A995D9 /* phone2.png */; };
+		B1878B651933C6F700A995D9 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = B1878B641933C6F700A995D9 /* check.png */; };
+		B1878B671933C6FC00A995D9 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = B1878B661933C6FC00A995D9 /* cancel.png */; };
 		B1E3BF6919229A1B00FD10BF /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E3BF6819229A1B00FD10BF /* detail.png */; };
 		B1E3BF6F19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */; };
 		DDA9693C1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA9693B1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m */; };
@@ -201,6 +203,8 @@
 		B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNovoContatoViewController.m; sourceTree = "<group>"; };
 		B1878B5E192FAA9600A995D9 /* fireman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireman.png; sourceTree = "<group>"; };
 		B1878B62192FB29A00A995D9 /* phone2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone2.png; sourceTree = "<group>"; };
+		B1878B641933C6F700A995D9 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		B1878B661933C6FC00A995D9 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		B1E3BF6819229A1B00FD10BF /* detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail.png; sourceTree = "<group>"; };
 		B1E3BF6D19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDetalhesHospitalTableViewController.h; path = ../DCDetalhesHospitalTableViewController.h; sourceTree = "<group>"; };
 		B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDetalhesHospitalTableViewController.m; path = ../DCDetalhesHospitalTableViewController.m; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 				8DAF3AAB1922AA8300205907 /* background.png */,
 				8D7D01B7192E7BE2006E9DA6 /* background2.png */,
 				8D7D01BD192F9C46006E9DA6 /* botao.png */,
+				B1878B661933C6FC00A995D9 /* cancel.png */,
+				B1878B641933C6F700A995D9 /* check.png */,
 				8DAF3AC71925394D00205907 /* clipboard.png */,
 				8DAF3AC81925394D00205907 /* contact.png */,
 				8D7D01C1192FA9D0006E9DA6 /* fireman.png */,
@@ -365,16 +371,16 @@
 		DDA9693D1896B9E600CBAB0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B167467718B67EAD0063E631 /* KeychainItemWrapper.h */,
-				B167467818B67EAD0063E631 /* KeychainItemWrapper.m */,
-				0BD2E2A91899700800B78E51 /* DCPosto.h */,
-				0BD2E2AA1899700800B78E51 /* DCPosto.m */,
-				DDA9693E1896BA1E00CBAB0D /* DCEmergencia.h */,
-				DDA9693F1896BA1E00CBAB0D /* DCEmergencia.m */,
 				0B535AE51896D14A007CB773 /* DCConfigs.h */,
 				0B535AE61896D14A007CB773 /* DCConfigs.m */,
 				B185CA1E18A15BC800EE2CCE /* DCContatos.h */,
 				B185CA1F18A15BC800EE2CCE /* DCContatos.m */,
+				DDA9693E1896BA1E00CBAB0D /* DCEmergencia.h */,
+				DDA9693F1896BA1E00CBAB0D /* DCEmergencia.m */,
+				0BD2E2A91899700800B78E51 /* DCPosto.h */,
+				0BD2E2AA1899700800B78E51 /* DCPosto.m */,
+				B167467718B67EAD0063E631 /* KeychainItemWrapper.h */,
+				B167467818B67EAD0063E631 /* KeychainItemWrapper.m */,
 				8DACCB75191C01DD0026D75D /* SlideMenu */,
 			);
 			name = Model;
@@ -469,18 +475,16 @@
 		DDC96A0018917DEA00A3CEC7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8DB3C585191A9C4F003E2719 /* Reachability.h */,
-				8DB3C586191A9C4F003E2719 /* Reachability.m */,
-				8D6D4F9618CA42B7007C361C /* DCNovoHospitalViewController.h */,
-				8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */,
+				DDA9693A1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.h */,
+				DDA9693B1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m */,
+				DDC969FA18917C7D00A3CEC7 /* DCCadastroViewController.h */,
+				DDC969FB18917C7D00A3CEC7 /* DCCadastroViewController.m */,
 				8D9AC566190807F500377B75 /* DCConfirmaViewController.h */,
 				8D9AC567190807F500377B75 /* DCConfirmaViewController.m */,
-				B185CA2118A29CAC00EE2CCE /* DCNovoContatoViewController.h */,
-				B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */,
-				DDA9693A1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.h */,
+				B185CA1B18A157E000EE2CCE /* DCContatosViewController.h */,
+				B185CA1C18A157E000EE2CCE /* DCContatosViewController.m */,
 				B1E3BF6D19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.h */,
 				B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */,
-				DDA9693B1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m */,
 				DDA969371892C43F00CBAB0D /* DCEmergenciaViewController.h */,
 				8DD3F9F31933D658001FB702 /* DCEmergenciaViewController.m */,
 				B185CA1B18A157E000EE2CCE /* DCContatosViewController.h */,
@@ -489,16 +493,22 @@
 				8D3C1D6018996E2500FED19E /* DCMapasViewController.m */,
 				DDC969FD18917CB600A3CEC7 /* DCInicialViewController.h */,
 				DDC969FE18917CB600A3CEC7 /* DCInicialViewController.m */,
-				DDC969FA18917C7D00A3CEC7 /* DCCadastroViewController.h */,
-				DDC969FB18917C7D00A3CEC7 /* DCCadastroViewController.m */,
-				DDC969DA1891742B00A3CEC7 /* DCLoginViewController.h */,
-				DDC969DB1891742B00A3CEC7 /* DCLoginViewController.m */,
 				8DACCBA2191C171E0026D75D /* DCLeftMenuViewController.h */,
 				8DACCBA3191C171E0026D75D /* DCLeftMenuViewController.m */,
-				0B143C52192130CC006A9169 /* DCProfileViewController.h */,
-				0B143C53192130CC006A9169 /* DCProfileViewController.m */,
+				DDC969DA1891742B00A3CEC7 /* DCLoginViewController.h */,
+				DDC969DB1891742B00A3CEC7 /* DCLoginViewController.m */,
+				8D3C1D5F18996E2500FED19E /* DCMapasViewController.h */,
+				8D3C1D6018996E2500FED19E /* DCMapasViewController.m */,
+				B185CA2118A29CAC00EE2CCE /* DCNovoContatoViewController.h */,
+				B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */,
+				8D6D4F9618CA42B7007C361C /* DCNovoHospitalViewController.h */,
+				8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */,
 				8DAF3A9D19214E1E00205907 /* DCNumerosViewController.h */,
 				8DAF3A9E19214E1E00205907 /* DCNumerosViewController.m */,
+				0B143C52192130CC006A9169 /* DCProfileViewController.h */,
+				0B143C53192130CC006A9169 /* DCProfileViewController.m */,
+				8DB3C585191A9C4F003E2719 /* Reachability.h */,
+				8DB3C586191A9C4F003E2719 /* Reachability.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -608,6 +618,7 @@
 				B1E3BF6919229A1B00FD10BF /* detail.png in Resources */,
 				8DAF3AD6192BBD5100205907 /* first_run.png in Resources */,
 				DDC969D01891742B00A3CEC7 /* InfoPlist.strings in Resources */,
+				B1878B651933C6F700A995D9 /* check.png in Resources */,
 				B11E6035192D339400D9D855 /* picture-512.png in Resources */,
 				8DAF3ACD1925394D00205907 /* phone.png in Resources */,
 				8DAF3AB21922B47F00205907 /* taxi.png in Resources */,
@@ -617,6 +628,7 @@
 				DDC969D91891742B00A3CEC7 /* Main.storyboard in Resources */,
 				8DACCBA6191C189F0026D75D /* leftMenu.jpg in Resources */,
 				8DAF3ACF1925397500205907 /* hospital.png in Resources */,
+				B1878B671933C6FC00A995D9 /* cancel.png in Resources */,
 				8D7D01BA192E8A7F006E9DA6 /* perfil.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
