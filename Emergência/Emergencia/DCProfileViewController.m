@@ -199,7 +199,7 @@
     
     // set the font type and size
     //UIFont *font = [UIFont systemFontOfSize:20.0];
-    UIFont *font=[UIFont fontWithName:@"MarkerFelt-Wide" size:20.0];
+    UIFont *font=[UIFont fontWithName:@"MarkerFelt-Wide" size:25.0];
    
     UIImage *base=[UIImage imageNamed:@"background"];
     
@@ -215,8 +215,11 @@
     
     CGFloat width=100;
     
-    NSString *alergia=[NSString stringWithFormat:@"Alergias: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"alergias"]];
+    NSString *alergia=[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] stringForKey: @"alergias"]];
     
+   
+    NSArray *splitArray =[alergia componentsSeparatedByString:@","]; //it separates the string and store it in the different different indexes.
+
     
     if([temp sizeWithFont:font].width>width&&[temp sizeWithFont:font].width>[tel sizeWithFont:font].width){
         
@@ -226,14 +229,47 @@
         width=[tel sizeWithFont:font].width;
     }
     
-    if(width<[alergia sizeWithFont:font].width){
-        width=[alergia sizeWithFont:font].width;
+    if (splitArray.count>1) {
+        
+        CGFloat maior=0;
+        
+        for (int i=0; i<splitArray.count; i+=2) {
+            int aux=i+1;
+            NSString *juncao;
+            if(aux<splitArray.count){
+                juncao=[NSString stringWithFormat:@"%@, %@",splitArray[i],splitArray[aux]];
+                if(i==0){
+                    juncao=[NSString stringWithFormat:@"Alergias: %@",juncao];
+                    
+                }
+                if(maior<[juncao sizeWithFont:font].width){
+                    maior=[juncao sizeWithFont:font].width;
+                }
+            }
+           
+            
+        }
+        
+        if(width<maior){
+            width=maior;
+        }
+
     }
-    width+=50;
-    NSLog(@"Width %f altura %f",width,width*2);
-    CGFloat height=568;
+        width+=50;
+       CGFloat height=568;
     
-    height=width*3;
+    if(width*2>height){
+        height=width*2;
+    }
+    
+    //Testar height
+    if(splitArray.count*[temp sizeWithFont:font].height>height){
+        height=splitArray.count*[temp sizeWithFont:font].height+568;
+    }
+    
+    
+    NSLog(@"Width %f altura %f",width,height);
+
     
     //CGRect rect = CGRectMake(0,0, width/2, [temp sizeWithFont:font].height*5+5);
     
@@ -278,12 +314,34 @@
     
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*3) withFont:font];
+    
+    
+
+    for (int i=0; i<splitArray.count; i+=2) {
+        int aux=i+1;
+        NSString *juncao;
+        if(aux<splitArray.count){
+            juncao=[NSString stringWithFormat:@"%@, %@",splitArray[i],splitArray[aux]];
+            
+        }else {
+            juncao=[NSString stringWithFormat:@"%@",splitArray[i]];
+        }
+        
+                if(i==0){
+            juncao=[NSString stringWithFormat:@"Alergias: %@",juncao];
+            [juncao drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*6+i) withFont:font];
+        }else{
+            NSLog(@"Aqui com o i %d",i);
+            [juncao drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*(6+i-1)) withFont:font];
+
+        }
+    }
 
     
-    temp=[NSString stringWithFormat:@"Alergias: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"alergias"]];
+    //temp=[NSString stringWithFormat:@"Alergias: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"alergias"]];
     
     
-    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*5) withFont:font];
+    //[temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*6) withFont:font];
     
     BOOL aux=[[NSUserDefaults standardUserDefaults] stringForKey: @"doador"];
     if (aux) {
@@ -294,7 +352,7 @@
     else
         temp = @"Sou doador de orgãos? Não";
     
-    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*6) withFont:font];
+    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*5) withFont:font];
     
     
      //Sangue
