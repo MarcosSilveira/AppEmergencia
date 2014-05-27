@@ -215,6 +215,7 @@
     
     CGFloat width=100;
     
+    NSString *alergia=[NSString stringWithFormat:@"Alergias: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"alergias"]];
     
     
     if([temp sizeWithFont:font].width>width&&[temp sizeWithFont:font].width>[tel sizeWithFont:font].width){
@@ -225,16 +226,24 @@
         width=[tel sizeWithFont:font].width;
     }
     
+    if(width<[alergia sizeWithFont:font].width){
+        width=[alergia sizeWithFont:font].width;
+    }
     width+=50;
+    NSLog(@"Width %f altura %f",width,width*2);
+    CGFloat height=568;
+    
+    height=width*3;
+    
     //CGRect rect = CGRectMake(0,0, width/2, [temp sizeWithFont:font].height*5+5);
     
-    CGRect rect = CGRectMake(0,0, width, [temp sizeWithFont:font].height*10);
+    CGRect rect = CGRectMake(width/14,0, width*0.8, [temp sizeWithFont:font].height*10);//Foto
     
     //CGFloat height=rect.size.height+([temp sizeWithFont:font].height+2)*7;
     
-    CGFloat height=568;
     
-    CGRect rect2 = CGRectMake(0,0, width, height);
+    
+    CGRect rect2 = CGRectMake(0,0, width, height);//Imagem toda
     
     CGFloat pos=rect.size.height;
 
