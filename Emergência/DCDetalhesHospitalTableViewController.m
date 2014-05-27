@@ -7,9 +7,12 @@
 //
 
 #import "DCDetalhesHospitalTableViewController.h"
+#import "DCConfigs.h"
 
 @interface DCDetalhesHospitalTableViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *checkBT;
+
+@property DCConfigs *config;
 
 @end
 
@@ -21,6 +24,8 @@
     
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     self.tableView.backgroundView = backgroundView;
+    
+    _config=[[DCConfigs alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,11 +35,74 @@
 }
 - (IBAction)aceitarHospital:(id)sender {
     UIButton *aux = sender;
+    
+    NSLog(@"Teste");
     aux.hidden = YES;
+    
+    NSString *urlServidor = @"http://%@:8080/Emergencia/validarLocal.jsp?id=%@&usuario=%@";
+    
+    //ID DO USUARIO QUE ESTA LOGADO NO APP
+    NSString *idUsuario = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
+    
+    NSString *urlAdicionarContato = [NSString stringWithFormat: urlServidor, _config.ip,_postos.cod,idUsuario];
+    
+    urlAdicionarContato=[urlAdicionarContato stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *urlRequest = [[NSURL alloc] initWithString: urlAdicionarContato];
+    NSData *data = [NSData dataWithContentsOfURL: urlRequest];
+    
+    NSLog(@"%@",urlRequest);
+    if (data != nil) {
+        
+        NSError *jsonParsingError = nil;
+        NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+        
+        NSNumber *idUsuario = [resultado objectForKey:@"adicionar"];
+        NSNumber *testeUsuario = [[NSNumber alloc] initWithInt:0];
+        
+        if ([idUsuario isEqualToNumber:testeUsuario]) {
+            //ERRO
+        }
+        
+        NSLog(@"Foi");
+       //OK
+    }
+    
+
 }
 - (IBAction)negarHospital:(id)sender {
     UIButton *aux = sender;
     aux.hidden = YES;
+    
+    
+    NSString *urlServidor = @"http://%@:8080/Emergencia/deletarValidar.jsp?id=%@&usuario=%@";
+    
+    //ID DO USUARIO QUE ESTA LOGADO NO APP
+    NSString *idUsuario = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
+    
+    NSString *urlAdicionarContato = [NSString stringWithFormat: urlServidor, _config.ip,_postos.cod,idUsuario];
+    
+    urlAdicionarContato=[urlAdicionarContato stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *urlRequest = [[NSURL alloc] initWithString: urlAdicionarContato];
+    NSData *data = [NSData dataWithContentsOfURL: urlRequest];
+    
+    NSLog(@"%@",urlRequest);
+    if (data != nil) {
+        
+        NSError *jsonParsingError = nil;
+        NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+        
+        NSNumber *idUsuario = [resultado objectForKey:@"adicionar"];
+        NSNumber *testeUsuario = [[NSNumber alloc] initWithInt:0];
+        
+        if ([idUsuario isEqualToNumber:testeUsuario]) {
+            //ERRO
+        }
+        
+        NSLog(@"Foi");
+        //OK
+    }
 }
 
 #pragma mark - Table view data source
@@ -92,7 +160,7 @@
         
     }
     
-    else if (indexPath.section == 1 && (_postos.site == nil || [_postos.site isEqualToString:@""])) {
+    else if (indexPath.section == 1 && ([_postos.site isKindOfClass: [NSNull class]])) {
         
         UILabel *lblSite = (UILabel *) [cell viewWithTag:2];
         
@@ -102,7 +170,7 @@
         lblSite.textColor = [UIColor whiteColor];
     }
     
-    else if (indexPath.section == 1 && (!(_postos.site == nil) || ![_postos.site isEqualToString:@""])) {
+    else if (indexPath.section == 1 && (![_postos.site isKindOfClass: [NSNull class]])) {
         
         UILabel *lblSite = (UILabel *) [cell viewWithTag:2];
         
@@ -133,7 +201,7 @@
         lblTelefone.textColor = [UIColor whiteColor];
     }
     
-    else if(indexPath.section == 3 && (_postos.especi == nil || [_postos.especi isEqualToString:@""])) {
+    else if(indexPath.section == 3 && ([_postos.especi isKindOfClass: [NSNull class]])) {
         
         UILabel *lblEspeci = (UILabel *) [cell viewWithTag:4];
         

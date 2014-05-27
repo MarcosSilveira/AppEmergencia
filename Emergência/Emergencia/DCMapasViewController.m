@@ -498,6 +498,8 @@
         //for(int i=0;i<self.l)
         
         detalhes.postos=temp.posto;
+        
+        NSLog(@"Cod %@,", temp.posto.cod);
     }
 }
 
