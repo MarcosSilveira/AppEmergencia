@@ -148,8 +148,6 @@
             
             [locais addObject:posto];
         }
-        
-//        posto.telefone = [posto.telefone stringByAppendingFormat:@"(%c%c) %c%c%c%c - %c%c%c%c",[posto.telefone characterAtIndex:0], [posto.telefone characterAtIndex:1], [posto.telefone characterAtIndex:2], [posto.telefone characterAtIndex:3],  [posto.telefone characterAtIndex:4], [posto.telefone characterAtIndex:5],  [posto.telefone characterAtIndex:6],  [posto.telefone characterAtIndex:7], [posto.telefone characterAtIndex:8], [posto.telefone characterAtIndex:9]];
     }
     
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
@@ -239,8 +237,7 @@
         pontoaux.posto=postoaux;
         
         //pontoaux.tag=postoaux.cod;
-        
-        
+                
         if(postoaux.validar){
             
             pontoaux.subtitle=@"Validar";
@@ -397,7 +394,7 @@
             
             DCCustomButton *btDireita = [[DCCustomButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
             
-            [btDireita setImage:[UIImage imageNamed:@"home_ico_dica_carro.png"] forState:UIControlStateNormal];
+            [btDireita setImage:[UIImage imageNamed:@"detail.png"] forState:UIControlStateNormal];
             //[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             
             UIButton *btEsquerda = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];

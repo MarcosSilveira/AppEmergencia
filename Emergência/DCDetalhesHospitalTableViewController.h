@@ -11,9 +11,6 @@
 
 @interface DCDetalhesHospitalTableViewController : UITableViewController
 
-- (IBAction)negarHospital:(id)sender;
-- (IBAction)aceitarHospital:(id)sender;
-
 @property (strong, nonatomic) DCPosto *postos;
 @property (strong, nonatomic) NSMutableArray *detalhePosto;
 
