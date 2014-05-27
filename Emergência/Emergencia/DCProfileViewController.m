@@ -201,7 +201,7 @@
     //UIFont *font = [UIFont systemFontOfSize:20.0];
     UIFont *font=[UIFont fontWithName:@"MarkerFelt-Wide" size:20.0];
    
-    UIImage *base=[UIImage imageNamed:@"background_teste"];
+    UIImage *base=[UIImage imageNamed:@"background"];
     
     UIImage *photo=self.foto.image;
     
