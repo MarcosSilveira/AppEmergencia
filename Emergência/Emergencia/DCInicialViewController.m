@@ -32,6 +32,12 @@ UIImageView *auxi;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.navigationController.navigationBar.alpha = 0.6;
+    self.navigationItem.title = @"Salve.Me!";
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
+
+
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
         [self performSegueWithIdentifier:@"goToEmergencia" sender:nil];
 
@@ -170,13 +176,7 @@ UIImageView *auxi;
 - (void) configuracoesIniciais {
     
     //UIColor *color = self.view.tintColor;
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
-    self.title = @"Inicial";
     self.navigationItem.hidesBackButton = YES;
-    self.navigationController.navigationBar.alpha = 0.6;
-    self.navigationItem.title = @"Salve.Me!";
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
     
     
     //Esconde o bota de voltar

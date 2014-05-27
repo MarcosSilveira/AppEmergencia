@@ -19,12 +19,15 @@
 		8D18E5B8189FF726003466C6 /* home_ico_dica_carro.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D18E5B7189FF726003466C6 /* home_ico_dica_carro.png */; };
 		8D2F94E418A2A89A000448EC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2F94E318A2A89A000448EC /* MessageUI.framework */; };
 		8D3C1D6118996E2500FED19E /* DCMapasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1D6018996E2500FED19E /* DCMapasViewController.m */; };
+		8D613A6C1934EB7D008AE446 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D613A681934EB7D008AE446 /* InfoPlist.strings */; };
 		8D6D4F9818CA42B7007C361C /* DCNovoHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */; };
 		8D7D01B6192D403E006E9DA6 /* titulo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01B5192D403E006E9DA6 /* titulo.png */; };
 		8D7D01B8192E7BE2006E9DA6 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01B7192E7BE2006E9DA6 /* background2.png */; };
 		8D7D01BA192E8A7F006E9DA6 /* perfil.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01B9192E8A7F006E9DA6 /* perfil.png */; };
 		8D7D01BC192F950B006E9DA6 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01BB192F950B006E9DA6 /* menu.png */; };
 		8D7D01BE192F9C46006E9DA6 /* botao.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01BD192F9C46006E9DA6 /* botao.png */; };
+		8D7D01C2192FA9D0006E9DA6 /* fireman.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01C1192FA9D0006E9DA6 /* fireman.png */; };
+		8D7D01C719319491006E9DA6 /* background_teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01C619319491006E9DA6 /* background_teste.png */; };
 		8D9AC568190807F500377B75 /* DCConfirmaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9AC567190807F500377B75 /* DCConfirmaViewController.m */; };
 		8DAAD2E418A511120064683F /* Icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAD2E318A511120064683F /* Icon-settings.png */; };
 		8DAAD2EE18A515690064683F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAD2ED18A515690064683F /* Icon.png */; };
@@ -53,11 +56,11 @@
 		8DAF3ACD1925394D00205907 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAF3AC91925394D00205907 /* phone.png */; };
 		8DAF3ACF1925397500205907 /* hospital.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAF3ACE1925397500205907 /* hospital.png */; };
 		8DAF3AD6192BBD5100205907 /* first_run.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAF3AD5192BBD5100205907 /* first_run.png */; };
-		8DAF3ADA192BD69600205907 /* first_run-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAF3AD9192BD69600205907 /* first_run-2.png */; };
 		8DAF3ADC192BE38800205907 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAF3ADB192BE38800205907 /* power.png */; };
 		8DB3C587191A9C4F003E2719 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3C586191A9C4F003E2719 /* Reachability.m */; };
 		8DB3C58F191AA99D003E2719 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB3C58E191AA99D003E2719 /* QuartzCore.framework */; };
 		8DC070B8191969CD00A65B01 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */; };
+		8DD3F9F41933D658001FB702 /* DCEmergenciaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3F9F31933D658001FB702 /* DCEmergenciaViewController.m */; };
 		8DDA2CA118AA98B600EE6295 /* teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA2CA018AA98B500EE6295 /* teste.png */; };
 		B11E6033192D31CF00D9D855 /* police.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6032192D31CF00D9D855 /* police.png */; };
 		B11E6035192D339400D9D855 /* picture-512.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E6034192D339400D9D855 /* picture-512.png */; };
@@ -74,7 +77,6 @@
 		B1878B671933C6FC00A995D9 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = B1878B661933C6FC00A995D9 /* cancel.png */; };
 		B1E3BF6919229A1B00FD10BF /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E3BF6819229A1B00FD10BF /* detail.png */; };
 		B1E3BF6F19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */; };
-		DDA969391892C43F00CBAB0D /* DCEmergenciaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA969381892C43F00CBAB0D /* DCEmergenciaViewController.m */; };
 		DDA9693C1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA9693B1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m */; };
 		DDA969401896BA1E00CBAB0D /* DCEmergencia.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA9693F1896BA1E00CBAB0D /* DCEmergencia.m */; };
 		DDC969C61891742B00A3CEC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC969C51891742B00A3CEC7 /* Foundation.framework */; };
@@ -125,6 +127,10 @@
 		8D2F94E318A2A89A000448EC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8D3C1D5F18996E2500FED19E /* DCMapasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCMapasViewController.h; sourceTree = "<group>"; };
 		8D3C1D6018996E2500FED19E /* DCMapasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCMapasViewController.m; sourceTree = "<group>"; };
+		8D613A661934E99C008AE446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D613A691934EB7D008AE446 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8D613A711934ECCE008AE446 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		8D613A721934ECD3008AE446 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
 		8D6D4F9618CA42B7007C361C /* DCNovoHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNovoHospitalViewController.h; sourceTree = "<group>"; };
 		8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNovoHospitalViewController.m; sourceTree = "<group>"; };
 		8D7D01B5192D403E006E9DA6 /* titulo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titulo.png; sourceTree = "<group>"; };
@@ -132,6 +138,8 @@
 		8D7D01B9192E8A7F006E9DA6 /* perfil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perfil.png; sourceTree = "<group>"; };
 		8D7D01BB192F950B006E9DA6 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		8D7D01BD192F9C46006E9DA6 /* botao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botao.png; sourceTree = "<group>"; };
+		8D7D01C1192FA9D0006E9DA6 /* fireman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireman.png; sourceTree = "<group>"; };
+		8D7D01C619319491006E9DA6 /* background_teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_teste.png; sourceTree = "<group>"; };
 		8D9AC566190807F500377B75 /* DCConfirmaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCConfirmaViewController.h; sourceTree = "<group>"; };
 		8D9AC567190807F500377B75 /* DCConfirmaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCConfirmaViewController.m; sourceTree = "<group>"; };
 		8DAAD2E318A511120064683F /* Icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-settings.png"; sourceTree = "<group>"; };
@@ -176,12 +184,12 @@
 		8DAF3AC91925394D00205907 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		8DAF3ACE1925397500205907 /* hospital.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hospital.png; sourceTree = "<group>"; };
 		8DAF3AD5192BBD5100205907 /* first_run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first_run.png; sourceTree = "<group>"; };
-		8DAF3AD9192BD69600205907 /* first_run-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first_run-2.png"; sourceTree = "<group>"; };
 		8DAF3ADB192BE38800205907 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
 		8DB3C585191A9C4F003E2719 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8DB3C586191A9C4F003E2719 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8DB3C58E191AA99D003E2719 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8DC070B7191969CD00A65B01 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8DD3F9F31933D658001FB702 /* DCEmergenciaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCEmergenciaViewController.m; sourceTree = "<group>"; };
 		8DDA2CA018AA98B500EE6295 /* teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teste.png; sourceTree = "<group>"; };
 		B11E602A192D159200D9D855 /* DCCustomCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCustomCallout.h; sourceTree = "<group>"; };
 		B11E6032192D31CF00D9D855 /* police.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = police.png; sourceTree = "<group>"; };
@@ -205,7 +213,6 @@
 		B1E3BF6D19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDetalhesHospitalTableViewController.h; path = ../DCDetalhesHospitalTableViewController.h; sourceTree = "<group>"; };
 		B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDetalhesHospitalTableViewController.m; path = ../DCDetalhesHospitalTableViewController.m; sourceTree = "<group>"; };
 		DDA969371892C43F00CBAB0D /* DCEmergenciaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCEmergenciaViewController.h; sourceTree = "<group>"; };
-		DDA969381892C43F00CBAB0D /* DCEmergenciaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCEmergenciaViewController.m; sourceTree = "<group>"; };
 		DDA9693A1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCAtendimentoEmergenciaViewController.h; sourceTree = "<group>"; };
 		DDA9693B1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCAtendimentoEmergenciaViewController.m; sourceTree = "<group>"; };
 		DDA9693E1896BA1E00CBAB0D /* DCEmergencia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCEmergencia.h; sourceTree = "<group>"; };
@@ -220,7 +227,6 @@
 		DDC969D31891742B00A3CEC7 /* Emergencia-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emergencia-Prefix.pch"; sourceTree = "<group>"; };
 		DDC969D41891742B00A3CEC7 /* DCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCAppDelegate.h; sourceTree = "<group>"; };
 		DDC969D51891742B00A3CEC7 /* DCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCAppDelegate.m; sourceTree = "<group>"; };
-		DDC969D81891742B00A3CEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDC969DA1891742B00A3CEC7 /* DCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCLoginViewController.h; sourceTree = "<group>"; };
 		DDC969DB1891742B00A3CEC7 /* DCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCLoginViewController.m; sourceTree = "<group>"; };
 		DDC969DD1891742B00A3CEC7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -328,6 +334,7 @@
 		8DAF3AB3192519DF00205907 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				8D7D01C619319491006E9DA6 /* background_teste.png */,
 				8DAF3AAD1922B03000205907 /* ambulancia.png */,
 				8DAF3AC61925394D00205907 /* ambulancia2.png */,
 				8DAF3AAB1922AA8300205907 /* background.png */,
@@ -337,8 +344,7 @@
 				B1878B641933C6F700A995D9 /* check.png */,
 				8DAF3AC71925394D00205907 /* clipboard.png */,
 				8DAF3AC81925394D00205907 /* contact.png */,
-				B1878B5E192FAA9600A995D9 /* fireman.png */,
-				8DAF3AD9192BD69600205907 /* first_run-2.png */,
+				8D7D01C1192FA9D0006E9DA6 /* fireman.png */,
 				8DAF3AD5192BBD5100205907 /* first_run.png */,
 				8D18E5B7189FF726003466C6 /* home_ico_dica_carro.png */,
 				8DAF3ACE1925397500205907 /* hospital.png */,
@@ -350,12 +356,17 @@
 				B11E6034192D339400D9D855 /* picture-512.png */,
 				B11E6032192D31CF00D9D855 /* police.png */,
 				8DAF3ADB192BE38800205907 /* power.png */,
+				B1878B5E192FAA9600A995D9 /* fireman.png */,
 				8DAF3AB11922B47F00205907 /* taxi.png */,
 				8DDA2CA018AA98B500EE6295 /* teste.png */,
 				8D7D01B5192D403E006E9DA6 /* titulo.png */,
+				8D7D01BB192F950B006E9DA6 /* menu.png */,
 				B11E6036192D33D400D9D855 /* user_male3-512.png */,
 				8DAF3AA41922887200205907 /* validar.png */,
 				8D1724AA18ABF4DA00E18006 /* you-make-me-hurt.png */,
+				8D7D01B9192E8A7F006E9DA6 /* perfil.png */,
+				8DAF3ADB192BE38800205907 /* power.png */,
+				8D7D01B5192D403E006E9DA6 /* titulo.png */,
 			);
 			name = Imagens;
 			sourceTree = "<group>";
@@ -428,6 +439,7 @@
 				B132D9A7192BDC03008B5180 /* callout.png */,
 				DDC969D51891742B00A3CEC7 /* DCAppDelegate.m */,
 				DDC969D71891742B00A3CEC7 /* Main.storyboard */,
+				8D613A681934EB7D008AE446 /* InfoPlist.strings */,
 				DDC969DD1891742B00A3CEC7 /* Images.xcassets */,
 				DDC969CC1891742B00A3CEC7 /* Supporting Files */,
 			);
@@ -478,7 +490,11 @@
 				B1E3BF6D19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.h */,
 				B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */,
 				DDA969371892C43F00CBAB0D /* DCEmergenciaViewController.h */,
-				DDA969381892C43F00CBAB0D /* DCEmergenciaViewController.m */,
+				8DD3F9F31933D658001FB702 /* DCEmergenciaViewController.m */,
+				B185CA1B18A157E000EE2CCE /* DCContatosViewController.h */,
+				B185CA1C18A157E000EE2CCE /* DCContatosViewController.m */,
+				8D3C1D5F18996E2500FED19E /* DCMapasViewController.h */,
+				8D3C1D6018996E2500FED19E /* DCMapasViewController.m */,
 				DDC969FD18917CB600A3CEC7 /* DCInicialViewController.h */,
 				DDC969FE18917CB600A3CEC7 /* DCInicialViewController.m */,
 				8DACCBA2191C171E0026D75D /* DCLeftMenuViewController.h */,
@@ -564,6 +580,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pt,
 			);
 			mainGroup = DDC969B91891742B00A3CEC7;
 			productRefGroup = DDC969C31891742B00A3CEC7 /* Products */;
@@ -582,7 +599,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D18E5B8189FF726003466C6 /* home_ico_dica_carro.png in Resources */,
-				8DAF3ADA192BD69600205907 /* first_run-2.png in Resources */,
 				B11E6037192D33D400D9D855 /* user_male3-512.png in Resources */,
 				8DAF3ACA1925394D00205907 /* ambulancia2.png in Resources */,
 				8D7D01B6192D403E006E9DA6 /* titulo.png in Resources */,
@@ -593,9 +609,12 @@
 				8DDA2CA118AA98B600EE6295 /* teste.png in Resources */,
 				8DAF3AAC1922AA8300205907 /* background.png in Resources */,
 				8D1724AB18ABF4DA00E18006 /* you-make-me-hurt.png in Resources */,
+				8D7D01C2192FA9D0006E9DA6 /* fireman.png in Resources */,
 				8D7D01BE192F9C46006E9DA6 /* botao.png in Resources */,
 				B1878B63192FB29A00A995D9 /* phone2.png in Resources */,
+				8D7D01C719319491006E9DA6 /* background_teste.png in Resources */,
 				DDC969DE1891742B00A3CEC7 /* Images.xcassets in Resources */,
+				8D613A6C1934EB7D008AE446 /* InfoPlist.strings in Resources */,
 				8DAF3ACB1925394D00205907 /* clipboard.png in Resources */,
 				8DAAD2EE18A515690064683F /* Icon.png in Resources */,
 				B132D9A8192BDC03008B5180 /* callout.png in Resources */,
@@ -637,6 +656,7 @@
 			files = (
 				8DACCB83191C02070026D75D /* RightMenuViewController.m in Sources */,
 				0BD2E2AB1899700800B78E51 /* DCPosto.m in Sources */,
+				8DD3F9F41933D658001FB702 /* DCEmergenciaViewController.m in Sources */,
 				8DACCBA4191C171E0026D75D /* DCLeftMenuViewController.m in Sources */,
 				B132D9AB192D0C4C008B5180 /* DCCustomCallout.m in Sources */,
 				0B143C54192130CC006A9169 /* DCProfileViewController.m in Sources */,
@@ -672,7 +692,6 @@
 				B167467918B67EAD0063E631 /* KeychainItemWrapper.m in Sources */,
 				DDC969D61891742B00A3CEC7 /* DCAppDelegate.m in Sources */,
 				0B10CCF1192E5B08009F17C5 /* DCCustomAnnotationView.m in Sources */,
-				DDA969391892C43F00CBAB0D /* DCEmergenciaViewController.m in Sources */,
 				8DACCB94191C02400026D75D /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,6 +715,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8D613A681934EB7D008AE446 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D613A691934EB7D008AE446 /* pt */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DDC969CE1891742B00A3CEC7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -707,7 +734,9 @@
 		DDC969D71891742B00A3CEC7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DDC969D81891742B00A3CEC7 /* Base */,
+				8D613A661934E99C008AE446 /* Base */,
+				8D613A711934ECCE008AE446 /* en */,
+				8D613A721934ECD3008AE446 /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

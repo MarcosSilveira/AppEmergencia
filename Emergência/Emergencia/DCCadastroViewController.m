@@ -40,7 +40,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
     self.title = @"Cadastro";
     self.conf=[[DCConfigs alloc] init];
-    self.navigationItem.hidesBackButton = YES;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,16 +105,6 @@
     
     
 }
-//slideMenudelegate
 
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-    return YES;
-}
-
-- (BOOL)slideNavigationControllerShouldDisplayRightMenu
-{
-    return NO;
-}
 
 @end

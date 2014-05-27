@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SlideNavigationController.h"
 
-@interface DCCadastroViewController : UIViewController <UITextFieldDelegate,SlideNavigationControllerDelegate>
+
+@interface DCCadastroViewController : UIViewController <UITextFieldDelegate>
 
 @end

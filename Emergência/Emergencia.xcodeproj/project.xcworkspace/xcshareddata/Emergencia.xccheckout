@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E2D4918F-5C45-4368-AB99-28A98789B184</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Emergencia</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8DEE0C7C-5B84-4975-98A6-BED68EC0DFBB</key>
+		<string>https://github.com/MarcosSilveira/AppEmergencia.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Emergência/Emergencia.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8DEE0C7C-5B84-4975-98A6-BED68EC0DFBB</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/MarcosSilveira/AppEmergencia.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8DEE0C7C-5B84-4975-98A6-BED68EC0DFBB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8DEE0C7C-5B84-4975-98A6-BED68EC0DFBB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AppEmergencia</string>
+		</dict>
+	</array>
+</dict>
+</plist>
