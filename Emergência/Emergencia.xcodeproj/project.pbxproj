@@ -19,6 +19,7 @@
 		8D18E5B8189FF726003466C6 /* home_ico_dica_carro.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D18E5B7189FF726003466C6 /* home_ico_dica_carro.png */; };
 		8D2F94E418A2A89A000448EC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2F94E318A2A89A000448EC /* MessageUI.framework */; };
 		8D3C1D6118996E2500FED19E /* DCMapasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C1D6018996E2500FED19E /* DCMapasViewController.m */; };
+		8D613A6C1934EB7D008AE446 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D613A681934EB7D008AE446 /* InfoPlist.strings */; };
 		8D6D4F9818CA42B7007C361C /* DCNovoHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */; };
 		8D7D01B6192D403E006E9DA6 /* titulo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01B5192D403E006E9DA6 /* titulo.png */; };
 		8D7D01B8192E7BE2006E9DA6 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01B7192E7BE2006E9DA6 /* background2.png */; };
@@ -126,7 +127,10 @@
 		8D2F94E318A2A89A000448EC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8D3C1D5F18996E2500FED19E /* DCMapasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCMapasViewController.h; sourceTree = "<group>"; };
 		8D3C1D6018996E2500FED19E /* DCMapasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCMapasViewController.m; sourceTree = "<group>"; };
-		8D613A611933D698008AE446 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		8D613A661934E99C008AE446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D613A691934EB7D008AE446 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8D613A711934ECCE008AE446 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		8D613A721934ECD3008AE446 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
 		8D6D4F9618CA42B7007C361C /* DCNovoHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNovoHospitalViewController.h; sourceTree = "<group>"; };
 		8D6D4F9718CA42B7007C361C /* DCNovoHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCNovoHospitalViewController.m; sourceTree = "<group>"; };
 		8D7D01B5192D403E006E9DA6 /* titulo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titulo.png; sourceTree = "<group>"; };
@@ -223,7 +227,6 @@
 		DDC969D31891742B00A3CEC7 /* Emergencia-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emergencia-Prefix.pch"; sourceTree = "<group>"; };
 		DDC969D41891742B00A3CEC7 /* DCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCAppDelegate.h; sourceTree = "<group>"; };
 		DDC969D51891742B00A3CEC7 /* DCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCAppDelegate.m; sourceTree = "<group>"; };
-		DDC969D81891742B00A3CEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDC969DA1891742B00A3CEC7 /* DCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCLoginViewController.h; sourceTree = "<group>"; };
 		DDC969DB1891742B00A3CEC7 /* DCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCLoginViewController.m; sourceTree = "<group>"; };
 		DDC969DD1891742B00A3CEC7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -436,6 +439,7 @@
 				B132D9A7192BDC03008B5180 /* callout.png */,
 				DDC969D51891742B00A3CEC7 /* DCAppDelegate.m */,
 				DDC969D71891742B00A3CEC7 /* Main.storyboard */,
+				8D613A681934EB7D008AE446 /* InfoPlist.strings */,
 				DDC969DD1891742B00A3CEC7 /* Images.xcassets */,
 				DDC969CC1891742B00A3CEC7 /* Supporting Files */,
 			);
@@ -576,6 +580,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pt,
 			);
 			mainGroup = DDC969B91891742B00A3CEC7;
 			productRefGroup = DDC969C31891742B00A3CEC7 /* Products */;
@@ -609,6 +614,7 @@
 				B1878B63192FB29A00A995D9 /* phone2.png in Resources */,
 				8D7D01C719319491006E9DA6 /* background_teste.png in Resources */,
 				DDC969DE1891742B00A3CEC7 /* Images.xcassets in Resources */,
+				8D613A6C1934EB7D008AE446 /* InfoPlist.strings in Resources */,
 				8DAF3ACB1925394D00205907 /* clipboard.png in Resources */,
 				8DAAD2EE18A515690064683F /* Icon.png in Resources */,
 				B132D9A8192BDC03008B5180 /* callout.png in Resources */,
@@ -709,6 +715,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8D613A681934EB7D008AE446 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D613A691934EB7D008AE446 /* pt */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DDC969CE1891742B00A3CEC7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -720,8 +734,9 @@
 		DDC969D71891742B00A3CEC7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DDC969D81891742B00A3CEC7 /* Base */,
-				8D613A611933D698008AE446 /* en */,
+				8D613A661934E99C008AE446 /* Base */,
+				8D613A711934ECCE008AE446 /* en */,
+				8D613A721934ECD3008AE446 /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -201,7 +201,7 @@
     //UIFont *font = [UIFont systemFontOfSize:20.0];
     UIFont *font=[UIFont fontWithName:@"MarkerFelt-Wide" size:20.0];
    
-    UIImage *base=[UIImage imageNamed:@"background.png"];
+    UIImage *base=[UIImage imageNamed:@"background_teste"];
     
     UIImage *photo=self.foto.image;
     
@@ -265,11 +265,28 @@
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*2) withFont:font];
     
 
-    temp=[NSString stringWithFormat:@"Tel. c.:%@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
+    temp=[NSString stringWithFormat:@"Tel. c. :%@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
     
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*3) withFont:font];
 
+    
+    temp=[NSString stringWithFormat:@"Alergias: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"alergias"]];
+    
+    
+    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*5) withFont:font];
+    
+    BOOL aux=[[NSUserDefaults standardUserDefaults] stringForKey: @"doador"];
+    if (aux) {
+        temp=@"Sou doador de orgãos? Sim";
+        
+        
+    }
+    else
+        temp = @"Sou doador de orgãos? Não";
+    
+    [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*6) withFont:font];
+    
     
      //Sangue
     

@@ -11,8 +11,8 @@
 /* Class = "IBUIBarButtonItem"; title = "Atualizar localização"; ObjectID = "0Sa-ys-YOf"; */
 "0Sa-ys-YOf.title" = "Atualizar localização";
 
-/* Class = "IBUIButton"; normalTitle = "Sign In"; ObjectID = "1D4-Xg-AtG"; */
-"1D4-Xg-AtG.normalTitle" = "Sign In";
+/* Class = "IBUIButton"; normalTitle = "Cadastrar-se"; ObjectID = "1D4-Xg-AtG"; */
+"1D4-Xg-AtG.normalTitle" = "Cadastrar-se";
 
 /* Class = "IBUINavigationItem"; title = "Confirmação"; ObjectID = "3ZG-5H-oAF"; */
 "3ZG-5H-oAF.title" = "Confirmação";
@@ -23,8 +23,8 @@
 /* Class = "IBUIButton"; normalTitle = "Criar Imagem"; ObjectID = "4r6-Ca-a4j"; */
 "4r6-Ca-a4j.normalTitle" = "Criar Imagem";
 
-/* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "7DJ-cq-ExH"; */
-"7DJ-cq-ExH.normalTitle" = "Login";
+/* Class = "IBUIButton"; normalTitle = "Entrar"; ObjectID = "7DJ-cq-ExH"; */
+"7DJ-cq-ExH.normalTitle" = "Entrar";
 
 /* Class = "IBUILabel"; text = "Telefone:"; ObjectID = "7rA-yp-Kzc"; */
 "7rA-yp-Kzc.text" = "Telefone:";
@@ -35,8 +35,8 @@
 /* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "AKN-Ae-tyf"; */
 "AKN-Ae-tyf.normalTitle" = "Button";
 
-/* Class = "IBUIButton"; normalTitle = "Usefull numbers"; ObjectID = "AcU-aN-Wny"; */
-"AcU-aN-Wny.normalTitle" = "Usefull numbers";
+/* Class = "IBUIButton"; normalTitle = "Números úteis"; ObjectID = "AcU-aN-Wny"; */
+"AcU-aN-Wny.normalTitle" = "Números úteis";
 
 /* Class = "IBUILabel"; text = "   Serviços de emergência perto de mim"; ObjectID = "Czm-bz-oGV"; */
 "Czm-bz-oGV.text" = "   Serviços de emergência perto de mim";
@@ -47,8 +47,8 @@
 /* Class = "IBUILabel"; text = "Altura(m)"; ObjectID = "Fi2-lh-mh2"; */
 "Fi2-lh-mh2.text" = "Altura(m)";
 
-/* Class = "IBUILabel"; text = "User:"; ObjectID = "Fv3-09-O5T"; */
-"Fv3-09-O5T.text" = "User:";
+/* Class = "IBUILabel"; text = "Usuário:"; ObjectID = "Fv3-09-O5T"; */
+"Fv3-09-O5T.text" = "Usuário:";
 
 /* Class = "IBUILabel"; text = "Nome do local*:"; ObjectID = "HZ8-xW-2wN"; */
 "HZ8-xW-2wN.text" = "Nome do local*:";
@@ -56,8 +56,8 @@
 /* Class = "IBUILabel"; text = "Telefone*:"; ObjectID = "IKG-Vd-1h6"; */
 "IKG-Vd-1h6.text" = "Telefone*:";
 
-/* Class = "IBUIButton"; normalTitle = "Emergency"; ObjectID = "J56-Y3-dUU"; */
-"J56-Y3-dUU.normalTitle" = "Emergency";
+/* Class = "IBUIButton"; normalTitle = "Emergência"; ObjectID = "J56-Y3-dUU"; */
+"J56-Y3-dUU.normalTitle" = "Emergência";
 
 /* Class = "IBUILabel"; text = "Tipo sanguíneo:"; ObjectID = "KJu-KK-5jH"; */
 "KJu-KK-5jH.text" = "Tipo sanguíneo:";
@@ -212,8 +212,8 @@
 /* Class = "IBUILabel"; text = "Informações pessoais:"; ObjectID = "xHg-E5-aYA"; */
 "xHg-E5-aYA.text" = "Informações pessoais:";
 
-/* Class = "IBUILabel"; text = "Password"; ObjectID = "yVC-ta-c62"; */
-"yVC-ta-c62.text" = "Password";
+/* Class = "IBUILabel"; text = "Senha:"; ObjectID = "yVC-ta-c62"; */
+"yVC-ta-c62.text" = "Senha:";
 
 /* Class = "IBUIButton"; normalTitle = "Salvar dados"; ObjectID = "yfh-vD-Y28"; */
 "yfh-vD-Y28.normalTitle" = "Salvar dados";
