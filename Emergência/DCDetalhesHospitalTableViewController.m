@@ -24,6 +24,7 @@
     
 //    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
 //    self.tableView.backgroundView = backgroundView;
+    _config=[[DCConfigs alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

@@ -71,6 +71,7 @@
 "MENU_CELULAS_TITULO_4" = "Adicionar local";
 "MENU_CELULAS_TITULO_5" = "Números de emergência";
 "MENU_CELULAS_TITULO_6" = "Sair da conta";
+"MENU_CELULAS_TITULO_7" = "Ajuda";
 
 "NOVO_CONTATO_TITULO" = "Novo Contato";
 "NOVO_CONTATO_ADICIONAR_OK_TITULO" = "Adicionar contato";
@@ -102,4 +103,11 @@
 "PERFIL_FOTO_CANCELAR" = "Cancelar";
 "PERFIL_FOTO_CAMERA" = "Usar a câmera";
 "PERFIL_FOTO_BIBLIOTECA" = "Escolher uma foto";
+
+"AJUDA_CELULAS_TITULO_1" = "    Informando uma emergência";
+"AJUDA_CELULAS_TITULO_2" = "    O menu lateral";
+"AJUDA_CELULAS_TITULO_3" = "    Adicionando um novo local";
+"AJUDA_TEXTO_1" = "Texto de info da emergência";
+"AJUDA_TEXTO_2" = "Texto de info do menu lateral";
+"AJUDA_TEXTO_3" = "Ao entrar na seção Adicionar local do menu lateral, será exibido um formulário onde existem campos que devem ser obrigatoriamente preenchidos com os dados do local que se deseja adicionar. As informações de latitude e longitude são obrigatórias e são obtidas através da sua localização, podendo ser editadas antes de enviar. Caso você não saiba as coordenadas ou não esteja próximo ao local, você poderá mover o pino que será mostrado no mapa quando você clicar em Enviar, mova o pino para a localização correta do local e clique em Confirmar para que o novo local seja enviado. Quando você adiciona novos locais eles aparecem no mapa com uma interrogação no canto superior direito para diferencia-los dos locais já confirmados.";
 

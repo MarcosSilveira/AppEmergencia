@@ -204,11 +204,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Blb-ed-AJS">
+                                <rect key="frame" x="40" y="113" width="237" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91372555494308472" green="0.97254908084869385" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
+                                <string key="text">Distribua melhor as refeições ao longo do dia. Tente se alimentar a cada três horas para evitar redução do metabolismo e sobrecarga em determinadas refeições (principalmente à noite). Além disso, evite que o corpo entre na chamada "reserva de energia", que é quando o organismo entende que, pelo jejum prolongado, precisa armazenar calorias, dificultando a perda de peso.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jgf-Sn-2ON"/>
                     <connections>
+                        <outlet property="dica" destination="Blb-ed-AJS" id="VhL-LI-LbS"/>
                         <segue destination="bLl-CC-BeM" kind="push" identifier="goToEmergencia" id="zeE-qz-oGW"/>
                     </connections>
                 </viewController>
@@ -1130,6 +1139,65 @@
             </objects>
             <point key="canvasLocation" x="1923" y="-79"/>
         </scene>
+        <!--Ajuda Table View Controller-->
+        <scene sceneID="xZj-9c-Jb8">
+            <objects>
+                <tableViewController storyboardIdentifier="AjudaViewController" id="BOh-0U-kNp" customClass="DCAjudaTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gio-Nb-SHo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="szn-u9-VYk">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="szn-u9-VYk" id="xf5-uN-WJu">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BOh-0U-kNp" id="alW-Oq-RiM"/>
+                            <outlet property="delegate" destination="BOh-0U-kNp" id="aXR-Jg-gf4"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="3R9-tK-FY1" kind="push" identifier="goToDetalheAjuda" id="Omh-Xz-01w"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ltg-dM-VJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1920" y="602"/>
+        </scene>
+        <!--Detalhes Ajuda View Controller-->
+        <scene sceneID="KqH-lL-na1">
+            <objects>
+                <viewController id="3R9-tK-FY1" customClass="DCDetalhesAjudaViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3U7-Gd-CYr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="vcy-hg-fd5">
+                                <rect key="frame" x="15" y="48" width="290" height="512"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C8U-ad-scy"/>
+                    <connections>
+                        <outlet property="textoAjuda" destination="vcy-hg-fd5" id="F49-fa-BEo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bvb-2h-vn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2453" y="602"/>
+        </scene>
         <!--Detalhes Hospital Table View Controller-->
         <scene sceneID="5Qd-li-Icq">
             <objects>
@@ -1139,37 +1207,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="62" id="Z1d-Nq-xOi">
+                            <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell4" rowHeight="62" id="Z1d-Nq-xOi">
                                 <rect key="frame" x="0.0" y="86" width="320" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z1d-Nq-xOi" id="lmI-IB-o6t">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wm5-p6-XKq">
+                                        <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wm5-p6-XKq">
                                             <rect key="frame" x="275" y="20" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="cancel.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="negarHospital:" destination="VOP-Zc-dAz" eventType="touchUpInside" id="f4L-gk-EXs"/>
+                                                <action selector="negarHospital:" destination="VOP-Zc-dAz" eventType="touchUpInside" id="XIQ-0c-X0l"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="V0a-wf-Aj4">
-                                            <rect key="frame" x="242" y="20" width="25" height="25"/>
+                                        <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="V0a-wf-Aj4">
+                                            <rect key="frame" x="234" y="20" width="33" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="check.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="aceitarHospital:" destination="VOP-Zc-dAz" eventType="touchUpInside" id="5GU-ku-aOd"/>
+                                                <action selector="aceitarHospital:" destination="VOP-Zc-dAz" eventType="touchUpInside" id="h67-1X-frs"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="63" id="O0L-fw-a1i">
+                            <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell5" rowHeight="63" id="O0L-fw-a1i">
                                 <rect key="frame" x="0.0" y="148" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O0L-fw-a1i" id="s4r-Cw-CuX">
@@ -1177,10 +1245,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" id="YD5-Tk-565">
+                            <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell6" id="YD5-Tk-565">
                                 <rect key="frame" x="0.0" y="211" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YD5-Tk-565" id="luK-P2-Gxy">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell tag="4" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell7" id="Oem-Gg-xUt">
+                                <rect key="frame" x="0.0" y="264" width="320" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oem-Gg-xUt" id="NKw-pM-Ecd">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -1230,7 +1306,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="bIB-sV-cQ7"/>
-        <segue reference="Esd-5I-jcg"/>
+        <segue reference="zeE-qz-oGW"/>
         <segue reference="0hI-ST-9lq"/>
     </inferredMetricsTieBreakers>
 </document>

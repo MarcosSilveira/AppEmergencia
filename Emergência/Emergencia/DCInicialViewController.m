@@ -16,6 +16,7 @@
 
 
 @interface DCInicialViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *dica;
 
 
 
@@ -37,7 +38,7 @@ UIImageView *auxi;
     self.navigationItem.title = NSLocalizedString(@"INICIAL_TITULO", nil) ;
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
 
-
+    _dica.layer.cornerRadius = 8.0;
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
         [self performSegueWithIdentifier:@"goToEmergencia" sender:nil];
 

@@ -136,7 +136,7 @@
 
 - (IBAction)cadastrar:(id)sender {
     [self cads];
-    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"PERFIL_ATUALIZAR_OK_TITULO", nil) message:@"PERFIL_ATUALIZAR_OK_MENSAGEM" buttonTitle:@"OK"];
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"PERFIL_ATUALIZAR_OK_TITULO", nil) message:NSLocalizedString(@"PERFIL_ATUALIZAR_OK_MENSAGEM",nil) buttonTitle:@"OK"];
     [alertView show];
 }
 

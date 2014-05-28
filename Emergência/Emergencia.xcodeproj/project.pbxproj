@@ -31,6 +31,9 @@
 		8D7D01BE192F9C46006E9DA6 /* botao.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01BD192F9C46006E9DA6 /* botao.png */; };
 		8D7D01C2192FA9D0006E9DA6 /* fireman.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01C1192FA9D0006E9DA6 /* fireman.png */; };
 		8D7D01C719319491006E9DA6 /* background_teste.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D7D01C619319491006E9DA6 /* background_teste.png */; };
+		8D973E3219361CDB009A95DA /* DCAjudaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D973E3119361CDB009A95DA /* DCAjudaTableViewController.m */; };
+		8D973E3E19362B69009A95DA /* DCDetalhesAjudaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D973E3D19362B69009A95DA /* DCDetalhesAjudaViewController.m */; };
+		8D973E4619363761009A95DA /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D973E4519363761009A95DA /* info.png */; };
 		8D9AC568190807F500377B75 /* DCConfirmaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9AC567190807F500377B75 /* DCConfirmaViewController.m */; };
 		8DAAD2E418A511120064683F /* Icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAD2E318A511120064683F /* Icon-settings.png */; };
 		8DAAD2EE18A515690064683F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAD2ED18A515690064683F /* Icon.png */; };
@@ -125,7 +128,6 @@
 		0B535B221896D8FA007CB773 /* ip.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ip.txt; sourceTree = "<group>"; };
 		0BD2E2A91899700800B78E51 /* DCPosto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCPosto.h; sourceTree = "<group>"; };
 		0BD2E2AA1899700800B78E51 /* DCPosto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCPosto.m; sourceTree = "<group>"; };
-		8D0A53491935001000CA1A15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D0A534B1935006200CA1A15 /* logo-en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-en.png"; sourceTree = "<group>"; };
 		8D1724AA18ABF4DA00E18006 /* you-make-me-hurt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "you-make-me-hurt.png"; sourceTree = "<group>"; };
 		8D18E5B7189FF726003466C6 /* home_ico_dica_carro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_ico_dica_carro.png; sourceTree = "<group>"; };
@@ -147,7 +149,13 @@
 		8D7D01C619319491006E9DA6 /* background_teste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_teste.png; sourceTree = "<group>"; };
 		8D973E2A19357A3F009A95DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D973E2B19358445009A95DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		8D973E2C193591E7009A95DA /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = pt; path = pt.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D973E2D193619BA009A95DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		8D973E3019361CDB009A95DA /* DCAjudaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCAjudaTableViewController.h; sourceTree = "<group>"; };
+		8D973E3119361CDB009A95DA /* DCAjudaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCAjudaTableViewController.m; sourceTree = "<group>"; };
+		8D973E3C19362B69009A95DA /* DCDetalhesAjudaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDetalhesAjudaViewController.h; path = ../DCDetalhesAjudaViewController.h; sourceTree = "<group>"; };
+		8D973E3D19362B69009A95DA /* DCDetalhesAjudaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDetalhesAjudaViewController.m; path = ../DCDetalhesAjudaViewController.m; sourceTree = "<group>"; };
+		8D973E4419363113009A95DA /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = pt; path = pt.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D973E4519363761009A95DA /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		8D9AC566190807F500377B75 /* DCConfirmaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCConfirmaViewController.h; sourceTree = "<group>"; };
 		8D9AC567190807F500377B75 /* DCConfirmaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCConfirmaViewController.m; sourceTree = "<group>"; };
 		8DAAD2E318A511120064683F /* Icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-settings.png"; sourceTree = "<group>"; };
@@ -342,6 +350,7 @@
 		8DAF3AB3192519DF00205907 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				8D973E4519363761009A95DA /* info.png */,
 				8D613A751934F9C5008AE446 /* logo.png */,
 				8D7D01C619319491006E9DA6 /* background_teste.png */,
 				8DAF3AAD1922B03000205907 /* ambulancia.png */,
@@ -489,6 +498,10 @@
 		DDC96A0018917DEA00A3CEC7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8D973E3C19362B69009A95DA /* DCDetalhesAjudaViewController.h */,
+				8D973E3D19362B69009A95DA /* DCDetalhesAjudaViewController.m */,
+				8D973E3019361CDB009A95DA /* DCAjudaTableViewController.h */,
+				8D973E3119361CDB009A95DA /* DCAjudaTableViewController.m */,
 				DDA9693A1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.h */,
 				DDA9693B1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m */,
 				DDC969FA18917C7D00A3CEC7 /* DCCadastroViewController.h */,
@@ -638,6 +651,7 @@
 				DDC969D01891742B00A3CEC7 /* InfoPlist.strings in Resources */,
 				8D613A761934F9C5008AE446 /* logo.png in Resources */,
 				B1878B651933C6F700A995D9 /* check.png in Resources */,
+				8D973E4619363761009A95DA /* info.png in Resources */,
 				B11E6035192D339400D9D855 /* picture-512.png in Resources */,
 				8DAF3ACD1925394D00205907 /* phone.png in Resources */,
 				8DAF3AB21922B47F00205907 /* taxi.png in Resources */,
@@ -686,6 +700,7 @@
 				8D3C1D6118996E2500FED19E /* DCMapasViewController.m in Sources */,
 				B1E3BF6F19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m in Sources */,
 				DDA9693C1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.m in Sources */,
+				8D973E3219361CDB009A95DA /* DCAjudaTableViewController.m in Sources */,
 				8DACCB85191C02070026D75D /* FriendsViewController.m in Sources */,
 				DDC969FF18917CB600A3CEC7 /* DCInicialViewController.m in Sources */,
 				8DACCB87191C02070026D75D /* ProfileDetailViewController.m in Sources */,
@@ -707,6 +722,7 @@
 				DDC969D61891742B00A3CEC7 /* DCAppDelegate.m in Sources */,
 				0B10CCF1192E5B08009F17C5 /* DCCustomAnnotationView.m in Sources */,
 				8DACCB94191C02400026D75D /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
+				8D973E3E19362B69009A95DA /* DCDetalhesAjudaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,8 +775,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				8D613A661934E99C008AE446 /* Base */,
-				8D0A53491935001000CA1A15 /* en */,
-				8D973E2C193591E7009A95DA /* pt */,
+				8D973E2D193619BA009A95DA /* en */,
+				8D973E4419363113009A95DA /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

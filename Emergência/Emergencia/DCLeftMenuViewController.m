@@ -35,7 +35,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 6;
+	return 7;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -102,6 +102,13 @@
 			break;
             
         case 5:
+			cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_7", nil);
+            _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"power.png"]];
+            [_imagem addSubview:_image];
+            [cell addSubview:_imagem];
+			break;
+        case 6:
 			cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_6", nil);
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
             _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"power.png"]];
@@ -143,8 +150,12 @@
         case 4:
             vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"NumerosViewController"];
             break;
+        
+        case 5:
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"AjudaViewController"];
+            break;
 			
-		case 5:
+		case 6:
 			[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
             
             //KeychainItemWrapper *keyPref = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
