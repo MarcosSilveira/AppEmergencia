@@ -97,7 +97,7 @@
     if(posto.isOk){
         
         NSString *idUsuario = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
-
+        
         NSString *urlServidor =[NSString stringWithFormat: @"http://%@:8080/Emergencia/cadastrarUnidade.jsp?lat=%f&log=%f&nome=%@&tel=%@&endereco=%@&id=%@",self.config.ip,novoLocal.coordinate.latitude,novoLocal.coordinate.longitude,posto.nome,posto.telefone,posto.endereco,idUsuario];
         
         urlServidor=[urlServidor stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -121,39 +121,22 @@
                 //OK
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Ok" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
+                    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"CONFIRMA_CADASTRO_OK_TITULO", nil) message:NSLocalizedString(@"CONFIRMA_CADASTRO_OK_MENSAGEM", nil) buttonTitle:@"OK"];
                     [alertView show];
                 }
                                );
                 
                 //[self performSegueWithIdentifier:@"cadtoInicial" sender:sender];
-            }else{
-                //ERRO
-                
+            }
+            else{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
+                    
+                    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"CONFIRMA_CADASTRO_FALHA_MENSAGEM", nil) buttonTitle:@"OK"];
                     [alertView show];
                 });
-            }
-            
-        }else{
-            //ERRO
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
                 
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
-                [alertView show];
-            } );
-            
+            }
         }
-        
-    }else{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos em Branco" buttonTitle:@"OK"];
-            [alertView show];
-        });
-    
     }
 }
 

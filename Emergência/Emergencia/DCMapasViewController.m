@@ -66,7 +66,7 @@
     }
     if(self.raio > 150){
         self.raio = 150;
-        TLAlertView *alerta = [[TLAlertView alloc]initWithTitle:@"Tamanho máximo do raio" message:@"O tamanho máximo do raio de busca é 150Km, o raio exibido será deste tamanho." buttonTitle:@"OK"];
+        TLAlertView *alerta = [[TLAlertView alloc]initWithTitle:NSLocalizedString(@"MAPAS_RAIO_ERRO_TITULO", nil) message:NSLocalizedString(@"MAPAS_RAIO_ERRO_MENSAGEM", nil) buttonTitle:@"OK"];
         alerta.show;
     }
     
@@ -76,8 +76,8 @@
         
         amigo = [[MKPointAnnotation alloc] init];
         amigo.coordinate = self.coordenada;
-        amigo.title = @"Amigo";
-        amigo.subtitle = @"Localização do pedido de ajuda";
+        amigo.title = NSLocalizedString(@"MAPAS_AMIGO_NOME", nil);
+        amigo.subtitle = NSLocalizedString(@"MAPAS_AMIGO_LEGENDA", nil);
         [_Map1 addAnnotation:amigo];
     }
     else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
@@ -88,8 +88,8 @@
         NSNumber *longitude = [[NSUserDefaults standardUserDefaults]objectForKey:@"log"];
         
         amigo.coordinate = CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
-        amigo.title = @"Amigo";
-        amigo.subtitle = @"Localização do pedido de ajuda";
+        amigo.title = NSLocalizedString(@"MAPAS_AMIGO_NOME", nil);
+        amigo.subtitle = NSLocalizedString(@"MAPAS_AMIGO_LEGENDA", nil);
         [_Map1 addAnnotation:amigo];
         [[NSUserDefaults standardUserDefaults] setObject:push2 forKey:@"pushOn"];
         
@@ -243,7 +243,7 @@
         
         if(postoaux.validar){
             
-            pontoaux.subtitle=@"Validar";
+            pontoaux.subtitle=NSLocalizedString(@"MAPAS_POSTO_VALIDAR", nil);
             //pontoaux.subtitle=postoaux.endereco;
         }else{
             //           pontoaux.subtitle=@"NValidar";

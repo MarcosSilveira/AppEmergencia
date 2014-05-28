@@ -10,6 +10,7 @@
 #import "DCConfigs.h"
 #import "TLAlertView.h"
 
+
 @interface DCCadastroViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *login;
 @property (weak, nonatomic) IBOutlet UITextField *email;
@@ -25,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self configuracoesIniciais];
 }
 
@@ -38,7 +38,7 @@
     
     //UIColor *color = self.view.tintColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
-    self.title = @"Cadastro";
+    self.title = NSLocalizedString(@"CADASTRO_TITULO", nil);
     self.conf=[[DCConfigs alloc] init];
 
 }
@@ -80,25 +80,25 @@
             
             if([res isEqualToNumber:teste]){
                 //OK
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Cadastro" message:@"Cadastro efetuado com sucesso" buttonTitle:@"OK"];
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"CADASTRO_TITULO", nil) message:NSLocalizedString(@"CADASTRO_OK", nil)  buttonTitle:@"OK"];
                 [alertView show];
                 [self performSegueWithIdentifier:@"cadtoInicial" sender:sender];
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstRun"];
             }else{
                 //ERRO
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"CADASTRO_FALHA", nil) buttonTitle:@"OK"];
                 [alertView show];
             }
             
         }else{
             //ERRO
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Cadastro não efetuado" buttonTitle:@"OK"];
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:NSLocalizedString(@"CADASTRO_FALHA", nil)  buttonTitle:@"OK"];
             [alertView show];
         }
         
         
     }else{
-        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Senha não confere" buttonTitle:@"OK"];
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:NSLocalizedString(@"CADASTRO_SENHA_FALHA", nil)  buttonTitle:@"OK"];
         [alertView show];
     }
     

@@ -61,7 +61,7 @@
 	switch (indexPath.row)
 	{
 		case 0:
-			cell.textLabel.text = @"Home";
+			cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_1", nil);
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
             _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ambulancia2.png"]];
             [_imagem addSubview:_image];
@@ -69,7 +69,7 @@
 			break;
 			
 		case 1:
-			cell.textLabel.text = @"Perfil";
+			cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_2", nil);
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
             _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"clipboard.png"]];
             [_imagem addSubview:_image];
@@ -77,7 +77,7 @@
 			break;
 			
 		case 2:
-			cell.textLabel.text = @"Amigos";
+			cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_3", nil);
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
             _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"contact.png"]];
             [_imagem addSubview:_image];
@@ -85,7 +85,7 @@
 			break;
 			
 		case 3:
-			cell.textLabel.text = @"Adicionar local";
+			cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_4", nil);
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
             _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hospital.png"]];
             [_imagem addSubview:_image];
@@ -93,7 +93,7 @@
 			break;
             
         case 4:
-			cell.textLabel.text = @"Números de emergência";
+            cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_5", nil);
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
             _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phone2.png"]];
             [_imagem addSubview:_image];
@@ -102,7 +102,7 @@
 			break;
             
         case 5:
-			cell.textLabel.text = @"Sair da conta";
+			cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_6", nil);
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
             _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"power.png"]];
             [_imagem addSubview:_image];

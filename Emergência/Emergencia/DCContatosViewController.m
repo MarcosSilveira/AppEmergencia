@@ -39,7 +39,7 @@
     [self configuracoesIniciais];
 //    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationController.navigationBar.alpha = 0.6;
-    self.navigationItem.title = @"Contatos";
+    self.navigationItem.title = NSLocalizedString(@"CONTATOS_TITULO", nil);
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
     
     self.tableView.delegate = self;
@@ -63,11 +63,11 @@
 - (IBAction)clickExcluir:(UIButton *)sender {
     
     UIAlertView *alertViewExclusao = [[UIAlertView alloc]
-                                      initWithTitle:@"Excluir contato"
-                                      message:@"Tem certeza que desejas excluir este contato?"
+                                      initWithTitle:NSLocalizedString(@"CONTATOS_EXCLUIR_TITULO", nil)
+                                      message:NSLocalizedString(@"CONTATOS_EXCLUIR_MENSAGEM", nil)
                                       delegate:self
-                                      cancelButtonTitle:@"Sim, remover"
-                                      otherButtonTitles: @"Não", nil];
+                                      cancelButtonTitle:NSLocalizedString(@"CONTATOS_EXCLUIR_CONFIRMAR", nil)
+                                      otherButtonTitles:NSLocalizedString(@"CONTATOS_EXCLUIR_CANCELAR", nil), nil];
     
 	[alertViewExclusao show];
     alertViewExclusao.tag = 1500;
@@ -163,7 +163,7 @@
             NSNumber *testeExcluir = [[NSNumber alloc] initWithInt:0];
             
             if ([res isEqualToNumber:testeExcluir]) {
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível excluir o contato. Tente novamente mais tarde" buttonTitle:@"OK"];
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"CONTATOS_EXCLUIR_FALHA_MENSAGEM", nil) buttonTitle:@"OK"];
                 [alertView show];
             }
         }
@@ -302,7 +302,7 @@
             
             [self.tableView endUpdates];
         } else {
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível aceitar o contato. tente novamente mais tarde" buttonTitle:@"OK"];
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"CONTATOS_ACEITAR_FALHA_MENSAGEM", nil) buttonTitle:@"OK"];
             [alertView show];
             
         }
@@ -312,7 +312,7 @@
 //CONFIGURAÇÕES INICIAIS DA TELA
 - (void) configuracoesIniciais
 {
-    self.title = @"Contatos";
+//    self.title = @"Contatos";
     self.contacts = [[NSMutableArray alloc]init];
     self.config = [[DCConfigs alloc] init];
     self.contatosAceitar = [[NSMutableArray alloc] init];
@@ -422,17 +422,17 @@
     if (indexPath.section == 1 && _contacts.count == 0 && !self.pesquisando) {
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        lblContato.text = @"Nenhum contato adicionado.";
+        lblContato.text = NSLocalizedString(@"CONTATOS_MENSAGEM_ADICIONADOS_NENHUM", nil);
         return cell;
     } else if (indexPath.section == 0 && _contatosAceitar.count == 0) {
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        lblContato.text = @"Nenhuma aprovação pendente.";
+        lblContato.text = NSLocalizedString(@"CONTATOS_MENSAGEM_PENDENTES_NENHUM", nil);
         return cell;
     } else if (indexPath.section == 1 && _resultadoBusca.count == 0 && self.pesquisando) {
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        lblContato.text = @"Nenhum contato encontrado.";
+        lblContato.text = NSLocalizedString(@"CONTATOS_MENSAGEM_BUSCA_NENHUM", nil);
         return cell;
     }
     
@@ -448,7 +448,7 @@
         
         NSString *texto = contato.nome;
         if (contato.aprovado == 1) {
-            texto = [NSString stringWithFormat:@"%@ - Em aprovação", texto];
+            texto = [NSString stringWithFormat:NSLocalizedString(@"CONTATOS_APROVACAO_PENDENTE", nil), texto];
         }
         lblContato.text = texto;
     } else {
@@ -465,9 +465,9 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     if (section == 1) {
-        return @"Adicionados";
+        return NSLocalizedString(@"CONTATOS_HEADER_TITULO_1", nil);
     } else {
-        return @"Aguardando aprovação";
+        return NSLocalizedString(@"CONTATOS_HEADER_TITULO_2", nil);
     }
 }
 

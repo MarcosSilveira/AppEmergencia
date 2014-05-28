@@ -758,11 +758,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Emergencia/DCConfirmaViewController.m"
-            timestampString = "421956842.118397"
+            timestampString = "422913929.85894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-mapView:viewForAnnotation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -806,28 +806,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Emergencia/DCInicialViewController.m"
-            timestampString = "422559542.076972"
+            timestampString = "422908245.937772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-configuracoesIniciais"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Emergencia/DCInicialViewController.m"
-            timestampString = "422559542.076972"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-testeDeConeccao"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -854,11 +838,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Emergencia/DCLoginViewController.m"
-            timestampString = "422385779.21565"
+            timestampString = "422901290.998876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "5">
          </BreakpointContent>
@@ -941,6 +925,36 @@
             endingLineNumber = "178"
             landmarkName = "-updateData:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DCContatosViewController updateData:]"
+                  moduleName = "Emergencia"
+                  urlString = "file:///Users/Marcos/Documents/AppEmergencia/Emerge%CC%82ncia/Emergencia/DCContatosViewController.m"
+                  timestampString = "422913929.918193"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "178"
+                  endingLineNumber = "178"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[DCContatosViewController updateData:]_block_invoke"
+                  moduleName = "Emergencia"
+                  urlString = "file:///Users/Marcos/Documents/AppEmergencia/Emerge%CC%82ncia/Emergencia/DCContatosViewController.m"
+                  timestampString = "422913929.918341"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "178"
+                  endingLineNumber = "178"
+                  offsetFromSymbolStart = "82">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -955,7 +969,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
             endingLineNumber = "198"
-            landmarkName = "-encerraAnimacao"
+            landmarkName = "-listarContatos"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -971,7 +985,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
             endingLineNumber = "197"
-            landmarkName = "-encerraAnimacao"
+            landmarkName = "-listarContatos"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1020,6 +1034,22 @@
             startingLineNumber = "485"
             endingLineNumber = "485"
             landmarkName = "-actionSheet:clickedButtonAtIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Emergencia/DCConfirmaViewController.m"
+            timestampString = "422913371.956641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-clicouConfirma:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

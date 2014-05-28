@@ -18,8 +18,8 @@
 {
     [super viewDidLoad];
     
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
-    self.tableView.backgroundView = backgroundView;
+//    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+//    self.tableView.backgroundView = backgroundView;
 }
 
 - (void)didReceiveMemoryWarning
