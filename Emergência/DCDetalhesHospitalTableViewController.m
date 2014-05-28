@@ -29,12 +29,10 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)aceitarHospital:(id)sender {
-    UIButton *aux = sender;
-    aux.hidden = YES;
+    NSLog(@"testeAceita");
 }
 - (IBAction)negarHospital:(id)sender {
-    UIButton *aux = sender;
-    aux.hidden = YES;
+    NSLog(@"testeNega");
 }
 
 #pragma mark - Table view data source
@@ -81,7 +79,7 @@
         cancelBT.hidden = YES;
     }
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && ((_postos.nome != nil) || ![_postos.nome isEqualToString:@""])) {
         
         UILabel *lblEndereco = (UILabel *)[cell viewWithTag:1];
     
@@ -90,6 +88,16 @@
         lblEndereco.text = _postos.endereco;
         lblEndereco.textColor = [UIColor whiteColor];
         
+    }
+    
+    else if (indexPath.section == 0 && ((_postos.nome == nil) || [_postos.nome isEqualToString:@""])) {
+       
+        UILabel *lblEndereco = (UILabel *)[cell viewWithTag:1];
+        
+        lblEndereco.lineBreakMode = YES;
+        lblEndereco.lineBreakMode = NSLineBreakByCharWrapping;
+        lblEndereco.text = @"Nenhum endereço disponível";
+        lblEndereco.textColor = [UIColor whiteColor];
     }
     
     else if (indexPath.section == 1 && (_postos.site == nil || [_postos.site isEqualToString:@""])) {
@@ -102,7 +110,7 @@
         lblSite.textColor = [UIColor whiteColor];
     }
     
-    else if (indexPath.section == 1 && (!(_postos.site == nil) || ![_postos.site isEqualToString:@""])) {
+    else if (indexPath.section == 1 && ((_postos.site != nil) || ![_postos.site isEqualToString:@""])) {
         
         UILabel *lblSite = (UILabel *) [cell viewWithTag:2];
         
@@ -123,7 +131,7 @@
         
     }
     
-    else if (indexPath.section == 2 && (!(_postos.telefone == nil) || ![_postos.telefone isEqualToString:@"Não se aplica"])) {
+    else if (indexPath.section == 2 && ((_postos.telefone != nil) || ![_postos.telefone isEqualToString:@"Não se aplica"])) {
         
         UILabel *lblTelefone = (UILabel *) [cell viewWithTag:3];
         
