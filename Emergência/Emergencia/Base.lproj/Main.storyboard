@@ -204,8 +204,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Blb-ed-AJS">
-                                <rect key="frame" x="40" y="113" width="237" height="217"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="Blb-ed-AJS">
+                                <rect key="frame" x="42" y="113" width="237" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91372555494308472" green="0.97254908084869385" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
                                 <string key="text">Distribua melhor as refeições ao longo do dia. Tente se alimentar a cada três horas para evitar redução do metabolismo e sobrecarga em determinadas refeições (principalmente à noite). Além disso, evite que o corpo entre na chamada "reserva de energia", que é quando o organismo entende que, pelo jejum prolongado, precisa armazenar calorias, dificultando a perda de peso.</string>
