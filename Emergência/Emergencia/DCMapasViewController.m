@@ -100,7 +100,8 @@
 {
     _customAV = [[DCCustomCallout alloc] init];
     _customAV.title = _customAV.posto.nome;
-    _customAV.subtitle = _customAV.posto.telefone;
+    //_customAV.subtitle = _customAV.posto.telefone;
+    _customAV.subtitle = _customAV.posto.endereco;
     [_Map1 addAnnotation:_customAV];
 }
 
@@ -119,6 +120,7 @@
     NSURL *urs = [[NSURL alloc] initWithString:ur];
     NSData* data = [NSData dataWithContentsOfURL:urs];
     
+    
     //retorno
     if (data != nil) {
         
@@ -130,9 +132,9 @@
         NSArray *res = [resultado objectForKey:@"Locais"];
         
         NSDictionary *objo;
-        DCPosto *posto = [[DCPosto alloc] init];
+       
         for (int i = 0; i < res.count; i++) {
-            
+             DCPosto *posto = [[DCPosto alloc] init];
             objo = [res objectAtIndex:i];
             
             posto.lat = [[objo objectForKey:@"latitude"] floatValue];
@@ -141,9 +143,9 @@
             posto.endereco = [objo objectForKey:@"endereco"];
             posto.telefone = [objo objectForKey:@"telefone"];
             posto.cod = [objo objectForKey:@"cod"];
-            posto.bairro = [objo objectForKey:@"bairro"];
-            posto.especi = [objo objectForKey:@"especialidade"];
-            posto.site = [objo objectForKey:@"site"];
+            //posto.bairro = [objo objectForKey:@"bairro"];
+            //posto.especi = [objo objectForKey:@"especialidade"];
+            //posto.site = [objo objectForKey:@"site"];
             posto.validar = NO;
             
             [locais addObject:posto];
@@ -175,6 +177,8 @@
     NSURL *urs = [[NSURL alloc] initWithString:ur];
     NSData* data = [NSData dataWithContentsOfURL:urs];
     
+    NSLog(@"url : %@",ur);
+
     //retorno
     if (data != nil) {
         
@@ -207,7 +211,7 @@
         }
     }
     
-    [self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
+    //[self performSelectorOnMainThread:@selector(updateUI:) withObject:locaisValidar waitUntilDone:NO];
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:locais waitUntilDone:NO];
     // [_AILoading stopAnimating];
     // _LBLoading.hidden = YES;
@@ -232,7 +236,8 @@
         pontoaux.title = postoaux.nome;
         CLLocationCoordinate2D coordenada = CLLocationCoordinate2DMake(postoaux.lat, postoaux.log);
         pontoaux.coordinate = coordenada;
-        pontoaux.subtitle = postoaux.telefone;
+        //pontoaux.subtitle = postoaux.telefone;
+        pontoaux.subtitle = postoaux.endereco;
         
         pontoaux.posto=postoaux;
         
@@ -499,7 +504,7 @@
         
         detalhes.postos=temp.posto;
         
-        NSLog(@"Cod %@,", temp.posto.cod);
+        //NSLog(@"Cod %@", temp.posto.cod);
     }
 }
 
