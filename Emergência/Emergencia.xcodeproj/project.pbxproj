@@ -498,8 +498,6 @@
 		DDC96A0018917DEA00A3CEC7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8D973E3C19362B69009A95DA /* DCDetalhesAjudaViewController.h */,
-				8D973E3D19362B69009A95DA /* DCDetalhesAjudaViewController.m */,
 				8D973E3019361CDB009A95DA /* DCAjudaTableViewController.h */,
 				8D973E3119361CDB009A95DA /* DCAjudaTableViewController.m */,
 				DDA9693A1892C8A600CBAB0D /* DCAtendimentoEmergenciaViewController.h */,
@@ -510,14 +508,12 @@
 				8D9AC567190807F500377B75 /* DCConfirmaViewController.m */,
 				B185CA1B18A157E000EE2CCE /* DCContatosViewController.h */,
 				B185CA1C18A157E000EE2CCE /* DCContatosViewController.m */,
+				8D973E3C19362B69009A95DA /* DCDetalhesAjudaViewController.h */,
+				8D973E3D19362B69009A95DA /* DCDetalhesAjudaViewController.m */,
 				B1E3BF6D19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.h */,
 				B1E3BF6E19253E5B00FD10BF /* DCDetalhesHospitalTableViewController.m */,
 				DDA969371892C43F00CBAB0D /* DCEmergenciaViewController.h */,
 				8DD3F9F31933D658001FB702 /* DCEmergenciaViewController.m */,
-				B185CA1B18A157E000EE2CCE /* DCContatosViewController.h */,
-				B185CA1C18A157E000EE2CCE /* DCContatosViewController.m */,
-				8D3C1D5F18996E2500FED19E /* DCMapasViewController.h */,
-				8D3C1D6018996E2500FED19E /* DCMapasViewController.m */,
 				DDC969FD18917CB600A3CEC7 /* DCInicialViewController.h */,
 				DDC969FE18917CB600A3CEC7 /* DCInicialViewController.m */,
 				8DACCBA2191C171E0026D75D /* DCLeftMenuViewController.h */,
@@ -525,7 +521,9 @@
 				DDC969DA1891742B00A3CEC7 /* DCLoginViewController.h */,
 				DDC969DB1891742B00A3CEC7 /* DCLoginViewController.m */,
 				8D3C1D5F18996E2500FED19E /* DCMapasViewController.h */,
+				B185CA1B18A157E000EE2CCE /* DCContatosViewController.h */,
 				8D3C1D6018996E2500FED19E /* DCMapasViewController.m */,
+				B185CA1C18A157E000EE2CCE /* DCContatosViewController.m */,
 				B185CA2118A29CAC00EE2CCE /* DCNovoContatoViewController.h */,
 				B185CA2218A29CAC00EE2CCE /* DCNovoContatoViewController.m */,
 				8D6D4F9618CA42B7007C361C /* DCNovoHospitalViewController.h */,
@@ -534,9 +532,11 @@
 				8DAF3A9E19214E1E00205907 /* DCNumerosViewController.m */,
 				0B143C52192130CC006A9169 /* DCProfileViewController.h */,
 				0B143C53192130CC006A9169 /* DCProfileViewController.m */,
+				8D3F1B601935058F00C89408 /* Localizable.strings */,
 				8DB3C585191A9C4F003E2719 /* Reachability.h */,
 				8DB3C586191A9C4F003E2719 /* Reachability.m */,
-				8D3F1B601935058F00C89408 /* Localizable.strings */,
+				8D3C1D5F18996E2500FED19E /* DCMapasViewController.h */,
+				8D3C1D6018996E2500FED19E /* DCMapasViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";

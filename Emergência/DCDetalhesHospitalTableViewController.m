@@ -33,10 +33,70 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)aceitarHospital:(id)sender {
-    NSLog(@"testeAceita");
+
+    NSLog(@"Teste");
+    
+    NSString *urlServidor = @"http://%@:8080/Emergencia/validarLocal.jsp?id=%@&usuario=%@";
+    
+    //ID DO USUARIO QUE ESTA LOGADO NO APP
+    NSString *idUsuario = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
+    
+    NSString *urlAdicionarContato = [NSString stringWithFormat: urlServidor, _config.ip,_postos.cod,idUsuario];
+    
+    urlAdicionarContato=[urlAdicionarContato stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *urlRequest = [[NSURL alloc] initWithString: urlAdicionarContato];
+    NSData *data = [NSData dataWithContentsOfURL: urlRequest];
+    
+    NSLog(@"%@",urlRequest);
+    if (data != nil) {
+        
+        NSError *jsonParsingError = nil;
+        NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+        
+        NSNumber *idUsuario = [resultado objectForKey:@"adicionar"];
+        NSNumber *testeUsuario = [[NSNumber alloc] initWithInt:0];
+        
+        if ([idUsuario isEqualToNumber:testeUsuario]) {
+            //ERRO
+        }
+        
+        NSLog(@"Foi");
+       //OK
+    }
+    
+
 }
 - (IBAction)negarHospital:(id)sender {
-    NSLog(@"testeNega");
+    
+    NSString *urlServidor = @"http://%@:8080/Emergencia/deletarValidar.jsp?id=%@&usuario=%@";
+    
+    //ID DO USUARIO QUE ESTA LOGADO NO APP
+    NSString *idUsuario = [[NSUserDefaults standardUserDefaults] stringForKey: @"id"];
+    
+    NSString *urlAdicionarContato = [NSString stringWithFormat: urlServidor, _config.ip,_postos.cod,idUsuario];
+    
+    urlAdicionarContato=[urlAdicionarContato stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *urlRequest = [[NSURL alloc] initWithString: urlAdicionarContato];
+    NSData *data = [NSData dataWithContentsOfURL: urlRequest];
+    
+    NSLog(@"%@",urlRequest);
+    if (data != nil) {
+        
+        NSError *jsonParsingError = nil;
+        NSDictionary *resultado = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+        
+        NSNumber *idUsuario = [resultado objectForKey:@"adicionar"];
+        NSNumber *testeUsuario = [[NSNumber alloc] initWithInt:0];
+        
+        if ([idUsuario isEqualToNumber:testeUsuario]) {
+            //ERRO
+        }
+        
+        NSLog(@"Foi");
+        //OK
+    }
 }
 
 #pragma mark - Table view data source
@@ -90,38 +150,28 @@
         lblEndereco.lineBreakMode = YES;
         lblEndereco.lineBreakMode = NSLineBreakByCharWrapping;
         lblEndereco.text = _postos.endereco;
-        lblEndereco.textColor = [UIColor whiteColor];
+        lblEndereco.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
         
     }
     
-    else if (indexPath.section == 0 && ((_postos.nome == nil) || [_postos.nome isEqualToString:@""])) {
-       
-        UILabel *lblEndereco = (UILabel *)[cell viewWithTag:1];
-        
-        lblEndereco.lineBreakMode = YES;
-        lblEndereco.lineBreakMode = NSLineBreakByCharWrapping;
-        lblEndereco.text = @"Nenhum endereço disponível";
-        lblEndereco.textColor = [UIColor whiteColor];
-    }
-    
-    else if (indexPath.section == 1 && (_postos.site == nil || [_postos.site isEqualToString:@""])) {
+    else if (indexPath.section == 1 && ([_postos.site isKindOfClass: [NSNull class]])) {
         
         UILabel *lblSite = (UILabel *) [cell viewWithTag:2];
         
         lblSite.lineBreakMode = YES;
         lblSite.lineBreakMode = NSLineBreakByCharWrapping;
         lblSite.text = @"Nenhum site disponível";
-        lblSite.textColor = [UIColor whiteColor];
+        lblSite.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
     }
     
-    else if (indexPath.section == 1 && ((_postos.site != nil) || ![_postos.site isEqualToString:@""])) {
+    else if (indexPath.section == 1 && (![_postos.site isKindOfClass: [NSNull class]])) {
         
         UILabel *lblSite = (UILabel *) [cell viewWithTag:2];
         
         lblSite.lineBreakMode = YES;
         lblSite.lineBreakMode = NSLineBreakByCharWrapping;
         lblSite.text = _postos.site;
-        lblSite.textColor = [UIColor whiteColor];
+        lblSite.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
     }
     
     else if (indexPath.section == 2 && (_postos.telefone == nil || [_postos.telefone isEqualToString:@"Não se aplica"])) {
@@ -131,7 +181,7 @@
         lblTelefone.lineBreakMode = YES;
         lblTelefone.lineBreakMode = NSLineBreakByCharWrapping;
         lblTelefone.text = @"Nenhum telefone disponível";
-        lblTelefone.textColor = [UIColor whiteColor];
+        lblTelefone.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
         
     }
     
@@ -142,7 +192,7 @@
         lblTelefone.lineBreakMode = YES;
         lblTelefone.lineBreakMode = NSLineBreakByCharWrapping;
         lblTelefone.text = _postos.telefone;
-        lblTelefone.textColor = [UIColor whiteColor];
+        lblTelefone.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
     }
     
     else if(indexPath.section == 3 && ([_postos.especi isKindOfClass: [NSNull class]])) {
@@ -152,7 +202,7 @@
         lblEspeci.lineBreakMode = YES;
         lblEspeci.lineBreakMode = NSLineBreakByCharWrapping;
         lblEspeci.text = @"Nenhuma especialidade especial";
-        lblEspeci.textColor = [UIColor whiteColor];
+        lblEspeci.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
     }
     
      else {
@@ -160,11 +210,11 @@
      lblEspeci.lineBreakMode = YES;
      lblEspeci.lineBreakMode = NSLineBreakByCharWrapping;
      lblEspeci.text = _postos.especi;
-     lblEspeci.textColor = [UIColor whiteColor];
+     lblEspeci.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
      }
     
     cell.tag = indexPath.row;
-    cell.backgroundColor = [UIColor clearColor];
+   //cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
