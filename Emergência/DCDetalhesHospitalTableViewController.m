@@ -7,9 +7,12 @@
 //
 
 #import "DCDetalhesHospitalTableViewController.h"
+#import "DCConfigs.h"
 
 @interface DCDetalhesHospitalTableViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *checkBT;
+
+@property DCConfigs *config;
 
 @end
 
@@ -19,8 +22,9 @@
 {
     [super viewDidLoad];
     
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
-    self.tableView.backgroundView = backgroundView;
+//    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+//    self.tableView.backgroundView = backgroundView;
+    _config=[[DCConfigs alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -141,7 +145,7 @@
         lblTelefone.textColor = [UIColor whiteColor];
     }
     
-    else if(indexPath.section == 3 && (_postos.especi == nil || [_postos.especi isEqualToString:@""])) {
+    else if(indexPath.section == 3 && ([_postos.especi isKindOfClass: [NSNull class]])) {
         
         UILabel *lblEspeci = (UILabel *) [cell viewWithTag:4];
         

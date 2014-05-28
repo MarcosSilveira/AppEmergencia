@@ -43,7 +43,7 @@ CLLocationManager *gerenciadorLocalizacao;
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.title = @"Novo local";
+    self.navigationItem.title = NSLocalizedString(@"NOVO_LOCAL_TITULO", nil);
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationController.navigationBar.alpha = 0.6;
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
@@ -97,7 +97,7 @@ CLLocationManager *gerenciadorLocalizacao;
     else{
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Campos obrigatórios em branco" buttonTitle:@"OK"];
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"NOVO_LOCAL_ADICIONAR_FALHA_MENSAGEM", nil) buttonTitle:@"OK"];
             [alertView show];
         });
         
@@ -153,7 +153,7 @@ CLLocationManager *gerenciadorLocalizacao;
 }
 - (IBAction)ClicouSobre:(id)sender {
     
-    UIAlertView *sobre = [[UIAlertView alloc] initWithTitle:@"Ajude a melhorar o emergência!" message:@"Nesta tela você pode adicionar novos locais que possuam serviços de emergencia para que estes sejam adicionados ao aplicativo, todos os envios estão sujeitos a aprovação. Os campos com '*' são de preenchimento obrigatório."delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *sobre = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NOVO_LOCAL_SOBRE_TITULO", nil) message:NSLocalizedString(@"NOVO_LOCAL_SOBRE_MENSAGEM", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [sobre show];
 }
 - (IBAction)trocouUso:(id)sender {

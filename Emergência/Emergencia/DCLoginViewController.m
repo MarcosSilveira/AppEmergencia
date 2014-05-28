@@ -124,6 +124,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
     _keychainPassword = [[KeychainItemWrapper alloc] initWithIdentifier:@"Password" accessGroup:nil];
     
     NSString *savedUserName = [_keychainPassword objectForKey:(__bridge id)kSecAttrAccount];
@@ -191,7 +193,7 @@
 
     } else {
         //self.oks.text=@"Erro no login";
-        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Login não efetuado" buttonTitle:@"OK"];
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"LOGIN_FALHA", nil) buttonTitle:@"OK"];
         [alertView show];
     }
     
@@ -255,7 +257,7 @@
         
     }else{
         //self.oks.text=@"Erro no login";
-        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Login não efetuado" buttonTitle:@"OK"];
+        TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"LOGIN_FALHA", nil) buttonTitle:@"OK"];
         [alertView show];
         
         
@@ -265,5 +267,8 @@
     
 }
 
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
 @end

@@ -1,36 +1,36 @@
 
-/* Class = "IBUISegmentedControl"; 03M-Cd-cCK.segmentTitles[0] = "Padrão"; ObjectID = "03M-Cd-cCK"; */
-"03M-Cd-cCK.segmentTitles[0]" = "Padrão";
+/* Class = "IBUISegmentedControl"; 03M-Cd-cCK.segmentTitles[0] = "Standard"; ObjectID = "03M-Cd-cCK"; */
+"03M-Cd-cCK.segmentTitles[0]" = "Standard";
 
-/* Class = "IBUISegmentedControl"; 03M-Cd-cCK.segmentTitles[1] = "Híbrido"; ObjectID = "03M-Cd-cCK"; */
-"03M-Cd-cCK.segmentTitles[1]" = "Híbrido";
+/* Class = "IBUISegmentedControl"; 03M-Cd-cCK.segmentTitles[1] = "Hybrid"; ObjectID = "03M-Cd-cCK"; */
+"03M-Cd-cCK.segmentTitles[1]" = "Hybrid";
 
-/* Class = "IBUISegmentedControl"; 03M-Cd-cCK.segmentTitles[2] = "Satélite"; ObjectID = "03M-Cd-cCK"; */
-"03M-Cd-cCK.segmentTitles[2]" = "Satélite";
+/* Class = "IBUISegmentedControl"; 03M-Cd-cCK.segmentTitles[2] = "Satellite"; ObjectID = "03M-Cd-cCK"; */
+"03M-Cd-cCK.segmentTitles[2]" = "Satellite";
 
-/* Class = "IBUIBarButtonItem"; title = "Atualizar localização"; ObjectID = "0Sa-ys-YOf"; */
-"0Sa-ys-YOf.title" = "Atualizar localização";
+/* Class = "IBUIBarButtonItem"; title = "Update My Location"; ObjectID = "0Sa-ys-YOf"; */
+"0Sa-ys-YOf.title" = "Update My Location";
 
 /* Class = "IBUIButton"; normalTitle = "Sign In"; ObjectID = "1D4-Xg-AtG"; */
 "1D4-Xg-AtG.normalTitle" = "Sign In";
 
-/* Class = "IBUINavigationItem"; title = "Confirmação"; ObjectID = "3ZG-5H-oAF"; */
-"3ZG-5H-oAF.title" = "Confirmação";
+/* Class = "IBUINavigationItem"; title = "Confirmation"; ObjectID = "3ZG-5H-oAF"; */
+"3ZG-5H-oAF.title" = "Confirmation";
 
-/* Class = "IBUILabel"; text = "Tel. Contato"; ObjectID = "4cV-48-JTZ"; */
-"4cV-48-JTZ.text" = "Tel. Contato";
+/* Class = "IBUILabel"; text = "Phone number:"; ObjectID = "4cV-48-JTZ"; */
+"4cV-48-JTZ.text" = "Phone number:";
 
-/* Class = "IBUIButton"; normalTitle = "Criar Imagem"; ObjectID = "4r6-Ca-a4j"; */
-"4r6-Ca-a4j.normalTitle" = "Criar Imagem";
+/* Class = "IBUIButton"; normalTitle = "Create Image"; ObjectID = "4r6-Ca-a4j"; */
+"4r6-Ca-a4j.normalTitle" = "Create Image";
 
 /* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "7DJ-cq-ExH"; */
 "7DJ-cq-ExH.normalTitle" = "Login";
 
-/* Class = "IBUILabel"; text = "Telefone:"; ObjectID = "7rA-yp-Kzc"; */
-"7rA-yp-Kzc.text" = "Telefone:";
+/* Class = "IBUILabel"; text = "Phone:"; ObjectID = "7rA-yp-Kzc"; */
+"7rA-yp-Kzc.text" = "Phone:";
 
-/* Class = "IBUILabel"; text = "Usuário:"; ObjectID = "9ch-Xx-Zsr"; */
-"9ch-Xx-Zsr.text" = "Usuário:";
+/* Class = "IBUILabel"; text = "User:"; ObjectID = "9ch-Xx-Zsr"; */
+"9ch-Xx-Zsr.text" = "User:";
 
 /* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "AKN-Ae-tyf"; */
 "AKN-Ae-tyf.normalTitle" = "Button";
@@ -38,59 +38,59 @@
 /* Class = "IBUIButton"; normalTitle = "Usefull numbers"; ObjectID = "AcU-aN-Wny"; */
 "AcU-aN-Wny.normalTitle" = "Usefull numbers";
 
-/* Class = "IBUILabel"; text = "   Serviços de emergência perto de mim"; ObjectID = "Czm-bz-oGV"; */
-"Czm-bz-oGV.text" = "   Serviços de emergência perto de mim";
+/* Class = "IBUILabel"; text = "   Emergency services near me"; ObjectID = "Czm-bz-oGV"; */
+"Czm-bz-oGV.text" = "   Emergency services near me";
 
-/* Class = "IBUIButton"; normalTitle = "Cadastrar"; ObjectID = "Dn1-ek-yr0"; */
-"Dn1-ek-yr0.normalTitle" = "Cadastrar";
+/* Class = "IBUIButton"; normalTitle = "Sign In"; ObjectID = "Dn1-ek-yr0"; */
+"Dn1-ek-yr0.normalTitle" = "Sign In";
 
-/* Class = "IBUILabel"; text = "Altura(m)"; ObjectID = "Fi2-lh-mh2"; */
-"Fi2-lh-mh2.text" = "Altura(m)";
+/* Class = "IBUILabel"; text = "Height(m):"; ObjectID = "Fi2-lh-mh2"; */
+"Fi2-lh-mh2.text" = "Height(m):";
 
 /* Class = "IBUILabel"; text = "User:"; ObjectID = "Fv3-09-O5T"; */
 "Fv3-09-O5T.text" = "User:";
 
-/* Class = "IBUILabel"; text = "Nome do local*:"; ObjectID = "HZ8-xW-2wN"; */
-"HZ8-xW-2wN.text" = "Nome do local*:";
+/* Class = "IBUILabel"; text = "Location name*:"; ObjectID = "HZ8-xW-2wN"; */
+"HZ8-xW-2wN.text" = "Location name*:";
 
-/* Class = "IBUILabel"; text = "Telefone*:"; ObjectID = "IKG-Vd-1h6"; */
-"IKG-Vd-1h6.text" = "Telefone*:";
+/* Class = "IBUILabel"; text = "Phone number*:"; ObjectID = "IKG-Vd-1h6"; */
+"IKG-Vd-1h6.text" = "Phone number*:";
 
 /* Class = "IBUIButton"; normalTitle = "Emergency"; ObjectID = "J56-Y3-dUU"; */
 "J56-Y3-dUU.normalTitle" = "Emergency";
 
-/* Class = "IBUILabel"; text = "Tipo sanguíneo:"; ObjectID = "KJu-KK-5jH"; */
-"KJu-KK-5jH.text" = "Tipo sanguíneo:";
+/* Class = "IBUILabel"; text = "Blood type:"; ObjectID = "KJu-KK-5jH"; */
+"KJu-KK-5jH.text" = "Blood type:";
 
-/* Class = "IBUILabel"; text = "Bombeiros"; ObjectID = "M0p-dk-TsN"; */
-"M0p-dk-TsN.text" = "Bombeiros";
+/* Class = "IBUILabel"; text = "Fire department(Brazil)"; ObjectID = "M0p-dk-TsN"; */
+"M0p-dk-TsN.text" = "Fire department(Brazil)";
 
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "MYv-Wp-udD"; */
 "MYv-Wp-udD.text" = "Label";
 
-/* Class = "IBUILabel"; text = "Polícia Rodoviária"; ObjectID = "MvQ-F9-0OL"; */
-"MvQ-F9-0OL.text" = "Polícia Rodoviária";
+/* Class = "IBUILabel"; text = "Road Police(Brazil)"; ObjectID = "MvQ-F9-0OL"; */
+"MvQ-F9-0OL.text" = "Road Police(Brazil)";
 
-/* Class = "IBUIButton"; normalTitle = "Enviar"; ObjectID = "NFE-vp-2fe"; */
-"NFE-vp-2fe.normalTitle" = "Enviar";
+/* Class = "IBUIButton"; normalTitle = "Send"; ObjectID = "NFE-vp-2fe"; */
+"NFE-vp-2fe.normalTitle" = "Send";
 
-/* Class = "IBUILabel"; text = "Polícia Federal"; ObjectID = "O4v-rb-MQf"; */
-"O4v-rb-MQf.text" = "Polícia Federal";
+/* Class = "IBUILabel"; text = "Federal Police(Brazil)"; ObjectID = "O4v-rb-MQf"; */
+"O4v-rb-MQf.text" = "Federal Police(Brazil)";
 
-/* Class = "IBUILabel"; text = "Nome"; ObjectID = "Ogr-HX-E8r"; */
-"Ogr-HX-E8r.text" = "Nome";
+/* Class = "IBUILabel"; text = "Name:"; ObjectID = "Ogr-HX-E8r"; */
+"Ogr-HX-E8r.text" = "Name:";
 
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "Owj-zg-BiP"; */
 "Owj-zg-BiP.text" = "Label";
 
-/* Class = "IBUILabel"; text = "Raio (km):"; ObjectID = "P7v-MK-9Px"; */
-"P7v-MK-9Px.text" = "Raio (km):";
+/* Class = "IBUILabel"; text = "Radius (km):"; ObjectID = "P7v-MK-9Px"; */
+"P7v-MK-9Px.text" = "Radius (km):";
 
-/* Class = "IBUILabel"; text = "Coordenadas:"; ObjectID = "PPm-IM-9xI"; */
-"PPm-IM-9xI.text" = "Coordenadas:";
+/* Class = "IBUILabel"; text = "Coordinates:"; ObjectID = "PPm-IM-9xI"; */
+"PPm-IM-9xI.text" = "Coordinates:";
 
-/* Class = "IBUILabel"; text = "Polícia Militar"; ObjectID = "RC3-Cr-5rw"; */
-"RC3-Cr-5rw.text" = "Polícia Militar";
+/* Class = "IBUILabel"; text = "Military Police(Brazil)"; ObjectID = "RC3-Cr-5rw"; */
+"RC3-Cr-5rw.text" = "Military Police(Brazil)";
 
 /* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "S8M-d8-Jo2"; */
 "S8M-d8-Jo2.normalTitle" = "Button";
@@ -98,89 +98,89 @@
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "SV3-1z-0vN"; */
 "SV3-1z-0vN.text" = "Label";
 
-/* Class = "IBUILabel"; text = "      Nome:"; ObjectID = "Slg-U5-kuE"; */
-"Slg-U5-kuE.text" = "      Nome:";
+/* Class = "IBUILabel"; text = "      Name:"; ObjectID = "Slg-U5-kuE"; */
+"Slg-U5-kuE.text" = "      Name:";
 
 /* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "SyN-tf-zsD"; */
 "SyN-tf-zsD.normalTitle" = "Button";
 
-/* Class = "IBUILabel"; text = "Contatando o servidor"; ObjectID = "V96-pi-Ra4"; */
-"V96-pi-Ra4.text" = "Contatando o servidor";
+/* Class = "IBUILabel"; text = "Contacting server "; ObjectID = "V96-pi-Ra4"; */
+"V96-pi-Ra4.text" = "Contacting server ";
 
-/* Class = "IBUILabel"; text = "Dica do dia:"; ObjectID = "XGa-r6-Xdz"; */
-"XGa-r6-Xdz.text" = "Dica do dia:";
+/* Class = "IBUILabel"; text = "Tip of the Day:"; ObjectID = "XGa-r6-Xdz"; */
+"XGa-r6-Xdz.text" = "Tip of the Day:";
 
-/* Class = "IBUIButton"; normalTitle = "Buscar"; ObjectID = "ZKS-Mm-WRx"; */
-"ZKS-Mm-WRx.normalTitle" = "Buscar";
+/* Class = "IBUIButton"; normalTitle = "Search"; ObjectID = "ZKS-Mm-WRx"; */
+"ZKS-Mm-WRx.normalTitle" = "Search";
 
-/* Class = "IBUILabel"; text = "               Qual a sua emergência?"; ObjectID = "ZVv-QW-W9E"; */
-"ZVv-QW-W9E.text" = "               Qual a sua emergência?";
+/* Class = "IBUILabel"; text = "               What is your emergency?"; ObjectID = "ZVv-QW-W9E"; */
+"ZVv-QW-W9E.text" = "               What is your emergency?";
 
-/* Class = "IBUIButton"; normalTitle = "Sobre"; ObjectID = "Zse-S7-ZlF"; */
-"Zse-S7-ZlF.normalTitle" = "Sobre";
+/* Class = "IBUIButton"; normalTitle = "About"; ObjectID = "Zse-S7-ZlF"; */
+"Zse-S7-ZlF.normalTitle" = "About";
 
-/* Class = "IBUILabel"; text = "Informações médicas:"; ObjectID = "a12-zF-tJ9"; */
-"a12-zF-tJ9.text" = "Informações médicas:";
+/* Class = "IBUILabel"; text = "Medical information:"; ObjectID = "a12-zF-tJ9"; */
+"a12-zF-tJ9.text" = "Medical information:";
 
 /* Class = "IBUILabel"; text = "Longitude*:"; ObjectID = "aBj-ER-urk"; */
 "aBj-ER-urk.text" = "Longitude*:";
 
-/* Class = "IBUIButton"; normalTitle = "Confirmar"; ObjectID = "aQE-vq-fAa"; */
-"aQE-vq-fAa.normalTitle" = "Confirmar";
+/* Class = "IBUIButton"; normalTitle = "Confirm"; ObjectID = "aQE-vq-fAa"; */
+"aQE-vq-fAa.normalTitle" = "Confirm";
 
-/* Class = "IBUIButton"; normalTitle = "Solicitar ajuda"; ObjectID = "b32-G3-e8C"; */
-"b32-G3-e8C.normalTitle" = "Solicitar ajuda";
+/* Class = "IBUIButton"; normalTitle = "Request help"; ObjectID = "b32-G3-e8C"; */
+"b32-G3-e8C.normalTitle" = "Request help";
 
-/* Class = "IBUIButton"; normalTitle = "Emergência!"; ObjectID = "bnJ-Zc-WCi"; */
-"bnJ-Zc-WCi.normalTitle" = "Emergência!";
+/* Class = "IBUIButton"; normalTitle = "Emergency!"; ObjectID = "bnJ-Zc-WCi"; */
+"bnJ-Zc-WCi.normalTitle" = "Emergency!";
 
-/* Class = "IBUILabel"; text = "Doador de orgãos?"; ObjectID = "eLx-F1-sTR"; */
-"eLx-F1-sTR.text" = "Doador de orgãos?";
+/* Class = "IBUILabel"; text = "Organ donor?"; ObjectID = "eLx-F1-sTR"; */
+"eLx-F1-sTR.text" = "Organ donor?";
 
 /* Class = "IBUILabel"; text = "|"; ObjectID = "fHe-R9-4hN"; */
 "fHe-R9-4hN.text" = "|";
 
-/* Class = "IBUILabel"; text = "Senha:"; ObjectID = "fNd-pK-d88"; */
-"fNd-pK-d88.text" = "Senha:";
+/* Class = "IBUILabel"; text = "Password:"; ObjectID = "fNd-pK-d88"; */
+"fNd-pK-d88.text" = "Password:";
 
-/* Class = "IBUIButton"; normalTitle = "Salvar contato"; ObjectID = "fkl-AY-VZw"; */
-"fkl-AY-VZw.normalTitle" = "Salvar contato";
+/* Class = "IBUIButton"; normalTitle = "Salve contact"; ObjectID = "fkl-AY-VZw"; */
+"fkl-AY-VZw.normalTitle" = "Salve contact";
 
 /* Class = "IBUITextField"; placeholder = "**XXXXXXXX"; ObjectID = "gLI-wh-q8s"; */
 "gLI-wh-q8s.placeholder" = "**XXXXXXXX";
 
-/* Class = "IBUILabel"; text = "Peso"; ObjectID = "gTB-ME-VpW"; */
-"gTB-ME-VpW.text" = "Peso";
+/* Class = "IBUILabel"; text = "Weight:"; ObjectID = "gTB-ME-VpW"; */
+"gTB-ME-VpW.text" = "Weight:";
 
-/* Class = "IBUILabel"; text = "Usuário:"; ObjectID = "jSL-dI-Zia"; */
-"jSL-dI-Zia.text" = "Usuário:";
+/* Class = "IBUILabel"; text = "User:"; ObjectID = "jSL-dI-Zia"; */
+"jSL-dI-Zia.text" = "User:";
 
-/* Class = "IBUILabel"; text = "Alérgico a:"; ObjectID = "jdg-SA-dSK"; */
-"jdg-SA-dSK.text" = "Alérgico a:";
+/* Class = "IBUILabel"; text = "Allergic to:"; ObjectID = "jdg-SA-dSK"; */
+"jdg-SA-dSK.text" = "Allergic to:";
 
 /* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "jeL-u4-oCw"; */
 "jeL-u4-oCw.normalTitle" = "Button";
 
-/* Class = "IBUIBarButtonItem"; title = "Adicionar"; ObjectID = "jzS-MS-kjn"; */
-"jzS-MS-kjn.title" = "Adicionar";
+/* Class = "IBUIBarButtonItem"; title = "Add"; ObjectID = "jzS-MS-kjn"; */
+"jzS-MS-kjn.title" = "Add";
 
-/* Class = "IBUILabel"; text = "Nome:"; ObjectID = "kGr-Nz-2EE"; */
-"kGr-Nz-2EE.text" = "Nome:";
+/* Class = "IBUILabel"; text = "Name:"; ObjectID = "kGr-Nz-2EE"; */
+"kGr-Nz-2EE.text" = "Name:";
 
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "ll2-Zg-OKR"; */
 "ll2-Zg-OKR.text" = "Label";
 
-/* Class = "IBUISearchBar"; placeholder = "Pesquisar contatos"; ObjectID = "mcv-Qy-JOg"; */
-"mcv-Qy-JOg.placeholder" = "Pesquisar contatos";
+/* Class = "IBUISearchBar"; placeholder = "Search for contact"; ObjectID = "mcv-Qy-JOg"; */
+"mcv-Qy-JOg.placeholder" = "Search for contact";
 
-/* Class = "IBUILabel"; text = "Confirmação:"; ObjectID = "qWg-Qf-r5y"; */
-"qWg-Qf-r5y.text" = "Confirmação:";
+/* Class = "IBUILabel"; text = "Confirmation:"; ObjectID = "qWg-Qf-r5y"; */
+"qWg-Qf-r5y.text" = "Confirmation:";
 
-/* Class = "IBUILabel"; text = "Polícia Civil"; ObjectID = "rjV-3e-LJU"; */
-"rjV-3e-LJU.text" = "Polícia Civil";
+/* Class = "IBUILabel"; text = "Civil police(Brazil)"; ObjectID = "rjV-3e-LJU"; */
+"rjV-3e-LJU.text" = "Civil police(Brazil)";
 
-/* Class = "IBUILabel"; text = " Em caso de emergência, toque no botão"; ObjectID = "sIS-eX-d8z"; */
-"sIS-eX-d8z.text" = " Em caso de emergência, toque no botão";
+/* Class = "IBUILabel"; text = "In case of emergency, touch the button"; ObjectID = "sIS-eX-d8z"; */
+"sIS-eX-d8z.text" = "In case of emergency, touch the button";
 
 /* Class = "IBUILabel"; text = "Latitude*:"; ObjectID = "uIK-yx-6hA"; */
 "uIK-yx-6hA.text" = "Latitude*:";
@@ -188,35 +188,35 @@
 /* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "uWx-5x-kh9"; */
 "uWx-5x-kh9.normalTitle" = "Button";
 
-/* Class = "IBUILabel"; text = "E-mail:"; ObjectID = "ump-sb-GQ0"; */
-"ump-sb-GQ0.text" = "E-mail:";
+/* Class = "IBUILabel"; text = "Mail:"; ObjectID = "ump-sb-GQ0"; */
+"ump-sb-GQ0.text" = "Mail:";
 
-/* Class = "IBUISegmentedControl"; vDV-0n-k03.segmentTitles[0] = "Padrão"; ObjectID = "vDV-0n-k03"; */
-"vDV-0n-k03.segmentTitles[0]" = "Padrão";
+/* Class = "IBUISegmentedControl"; vDV-0n-k03.segmentTitles[0] = "Standar"; ObjectID = "vDV-0n-k03"; */
+"vDV-0n-k03.segmentTitles[0]" = "Standar";
 
-/* Class = "IBUISegmentedControl"; vDV-0n-k03.segmentTitles[1] = "Híbrido"; ObjectID = "vDV-0n-k03"; */
-"vDV-0n-k03.segmentTitles[1]" = "Híbrido";
+/* Class = "IBUISegmentedControl"; vDV-0n-k03.segmentTitles[1] = "Hybrid"; ObjectID = "vDV-0n-k03"; */
+"vDV-0n-k03.segmentTitles[1]" = "Hybrid";
 
-/* Class = "IBUISegmentedControl"; vDV-0n-k03.segmentTitles[2] = "Satélite"; ObjectID = "vDV-0n-k03"; */
-"vDV-0n-k03.segmentTitles[2]" = "Satélite";
+/* Class = "IBUISegmentedControl"; vDV-0n-k03.segmentTitles[2] = "Satellite"; ObjectID = "vDV-0n-k03"; */
+"vDV-0n-k03.segmentTitles[2]" = "Satellite";
 
-/* Class = "IBUILabel"; text = "SAMU"; ObjectID = "vOJ-PI-fZd"; */
-"vOJ-PI-fZd.text" = "SAMU";
+/* Class = "IBUILabel"; text = "Ambulance(Brazil)"; ObjectID = "vOJ-PI-fZd"; */
+"vOJ-PI-fZd.text" = "Ambulance(Brazil)";
 
-/* Class = "IBUILabel"; text = "Endereço:"; ObjectID = "vvx-YS-dg0"; */
-"vvx-YS-dg0.text" = "Endereço:";
+/* Class = "IBUILabel"; text = "Address:"; ObjectID = "vvx-YS-dg0"; */
+"vvx-YS-dg0.text" = "Address:";
 
-/* Class = "IBUIBarButtonItem"; title = "Me siga"; ObjectID = "xBu-bW-7um"; */
-"xBu-bW-7um.title" = "Me siga";
+/* Class = "IBUIBarButtonItem"; title = "Follow Me"; ObjectID = "xBu-bW-7um"; */
+"xBu-bW-7um.title" = "Follow Me";
 
-/* Class = "IBUILabel"; text = "Informações pessoais:"; ObjectID = "xHg-E5-aYA"; */
-"xHg-E5-aYA.text" = "Informações pessoais:";
+/* Class = "IBUILabel"; text = "Personal information:"; ObjectID = "xHg-E5-aYA"; */
+"xHg-E5-aYA.text" = "Personal information:";
 
-/* Class = "IBUILabel"; text = "Password"; ObjectID = "yVC-ta-c62"; */
-"yVC-ta-c62.text" = "Password";
+/* Class = "IBUILabel"; text = "Password:"; ObjectID = "yVC-ta-c62"; */
+"yVC-ta-c62.text" = "Password:";
 
-/* Class = "IBUIButton"; normalTitle = "Salvar dados"; ObjectID = "yfh-vD-Y28"; */
-"yfh-vD-Y28.normalTitle" = "Salvar dados";
+/* Class = "IBUIButton"; normalTitle = "Save data"; ObjectID = "yfh-vD-Y28"; */
+"yfh-vD-Y28.normalTitle" = "Save data";
 
 /* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "ynF-Gp-Paz"; */
 "ynF-Gp-Paz.normalTitle" = "Button";

@@ -24,9 +24,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationController.navigationBar.alpha = 0.6;
-    self.navigationItem.title = @"Novo contato";
+    self.navigationItem.title = NSLocalizedString(@"NOVO_CONTATO_TITULO", nil);
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
 
     self.conf = [[DCConfigs alloc] init];
@@ -90,14 +90,14 @@
             if ([contato salvarComIPServidor: self.conf.ip]) {
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Sucesso" message:@"Contato adicionato com sucesso (em Aprovação)" buttonTitle:@"OK"];
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"NOVO_CONTATO_ADICIONAR_OK_TITULO", nil) message:NSLocalizedString(@"NOVO_CONTATO_ADICIONAR_OK_MENSAGEM", nil) buttonTitle:@"OK"];
                 [alertView show];
                 [self.previousViewController.contacts addObject: contato];
                 [self.navigationController popViewControllerAnimated:YES];
                     });
             } else {
                  dispatch_async(dispatch_get_main_queue(), ^{
-                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível adicionar o contato. Tente novamente mais tarde." buttonTitle:@"OK"];
+                TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"NOVO_CONTATO_ADICIONAR_FALHA_MENSAGEM", nil) buttonTitle:@"OK"];
                 [alertView show];
                   });
             }
@@ -118,13 +118,13 @@
         
         if ([contato editarComIPServidor: self.conf.ip]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Sucesso" message:@"Contato editado com sucesso" buttonTitle:@"OK"];
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"NOVO_CONTATO_MODIFICAR_OK_TITULO", nil) message:NSLocalizedString(@"NOVO_CONTATO_MODIFICAR_OK_MENSAGEM", nil) buttonTitle:@"OK"];
             [alertView show];
             [self.navigationController popViewControllerAnimated:YES];
                 });
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Não foi possível editar o contato. Tente novamente mais tarde." buttonTitle:@"OK"];
+            TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"NOVO_CONTATO_MODIFICAR_FALHA_MENSAGEM", nil) buttonTitle:@"OK"];
             [alertView show];
                 });
         }

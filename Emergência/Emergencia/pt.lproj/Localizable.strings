@@ -1,0 +1,113 @@
+/* 
+  Localizable.strings
+  Emergencia
+
+  Created by Marcos Sokolowski on 27/05/14.
+  Copyright (c) 2014 Acácio Veit Schneider. All rights reserved.
+*/
+
+
+/*
+ ------------------------------------------------
+ Formato utilizado: "<VIEW>_<DESCRIÇÃO>_<STATUS>" = "<String>";
+ Linguagem: PORTUGUÊS
+ ------------------------------------------------
+ 
+ */
+
+"ERRO" = "Erro";
+
+"LOGIN_FALHA" = "Falha no login";
+
+"CADASTRO_TITULO" = "Cadastro";
+"CADASTRO_OK" = "Cadastro realizado com sucesso!";
+"CADASTRO_FALHA"="Cadastro não efetuado";
+"CADASTRO_SENHA_FALHA" = "Senha não confere";
+
+"INICIAL_TITULO" = "Salve.Me!";
+"CONEXAO_FALHA_TITULO" = "Sem conexão";
+"CONEXAO_FALHA_MENSAGEM" ="Não foi possível conectar aos servidores no momento. Verifique sua conexão com a internet.";
+
+"EMERGENCIA_RECEBIDA_1" = "O seu amigo %@ relatou um";
+"EMERGENCIA_RECEBIDA_2" = "problema %@";
+"EMERGENCIA_TITULO" = "Emergência";
+"EMERGENCIA_OPCAO_1"= "Respiratória";
+"EMERGENCIA_OPCAO_2"= "Cardíaca";
+"EMERGENCIA_OPCAO_3"= "Neurológica";
+"EMERGENCIA_OPCAO_4"= "Muscular";
+"EMERGENCIA_RAIO_INCOMPATIVEL" = "Valor do raio incompatível";
+"EMERGENCIA_ENVIAR" = "O usuário %@ está solicitando sua ajuda com uma emergência %@";
+"EMERGENCIA_ENVIADA_TITULO" = "Enviado";
+"EMERGENCIA_ENVIADA_MENSAGEM" = "Mensagens enviadas com sucesso";
+
+"MAPAS_RAIO_ERRO_TITULO" = "Tamanho máximo do raio";
+"MAPAS_RAIO_ERRO_MENSAGEM" = "O tamanho máximo do raio de busca é de 150Km, o raio exibido será deste tamanho.";
+"MAPAS_AMIGO_NOME" = "Amigo";
+"MAPAS_AMIGO_LEGENDA" = "Localização do pedido de ajuda";
+"MAPAS_POSTO_VALIDAR" = "Validar";
+
+"CONTATOS_TITULO" = "Contatos";
+"CONTATOS_EXCLUIR_MENSAGEM" = "Tem certeza que deseja excluir este contato?";
+"CONTATOS_EXLCUIR_TITULO" = "Excluir contato";
+"CONTATOS_EXCLUIR_CANCELAR" = "Não";
+"CONTATOS_EXCLUIR_CONFIRMAR" = "Sim, remover";
+"CONTATOS_EXLCUIR_FALHA_MENSAGEM" = "Desculpe, não foi possível excluir o contato. Tente novamente mais tarde.";
+"CONTATOS_ACEITAR_FALHA_MENSAGEM" = "Desculpe, não foi possível aceitar o contato. Tenta novamente mais tarde.";
+"CONTATOS_MENSAGEM_ADICIONADOS_NENHUM" = "Nenhum contato adicionado";
+"CONTATOS_MENSAGEM_PENDENTES_NENHUM" = "Nenhuma aprovação pendente.";
+"CONTATOS_MENSAGEM_BUSCA_NENHUM"= "Nenhum contato encontrado.";
+"CONTATOS_APROVACAO_PENDENTE" = "%@ - Aprovação pendente.";
+"CONTATOS_HEADER_TITULO_1" = "Adicionados";
+"CONTATOS_HEADER_TITULO_2" = "Aguardando aprovação";
+
+"CONFIRMA_CADASTRO_OK_TITULO" = "Cadastro do novo local";
+"CONFIRMA_CADASTRO_OK_MENSAGEM" = "Cadastro efetuado com sucesso";
+"CONFIRMA_CADASTRO_FALHA_MENSAGEM" = "Desculpe, ocorreu um erro ao cadastrar. Tente novamente mais tarde.";
+"CONFIRMA_CADASTRO_FALHA_CAMPOS" = "Campos em branco";
+
+"MENU_CELULAS_TITULO_1" = "Home";
+"MENU_CELULAS_TITULO_2" = "Perfil";
+"MENU_CELULAS_TITULO_3" = "Amigos";
+"MENU_CELULAS_TITULO_4" = "Adicionar local";
+"MENU_CELULAS_TITULO_5" = "Números de emergência";
+"MENU_CELULAS_TITULO_6" = "Sair da conta";
+"MENU_CELULAS_TITULO_7" = "Ajuda";
+
+"NOVO_CONTATO_TITULO" = "Novo Contato";
+"NOVO_CONTATO_ADICIONAR_OK_TITULO" = "Adicionar contato";
+"NOVO_CONTATO_ADICIONAR_OK_MENSAGEM" = "Contato adicionado com sucesso(em aprovação).";
+"NOVO_CONTATO_ADICIONAR_FALHA_MENSAGEM" = "Desculpe, não foi possível adicionar o contato no momento. Tente novamente mais tarde.";
+"NOVO_CONTATO_MODIFICAR_OK_TITULO" = "Editar contato";
+"NOVO_CONTATO_MODIFICAR_OK_MENSAGEM" = "Contato editado com sucesso";
+"NOVO_CONTATO_MODIFICAR_FALHA_MENSAGEM" = "Desculpe, não foi possível editar o contato no momento. Tente novamente mais tarde.";
+
+"NOVO_LOCAL_TITULO" = "Novo Local";
+"NOVO_LOCAL_ADICIONAR_FALHA_MENSAGEM" = "Campos obrigatórios em branco.";
+"NOVO_LOCAL_SOBRE_TITULO" = "Ajude a melhorar o emergência!";
+"NOVO_LOCAL_SOBRE_MENSAGEM" = "Nesta tela você pode adicionar novos locais que possuam serviços de emergencia para que estes sejam adicionados ao aplicativo, todos os envios estão sujeitos a aprovação. Os campos com '*' são de preenchimento obrigatório. Para mais informações, consulte a ajuda através do menu lateral.";
+
+"NUMEROS_TITULO" = "Números para Emergências";
+
+"PERFIL_TITULO" = "Seu Perfil";
+"PERFIL_ATUALIZAR_OK_TITULO" = "Atualizado";
+"PERFIL_ATUALIZAR_OK_MENSAGEM" = "Atualização do perfil efetuada com sucesso";
+"PERFIL_IMAGEM_OK_TITULO" = "Imagem criada";
+"PERFIL_IMAGEM_OK_MENSAGEM" = "Foi gerada uma imagem com as suas informações médicas e salva no seu álbum de fotos. Recomenda-se que você use a imagem gerada como fundo da tela bloqueada.";
+"PERFIL_INFORMACOES_PESO" = "Peso: %@";
+"PERFIL_INFORMACOES_ALTURA" = "Altura: %@";
+"PERFIL_INFORMACOES_TELEFONE" = "Tel. c.: %@";
+"PERFIL_INFORMACOES_ALERGIAS" = "Alergias: %@";
+"PERFIL_INFORMACOES_DOADOR_SIM" = "Sou doador de orgãos? Sim";
+"PERFIL_INFORMACOES_DOADOR_NAO" = "Sou doador de orgãos? Não";
+"PERFIL_INFORMACOES_SANGUE" = "Tipo sanguíneo: %@";
+"PERFIL_FOTO_CANCELAR" = "Cancelar";
+"PERFIL_FOTO_CAMERA" = "Usar a câmera";
+"PERFIL_FOTO_BIBLIOTECA" = "Escolher uma foto";
+
+"AJUDA_CELULAS_TITULO_1" = "    Informando uma emergência";
+"AJUDA_CELULAS_TITULO_2" = "    O menu lateral";
+"AJUDA_CELULAS_TITULO_3" = "    Adicionando um novo local";
+"AJUDA_TEXTO_1" = "Texto de info da emergência";
+"AJUDA_TEXTO_2" = "Texto de info do menu lateral";
+"AJUDA_TEXTO_3" = "Ao entrar na seção Adicionar local do menu lateral, será exibido um formulário onde existem campos que devem ser obrigatoriamente preenchidos com os dados do local que se deseja adicionar. As informações de latitude e longitude são obrigatórias e são obtidas através da sua localização, podendo ser editadas antes de enviar. Caso você não saiba as coordenadas ou não esteja próximo ao local, você poderá mover o pino que será mostrado no mapa quando você clicar em Enviar, mova o pino para a localização correta do local e clique em Confirmar para que o novo local seja enviado. Quando você adiciona novos locais eles aparecem no mapa com uma interrogação no canto superior direito para diferencia-los dos locais já confirmados.";
+

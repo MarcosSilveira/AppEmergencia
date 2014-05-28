@@ -16,6 +16,7 @@
 
 
 @interface DCInicialViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *dica;
 
 
 
@@ -23,7 +24,7 @@
 
 @implementation DCInicialViewController
 
-//DCReachability *connectionTest;
+Reachability *connectionTest;
 UIAlertView *nconnection;
 BOOL connectionOK = YES;
 UIImageView *auxi;
@@ -34,10 +35,10 @@ UIImageView *auxi;
     [super viewDidLoad];
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationController.navigationBar.alpha = 0.6;
-    self.navigationItem.title = @"Salve.Me!";
+    self.navigationItem.title = NSLocalizedString(@"INICIAL_TITULO", nil) ;
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
 
-
+    _dica.layer.cornerRadius = 8.0;
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"pushOn"]){
         [self performSegueWithIdentifier:@"goToEmergencia" sender:nil];
 
@@ -89,15 +90,11 @@ UIImageView *auxi;
     NSLog(@"Recebeu notificacao");
     
     UIView *viewNotification, *viewAux;
-    viewAux = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
+//    viewAux = [[UIView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
     viewNotification = [[UIView alloc] initWithFrame:CGRectMake(0,64, 320, 100)];
-    UIColor *branco = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:1.0];
-    viewAux.backgroundColor =branco;
+//    UIColor *branco = [[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:1.0];
+//    viewAux.backgroundColor =branco;
     
-    UILabel *labelteste = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 25)];
-    labelteste.text = @"Testando label na view aux";
-    labelteste.textColor = [UIColor whiteColor];
-    [viewNotification addSubview:labelteste];
     
     UIColor *vermelho = [[UIColor alloc] initWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f];
     viewNotification.backgroundColor = vermelho;
@@ -105,7 +102,7 @@ UIImageView *auxi;
     
     UITapGestureRecognizer *toque = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tocouNaNotification)];
     [viewNotification addGestureRecognizer:toque];
-    [self.view addSubview:viewAux];
+//    [self.view addSubview:viewAux];
     [self.view addSubview:viewNotification];
 }
 
@@ -124,54 +121,53 @@ UIImageView *auxi;
     
     
     
-    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkChange:) name:kReachabilityChangedNotification object:nil];
-    //    connectionTest = [DCReachability reachabilityWithHostName:server];
-    //    [connectionTest startNotifier];
-    //
-    //    NetworkStatus remoteHostStatus = [connectionTest currentReachabilityStatus];
-    //    if(remoteHostStatus == NotReachable) {
-    //
-    //        nconnection = [[UIAlertView alloc] initWithTitle:@"Sem conexão" message:@"Não foi possível conectar aos servidores no momento. Verifique sua conexão com a internet." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    //        [nconnection show];
-    //    }
-    //    else
-    //        connectionOK = YES;
-    //
-    //
-    //
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkChange:) name:kReachabilityChangedNotification object:nil];
+    connectionTest = [Reachability reachabilityForInternetConnection];
+    [connectionTest startNotifier];
+
+    NetworkStatus remoteHostStatus = [connectionTest currentReachabilityStatus];
+    if(remoteHostStatus == NotReachable) {
+
+        nconnection = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"CONEXAO_FALHA_TITULO", nil) message:NSLocalizedString(@"CONEXAO_FALHA_MENSAGEM", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [nconnection show];
+    }
+    else
+        connectionOK = YES;
+
+
+
     
-    //     struct sockaddr_in ipAddress;
-    //    ipAddress.sin_len = sizeof(ipAddress);
-    //    ipAddress.sin_family = AF_INET;
-    //    ipAddress.sin_port = htons(8080);
-    //    inet_pton(AF_INET, "192.168.2.2", &ipAddress.sin_addr);
-    //
-    //    Reachability* reach = [Reachability reachabilityWithAddress:ipAddress];
-    //
-    //    // Set the blocks
-    //    reach.reachableBlock = ^(Reachability*reach)
-    //    {
-    //        NSLog(@"REACHABLE!");
-    //    };
-    //
-    //    reach.unreachableBlock = ^(Reachability*reach)
-    //    {
-    //        NSLog(@"UNREACHABLE!");
-    //    };
-    //
-    //    // Start the notifier, which will cause the reachability object to retain itself!
-    //    [reach startNotifier];
-    //}
+//     struct sockaddr_in ipAddress;
+//    ipAddress.sin_len = sizeof(ipAddress);
+//    ipAddress.sin_family = AF_INET;
+//    ipAddress.sin_port = htons(8080);
+//    inet_pton(AF_INET, "192.168.2.2", &ipAddress.sin_addr);
+
+    Reachability* reach = [Reachability reachabilityForInternetConnection];
+
+    // Set the blocks
+    reach.reachableBlock = ^(Reachability*reach)
+    {
+        NSLog(@"REACHABLE!");
+    };
+
+    reach.unreachableBlock = ^(Reachability*reach)
+    {
+        NSLog(@"UNREACHABLE!");
+    };
+
+    // Start the notifier, which will cause the reachability object to retain itself!    //    [reach startNotifier];
+
 }
-//- (void) handleNetworkChange:(NSNotification *)notice
-//{
-//
-//    NetworkStatus remoteHostStatus = [connectionTest currentReachabilityStatus];
-//
-//    if(remoteHostStatus == NotReachable) {NSLog(@"no");}
-//    else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"wifi"); connectionOK = YES; }
-//    else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"cell"); connectionOK = YES; }
-//}
+- (void) handleNetworkChange:(NSNotification *)notice
+{
+
+    NetworkStatus remoteHostStatus = [connectionTest currentReachabilityStatus];
+
+    if(remoteHostStatus == NotReachable) {NSLog(@"no");}
+    else if (remoteHostStatus == ReachableViaWiFi) {NSLog(@"wifi"); connectionOK = YES; }
+    else if (remoteHostStatus == ReachableViaWWAN) {NSLog(@"cell"); connectionOK = YES; }
+}
 
 - (void) configuracoesIniciais {
     

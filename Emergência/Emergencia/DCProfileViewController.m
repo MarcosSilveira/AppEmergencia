@@ -43,7 +43,7 @@
     
 //  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.navigationController.navigationBar.alpha = 0.6;
-    self.navigationItem.title = @"Seu perfil";
+    self.navigationItem.title = NSLocalizedString(@"PERFIL_TITULO", nil);
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:255/255 green: 0/255 blue:0/255 alpha:1];
 
     _sangue=@[@"A+",@"A-",@"AB+",@"AB-",@"B+",@"B-", @"O+",@"O-"];
@@ -80,7 +80,7 @@
     
     [self.view addGestureRecognizer:tap];
     
-    self.navigationItem.title = @"Seu perfil";
+
 
 }
 
@@ -136,7 +136,7 @@
 
 - (IBAction)cadastrar:(id)sender {
     [self cads];
-    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Atualizado" message:@"Atualização do perfil efetuada com sucesso" buttonTitle:@"OK"];
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"PERFIL_ATUALIZAR_OK_TITULO", nil) message:NSLocalizedString(@"PERFIL_ATUALIZAR_OK_MENSAGEM",nil) buttonTitle:@"OK"];
     [alertView show];
 }
 
@@ -189,7 +189,7 @@
    // [self.image setImage:[self imageFromText:teste]];
     UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
     
-    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Imagem criada" message:@"Foi gerada uma imagem com suas informações médicas e salva no seu album de fotos. Recomenda-se que você use a imagem gerada como fundo da tela bloqueada." buttonTitle:@"OK"];
+    TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"PERFIL_IMAGEM_OK_TITULO", nil) message:NSLocalizedString(@"PERFIL_IMAGEM_OK_MENSAGEM", nil) buttonTitle:@"OK"];
     [alertView show];
 }
 
@@ -300,17 +300,17 @@
     
     [temp drawAtPoint:CGPointMake(10, pos) withFont:font];
     
-    temp=[NSString stringWithFormat:@"peso: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"]];
+    temp=[NSString stringWithFormat:NSLocalizedString(@"PERFIL_INFORMACOES_PESO", nil),[[NSUserDefaults standardUserDefaults] stringForKey: @"peso"]];
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height) withFont:font];
     
-    temp=[NSString stringWithFormat:@"Altura: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"]];
+    temp=[NSString stringWithFormat:NSLocalizedString(@"PERFIL_INFORMACOES_ALTURA", nil),[[NSUserDefaults standardUserDefaults] stringForKey: @"altura"]];
 
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*2) withFont:font];
     
 
-    temp=[NSString stringWithFormat:@"Tel. c. :%@",[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
+    temp=[NSString stringWithFormat:NSLocalizedString(@"PERFIL_INFORMACOES_TELEFONE", nil),[[NSUserDefaults standardUserDefaults] stringForKey: @"tel"]];
     
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*3) withFont:font];
@@ -338,19 +338,19 @@
     }
 
     
-    //temp=[NSString stringWithFormat:@"Alergias: %@",[[NSUserDefaults standardUserDefaults] stringForKey: @"alergias"]];
+    temp=[NSString stringWithFormat:NSLocalizedString(@"PERFIL_INFORMACOES_ALERGIAS", nil),[[NSUserDefaults standardUserDefaults] stringForKey: @"alergias"]];
     
     
     //[temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*6) withFont:font];
     
     BOOL aux=[[NSUserDefaults standardUserDefaults] stringForKey: @"doador"];
     if (aux) {
-        temp=@"Sou doador de orgãos? Sim";
+        temp=NSLocalizedString(@"PERFIL_INFORMACOES_DOADOR_SIM", nil);
         
         
     }
     else
-        temp = @"Sou doador de orgãos? Não";
+        temp = NSLocalizedString(@"PERFIL_INFORMACOES_DOADOR_NAO", nil);
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*5) withFont:font];
     
@@ -363,7 +363,7 @@
    
     
     
-    temp=[NSString stringWithFormat:@"Tipo sanguíneo:  %@",[_sangue objectAtIndex:[numero integerValue] ]];
+    temp=[NSString stringWithFormat:NSLocalizedString(@"PERFIL_INFORMACOES_SANGUE", nil),[_sangue objectAtIndex:[numero integerValue] ]];
     
     
     [temp drawAtPoint:CGPointMake(10, pos+[text sizeWithFont:font].height*4) withFont:font];
@@ -562,10 +562,10 @@
         
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                                  delegate:self
-                                                        cancelButtonTitle:NSLocalizedString(@"Cancelar", nil)
+                                                        cancelButtonTitle:NSLocalizedString(@"PERFIL_FOTO_CANCELAR", nil)
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:NSLocalizedString(@"Tirar uma foto", nil),
-                                      NSLocalizedString(@"Escolher uma foto", nil), nil];
+                                                        otherButtonTitles:NSLocalizedString(@"PERFIL_FOTO_CAMERA", nil),
+                                      NSLocalizedString(@"PERFIL_FOTO_BIBLIOTECA", nil), nil];
         /*
          UIActionSheet *UIActionSheet = [[UIActionSheet alloc] initWithTitle:nil
          delegate:self

@@ -1,0 +1,106 @@
+/* 
+  Localizable.strings
+  Emergencia
+
+  Created by Marcos Sokolowski on 27/05/14.
+  Copyright (c) 2014 Acácio Veit Schneider. All rights reserved.
+*/
+
+
+/*
+ ------------------------------------------------
+ Formato utilizado: "<VIEW>_<DESCRIÇÃO>_<STATUS>" = "<String>";
+ Linguagem: INGLÊS
+ ------------------------------------------------
+ 
+ */
+
+"ERRO" = "Error";
+
+"LOGIN_FALHA" = "Login failure";
+
+"CADASTRO_TITULO" = "Sign In";
+"CADASTRO_OK" = "Registration done successfully!";
+"CADASTRO_FALHA"="Registration not completed";
+"CADASTRO_SENHA_FALHA" = "Passwords don't match";
+
+"INICIAL_TITULO" = "Save.Me!";
+"CONEXAO_FALHA_TITULO" = "No connection";
+"CONEXAO_FALHA_MENSAGEM" ="Could not connect to server at this time. Check your internet connection.";
+
+"EMERGENCIA_RECEBIDA_1" = "Your friend %@ reported a";
+"EMERGENCIA_RECEBIDA_2" = "problem %@";
+"EMERGENCIA_TITULO" = "Emergency";
+"EMERGENCIA_OPCAO_1"= "Respiratory";
+"EMERGENCIA_OPCAO_2"= "Cardiac";
+"EMERGENCIA_OPCAO_3"= "Neurological";
+"EMERGENCIA_OPCAO_4"= "Muscular";
+"EMERGENCIA_RAIO_INCOMPATIVEL" = "Incompatible radius value";
+"EMERGENCIA_ENVIAR" = "The user %@ is requesting your assistance with an %@ emergency";
+"EMERGENCIA_ENVIADA_TITULO" = "Sent";
+"EMERGENCIA_ENVIADA_MENSAGEM" = "Messages sent successfully";
+
+"MAPAS_RAIO_ERRO_TITULO" = "Radius maximum size";
+"MAPAS_RAIO_ERRO_MENSAGEM" = "The maximum size of the search radius is 150Km, the radius of this size will be displayed.";
+"MAPAS_AMIGO_NOME" = "Friend";
+"MAPAS_AMIGO_LEGENDA" = "Location of the help request.";
+"MAPAS_POSTO_VALIDAR" = "Pending confirmation";
+
+"CONTATOS_TITULO" = "Contacts";
+"CONTATOS_EXCLUIR_MENSAGEM" = "Are you sure you want to delete this contact?";
+"CONTATOS_EXLCUIR_TITULO" = "Delete contact";
+"CONTATOS_EXCLUIR_CANCELAR" = "No";
+"CONTATOS_EXCLUIR_CONFIRMAR" = "Yes, remove";
+"CONTATOS_EXLCUIR_FALHA_MENSAGEM" = "Sorry, could not delete the contact. Please try again later.";
+"CONTATOS_ACEITAR_FALHA_MENSAGEM" = "Sorry, could not accept the contact. Please try again later.";
+"CONTATOS_MENSAGEM_ADICIONADOS_NENHUM" = "No added contacts.";
+"CONTATOS_MENSAGEM_PENDENTES_NENHUM" = "No pending approval.";
+"CONTATOS_MENSAGEM_BUSCA_NENHUM"= "No contacts found.";
+"CONTATOS_APROVACAO_PENDENTE" = "%@ - Pending approval.";
+"CONTATOS_HEADER_TITULO_1" = "Added";
+"CONTATOS_HEADER_TITULO_2" = "Waiting for approval";
+
+"CONFIRMA_CADASTRO_OK_TITULO" = "Registration of new location.";
+"CONFIRMA_CADASTRO_OK_MENSAGEM" = "Sign effected successfully.";
+"CONFIRMA_CADASTRO_FALHA_MENSAGEM" = "Sorry, an error occurred while registering. Please try again later.";
+"CONFIRMA_CADASTRO_FALHA_CAMPOS" = "Blank fields";
+
+"MENU_CELULAS_TITULO_1" = "Home";
+"MENU_CELULAS_TITULO_2" = "Profile";
+"MENU_CELULAS_TITULO_3" = "Friends";
+"MENU_CELULAS_TITULO_4" = "Add a place";
+"MENU_CELULAS_TITULO_5" = "Emergency numbers";
+"MENU_CELULAS_TITULO_6" = "Log out";
+"MENU_CELULAS_TITULO_7" = "Help";
+
+"NOVO_CONTATO_TITULO" = "New contact";
+"NOVO_CONTATO_ADICIONAR_OK_TITULO" = "Add contact";
+"NOVO_CONTATO_ADICIONAR_OK_MENSAGEM" = "Contact successfully added (in approval).";
+"NOVO_CONTATO_ADICIONAR_FALHA_MENSAGEM" = "Sorry, could not add the contact at this time. Please try again later.";
+"NOVO_CONTATO_MODIFICAR_OK_TITULO" = "Edit contact";
+"NOVO_CONTATO_MODIFICAR_OK_MENSAGEM" = "Contact edited successfully";
+"NOVO_CONTATO_MODIFICAR_FALHA_MENSAGEM" = "Sorry, could not edit the contact at this time. Please try again later.";
+
+"NOVO_LOCAL_TITULO" = "New place";
+"NOVO_LOCAL_ADICIONAR_FALHA_MENSAGEM" = "Required fields in blank.";
+"NOVO_LOCAL_SOBRE_TITULO" = "Help to improve emergency!!";
+"NOVO_LOCAL_SOBRE_MENSAGEM" = "On this screen you can add new places that have emergency services so they can be added to the application, all submissions are subject to approval. Fields with '*' are mandatory. For more information, see the help through the side menu.";
+
+"NUMEROS_TITULO" = "Emergency numbers";
+
+"PERFIL_TITULO" = "Your Profile";
+"PERFIL_ATUALIZAR_OK_TITULO" = "Updated";
+"PERFIL_ATUALIZAR_OK_MENSAGEM" = "Your profile was sucessfully updated";
+"PERFIL_IMAGEM_OK_TITULO" = "Image created";
+"PERFIL_IMAGEM_OK_MENSAGEM" = "An image was generated with your medical information and saved to your photo album. It's recommended that you use the output as the locked screen background image.";
+"PERFIL_INFORMACOES_PESO" = "Weight: %@";
+"PERFIL_INFORMACOES_ALTURA" = "Height: %@";
+"PERFIL_INFORMACOES_TELEFONE" = "Phone number: %@";
+"PERFIL_INFORMACOES_ALERGIAS" = "Allergies: %@";
+"PERFIL_INFORMACOES_DOADOR_SIM" = "Am I an organ donor? Yes";
+"PERFIL_INFORMACOES_DOADOR_NAO" = "Am I an organ donor? No";
+"PERFIL_INFORMACOES_SANGUE" = "Blood type: %@";
+"PERFIL_FOTO_CANCELAR" = "Cancel";
+"PERFIL_FOTO_CAMERA" = "Use camera";
+"PERFIL_FOTO_BIBLIOTECA" = "Choose a photo";
+

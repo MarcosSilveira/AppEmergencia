@@ -79,8 +79,8 @@ float longi;
     _viewAux.backgroundColor =branco;
     NSString *nome = [[NSUserDefaults standardUserDefaults] stringForKey:@"nome2"];
    NSString *emergencia = [[NSUserDefaults standardUserDefaults] stringForKey:@"emergencia2"];
-    NSString *mensagem = [NSString stringWithFormat:@"O seu amigo %@ relatou um", nome];
-    NSString *mensagem2 =[NSString stringWithFormat:@"problema %@",emergencia];
+    NSString *mensagem = [NSString stringWithFormat:NSLocalizedString(@"EMERGENCIA_RECEBIDA_1", nil), nome];
+    NSString *mensagem2 =[NSString stringWithFormat:NSLocalizedString(@"EMERGENCIA_RECEBIDA_2", nil),emergencia];
     UILabel *labelteste2 = [[UILabel alloc]initWithFrame:CGRectMake(10, 30, 300, 25)];
     UILabel *labelteste = [[UILabel alloc] initWithFrame:CGRectMake(10, 10,300, 25)];
 
@@ -126,7 +126,7 @@ float longi;
   
  // UIColor *color = self.view.tintColor;
   [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
-  self.title = @"Emergência";
+  self.title = NSLocalizedString(@"EMERGENCIA_TITULO", nil);
   
   [self configurarEmergencias];
     if(self.coordenada.latitude!=0 && self.coordenada.longitude !=0)
@@ -140,16 +140,16 @@ float longi;
   
   self.emergencias = [[NSMutableArray alloc] init];
   
-  DCEmergencia *emergencia = [[DCEmergencia alloc] initComNome:@"Respiratório" ComPrioridade:1];
+  DCEmergencia *emergencia = [[DCEmergencia alloc] initComNome:NSLocalizedString(@"EMERGENCIA_OPCAO_1", nil) ComPrioridade:1];
   [self.emergencias addObject:emergencia];
   
-  emergencia = [[DCEmergencia alloc] initComNome:@"Cardíaco" ComPrioridade:2];
+  emergencia = [[DCEmergencia alloc] initComNome:NSLocalizedString(@"EMERGENCIA_OPCAO_2", nil) ComPrioridade:2];
   [self.emergencias addObject:emergencia];
   
-  emergencia = [[DCEmergencia alloc] initComNome:@"Neurológico" ComPrioridade:3];
+  emergencia = [[DCEmergencia alloc] initComNome:NSLocalizedString(@"EMERGENCIA_OPCAO_3", nil)ComPrioridade:3];
   [self.emergencias addObject:emergencia];
   
-  emergencia = [[DCEmergencia alloc] initComNome:@"Muscular" ComPrioridade:4];
+  emergencia = [[DCEmergencia alloc] initComNome:NSLocalizedString(@"EMERGENCIA_OPCAO_4", nil) ComPrioridade:4];
   [self.emergencias addObject:emergencia];
 }
 
@@ -166,7 +166,7 @@ float longi;
   
   if (numberOfMatches > 0) {
     
-      TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Erro" message:@"Valor do raio incompatível" buttonTitle:@"OK"];
+      TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:NSLocalizedString(@"ERRO", nil) message:NSLocalizedString(@"EMERGENCIA_RAIO_INCOMPATIVEL", nil) buttonTitle:@"OK"];
       [alertView show];
     return NO;
   }
@@ -233,7 +233,7 @@ float longi;
     
     DCEmergencia *emer=self.emergencias[sele];
     
-    msm=[msm stringByAppendingFormat:@"o usuario:%@ está solicitando sua ajuda, com uma ermergência: %@",savedUserName,emer.nome];
+    msm=[msm stringByAppendingFormat:NSLocalizedString(@"EMERGENCIA_ENVIAR", nil),savedUserName,emer.nome];
     
     //NSLog(@"%@",msm);
     
@@ -264,7 +264,7 @@ float longi;
         //confere
         if(![res isEqualToNumber:teste]){
             //Colocar Alert
-            [[[UIAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"EMERGENCIA_ENVIADA_TITULO", nil) message:NSLocalizedString(@"EMERGENCIA_ENVIADA_MENSAGEM", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
             
             //TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Enviado" message:@"Mensagens enviadas com sucesso" buttonTitle:@"OK"];
             //[alertView show];
