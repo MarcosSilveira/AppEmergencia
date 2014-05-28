@@ -5,6 +5,7 @@
 //  Created by Marcos Sokolowski on 08/05/14.
 //  Copyright (c) 2014 Acácio Veit Schneider. All rights reserved.
 //
+//  Repositorio fonte: https://github.com/aryaxt/iOS-Slide-Menu#setup
 
 #import "DCLeftMenuViewController.h"
 #import "KeychainItemWrapper.h"
