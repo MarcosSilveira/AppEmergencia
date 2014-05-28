@@ -33,10 +33,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)aceitarHospital:(id)sender {
-    UIButton *aux = sender;
-    
+
     NSLog(@"Teste");
-    aux.hidden = YES;
     
     NSString *urlServidor = @"http://%@:8080/Emergencia/validarLocal.jsp?id=%@&usuario=%@";
     
@@ -70,9 +68,6 @@
 
 }
 - (IBAction)negarHospital:(id)sender {
-    UIButton *aux = sender;
-    aux.hidden = YES;
-    
     
     NSString *urlServidor = @"http://%@:8080/Emergencia/deletarValidar.jsp?id=%@&usuario=%@";
     
@@ -148,14 +143,14 @@
         cancelBT.hidden = YES;
     }
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && ((_postos.nome != nil) || ![_postos.nome isEqualToString:@""])) {
         
         UILabel *lblEndereco = (UILabel *)[cell viewWithTag:1];
     
         lblEndereco.lineBreakMode = YES;
         lblEndereco.lineBreakMode = NSLineBreakByCharWrapping;
         lblEndereco.text = _postos.endereco;
-        lblEndereco.textColor = [UIColor whiteColor];
+        lblEndereco.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
         
     }
     
@@ -166,7 +161,7 @@
         lblSite.lineBreakMode = YES;
         lblSite.lineBreakMode = NSLineBreakByCharWrapping;
         lblSite.text = @"Nenhum site disponível";
-        lblSite.textColor = [UIColor whiteColor];
+        lblSite.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
     }
     
     else if (indexPath.section == 1 && (![_postos.site isKindOfClass: [NSNull class]])) {
@@ -176,7 +171,7 @@
         lblSite.lineBreakMode = YES;
         lblSite.lineBreakMode = NSLineBreakByCharWrapping;
         lblSite.text = _postos.site;
-        lblSite.textColor = [UIColor whiteColor];
+        lblSite.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
     }
     
     else if (indexPath.section == 2 && (_postos.telefone == nil || [_postos.telefone isEqualToString:@"Não se aplica"])) {
@@ -186,18 +181,18 @@
         lblTelefone.lineBreakMode = YES;
         lblTelefone.lineBreakMode = NSLineBreakByCharWrapping;
         lblTelefone.text = @"Nenhum telefone disponível";
-        lblTelefone.textColor = [UIColor whiteColor];
+        lblTelefone.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
         
     }
     
-    else if (indexPath.section == 2 && (!(_postos.telefone == nil) || ![_postos.telefone isEqualToString:@"Não se aplica"])) {
+    else if (indexPath.section == 2 && ((_postos.telefone != nil) || ![_postos.telefone isEqualToString:@"Não se aplica"])) {
         
         UILabel *lblTelefone = (UILabel *) [cell viewWithTag:3];
         
         lblTelefone.lineBreakMode = YES;
         lblTelefone.lineBreakMode = NSLineBreakByCharWrapping;
         lblTelefone.text = _postos.telefone;
-        lblTelefone.textColor = [UIColor whiteColor];
+        lblTelefone.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
     }
     
     else if(indexPath.section == 3 && ([_postos.especi isKindOfClass: [NSNull class]])) {
@@ -207,7 +202,7 @@
         lblEspeci.lineBreakMode = YES;
         lblEspeci.lineBreakMode = NSLineBreakByCharWrapping;
         lblEspeci.text = @"Nenhuma especialidade especial";
-        lblEspeci.textColor = [UIColor whiteColor];
+        lblEspeci.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
     }
     
      else {
@@ -215,11 +210,11 @@
      lblEspeci.lineBreakMode = YES;
      lblEspeci.lineBreakMode = NSLineBreakByCharWrapping;
      lblEspeci.text = _postos.especi;
-     lblEspeci.textColor = [UIColor whiteColor];
+     lblEspeci.textColor = [UIColor colorWithRed:(107/255.0) green:0 blue:(2/255.0) alpha:1];
      }
     
     cell.tag = indexPath.row;
-    cell.backgroundColor = [UIColor clearColor];
+   //cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
