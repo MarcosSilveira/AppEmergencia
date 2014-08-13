@@ -105,7 +105,7 @@
         case 5:
 			cell.textLabel.text = NSLocalizedString(@"MENU_CELULAS_TITULO_7", nil);
             _imagem = [[UIView alloc] initWithFrame:CGRectMake(220, 5, 5, 5)];
-            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"power.png"]];
+            _image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"info_menu.png"]];
             [_imagem addSubview:_image];
             [cell addSubview:_imagem];
 			break;
